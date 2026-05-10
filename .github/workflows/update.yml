@@ -2,7 +2,8 @@ name: Update Dashboard
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # каждый день в 9:00 МСК (6:00 UTC)
+    - cron: '0 6 * * *'   # каждый день в 9:00 МСК (6:00 UTC)
+    - cron: '0 16 * * *'  # каждый день в 19:00 МСК (16:00 UTC)
   workflow_dispatch:       # кнопка ручного запуска на GitHub
 
 permissions:
