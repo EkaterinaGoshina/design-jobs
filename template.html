@@ -220,6 +220,11 @@
       border: none; border-radius: 14px; font-size: 16px; font-weight: 600;
       cursor: pointer; text-align: center;
     }
+    .filter-reset-btn {
+      display: block; width: calc(100% - 40px); margin: 8px 20px 0;
+      padding: 12px; background: none; color: #8e8e93;
+      border: none; font-size: 14px; cursor: pointer; text-align: center;
+    }
   }
 </style>
 </head>
@@ -275,6 +280,7 @@
       </div>
     </div>
     <button class="filter-apply-btn" id="filterApplyBtn">Применить</button>
+    <button class="filter-reset-btn" id="filterResetMobile">Сбросить все фильтры</button>
   </div>
 </div>
 
@@ -308,6 +314,9 @@
     <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
     <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
     <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
+  </div>
+  <div class="row">
+    <button class="btn btn-link" id="resetFiltersDesktop" style="font-size:12px;color:#8e8e93;">↺ Сбросить фильтры</button>
   </div>
 </div>
 
@@ -447,6 +456,7 @@
     if (status==='applied') badge='<span class="status-badge applied">✅ Откликнулась</span>';
 
     const sourceLabel = (j.s==='HireHi') ? 'HireHi' : '@'+j.s;
+    const dateStr = fmtDate(j.time);
 
     const bV='<button class="btn btn-status'+(status==='viewed'?' active-viewed':'')+'" data-status="viewed">👀</button>';
     const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
@@ -456,7 +466,7 @@
     const applyUrl = (j.url !== postUrl) ? j.url : null;
 
     return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
-      '<div class="card-source">'+esc(sourceLabel)+(j.fresh?' · <span class="fresh-dot">свежее</span>':'')+(badge?' · '+badge:'')+'</div>'+
+      '<div class="card-source">'+esc(sourceLabel)+(dateStr?' · '+esc(dateStr):'')+(j.fresh?' · <span class="fresh-dot">свежее</span>':'')+(badge?' · '+badge:'')+'</div>'+
       '<div class="card-title">'+esc(j.t)+'</div>'+
       '<div class="card-tags">'+tags.join('')+'</div>'+
       (j.sal?'<div class="card-desc">'+esc(j.sal)+(j.note?' · <i>'+esc(j.note)+'</i>':'')+'</div>':'')+
@@ -472,7 +482,52 @@
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function escAttr(s){return esc(s).replace(/"/g,'&quot;');}
 
+  const MONTHS = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+  function fmtDate(time) {
+    if (!time) return '';
+    const today = new Date(); today.setHours(0,0,0,0);
+    const snap  = new Date(SNAPSHOT_DATE); snap.setHours(0,0,0,0);
+    const diff  = Math.round((today - snap) / 86400000);
+    let prefix;
+    if (diff === 0) prefix = 'сегодня';
+    else if (diff === 1) prefix = 'вчера';
+    else prefix = snap.getDate()+' '+MONTHS[snap.getMonth()];
+    return prefix+' в '+time;
+  }
+
+  const DEFAULT_FILTERS = {
+    role:   ['ux','product','web'],
+    level:  ['middle','unknown'],
+    format: ['remote','unknown'],
+    status: ['new','viewed','applied']
+  };
+
+  function resetFilters() {
+    // Сбросить чипы на десктопе
+    document.querySelectorAll('.filters .role-filter').forEach(el =>
+      el.classList.toggle('active', DEFAULT_FILTERS.role.includes(el.dataset.role)));
+    document.querySelectorAll('.filters .level-filter').forEach(el =>
+      el.classList.toggle('active', DEFAULT_FILTERS.level.includes(el.dataset.level)));
+    document.querySelectorAll('.filters .format-filter').forEach(el =>
+      el.classList.toggle('active', DEFAULT_FILTERS.format.includes(el.dataset.format)));
+    document.querySelectorAll('.filters .status-filter').forEach(el =>
+      el.classList.toggle('active', DEFAULT_FILTERS.status.includes(el.dataset.status)));
+    // Сбросить чипы в шторке
+    document.querySelectorAll('.filter-sheet .role-filter').forEach(el =>
+      el.classList.toggle('active', DEFAULT_FILTERS.role.includes(el.dataset.role)));
+    document.querySelectorAll('.filter-sheet .level-filter').forEach(el =>
+      el.classList.toggle('active', DEFAULT_FILTERS.level.includes(el.dataset.level)));
+    document.querySelectorAll('.filter-sheet .format-filter').forEach(el =>
+      el.classList.toggle('active', DEFAULT_FILTERS.format.includes(el.dataset.format)));
+    // Сбросить мобильный таб
+    state.mobileTab = 'all';
+    document.querySelectorAll('.status-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === 'all'));
+    localStorage.removeItem(STORE_FILTERS);
+    render();
+  }
+
   function setupDesktop() {
+    document.getElementById('resetFiltersDesktop').addEventListener('click', resetFilters);
     document.querySelectorAll('.filters .chip').forEach(chip => {
       chip.addEventListener('click', () => { chip.classList.toggle('active'); saveFilters(); render(); });
     });
@@ -512,6 +567,9 @@
     // Применить и закрыть
     document.getElementById('filterApplyBtn').addEventListener('click', () => {
       saveFilters(); render(); closeSheet();
+    });
+    document.getElementById('filterResetMobile').addEventListener('click', () => {
+      resetFilters(); closeSheet();
     });
 
     function closeSheet() {
