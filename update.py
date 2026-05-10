@@ -122,8 +122,13 @@ def parse_telegram(html, channel, exclude_keywords, role_keywords):
         if not time_el:
             continue
         datetime_attr = time_el.get("datetime", "")
-        time_match = re.search(r'T(\d{2}:\d{2})', datetime_attr)
-        time_str = time_match.group(1) if time_match else time_el.get_text(strip=True)[:5]
+        date_match = re.search(r'(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})', datetime_attr)
+        if date_match:
+            pub_date = date_match.group(1)
+            time_str = date_match.group(2)
+        else:
+            pub_date = None
+            time_str = time_el.get_text(strip=True)[:5]
 
         text_el = msg.select_one(".tgme_widget_message_text")
         if not text_el:
@@ -160,6 +165,7 @@ def parse_telegram(html, channel, exclude_keywords, role_keywords):
         jobs.append({
             "s": channel,
             "pid": post_id,
+            "date": pub_date,
             "time": time_str,
             "t": title[:140],
             "c": extract_company(title),
@@ -283,11 +289,13 @@ def parse_hh(src, exclude_keywords, role_keywords):
             sal = " — ".join(sal_parts) if sal_parts else None
 
             pub = v.get("published_at", "")
+            pub_date = pub[:10] if len(pub) >= 10 else None
             time_str = pub[11:16] if len(pub) >= 16 else None
 
             jobs.append({
                 "s": "hh.ru",
                 "pid": vid,
+                "date": pub_date,
                 "time": time_str,
                 "t": title[:140],
                 "c": v.get("employer", {}).get("name", "—"),

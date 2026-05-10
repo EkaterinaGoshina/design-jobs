@@ -53,12 +53,13 @@
   .card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
   .card.status-skip { opacity: 0.35; }
   .card-source {
-    font-size: 11px; font-weight: 600; color: #1967d2;
-    text-transform: none; letter-spacing: 0.2px;
-    margin-bottom: 5px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+    font-size: 13px; font-weight: 700; color: #8e8e93;
+    margin-bottom: 6px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
   }
-  .fresh-dot { color: #155724; font-weight: 600; }
+  .fresh-dot { background: #d4edda; color: #155724; font-size: 10px; font-weight: 600;
+    padding: 1px 7px; border-radius: 999px; }
   .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; margin-bottom: 4px; }
+  .card-date { font-size: 11px; color: #b0b0b8; text-align: right; margin-top: auto; padding-top: 6px; }
   .status-badge {
     font-size: 11px; padding: 2px 8px; border-radius: 999px;
     white-space: nowrap; flex-shrink: 0;
@@ -86,7 +87,12 @@
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .card-actions { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
+  .card-actions { display: flex; gap: 5px; margin-top: auto; padding-top: 8px; flex-wrap: wrap; align-items: center; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: auto; padding-top: 8px; }
+  .card-footer .card-actions { margin-top: 0; padding-top: 0; }
+  #resetFiltersDesktop { padding: 5px 14px; border: 1px solid #c7c7cc; border-radius: 999px;
+    background: #fff; color: #3a3a3c; font-size: 12px; cursor: pointer; }
+  #resetFiltersDesktop:hover { background: #f5f5f7; border-color: #8e8e93; }
   .btn {
     padding: 6px 12px; border: 1px solid #d0d0d5; background: #fff;
     border-radius: 8px; cursor: pointer; font-size: 12px;
@@ -314,7 +320,7 @@
     <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
   </div>
   <div class="row">
-    <button class="btn btn-link" id="resetFiltersDesktop" style="font-size:12px;color:#8e8e93;">↺ Сбросить фильтры</button>
+    <button id="resetFiltersDesktop">↺ Сбросить фильтры</button>
   </div>
 </div>
 
@@ -455,7 +461,7 @@
     if (status==='applied') badge='<span class="status-badge applied">✅ Откликнулась</span>';
 
     const sourceLabel = (j.s==='HireHi') ? 'HireHi' : (j.s==='hh.ru') ? 'hh.ru' : '@'+j.s;
-    const dateStr = fmtDate(j.time);
+    const dateStr = fmtDate(j.date, j.time);
 
     const bV='<button class="btn btn-status'+(status==='viewed'?' active-viewed':'')+'" data-status="viewed">👀</button>';
     const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
@@ -466,14 +472,17 @@
     const applyUrl = (j.url !== postUrl) ? j.url : null;
 
     return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
-      '<div class="card-source">'+esc(sourceLabel)+(dateStr?' · '+esc(dateStr):'')+(j.fresh?' · <span class="fresh-dot">свежее</span>':'')+(badge?' · '+badge:'')+'</div>'+
+      '<div class="card-source">'+esc(sourceLabel)+(j.fresh?' <span class="fresh-dot">новое</span>':'')+(badge?' '+badge:'')+'</div>'+
       '<div class="card-title">'+esc(j.t)+'</div>'+
       '<div class="card-tags">'+tags.join('')+'</div>'+
       (j.sal?'<div class="card-desc">'+esc(j.sal)+(j.note?' · <i>'+esc(j.note)+'</i>':'')+'</div>':'')+
-      '<div class="card-actions">'+
-        '<a class="btn btn-primary" href="'+escAttr(postUrl)+'" target="_blank" rel="noopener">Читать ↗</a>'+
-        (applyUrl?'<a class="btn" href="'+escAttr(applyUrl)+'" target="_blank" rel="noopener">Откликнуться</a>':'')+
-        bV+bA+bS+
+      '<div class="card-footer">'+
+        '<div class="card-actions">'+
+          '<a class="btn btn-primary" href="'+escAttr(postUrl)+'" target="_blank" rel="noopener">Читать ↗</a>'+
+          (applyUrl?'<a class="btn" href="'+escAttr(applyUrl)+'" target="_blank" rel="noopener">Откликнуться</a>':'')+
+          bV+bA+bS+
+        '</div>'+
+        (dateStr?'<span class="card-date">'+esc(dateStr)+'</span>':'')+
       '</div></div>';
   }
 
@@ -483,16 +492,17 @@
   function escAttr(s){return esc(s).replace(/"/g,'&quot;');}
 
   const MONTHS = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
-  function fmtDate(time) {
-    if (!time) return '';
+  function fmtDate(date, time) {
+    if (!date && !time) return '';
     const today = new Date(); today.setHours(0,0,0,0);
-    const snap  = new Date(SNAPSHOT_DATE); snap.setHours(0,0,0,0);
-    const diff  = Math.round((today - snap) / 86400000);
+    const postDay = date ? new Date(date) : new Date(SNAPSHOT_DATE);
+    postDay.setHours(0,0,0,0);
+    const diff = Math.round((today - postDay) / 86400000);
     let prefix;
     if (diff === 0) prefix = 'сегодня';
     else if (diff === 1) prefix = 'вчера';
-    else prefix = snap.getDate()+' '+MONTHS[snap.getMonth()];
-    return prefix+' в '+time;
+    else prefix = postDay.getDate()+' '+MONTHS[postDay.getMonth()];
+    return time ? prefix+' в '+time : prefix;
   }
 
   const DEFAULT_FILTERS = {
