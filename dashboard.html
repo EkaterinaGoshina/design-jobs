@@ -52,8 +52,13 @@
   .card.status-viewed { opacity: 0.68; }
   .card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
   .card.status-skip { opacity: 0.35; }
-  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-  .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; flex: 1; }
+  .card-source {
+    font-size: 11px; font-weight: 600; color: #1967d2;
+    text-transform: none; letter-spacing: 0.2px;
+    margin-bottom: 5px; display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+  }
+  .fresh-dot { color: #155724; font-weight: 600; }
+  .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; margin-bottom: 4px; }
   .status-badge {
     font-size: 11px; padding: 2px 8px; border-radius: 999px;
     white-space: nowrap; flex-shrink: 0;
@@ -432,8 +437,7 @@
     if (status==='applied') cls+=' status-applied';
     if (status==='skip') cls+=' status-skip';
 
-    const tags = ['<span class="tag source">'+esc(j.s)+'</span>'];
-    if (j.fresh) tags.push('<span class="tag fresh">свежее</span>');
+    const tags = [];
     if (j.lvl!=='unknown') tags.push('<span class="tag level-'+j.lvl+'">'+j.lvl+'</span>');
     if (j.fmt!=='unknown') tags.push('<span class="tag format-'+j.fmt+'">'+fmtLabel(j.fmt)+'</span>');
     tags.push('<span class="tag role">'+roleLabel(j.role)+'</span>');
@@ -442,26 +446,20 @@
     if (status==='viewed') badge='<span class="status-badge viewed">👀 Просмотрела</span>';
     if (status==='applied') badge='<span class="status-badge applied">✅ Откликнулась</span>';
 
-    let pub = '';
-    if (j.s==='HireHi') pub='id #'+j.pid+' · HireHi';
-    else if (j.time) pub=j.time+' · @'+j.s;
-    else if (j.pid) pub='#'+j.pid+' · @'+j.s;
+    const sourceLabel = (j.s==='HireHi') ? 'HireHi' : '@'+j.s;
 
     const bV='<button class="btn btn-status'+(status==='viewed'?' active-viewed':'')+'" data-status="viewed">👀</button>';
     const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
     const bS='<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
 
-    // Для TG-постов всегда открываем сам пост, а не ссылку на отклик
     const postUrl = (j.s !== 'HireHi') ? 'https://t.me/'+j.s+'/'+j.pid : j.url;
     const applyUrl = (j.url !== postUrl) ? j.url : null;
 
     return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
-      '<div class="card-head"><div class="card-title">'+esc(j.t)+
-        (j.c?' <span style="color:#8e8e93;font-weight:400">· '+esc(j.c)+'</span>':'')+
-      '</div>'+badge+'</div>'+
+      '<div class="card-source">'+esc(sourceLabel)+(j.fresh?' · <span class="fresh-dot">свежее</span>':'')+(badge?' · '+badge:'')+'</div>'+
+      '<div class="card-title">'+esc(j.t)+'</div>'+
       '<div class="card-tags">'+tags.join('')+'</div>'+
       (j.sal?'<div class="card-desc">'+esc(j.sal)+(j.note?' · <i>'+esc(j.note)+'</i>':'')+'</div>':'')+
-      (pub?'<div class="pub">'+esc(pub)+'</div>':'')+
       '<div class="card-actions">'+
         '<a class="btn btn-primary" href="'+escAttr(postUrl)+'" target="_blank" rel="noopener">Читать ↗</a>'+
         (applyUrl?'<a class="btn" href="'+escAttr(applyUrl)+'" target="_blank" rel="noopener">Откликнуться</a>':'')+
