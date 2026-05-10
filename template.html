@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Дизайн-вакансии — дашборд</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 12px 16px 60px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .meta { font-size: 11px; color: #8e8e93; padding: 4px 4px 8px; }
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 12px; background: #f5f5f7; border-radius: 12px;
+    margin-bottom: 14px; align-items: center;
+  }
+  .filters .label {
+    font-size: 11px; text-transform: uppercase; color: #8e8e93;
+    margin-right: 4px; letter-spacing: 0.5px;
+  }
+  #search {
+    padding: 6px 10px; border: 1px solid #d0d0d5; border-radius: 6px;
+    font-size: 13px; flex: 1; min-width: 180px; background: #fff;
+  }
+  .chip {
+    padding: 5px 11px; background: #fff; border: 1px solid #d0d0d5;
+    border-radius: 999px; cursor: pointer; font-size: 12px;
+    user-select: none; transition: all 0.1s; white-space: nowrap;
+  }
+  .chip:hover { border-color: #8e8e93; }
+  .chip.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: 100%; }
+  .stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
+  .card {
+    border: 1px solid #e5e5ea; border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 8px; background: #fff;
+    transition: opacity 0.15s;
+  }
+  .card.hidden-by-user { opacity: 0.45; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; flex: 1; color: #1a1a1a; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+  .tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 999px;
+    background: #f0f0f4; color: #444;
+    text-transform: lowercase; letter-spacing: 0.2px;
+  }
+  .tag.source { background: #e8f0fe; color: #1967d2; text-transform: none; }
+  .tag.level-middle { background: #fff8e1; color: #b07000; }
+  .tag.level-senior { background: #e8f5e9; color: #2e7d32; }
+  .tag.level-junior { background: #f3e5f5; color: #7b1fa2; }
+  .tag.level-lead { background: #fce4ec; color: #c2185b; }
+  .tag.format-remote { background: #e1f5fe; color: #01579b; }
+  .tag.format-hybrid { background: #fff3e0; color: #e65100; }
+  .tag.format-office { background: #fbe9e7; color: #bf360c; }
+  .tag.role { background: #ede7f6; color: #4527a0; }
+  .tag.fresh { background: #d4edda; color: #155724; font-weight: 600; }
+  .pub { font-size: 11px; color: #8e8e93; margin-top: 6px; }
+  .card-desc { font-size: 13px; color: #3a3a3c; margin-top: 4px; line-height: 1.4; }
+  .card-actions { display: flex; gap: 6px; margin-top: 8px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    padding: 5px 11px; border: 1px solid #d0d0d5; background: #fff;
+    border-radius: 6px; cursor: pointer; font-size: 12px;
+    text-decoration: none; color: #1a1a1a;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .btn:hover { background: #f5f5f7; }
+  .btn-primary { background: #0a84ff; color: white; border-color: #0a84ff; }
+  .btn-primary:hover { background: #0066cc; }
+  .btn-link { border: none; background: none; color: #6e6e73; padding: 5px 8px; }
+  .btn-link:hover { color: #1a1a1a; background: #f5f5f7; }
+  .empty { text-align: center; padding: 40px 20px; color: #8e8e93; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="meta" id="meta"></div>
+
+<div class="filters">
+  <div class="row">
+    <input id="search" placeholder="🔍 поиск по тексту, компании, навыку..." />
+  </div>
+  <div class="row">
+    <span class="label">роль</span>
+    <span class="chip role-filter active" data-role="ux">UX/UI</span>
+    <span class="chip role-filter active" data-role="product">Продуктовый</span>
+    <span class="chip role-filter active" data-role="web">Веб</span>
+    <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+  </div>
+  <div class="row">
+    <span class="label">грейд</span>
+    <span class="chip level-filter active" data-level="middle">Middle</span>
+    <span class="chip level-filter" data-level="junior">Junior</span>
+    <span class="chip level-filter" data-level="senior">Senior</span>
+    <span class="chip level-filter" data-level="lead">Lead</span>
+    <span class="chip level-filter active" data-level="unknown">Не указан</span>
+  </div>
+  <div class="row">
+    <span class="label">формат</span>
+    <span class="chip format-filter active" data-format="remote">Удалёнка</span>
+    <span class="chip format-filter" data-format="hybrid">Гибрид</span>
+    <span class="chip format-filter" data-format="office">Офис</span>
+    <span class="chip format-filter active" data-format="unknown">Не указан</span>
+  </div>
+  <div class="row">
+    <span class="label">показ</span>
+    <span class="chip toggle-hidden" id="toggleHidden">Скрытые тоже</span>
+    <button class="btn btn-link" id="resetHidden">Очистить скрытые</button>
+  </div>
+</div>
+
+<div class="stats" id="counter"></div>
+<div id="list"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // === DATA INJECTED BY generate.py ===
+  const SNAPSHOT_DATE = "__SNAPSHOT_DATE__";
+  const JOBS = __JOBS_JSON__;
+  // === END DATA ===
+
+  // Помечаем top-3 в каждом источнике как "свежее"
+  (function markFresh() {
+    const bySrc = {};
+    JOBS.forEach(j => { (bySrc[j.s] = bySrc[j.s] || []).push(j); });
+    Object.values(bySrc).forEach(arr => {
+      arr.sort((a,b) => (b.pid || 0) - (a.pid || 0));
+      arr.slice(0, 3).forEach(j => j.fresh = true);
+    });
+  })();
+
+  const STORE_HIDDEN = 'designJobs.hidden.v2';
+  const STORE_FILTERS = 'designJobs.filters.v2';
+
+  const state = {
+    hiddenIds: loadHidden(),
+    showHidden: false
+  };
+
+  function loadHidden() {
+    try { return new Set(JSON.parse(localStorage.getItem(STORE_HIDDEN) || '[]')); }
+    catch (e) { return new Set(); }
+  }
+  function saveHidden() {
+    localStorage.setItem(STORE_HIDDEN, JSON.stringify(Array.from(state.hiddenIds)));
+  }
+  function saveFilters() {
+    localStorage.setItem(STORE_FILTERS, JSON.stringify({
+      role: getActiveSet('.role-filter', 'data-role'),
+      level: getActiveSet('.level-filter', 'data-level'),
+      format: getActiveSet('.format-filter', 'data-format'),
+      showHidden: state.showHidden
+    }));
+  }
+  function loadFilters() {
+    try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch (e) { return null; }
+  }
+
+  function getActiveSet(sel, attr) {
+    return Array.from(document.querySelectorAll(sel + '.active')).map(el => el.getAttribute(attr));
+  }
+
+  function applyFilters() {
+    const search = document.getElementById('search').value.trim().toLowerCase();
+    const roles = getActiveSet('.role-filter', 'data-role');
+    const levels = getActiveSet('.level-filter', 'data-level');
+    const formats = getActiveSet('.format-filter', 'data-format');
+
+    let visible = JOBS.filter(j => roles.includes(j.role));
+    visible = visible.filter(j => levels.includes(j.lvl));
+    visible = visible.filter(j => formats.includes(j.fmt));
+
+    if (search) {
+      visible = visible.filter(j => {
+        const h = (j.t + ' ' + j.c + ' ' + (j.sal || '') + ' ' + (j.note || '') + ' ' + j.s).toLowerCase();
+        return h.includes(search);
+      });
+    }
+    if (!state.showHidden) {
+      visible = visible.filter(j => !state.hiddenIds.has(j.url));
+    }
+    return visible;
+  }
+
+  function render() {
+    const list = document.getElementById('list');
+    const visible = applyFilters();
+    document.getElementById('counter').textContent =
+      'Показано: ' + visible.length + ' из ' + JOBS.length +
+      (state.hiddenIds.size ? '  ·  скрыто тобой: ' + state.hiddenIds.size : '');
+
+    if (visible.length === 0) {
+      list.innerHTML = '<div class="empty">Ничего не найдено по выбранным фильтрам.<br>Попробуй включить другие грейды или роли.</div>';
+      return;
+    }
+
+    list.innerHTML = visible.map(renderCard).join('');
+
+    list.querySelectorAll('.card').forEach(card => {
+      const url = card.dataset.url;
+      const hideBtn = card.querySelector('.btn-hide');
+      const unhideBtn = card.querySelector('.btn-unhide');
+      if (hideBtn) hideBtn.addEventListener('click', () => {
+        state.hiddenIds.add(url); saveHidden(); render();
+      });
+      if (unhideBtn) unhideBtn.addEventListener('click', () => {
+        state.hiddenIds.delete(url); saveHidden(); render();
+      });
+    });
+  }
+
+  function renderCard(j) {
+    const isHidden = state.hiddenIds.has(j.url);
+    const tags = ['<span class="tag source">' + esc(j.s) + '</span>'];
+    if (j.fresh) tags.push('<span class="tag fresh">свежее</span>');
+    if (j.lvl !== 'unknown') tags.push('<span class="tag level-' + j.lvl + '">' + j.lvl + '</span>');
+    if (j.fmt !== 'unknown') tags.push('<span class="tag format-' + j.fmt + '">' + fmtLabel(j.fmt) + '</span>');
+    tags.push('<span class="tag role">' + roleLabel(j.role) + '</span>');
+
+    let pubLine = '';
+    if (j.s === 'HireHi') pubLine = 'Из текущей ленты HireHi (id #' + j.pid + ')';
+    else if (j.time) pubLine = 'Опубликовано в ' + esc(j.time) + ' · пост #' + j.pid + ' в @' + j.s;
+    else if (j.pid) pubLine = 'Пост #' + j.pid + ' в @' + j.s;
+
+    return '' +
+      '<div class="card' + (isHidden ? ' hidden-by-user' : '') + '" data-url="' + escAttr(j.url) + '">' +
+        '<div class="card-head">' +
+          '<div class="card-title">' + esc(j.t) +
+            (j.c ? ' <span style="color:#8e8e93;font-weight:400;">· ' + esc(j.c) + '</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="card-tags">' + tags.join('') + '</div>' +
+        (j.sal ? '<div class="card-desc">' + esc(j.sal) + (j.note ? ' · <i>' + esc(j.note) + '</i>' : '') + '</div>' : '') +
+        (pubLine ? '<div class="pub">' + pubLine + '</div>' : '') +
+        '<div class="card-actions">' +
+          '<a class="btn btn-primary" href="' + escAttr(j.url) + '" target="_blank" rel="noopener">Открыть ↗</a>' +
+          (isHidden
+            ? '<button class="btn btn-link btn-unhide">Вернуть в список</button>'
+            : '<button class="btn btn-link btn-hide">Скрыть / откликнулась</button>') +
+        '</div>' +
+      '</div>';
+  }
+
+  function fmtLabel(f) { return { remote: 'удалёнка', hybrid: 'гибрид', office: 'офис' }[f] || f; }
+  function roleLabel(r) { return { product: 'продуктовый', ux: 'ux/ui', web: 'веб', other: 'дизайн' }[r] || r; }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function escAttr(s) { return esc(s).replace(/"/g, '&quot;'); }
+
+  function setupChips() {
+    document.querySelectorAll('.chip').forEach(chip => {
+      if (chip.id === 'toggleHidden') return;
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('active'); saveFilters(); render();
+      });
+    });
+    const tg = document.getElementById('toggleHidden');
+    tg.addEventListener('click', () => {
+      state.showHidden = !state.showHidden;
+      tg.classList.toggle('active', state.showHidden);
+      saveFilters(); render();
+    });
+    document.getElementById('search').addEventListener('input', () => render());
+    document.getElementById('resetHidden').addEventListener('click', () => {
+      if (state.hiddenIds.size && confirm('Очистить ' + state.hiddenIds.size + ' скрытых?')) {
+        state.hiddenIds.clear(); saveHidden(); render();
+      }
+    });
+    const f = loadFilters();
+    if (f) {
+      const restore = (sel, attr, set) => {
+        document.querySelectorAll(sel).forEach(el => {
+          el.classList.toggle('active', (set || []).includes(el.getAttribute(attr)));
+        });
+      };
+      if (f.role) restore('.role-filter', 'data-role', f.role);
+      if (f.level) restore('.level-filter', 'data-level', f.level);
+      if (f.format) restore('.format-filter', 'data-format', f.format);
+      if (f.showHidden) { state.showHidden = true; tg.classList.add('active'); }
+    }
+  }
+
+  // header meta
+  const counts = {};
+  JOBS.forEach(j => { counts[j.s] = (counts[j.s] || 0) + 1; });
+  const srcStr = Object.entries(counts).map(([k,v]) => k + ' (' + v + ')').join(' · ');
+  document.getElementById('meta').textContent =
+    'Снимок: ' + SNAPSHOT_DATE + ' · ' + JOBS.length + ' вакансий · ' + srcStr +
+    ' · топ-3 в каждом источнике помечены «свежее» · скажи Claude «обнови дашборд», чтобы пересобрать.';
+
+  setupChips();
+  render();
+})();
+</script>
+</body>
+</html>

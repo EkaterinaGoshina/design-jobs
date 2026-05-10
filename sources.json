@@ -1,0 +1,37 @@
+{
+  "_comment": "Конфигурация источников для парсера. Чтобы добавить канал — допиши сюда. Чтобы убрать — удали или поставь enabled:false.",
+
+  "sources": [
+    {"kind": "tg", "name": "dsgn_vacancies",  "url": "https://t.me/s/dsgn_vacancies",  "enabled": true},
+    {"kind": "tg", "name": "design_jobs_uxui","url": "https://t.me/s/design_jobs_uxui","enabled": true},
+    {"kind": "tg", "name": "uxwork",          "url": "https://t.me/s/uxwork",          "enabled": true},
+    {"kind": "tg", "name": "sparklesjobs",    "url": "https://t.me/s/sparklesjobs",    "enabled": true},
+    {"kind": "tg", "name": "zarubezhom_jobs", "url": "https://t.me/s/zarubezhom_jobs", "enabled": true},
+    {"kind": "tg", "name": "young_relocate",  "url": "https://t.me/s/young_relocate",  "enabled": true},
+    {"kind": "tg", "name": "careerspace",     "url": "https://t.me/s/careerspace",     "enabled": true},
+    {"kind": "tg", "name": "huggabletalents", "url": "https://t.me/s/huggabletalents", "enabled": true},
+    {"kind": "hirehi", "name": "HireHi",      "url": "https://hirehi.ru/?category=design&search=ux/ui", "enabled": true}
+  ],
+
+  "_filter_comment": "Что точно не показывать: парсер дропнет вакансию, если в title или начале body найдёт любое из этих ключевых слов",
+  "exclude_keywords": [
+    "разработчик", "developer", " engineer ", "верстальщик",
+    "frontend", "back-end", "backend", "fullstack",
+    "php ", "java ", "python", "golang", "typescript developer",
+    " qa ", "tester", "тестировщик",
+    "recruiter", " hr ", "sales",
+    "project manager", "product manager", "owner",
+    "аналитик", "analyst",
+    "маркетолог", "marketing", "smm-", "smm ", "crm specialist",
+    "devops", "sre engineer", "fundraiser",
+    "копирайтер", "контент-креатор", "контент-менеджер"
+  ],
+
+  "_role_comment": "Эти ключи отбираются для дашборда. role=other = всё что просто 'дизайн' но не входит в основные.",
+  "role_keywords": {
+    "product": ["продуктов", "product designer", "дизайнер продукта", "дизайнер интерфейс"],
+    "ux": ["ux/ui", "ui/ux", "ux-дизайн", "ui-дизайн", "ux дизайн", "ux designer", "ui designer", "интерфейс"],
+    "web": ["веб-дизайн", "веб дизайн", "web designer", "web-designer", "веб дизайнер"],
+    "other": ["арт-директор", "art director", "графический", "graphic designer", "motion", "иллюстратор", "иллюстра"]
+  }
+}

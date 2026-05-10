@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дизайн-вакансии — дашборд</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    background: #fff;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 12px 16px 60px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .meta { font-size: 11px; color: #8e8e93; padding: 4px 4px 8px; }
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 12px; background: #f5f5f7; border-radius: 12px;
+    margin-bottom: 14px; align-items: center;
+  }
+  .filters .label {
+    font-size: 11px; text-transform: uppercase; color: #8e8e93;
+    margin-right: 4px; letter-spacing: 0.5px;
+  }
+  #search {
+    padding: 6px 10px; border: 1px solid #d0d0d5; border-radius: 6px;
+    font-size: 13px; flex: 1; min-width: 180px; background: #fff;
+  }
+  .chip {
+    padding: 5px 11px; background: #fff; border: 1px solid #d0d0d5;
+    border-radius: 999px; cursor: pointer; font-size: 12px;
+    user-select: none; transition: all 0.1s; white-space: nowrap;
+  }
+  .chip:hover { border-color: #8e8e93; }
+  .chip.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .chip.status-active-viewed { background: #6e6e73; color: #fff; border-color: #6e6e73; }
+  .chip.status-active-applied { background: #2e7d32; color: #fff; border-color: #2e7d32; }
+  .chip.status-active-skip { background: #8e8e93; color: #fff; border-color: #8e8e93; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: 100%; }
+  .stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
+  .card {
+    border: 1px solid #e5e5ea; border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 8px; background: #fff;
+    transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+  }
+  .card.status-viewed { opacity: 0.72; }
+  .card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
+  .card.status-skip { opacity: 0.38; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; flex: 1; color: #1a1a1a; }
+  .status-badge {
+    font-size: 11px; padding: 2px 8px; border-radius: 999px;
+    white-space: nowrap; flex-shrink: 0; align-self: flex-start;
+  }
+  .status-badge.viewed { background: #f0f0f4; color: #6e6e73; }
+  .status-badge.applied { background: #e8f5e9; color: #2e7d32; font-weight: 600; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+  .tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 999px;
+    background: #f0f0f4; color: #444;
+    text-transform: lowercase; letter-spacing: 0.2px;
+  }
+  .tag.source { background: #e8f0fe; color: #1967d2; text-transform: none; }
+  .tag.level-middle { background: #fff8e1; color: #b07000; }
+  .tag.level-senior { background: #e8f5e9; color: #2e7d32; }
+  .tag.level-junior { background: #f3e5f5; color: #7b1fa2; }
+  .tag.level-lead { background: #fce4ec; color: #c2185b; }
+  .tag.format-remote { background: #e1f5fe; color: #01579b; }
+  .tag.format-hybrid { background: #fff3e0; color: #e65100; }
+  .tag.format-office { background: #fbe9e7; color: #bf360c; }
+  .tag.role { background: #ede7f6; color: #4527a0; }
+  .tag.fresh { background: #d4edda; color: #155724; font-weight: 600; }
+  .pub { font-size: 11px; color: #8e8e93; margin-top: 6px; }
+  .card-desc { font-size: 13px; color: #3a3a3c; margin-top: 4px; line-height: 1.4; }
+  .card-actions { display: flex; gap: 6px; margin-top: 8px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    padding: 5px 11px; border: 1px solid #d0d0d5; background: #fff;
+    border-radius: 6px; cursor: pointer; font-size: 12px;
+    text-decoration: none; color: #1a1a1a;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .btn:hover { background: #f5f5f7; }
+  .btn-primary { background: #0a84ff; color: white; border-color: #0a84ff; }
+  .btn-primary:hover { background: #0066cc; }
+  .btn-link { border: none; background: none; color: #6e6e73; padding: 5px 8px; }
+  .btn-link:hover { color: #1a1a1a; background: #f5f5f7; }
+  .btn-status { font-size: 12px; border-radius: 6px; }
+  .btn-status.active-viewed { background: #f0f0f4; border-color: #8e8e93; color: #3a3a3c; }
+  .btn-status.active-applied { background: #e8f5e9; border-color: #4caf50; color: #2e7d32; font-weight: 600; }
+  .btn-status.active-skip { background: #f5f5f7; border-color: #c7c7cc; color: #8e8e93; }
+  .empty { text-align: center; padding: 40px 20px; color: #8e8e93; font-size: 13px; }
+  #list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    align-items: start;
+  }
+  .card { margin-bottom: 0; }
+  @media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { #list { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="meta" id="meta"></div>
+
+<div class="filters">
+  <div class="row">
+    <input id="search" placeholder="🔍 поиск по тексту, компании, навыку..." />
+  </div>
+  <div class="row">
+    <span class="label">роль</span>
+    <span class="chip role-filter active" data-role="ux">UX/UI</span>
+    <span class="chip role-filter active" data-role="product">Продуктовый</span>
+    <span class="chip role-filter active" data-role="web">Веб</span>
+    <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+  </div>
+  <div class="row">
+    <span class="label">грейд</span>
+    <span class="chip level-filter active" data-level="middle">Middle</span>
+    <span class="chip level-filter" data-level="junior">Junior</span>
+    <span class="chip level-filter" data-level="senior">Senior</span>
+    <span class="chip level-filter" data-level="lead">Lead</span>
+    <span class="chip level-filter active" data-level="unknown">Не указан</span>
+  </div>
+  <div class="row">
+    <span class="label">формат</span>
+    <span class="chip format-filter active" data-format="remote">Удалёнка</span>
+    <span class="chip format-filter" data-format="hybrid">Гибрид</span>
+    <span class="chip format-filter" data-format="office">Офис</span>
+    <span class="chip format-filter active" data-format="unknown">Не указан</span>
+  </div>
+  <div class="row">
+    <span class="label">статус</span>
+    <span class="chip status-filter active" data-status="new">Новые</span>
+    <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
+    <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
+    <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
+  </div>
+</div>
+
+<div class="stats" id="counter"></div>
+<div id="list"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // === DATA INJECTED BY generate.py ===
+  const SNAPSHOT_DATE = "2026-05-09";
+  const JOBS = [{"s":"HireHi","pid":42706,"t":"Product Designer","c":"Sputnik8","lvl":"middle","fmt":"remote","sal":"~ 203 000 ₽","url":"https://hirehi.ru/design/product-designer-42706","role":"product"},{"s":"HireHi","pid":42700,"t":"Product Designer","c":"Домклик","lvl":"senior","fmt":"remote","sal":"~ 291 000 ₽","url":"https://hirehi.ru/design/product-designer-42700","role":"product"},{"s":"HireHi","pid":42695,"t":"Графический дизайнер","c":"X6 GROUP","lvl":"junior","fmt":"remote","sal":"~ 60 000 ₽","url":"https://hirehi.ru/design/graficheskii-dizainer-42695","role":"other"},{"s":"HireHi","pid":42692,"t":"UX/UI Designer","c":"NDA","lvl":"middle","fmt":"remote","sal":"~ 142 000 ₽","url":"https://hirehi.ru/design/ux-ui-designer-42692","role":"ux"},{"s":"HireHi","pid":42686,"t":"UX/UI дизайнер","c":"NDA","lvl":"middle","fmt":"remote","sal":"~ 125 000 ₽","url":"https://hirehi.ru/design/ux-ui-dizainer-42686","role":"ux"},{"s":"HireHi","pid":42676,"t":"UX/UI Designer","c":"Муюнь","lvl":"middle","fmt":"office","sal":"от 150 000 ₽, Москва","url":"https://hirehi.ru/design/ux-ui-designer-42676","role":"ux"},{"s":"HireHi","pid":42673,"t":"UX/UI-дизайнер","c":"Nimax","lvl":"senior","fmt":"remote","sal":"~ 202 000 ₽","url":"https://hirehi.ru/design/ux-ui-dizainer-42673","role":"ux"},{"s":"HireHi","pid":42672,"t":"UX/UI-дизайнер","c":"ИТ-Экспертиза","lvl":"senior","fmt":"remote","sal":"~ 195 000 ₽","url":"https://hirehi.ru/design/ux-ui-dizainer-42672","role":"ux"},{"s":"HireHi","pid":42647,"t":"Art Director","c":"Yango","lvl":"lead","fmt":"hybrid","sal":"~ 280 000 ₽","url":"https://hirehi.ru/design/art-director-42647","role":"other"},{"s":"HireHi","pid":42642,"t":"UX/UI-дизайнер","c":"FDM Tech","lvl":"middle","fmt":"office","sal":"от 64 000 ₽, Астана","url":"https://hirehi.ru/design/ux-ui-dizainer-42642","role":"ux"},{"s":"HireHi","pid":42638,"t":"Web Designer","c":"Renesas Electronics","lvl":"middle","fmt":"office","sal":"~ 204 000 ₽, Белград","url":"https://hirehi.ru/design/web-designer-42638","role":"web"},{"s":"HireHi","pid":42612,"t":"Графический дизайнер","c":"ABC Coffee Roasters","lvl":"junior","fmt":"hybrid","sal":"~ 80 000 ₽, Москва","url":"https://hirehi.ru/design/graficheskii-dizainer-42612","role":"other"},{"s":"HireHi","pid":42609,"t":"Графический дизайнер","c":"NDA","lvl":"middle","fmt":"remote","sal":"96 000 ₽","url":"https://hirehi.ru/design/graficheskii-dizainer-42609","role":"other"},{"s":"HireHi","pid":42571,"t":"Продуктовый дизайнер","c":"Wildberries","lvl":"senior","fmt":"hybrid","sal":"~ 308 000 ₽, Москва","url":"https://hirehi.ru/design/produktovyi-dizainer-42571","role":"product"},{"s":"HireHi","pid":42564,"t":"UX/UI-дизайнер","c":"Startups DNA","lvl":"middle","fmt":"office","sal":"от 96 000 ₽, Ташкент","url":"https://hirehi.ru/design/ux-ui-dizainer-42564","role":"ux"},{"s":"HireHi","pid":42563,"t":"UX/UI дизайнер","c":"MediaPeace","lvl":"junior","fmt":"office","sal":"от 24 000 ₽, Алматы","url":"https://hirehi.ru/design/ux-ui-dizainer-42563","role":"ux"},{"s":"HireHi","pid":42546,"t":"UX/UI-дизайнер","c":"Вайт Рэбит","lvl":"junior","fmt":"office","sal":"от 74 000 ₽, Пермь","url":"https://hirehi.ru/design/ux-ui-dizainer-42546","role":"ux"},{"s":"HireHi","pid":42543,"t":"Продуктовый дизайнер","c":"Росгосстрах","lvl":"senior","fmt":"remote","sal":"~ 277 000 ₽","url":"https://hirehi.ru/design/produktovyi-dizainer-42543","role":"product"},{"s":"HireHi","pid":42542,"t":"UX/UI-дизайнер","c":"Js-Alfa","lvl":"middle","fmt":"remote","sal":"от 80 000 ₽","url":"https://hirehi.ru/design/ux-ui-dizainer-42542","role":"ux"},{"s":"HireHi","pid":42530,"t":"Product Designer","c":"NDA","lvl":"junior","fmt":"office","sal":"~ 106 000 ₽, СПб","url":"https://hirehi.ru/design/product-designer-42530","role":"product"},{"s":"HireHi","pid":42504,"t":"Product Designer","c":"Звук","lvl":"senior","fmt":"hybrid","sal":"зп не указана, Москва","url":"https://hirehi.ru/design/product-designer-42504","role":"product"},{"s":"HireHi","pid":42495,"t":"Арт-директор","c":"depotwpf","lvl":"lead","fmt":"office","sal":"~ 205 000 ₽, Москва","url":"https://hirehi.ru/design/art-direktor-42495","role":"other"},{"s":"HireHi","pid":42482,"t":"UX/UI Designer","c":"BoilerLab","lvl":"senior","fmt":"hybrid","sal":"~ 230 000 ₽, Москва","url":"https://hirehi.ru/design/ux-ui-designer-42482","role":"ux"},{"s":"HireHi","pid":42440,"t":"Web Designer","c":"NDA","lvl":"middle","fmt":"remote","sal":"~ 110 000 ₽","url":"https://hirehi.ru/design/web-designer-42440","role":"web"},{"s":"HireHi","pid":42432,"t":"UX/UI дизайнер","c":"Employcity","lvl":"senior","fmt":"remote","sal":"~ 220 000 ₽","url":"https://hirehi.ru/design/ux-ui-dizainer-42432","role":"ux"},{"s":"HireHi","pid":42430,"t":"Дизайнер продукта","c":"NDA","lvl":"senior","fmt":"remote","sal":"~ 247 000 ₽","url":"https://hirehi.ru/design/dizainer-produkta-42430","role":"product"},{"s":"HireHi","pid":42404,"t":"Продуктовый дизайнер","c":"ВКонтакте","lvl":"senior","fmt":"hybrid","sal":"~ 266 000 ₽, Москва","url":"https://hirehi.ru/design/produktovyi-dizainer-42404","role":"product"},{"s":"careerspace","pid":14441,"time":"14:03","t":"Старший продуктовый дизайнер B2B","c":"Яндекс Маркет","lvl":"senior","fmt":"unknown","sal":"от 198 000 ₽, реклама/B2B","url":"https://t.me/careerspace/14441","role":"product"},{"s":"dsgn_vacancies","pid":5750,"time":"16:46","t":"Продуктовый дизайнер (Кошелёк клиента)","c":"Сбербанк","lvl":"unknown","fmt":"unknown","sal":"web/iOS/Android, Pixso","url":"https://t.me/dsgn_vacancies/5750","role":"product"},{"s":"dsgn_vacancies","pid":5747,"time":"15:52","t":"Старший Продуктовый дизайнер (Внутренние сервисы)","c":"Домклик","lvl":"senior","fmt":"remote","sal":"удалёнка, CRM/внутренние системы","url":"https://t.me/dsgn_vacancies/5747","role":"product"},{"s":"dsgn_vacancies","pid":5745,"time":"04:25","t":"Продуктовый дизайнер","c":"Т-Банк","lvl":"unknown","fmt":"unknown","sal":"много продуктов на выбор","url":"https://t.me/dsgn_vacancies/5745","role":"product"},{"s":"dsgn_vacancies","pid":5744,"time":"19:25","t":"UI/UX дизайнер (мультимедиа)","c":"Открытые технологии","lvl":"unknown","fmt":"remote","sal":"от 100 000 ₽, удалёнка","url":"https://t.me/dsgn_vacancies/5744","role":"ux","note":"Тестовое обязательно"},{"s":"dsgn_vacancies","pid":5742,"time":"06:31","t":"Дизайнер (МТС Кампус)","c":"МТС","lvl":"unknown","fmt":"unknown","sal":"коммуникации, Tilda, обучение","url":"https://t.me/dsgn_vacancies/5742","role":"other"},{"s":"dsgn_vacancies","pid":5741,"time":"04:15","t":"Промышленный дизайнер","c":"МагнитТех","lvl":"unknown","fmt":"hybrid","sal":"Москва","url":"https://t.me/dsgn_vacancies/5741","role":"other"},{"s":"dsgn_vacancies","pid":5740,"time":"11:57","t":"Продуктовый дизайнер (Phygital)","c":"Сбербанк","lvl":"unknown","fmt":"office","sal":"Москва","url":"https://t.me/dsgn_vacancies/5740","role":"product"},{"s":"dsgn_vacancies","pid":5732,"time":"19:22","t":"Продуктовый дизайнер дизайн-системы","c":"Ozon Банк","lvl":"unknown","fmt":"unknown","sal":"развивать дизайн-систему","url":"https://t.me/dsgn_vacancies/5732","role":"product"},{"s":"sparklesjobs","pid":1021,"time":"08:51","t":"Product Designer (платформенный слой)","c":"Альфа-Бизнес","lvl":"unknown","fmt":"unknown","sal":"витрины/лендинги/конструктор","url":"https://t.me/sparklesjobs/1021","role":"product"},{"s":"sparklesjobs","pid":1015,"time":"07:29","t":"Senior Product Designer (SRE)","c":"Ozon Tech","lvl":"senior","fmt":"remote","sal":"мониторинг, чаты, корп. инструменты","url":"https://t.me/sparklesjobs/1015","role":"product"},{"s":"sparklesjobs","pid":1011,"time":"08:09","t":"Middle Product Designer (приложение для курьеров)","c":"Lamoda","lvl":"middle","fmt":"office","sal":"Москва, iOS+Android","url":"https://t.me/sparklesjobs/1011","role":"product"},{"s":"uxwork","pid":1450,"time":"19:00","t":"Senior Продуктовый дизайнер (аутстафф)","c":"Pragmatica","lvl":"senior","fmt":"unknown","sal":"Москва / СПб","url":"https://t.me/uxwork/1450","role":"product"},{"s":"uxwork","pid":1449,"time":"18:25","t":"Senior Product Designer (SRE)","c":"Ozon Tech","lvl":"senior","fmt":"remote","sal":"удалёнка / Москва / СПб / Казахстан","url":"https://t.me/uxwork/1449","role":"product"},{"s":"uxwork","pid":1448,"time":"06:38","t":"Senior Product Designer (дизайн-система)","c":"МТС","lvl":"senior","fmt":"hybrid","sal":"Москва, опыт 4+ лет","url":"https://t.me/uxwork/1448","role":"product"},{"s":"uxwork","pid":1447,"time":"11:06","t":"Дизайнер продукта (курьерское приложение)","c":"Lamoda","lvl":"middle","fmt":"office","sal":"Москва","url":"https://t.me/uxwork/1447","role":"product"},{"s":"uxwork","pid":1445,"time":"16:51","t":"Middle Продуктовый дизайнер (PropTech)","c":"PropTech-проект","lvl":"middle","fmt":"remote","sal":"удалёнка из России, веб-фокус","url":"https://t.me/uxwork/1445","role":"product"},{"s":"uxwork","pid":1443,"time":"17:33","t":"UX/UI-дизайнер","c":"Моринтех","lvl":"unknown","fmt":"office","sal":"Москва, опыт 6+ лет","url":"https://t.me/uxwork/1443","role":"ux"},{"s":"uxwork","pid":1441,"time":"19:40","t":"Middle Продуктовый дизайнер (Эквайринг)","c":"Озон Банк","lvl":"middle","fmt":"hybrid","sal":"Москва, B2B/B2C","url":"https://t.me/uxwork/1441","role":"product"},{"s":"uxwork","pid":1440,"time":"06:44","t":"Продуктовый дизайнер (3 позиции)","c":"Альфа-Банк (Альфа-Бизнес)","lvl":"unknown","fmt":"remote","sal":"удалёнка / Москва / СПб","url":"https://t.me/uxwork/1440","role":"product"},{"s":"uxwork","pid":1439,"time":"19:17","t":"Senior Продуктовый дизайнер","c":"100балльный репетитор","lvl":"senior","fmt":"remote","sal":"удалёнка","url":"https://t.me/uxwork/1439","role":"product"},{"s":"uxwork","pid":1438,"time":"09:54","t":"Senior Продуктовый дизайнер (Путешествия)","c":"Яндекс","lvl":"senior","fmt":"office","sal":"Москва, опыт 4-5+","url":"https://t.me/uxwork/1438","role":"product"},{"s":"uxwork","pid":1436,"time":"07:04","t":"Продуктовый дизайнер","c":"Нетология","lvl":"unknown","fmt":"remote","sal":"удалёнка / Москва","url":"https://t.me/uxwork/1436","role":"product"},{"s":"uxwork","pid":1435,"time":"14:59","t":"Senior Product Designer","c":"MWS Cloud Platform (МТС)","lvl":"senior","fmt":"remote","sal":"удалёнка из России / СПб","url":"https://t.me/uxwork/1435","role":"product"},{"s":"uxwork","pid":1434,"time":"16:39","t":"Product Designer (Marketing/Growth Web)","c":"Salmon","lvl":"unknown","fmt":"remote","sal":"Манила (синхронные часы)","url":"https://t.me/uxwork/1434","role":"web","note":"Не из РФ/РБ"},{"s":"uxwork","pid":1433,"time":"20:24","t":"Продуктовый дизайнер","c":"Cloud.ru (сайт)","lvl":"unknown","fmt":"remote","sal":"удалёнка из России / Москва","url":"https://t.me/uxwork/1433","role":"product"},{"s":"uxwork","pid":1431,"time":"15:15","t":"Senior Product Designer","c":"Работяги (студия)","lvl":"senior","fmt":"unknown","sal":"работа с бигтехами","url":"https://t.me/uxwork/1431","role":"product"},{"s":"uxwork","pid":1430,"time":"10:05","t":"Product Designer","c":"Finom","lvl":"senior","fmt":"remote","sal":"европейский банк B2B, нужен B2+","url":"https://t.me/uxwork/1430","role":"product","note":"Локация: вне РФ/РБ"},{"s":"zarubezhom_jobs","pid":3830,"time":"08:04","t":"Senior Product Designer (Mobile)","c":"Oura","lvl":"senior","fmt":"office","sal":"Сан-Франциско, $172k–203k","url":"https://t.me/zarubezhom_jobs/3830","role":"product"},{"s":"zarubezhom_jobs","pid":3827,"time":"11:40","t":"UI/UX Designer","c":"Kolibri Games","lvl":"unknown","fmt":"office","sal":"Берлин, релокация, геймдев","url":"https://t.me/zarubezhom_jobs/3827","role":"ux"}];
+  // === END DATA ===
+
+  // Помечаем top-3 в каждом источнике как "свежее"
+  (function markFresh() {
+    const bySrc = {};
+    JOBS.forEach(j => { (bySrc[j.s] = bySrc[j.s] || []).push(j); });
+    Object.values(bySrc).forEach(arr => {
+      arr.sort((a,b) => (b.pid || 0) - (a.pid || 0));
+      arr.slice(0, 3).forEach(j => j.fresh = true);
+    });
+  })();
+
+  const STORE_STATUS = 'designJobs.status.v1';
+  const STORE_HIDDEN_LEGACY = 'designJobs.hidden.v2';
+  const STORE_FILTERS = 'designJobs.filters.v2';
+
+  const state = {
+    statuses: loadStatuses(),
+    statusFilter: 'all'
+  };
+
+  function loadStatuses() {
+    let statuses = {};
+    try { statuses = JSON.parse(localStorage.getItem(STORE_STATUS) || '{}'); } catch (e) {}
+    // Migrate old hidden → skip
+    try {
+      const oldHidden = JSON.parse(localStorage.getItem(STORE_HIDDEN_LEGACY) || '[]');
+      oldHidden.forEach(url => { if (!statuses[url]) statuses[url] = 'skip'; });
+      if (oldHidden.length) {
+        localStorage.setItem(STORE_STATUS, JSON.stringify(statuses));
+        localStorage.removeItem(STORE_HIDDEN_LEGACY);
+      }
+    } catch (e) {}
+    return statuses;
+  }
+
+  function saveStatuses() {
+    localStorage.setItem(STORE_STATUS, JSON.stringify(state.statuses));
+  }
+
+  function setStatus(url, newStatus) {
+    const current = state.statuses[url];
+    if (current === newStatus) {
+      delete state.statuses[url];
+    } else {
+      state.statuses[url] = newStatus;
+    }
+    saveStatuses();
+    render();
+  }
+
+  function saveFilters() {
+    localStorage.setItem(STORE_FILTERS, JSON.stringify({
+      role: getActiveSet('.role-filter', 'data-role'),
+      level: getActiveSet('.level-filter', 'data-level'),
+      format: getActiveSet('.format-filter', 'data-format'),
+      statusFilter: state.statusFilter
+    }));
+  }
+
+  function loadFilters() {
+    try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch (e) { return null; }
+  }
+
+  function getActiveSet(sel, attr) {
+    return Array.from(document.querySelectorAll(sel + '.active')).map(el => el.getAttribute(attr));
+  }
+
+  function getJobStatus(j) {
+    return state.statuses[j.url] || null;
+  }
+
+  function applyFilters() {
+    const search = document.getElementById('search').value.trim().toLowerCase();
+    const roles = getActiveSet('.role-filter', 'data-role');
+    const levels = getActiveSet('.level-filter', 'data-level');
+    const formats = getActiveSet('.format-filter', 'data-format');
+    const statusChips = getActiveSet('.status-filter', 'data-status');
+
+    let visible = JOBS.filter(j => roles.includes(j.role));
+    visible = visible.filter(j => levels.includes(j.lvl));
+    visible = visible.filter(j => formats.includes(j.fmt));
+
+    // status filter
+    visible = visible.filter(j => {
+      const st = getJobStatus(j) || 'new';
+      return statusChips.includes(st);
+    });
+
+    if (search) {
+      visible = visible.filter(j => {
+        const h = (j.t + ' ' + j.c + ' ' + (j.sal || '') + ' ' + (j.note || '') + ' ' + j.s).toLowerCase();
+        return h.includes(search);
+      });
+    }
+
+    return visible;
+  }
+
+  function render() {
+    const list = document.getElementById('list');
+    const visible = applyFilters();
+
+    const appliedCount = Object.values(state.statuses).filter(s => s === 'applied').length;
+    const viewedCount = Object.values(state.statuses).filter(s => s === 'viewed').length;
+    const skipCount = Object.values(state.statuses).filter(s => s === 'skip').length;
+
+    let statsStr = 'Показано: ' + visible.length + ' из ' + JOBS.length;
+    if (appliedCount) statsStr += '  ·  ✅ откликнулась: ' + appliedCount;
+    if (viewedCount) statsStr += '  ·  👀 просмотрела: ' + viewedCount;
+    if (skipCount) statsStr += '  ·  ✖ не интересует: ' + skipCount;
+    document.getElementById('counter').textContent = statsStr;
+
+    if (visible.length === 0) {
+      list.innerHTML = '<div class="empty">Ничего не найдено по выбранным фильтрам.<br>Попробуй включить другие грейды или роли.</div>';
+      return;
+    }
+
+    list.innerHTML = visible.map(renderCard).join('');
+
+    list.querySelectorAll('.card').forEach(card => {
+      const url = card.dataset.url;
+      card.querySelectorAll('.btn-status').forEach(btn => {
+        btn.addEventListener('click', () => setStatus(url, btn.dataset.status));
+      });
+    });
+  }
+
+  function renderCard(j) {
+    const status = getJobStatus(j);
+    let cardClass = 'card';
+    if (status === 'viewed') cardClass += ' status-viewed';
+    if (status === 'applied') cardClass += ' status-applied';
+    if (status === 'skip') cardClass += ' status-skip';
+
+    const tags = ['<span class="tag source">' + esc(j.s) + '</span>'];
+    if (j.fresh) tags.push('<span class="tag fresh">свежее</span>');
+    if (j.lvl !== 'unknown') tags.push('<span class="tag level-' + j.lvl + '">' + j.lvl + '</span>');
+    if (j.fmt !== 'unknown') tags.push('<span class="tag format-' + j.fmt + '">' + fmtLabel(j.fmt) + '</span>');
+    tags.push('<span class="tag role">' + roleLabel(j.role) + '</span>');
+
+    let badge = '';
+    if (status === 'viewed') badge = '<span class="status-badge viewed">👀 Просмотрела</span>';
+    if (status === 'applied') badge = '<span class="status-badge applied">✅ Откликнулась</span>';
+
+    let pubLine = '';
+    if (j.s === 'HireHi') pubLine = 'Из текущей ленты HireHi (id #' + j.pid + ')';
+    else if (j.time) pubLine = 'Опубликовано в ' + esc(j.time) + ' · пост #' + j.pid + ' в @' + j.s;
+    else if (j.pid) pubLine = 'Пост #' + j.pid + ' в @' + j.s;
+
+    const btnViewed = '<button class="btn btn-status' + (status === 'viewed' ? ' active-viewed' : '') + '" data-status="viewed">👀 Просмотрела</button>';
+    const btnApplied = '<button class="btn btn-status' + (status === 'applied' ? ' active-applied' : '') + '" data-status="applied">✅ Откликнулась</button>';
+    const btnSkip = '<button class="btn btn-status btn-link' + (status === 'skip' ? ' active-skip' : '') + '" data-status="skip">✖ Не интересует</button>';
+
+    return '' +
+      '<div class="' + cardClass + '" data-url="' + escAttr(j.url) + '">' +
+        '<div class="card-head">' +
+          '<div class="card-title">' + esc(j.t) +
+            (j.c ? ' <span style="color:#8e8e93;font-weight:400;">· ' + esc(j.c) + '</span>' : '') +
+          '</div>' +
+          badge +
+        '</div>' +
+        '<div class="card-tags">' + tags.join('') + '</div>' +
+        (j.sal ? '<div class="card-desc">' + esc(j.sal) + (j.note ? ' · <i>' + esc(j.note) + '</i>' : '') + '</div>' : '') +
+        (pubLine ? '<div class="pub">' + pubLine + '</div>' : '') +
+        '<div class="card-actions">' +
+          '<a class="btn btn-primary" href="' + escAttr(j.url) + '" target="_blank" rel="noopener">Открыть ↗</a>' +
+          btnViewed +
+          btnApplied +
+          btnSkip +
+        '</div>' +
+      '</div>';
+  }
+
+  function fmtLabel(f) { return { remote: 'удалёнка', hybrid: 'гибрид', office: 'офис' }[f] || f; }
+  function roleLabel(r) { return { product: 'продуктовый', ux: 'ux/ui', web: 'веб', other: 'дизайн' }[r] || r; }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function escAttr(s) { return esc(s).replace(/"/g, '&quot;'); }
+
+  function setupChips() {
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('active'); saveFilters(); render();
+      });
+    });
+    document.getElementById('search').addEventListener('input', () => render());
+
+    const f = loadFilters();
+    if (f) {
+      const restore = (sel, attr, set) => {
+        document.querySelectorAll(sel).forEach(el => {
+          el.classList.toggle('active', (set || []).includes(el.getAttribute(attr)));
+        });
+      };
+      if (f.role) restore('.role-filter', 'data-role', f.role);
+      if (f.level) restore('.level-filter', 'data-level', f.level);
+      if (f.format) restore('.format-filter', 'data-format', f.format);
+    }
+  }
+
+  // header meta
+  const counts = {};
+  JOBS.forEach(j => { counts[j.s] = (counts[j.s] || 0) + 1; });
+  const srcStr = Object.entries(counts).map(([k,v]) => k + ' (' + v + ')').join(' · ');
+  document.getElementById('meta').textContent =
+    'Снимок: ' + SNAPSHOT_DATE + ' · ' + JOBS.length + ' вакансий · ' + srcStr +
+    ' · топ-3 в каждом источнике помечены «свежее» · скажи Claude «обнови дашборд», чтобы пересобрать.';
+
+  setupChips();
+  render();
+})();
+</script>
+</body>
+</html>
