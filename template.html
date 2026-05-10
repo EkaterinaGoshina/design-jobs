@@ -43,7 +43,7 @@
 
   #list {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 10px; align-items: start;
+    gap: 10px; align-items: stretch;
   }
   @media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
 
@@ -51,7 +51,9 @@
     border: 1px solid #e5e5ea; border-radius: 14px;
     padding: 13px 15px; background: #fff;
     transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+    display: flex; flex-direction: column;
   }
+  .card-actions { margin-top: auto; }
   .card.status-viewed { opacity: 0.68; }
   .card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
   .card.status-skip { opacity: 0.35; }
@@ -79,7 +81,11 @@
   .tag.role { background: #ede7f6; color: #4527a0; }
   .tag.fresh { background: #d4edda; color: #155724; font-weight: 600; }
   .pub { font-size: 11px; color: #8e8e93; margin-top: 5px; }
-  .card-desc { font-size: 13px; color: #3a3a3c; margin-top: 4px; line-height: 1.4; }
+  .card-desc {
+    font-size: 13px; color: #3a3a3c; margin-top: 4px; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .card-actions { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
   .btn {
     padding: 6px 12px; border: 1px solid #d0d0d5; background: #fff;
