@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Дизайн-вакансии — дашборд</title>
 <style>
   :root { color-scheme: light; }
@@ -38,14 +39,30 @@
   .chip.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
   .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: 100%; }
   .stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
+  #list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { #list { grid-template-columns: 1fr; } }
   .card {
     border: 1px solid #e5e5ea; border-radius: 12px;
-    padding: 12px 14px; margin-bottom: 8px; background: #fff;
-    transition: opacity 0.15s;
+    padding: 12px 14px; background: #fff;
+    transition: opacity 0.15s, background 0.15s, border-color 0.15s;
   }
-  .card.hidden-by-user { opacity: 0.45; }
+  .card.status-viewed { opacity: 0.72; }
+  .card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
+  .card.status-skip { opacity: 0.38; }
   .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
   .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; flex: 1; color: #1a1a1a; }
+  .status-badge {
+    font-size: 11px; padding: 2px 8px; border-radius: 999px;
+    white-space: nowrap; flex-shrink: 0; align-self: flex-start;
+  }
+  .status-badge.viewed { background: #f0f0f4; color: #6e6e73; }
+  .status-badge.applied { background: #e8f5e9; color: #2e7d32; font-weight: 600; }
   .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
   .tag {
     font-size: 10px; padding: 2px 8px; border-radius: 999px;
@@ -76,6 +93,10 @@
   .btn-primary:hover { background: #0066cc; }
   .btn-link { border: none; background: none; color: #6e6e73; padding: 5px 8px; }
   .btn-link:hover { color: #1a1a1a; background: #f5f5f7; }
+  .btn-status { font-size: 12px; border-radius: 6px; }
+  .btn-status.active-viewed { background: #f0f0f4; border-color: #8e8e93; color: #3a3a3c; }
+  .btn-status.active-applied { background: #e8f5e9; border-color: #4caf50; color: #2e7d32; font-weight: 600; }
+  .btn-status.active-skip { background: #f5f5f7; border-color: #c7c7cc; color: #8e8e93; }
   .empty { text-align: center; padding: 40px 20px; color: #8e8e93; font-size: 13px; }
 </style>
 </head>
@@ -110,9 +131,11 @@
     <span class="chip format-filter active" data-format="unknown">Не указан</span>
   </div>
   <div class="row">
-    <span class="label">показ</span>
-    <span class="chip toggle-hidden" id="toggleHidden">Скрытые тоже</span>
-    <button class="btn btn-link" id="resetHidden">Очистить скрытые</button>
+    <span class="label">статус</span>
+    <span class="chip status-filter active" data-status="new">Новые</span>
+    <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
+    <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
+    <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
   </div>
 </div>
 
@@ -123,12 +146,11 @@
 (function() {
   'use strict';
 
-  // === DATA INJECTED BY generate.py ===
+  // === DATA INJECTED BY generate.py / update.py ===
   const SNAPSHOT_DATE = "__SNAPSHOT_DATE__";
   const JOBS = __JOBS_JSON__;
   // === END DATA ===
 
-  // Помечаем top-3 в каждом источнике как "свежее"
   (function markFresh() {
     const bySrc = {};
     JOBS.forEach(j => { (bySrc[j.s] = bySrc[j.s] || []).push(j); });
@@ -138,29 +160,45 @@
     });
   })();
 
-  const STORE_HIDDEN = 'designJobs.hidden.v2';
+  const STORE_STATUS = 'designJobs.status.v1';
+  const STORE_HIDDEN_LEGACY = 'designJobs.hidden.v2';
   const STORE_FILTERS = 'designJobs.filters.v2';
 
-  const state = {
-    hiddenIds: loadHidden(),
-    showHidden: false
-  };
+  const state = { statuses: loadStatuses() };
 
-  function loadHidden() {
-    try { return new Set(JSON.parse(localStorage.getItem(STORE_HIDDEN) || '[]')); }
-    catch (e) { return new Set(); }
+  function loadStatuses() {
+    let statuses = {};
+    try { statuses = JSON.parse(localStorage.getItem(STORE_STATUS) || '{}'); } catch (e) {}
+    try {
+      const oldHidden = JSON.parse(localStorage.getItem(STORE_HIDDEN_LEGACY) || '[]');
+      oldHidden.forEach(url => { if (!statuses[url]) statuses[url] = 'skip'; });
+      if (oldHidden.length) {
+        localStorage.setItem(STORE_STATUS, JSON.stringify(statuses));
+        localStorage.removeItem(STORE_HIDDEN_LEGACY);
+      }
+    } catch (e) {}
+    return statuses;
   }
-  function saveHidden() {
-    localStorage.setItem(STORE_HIDDEN, JSON.stringify(Array.from(state.hiddenIds)));
+
+  function saveStatuses() {
+    localStorage.setItem(STORE_STATUS, JSON.stringify(state.statuses));
   }
+
+  function setStatus(url, newStatus) {
+    if (state.statuses[url] === newStatus) delete state.statuses[url];
+    else state.statuses[url] = newStatus;
+    saveStatuses();
+    render();
+  }
+
   function saveFilters() {
     localStorage.setItem(STORE_FILTERS, JSON.stringify({
       role: getActiveSet('.role-filter', 'data-role'),
       level: getActiveSet('.level-filter', 'data-level'),
       format: getActiveSet('.format-filter', 'data-format'),
-      showHidden: state.showHidden
     }));
   }
+
   function loadFilters() {
     try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch (e) { return null; }
   }
@@ -169,15 +207,19 @@
     return Array.from(document.querySelectorAll(sel + '.active')).map(el => el.getAttribute(attr));
   }
 
+  function getJobStatus(j) { return state.statuses[j.url] || null; }
+
   function applyFilters() {
     const search = document.getElementById('search').value.trim().toLowerCase();
     const roles = getActiveSet('.role-filter', 'data-role');
     const levels = getActiveSet('.level-filter', 'data-level');
     const formats = getActiveSet('.format-filter', 'data-format');
+    const statusChips = getActiveSet('.status-filter', 'data-status');
 
     let visible = JOBS.filter(j => roles.includes(j.role));
     visible = visible.filter(j => levels.includes(j.lvl));
     visible = visible.filter(j => formats.includes(j.fmt));
+    visible = visible.filter(j => statusChips.includes(getJobStatus(j) || 'new'));
 
     if (search) {
       visible = visible.filter(j => {
@@ -185,18 +227,22 @@
         return h.includes(search);
       });
     }
-    if (!state.showHidden) {
-      visible = visible.filter(j => !state.hiddenIds.has(j.url));
-    }
     return visible;
   }
 
   function render() {
     const list = document.getElementById('list');
     const visible = applyFilters();
-    document.getElementById('counter').textContent =
-      'Показано: ' + visible.length + ' из ' + JOBS.length +
-      (state.hiddenIds.size ? '  ·  скрыто тобой: ' + state.hiddenIds.size : '');
+
+    const appliedCount = Object.values(state.statuses).filter(s => s === 'applied').length;
+    const viewedCount = Object.values(state.statuses).filter(s => s === 'viewed').length;
+    const skipCount = Object.values(state.statuses).filter(s => s === 'skip').length;
+
+    let statsStr = 'Показано: ' + visible.length + ' из ' + JOBS.length;
+    if (appliedCount) statsStr += '  ·  ✅ откликнулась: ' + appliedCount;
+    if (viewedCount) statsStr += '  ·  👀 просмотрела: ' + viewedCount;
+    if (skipCount) statsStr += '  ·  ✖ не интересует: ' + skipCount;
+    document.getElementById('counter').textContent = statsStr;
 
     if (visible.length === 0) {
       list.innerHTML = '<div class="empty">Ничего не найдено по выбранным фильтрам.<br>Попробуй включить другие грейды или роли.</div>';
@@ -204,48 +250,54 @@
     }
 
     list.innerHTML = visible.map(renderCard).join('');
-
     list.querySelectorAll('.card').forEach(card => {
       const url = card.dataset.url;
-      const hideBtn = card.querySelector('.btn-hide');
-      const unhideBtn = card.querySelector('.btn-unhide');
-      if (hideBtn) hideBtn.addEventListener('click', () => {
-        state.hiddenIds.add(url); saveHidden(); render();
-      });
-      if (unhideBtn) unhideBtn.addEventListener('click', () => {
-        state.hiddenIds.delete(url); saveHidden(); render();
+      card.querySelectorAll('.btn-status').forEach(btn => {
+        btn.addEventListener('click', () => setStatus(url, btn.dataset.status));
       });
     });
   }
 
   function renderCard(j) {
-    const isHidden = state.hiddenIds.has(j.url);
+    const status = getJobStatus(j);
+    let cardClass = 'card';
+    if (status === 'viewed') cardClass += ' status-viewed';
+    if (status === 'applied') cardClass += ' status-applied';
+    if (status === 'skip') cardClass += ' status-skip';
+
     const tags = ['<span class="tag source">' + esc(j.s) + '</span>'];
     if (j.fresh) tags.push('<span class="tag fresh">свежее</span>');
     if (j.lvl !== 'unknown') tags.push('<span class="tag level-' + j.lvl + '">' + j.lvl + '</span>');
     if (j.fmt !== 'unknown') tags.push('<span class="tag format-' + j.fmt + '">' + fmtLabel(j.fmt) + '</span>');
     tags.push('<span class="tag role">' + roleLabel(j.role) + '</span>');
 
+    let badge = '';
+    if (status === 'viewed') badge = '<span class="status-badge viewed">👀 Просмотрела</span>';
+    if (status === 'applied') badge = '<span class="status-badge applied">✅ Откликнулась</span>';
+
     let pubLine = '';
     if (j.s === 'HireHi') pubLine = 'Из текущей ленты HireHi (id #' + j.pid + ')';
     else if (j.time) pubLine = 'Опубликовано в ' + esc(j.time) + ' · пост #' + j.pid + ' в @' + j.s;
     else if (j.pid) pubLine = 'Пост #' + j.pid + ' в @' + j.s;
 
+    const btnViewed = '<button class="btn btn-status' + (status === 'viewed' ? ' active-viewed' : '') + '" data-status="viewed">👀 Просмотрела</button>';
+    const btnApplied = '<button class="btn btn-status' + (status === 'applied' ? ' active-applied' : '') + '" data-status="applied">✅ Откликнулась</button>';
+    const btnSkip = '<button class="btn btn-status btn-link' + (status === 'skip' ? ' active-skip' : '') + '" data-status="skip">✖ Не интересует</button>';
+
     return '' +
-      '<div class="card' + (isHidden ? ' hidden-by-user' : '') + '" data-url="' + escAttr(j.url) + '">' +
+      '<div class="' + cardClass + '" data-url="' + escAttr(j.url) + '">' +
         '<div class="card-head">' +
           '<div class="card-title">' + esc(j.t) +
             (j.c ? ' <span style="color:#8e8e93;font-weight:400;">· ' + esc(j.c) + '</span>' : '') +
           '</div>' +
+          badge +
         '</div>' +
         '<div class="card-tags">' + tags.join('') + '</div>' +
         (j.sal ? '<div class="card-desc">' + esc(j.sal) + (j.note ? ' · <i>' + esc(j.note) + '</i>' : '') + '</div>' : '') +
         (pubLine ? '<div class="pub">' + pubLine + '</div>' : '') +
         '<div class="card-actions">' +
           '<a class="btn btn-primary" href="' + escAttr(j.url) + '" target="_blank" rel="noopener">Открыть ↗</a>' +
-          (isHidden
-            ? '<button class="btn btn-link btn-unhide">Вернуть в список</button>'
-            : '<button class="btn btn-link btn-hide">Скрыть / откликнулась</button>') +
+          btnViewed + btnApplied + btnSkip +
         '</div>' +
       '</div>';
   }
@@ -259,23 +311,11 @@
 
   function setupChips() {
     document.querySelectorAll('.chip').forEach(chip => {
-      if (chip.id === 'toggleHidden') return;
       chip.addEventListener('click', () => {
         chip.classList.toggle('active'); saveFilters(); render();
       });
     });
-    const tg = document.getElementById('toggleHidden');
-    tg.addEventListener('click', () => {
-      state.showHidden = !state.showHidden;
-      tg.classList.toggle('active', state.showHidden);
-      saveFilters(); render();
-    });
     document.getElementById('search').addEventListener('input', () => render());
-    document.getElementById('resetHidden').addEventListener('click', () => {
-      if (state.hiddenIds.size && confirm('Очистить ' + state.hiddenIds.size + ' скрытых?')) {
-        state.hiddenIds.clear(); saveHidden(); render();
-      }
-    });
     const f = loadFilters();
     if (f) {
       const restore = (sel, attr, set) => {
@@ -286,17 +326,15 @@
       if (f.role) restore('.role-filter', 'data-role', f.role);
       if (f.level) restore('.level-filter', 'data-level', f.level);
       if (f.format) restore('.format-filter', 'data-format', f.format);
-      if (f.showHidden) { state.showHidden = true; tg.classList.add('active'); }
     }
   }
 
-  // header meta
   const counts = {};
   JOBS.forEach(j => { counts[j.s] = (counts[j.s] || 0) + 1; });
   const srcStr = Object.entries(counts).map(([k,v]) => k + ' (' + v + ')').join(' · ');
   document.getElementById('meta').textContent =
     'Снимок: ' + SNAPSHOT_DATE + ' · ' + JOBS.length + ' вакансий · ' + srcStr +
-    ' · топ-3 в каждом источнике помечены «свежее» · скажи Claude «обнови дашборд», чтобы пересобрать.';
+    ' · топ-3 в каждом источнике помечены «свежее»';
 
   setupChips();
   render();
