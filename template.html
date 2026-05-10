@@ -9,7 +9,7 @@
   * { box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-    background: #fff;
+    background: #f5f5f7;
     color: #1a1a1a;
     margin: 0;
     padding: 12px 16px 60px;
@@ -17,39 +17,70 @@
     line-height: 1.45;
   }
   .meta { font-size: 11px; color: #8e8e93; padding: 4px 4px 8px; }
+
+  /* Фильтры */
   .filters {
+    background: #fff; border-radius: 14px;
+    margin-bottom: 12px; overflow: hidden;
+    border: 1px solid #e5e5ea;
+  }
+  .filters-toggle {
+    display: none;
+    width: 100%; padding: 14px 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 15px; font-weight: 500; color: #1a1a1a;
+    text-align: left; justify-content: space-between; align-items: center;
+  }
+  .filters-toggle-icon { font-size: 12px; color: #8e8e93; transition: transform 0.2s; }
+  .filters-toggle.open .filters-toggle-icon { transform: rotate(180deg); }
+  .filters-body {
     display: flex; flex-wrap: wrap; gap: 6px;
-    padding: 12px; background: #f5f5f7; border-radius: 12px;
-    margin-bottom: 14px; align-items: center;
+    padding: 12px 16px 14px; align-items: center;
   }
   .filters .label {
     font-size: 11px; text-transform: uppercase; color: #8e8e93;
     margin-right: 4px; letter-spacing: 0.5px;
   }
   #search {
-    padding: 6px 10px; border: 1px solid #d0d0d5; border-radius: 6px;
-    font-size: 13px; flex: 1; min-width: 180px; background: #fff;
+    padding: 8px 12px; border: 1px solid #d0d0d5; border-radius: 10px;
+    font-size: 15px; flex: 1; min-width: 180px; background: #f5f5f7;
+    -webkit-appearance: none;
   }
   .chip {
-    padding: 5px 11px; background: #fff; border: 1px solid #d0d0d5;
-    border-radius: 999px; cursor: pointer; font-size: 12px;
+    padding: 6px 13px; background: #f5f5f7; border: 1px solid transparent;
+    border-radius: 999px; cursor: pointer; font-size: 13px;
     user-select: none; transition: all 0.1s; white-space: nowrap;
   }
   .chip:hover { border-color: #8e8e93; }
   .chip.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
   .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: 100%; }
-  .stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
+  .stats { font-size: 13px; color: #6e6e73; padding: 6px 2px 10px; }
+
+  /* Сетка карточек */
   #list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 10px;
     align-items: start;
   }
   @media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { #list { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { #list { grid-template-columns: 1fr; } }
+
+  /* Мобильные стили */
+  @media (max-width: 600px) {
+    body { font-size: 15px; padding: 10px 12px 80px; background: #f5f5f7; }
+    .meta { font-size: 12px; }
+    .filters-toggle { display: flex; }
+    .filters-body { display: none; padding: 0 12px 14px; }
+    .filters-body.open { display: flex; }
+    #search { font-size: 16px; padding: 10px 14px; }
+    .chip { font-size: 14px; padding: 8px 14px; }
+    .stats { font-size: 13px; }
+  }
+
   .card {
-    border: 1px solid #e5e5ea; border-radius: 12px;
-    padding: 12px 14px; background: #fff;
+    border: 1px solid #e5e5ea; border-radius: 14px;
+    padding: 14px 16px; background: #fff;
     transition: opacity 0.15s, background 0.15s, border-color 0.15s;
   }
   .card.status-viewed { opacity: 0.72; }
@@ -83,21 +114,33 @@
   .card-desc { font-size: 13px; color: #3a3a3c; margin-top: 4px; line-height: 1.4; }
   .card-actions { display: flex; gap: 6px; margin-top: 8px; align-items: center; flex-wrap: wrap; }
   .btn {
-    padding: 5px 11px; border: 1px solid #d0d0d5; background: #fff;
-    border-radius: 6px; cursor: pointer; font-size: 12px;
+    padding: 7px 13px; border: 1px solid #d0d0d5; background: #fff;
+    border-radius: 8px; cursor: pointer; font-size: 13px;
     text-decoration: none; color: #1a1a1a;
     display: inline-flex; align-items: center; gap: 4px;
+    -webkit-tap-highlight-color: transparent;
   }
   .btn:hover { background: #f5f5f7; }
   .btn-primary { background: #0a84ff; color: white; border-color: #0a84ff; }
   .btn-primary:hover { background: #0066cc; }
-  .btn-link { border: none; background: none; color: #6e6e73; padding: 5px 8px; }
+  .btn-link { border: none; background: none; color: #6e6e73; padding: 7px 8px; }
   .btn-link:hover { color: #1a1a1a; background: #f5f5f7; }
-  .btn-status { font-size: 12px; border-radius: 6px; }
+  .btn-status { font-size: 13px; border-radius: 8px; }
   .btn-status.active-viewed { background: #f0f0f4; border-color: #8e8e93; color: #3a3a3c; }
   .btn-status.active-applied { background: #e8f5e9; border-color: #4caf50; color: #2e7d32; font-weight: 600; }
   .btn-status.active-skip { background: #f5f5f7; border-color: #c7c7cc; color: #8e8e93; }
   .empty { text-align: center; padding: 40px 20px; color: #8e8e93; font-size: 13px; }
+  @media (max-width: 600px) {
+    .card { padding: 14px; border-radius: 14px; }
+    .card-title { font-size: 15px; }
+    .tag { font-size: 11px; padding: 3px 9px; }
+    .btn { font-size: 14px; padding: 9px 14px; border-radius: 10px; }
+    .btn-link { font-size: 14px; padding: 9px 10px; }
+    .card-actions { gap: 8px; margin-top: 10px; }
+    .card-desc { font-size: 14px; }
+    .pub { font-size: 12px; }
+    .status-badge { font-size: 12px; padding: 3px 10px; }
+  }
 </style>
 </head>
 <body>
@@ -105,37 +148,42 @@
 <div class="meta" id="meta"></div>
 
 <div class="filters">
-  <div class="row">
-    <input id="search" placeholder="🔍 поиск по тексту, компании, навыку..." />
-  </div>
-  <div class="row">
-    <span class="label">роль</span>
-    <span class="chip role-filter active" data-role="ux">UX/UI</span>
-    <span class="chip role-filter active" data-role="product">Продуктовый</span>
-    <span class="chip role-filter active" data-role="web">Веб</span>
-    <span class="chip role-filter" data-role="other">Прочий дизайн</span>
-  </div>
-  <div class="row">
-    <span class="label">грейд</span>
-    <span class="chip level-filter active" data-level="middle">Middle</span>
-    <span class="chip level-filter" data-level="junior">Junior</span>
-    <span class="chip level-filter" data-level="senior">Senior</span>
-    <span class="chip level-filter" data-level="lead">Lead</span>
-    <span class="chip level-filter active" data-level="unknown">Не указан</span>
-  </div>
-  <div class="row">
-    <span class="label">формат</span>
-    <span class="chip format-filter active" data-format="remote">Удалёнка</span>
-    <span class="chip format-filter" data-format="hybrid">Гибрид</span>
-    <span class="chip format-filter" data-format="office">Офис</span>
-    <span class="chip format-filter active" data-format="unknown">Не указан</span>
-  </div>
-  <div class="row">
-    <span class="label">статус</span>
-    <span class="chip status-filter active" data-status="new">Новые</span>
-    <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
-    <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
-    <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
+  <button class="filters-toggle" id="filtersToggle">
+    Фильтры <span class="filters-toggle-icon">▾</span>
+  </button>
+  <div class="filters-body" id="filtersBody">
+    <div class="row">
+      <input id="search" placeholder="🔍 поиск по тексту, компании, навыку..." />
+    </div>
+    <div class="row">
+      <span class="label">роль</span>
+      <span class="chip role-filter active" data-role="ux">UX/UI</span>
+      <span class="chip role-filter active" data-role="product">Продуктовый</span>
+      <span class="chip role-filter active" data-role="web">Веб</span>
+      <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+    </div>
+    <div class="row">
+      <span class="label">грейд</span>
+      <span class="chip level-filter active" data-level="middle">Middle</span>
+      <span class="chip level-filter" data-level="junior">Junior</span>
+      <span class="chip level-filter" data-level="senior">Senior</span>
+      <span class="chip level-filter" data-level="lead">Lead</span>
+      <span class="chip level-filter active" data-level="unknown">Не указан</span>
+    </div>
+    <div class="row">
+      <span class="label">формат</span>
+      <span class="chip format-filter active" data-format="remote">Удалёнка</span>
+      <span class="chip format-filter" data-format="hybrid">Гибрид</span>
+      <span class="chip format-filter" data-format="office">Офис</span>
+      <span class="chip format-filter active" data-format="unknown">Не указан</span>
+    </div>
+    <div class="row">
+      <span class="label">статус</span>
+      <span class="chip status-filter active" data-status="new">Новые</span>
+      <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
+      <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
+      <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
+    </div>
   </div>
 </div>
 
@@ -310,6 +358,16 @@
   function escAttr(s) { return esc(s).replace(/"/g, '&quot;'); }
 
   function setupChips() {
+    // Кнопка раскрытия фильтров на мобильном
+    const toggle = document.getElementById('filtersToggle');
+    const body = document.getElementById('filtersBody');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const open = body.classList.toggle('open');
+        toggle.classList.toggle('open', open);
+      });
+    }
+
     document.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', () => {
         chip.classList.toggle('active'); saveFilters(); render();
