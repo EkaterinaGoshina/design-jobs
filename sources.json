@@ -11,7 +11,7 @@
     {"kind": "tg", "name": "careerspace",     "url": "https://t.me/s/careerspace",     "enabled": true},
     {"kind": "tg", "name": "huggabletalents", "url": "https://t.me/s/huggabletalents", "enabled": true},
     {"kind": "hirehi", "name": "HireHi",      "url": "https://hirehi.ru/?category=design&search=ux/ui", "enabled": true},
-    {"kind": "hh",     "name": "hh.ru",       "url": "https://api.hh.ru/vacancies",                      "enabled": true,
+    {"kind": "hh",     "name": "hh.ru",       "url": "https://api.hh.ru/vacancies",                      "enabled": false,
      "queries": ["UX дизайнер", "UI дизайнер", "продуктовый дизайнер", "web designer", "веб дизайнер"]}
   ],
 

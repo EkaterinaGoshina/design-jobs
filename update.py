@@ -59,9 +59,41 @@ def detect_role(text, role_keywords):
     return "other"
 
 
+VACANCY_SIGNALS = [
+    "ищем", "ищет", "нужен", "нужна", "нужны", "требуется", "требуются",
+    "вакансия", "вакансии", "открыта вакансия", "открыт набор",
+    "приглашаем", "приглашает",
+    "зарплата", "заработная плата", "оплата", "ставка", "от ", "₽",
+    "обязанност", "задачи", "требован", "стек", "условия работы",
+    "опыт от", "опыт работы",
+    "резюме", "портфолио", "откликн",
+    "full-time", "fulltime", "part-time", "фриланс", "freelance",
+    "удалён", "удаленн", "remote", "офис", "гибрид",
+    "vacancy", "hiring", "we're looking", "we are looking",
+    "job", "position", "role",
+]
+
+NON_VACANCY_SIGNALS = [
+    "обучени", "курс", "интенсив", "воркшоп", "вебинар", "онлайн-школ",
+    "скидк", "промокод", "регистрир", "бесплатн",
+    "крипт", "p2p", "вывод", "спб", "сбп",
+    "подписывайся", "подписывайтесь", "читайте", "узнайте",
+    "а вы знали", "совет дня", "лайфхак", "как стать", "как найти",
+    "как совладать", "как быть", "по моему опыту",
+    "реклама", "партнёрский", "промо",
+]
+
+
 def is_excluded(title, body, exclude_keywords):
     haystack = (title + " " + body[:500]).lower()
     return any(kw in haystack for kw in exclude_keywords)
+
+
+def is_vacancy(title, body):
+    haystack = (title + " " + body[:800]).lower()
+    if any(s in haystack for s in NON_VACANCY_SIGNALS):
+        return False
+    return any(s in haystack for s in VACANCY_SIGNALS)
 
 
 def extract_company(title):
@@ -109,6 +141,8 @@ def parse_telegram(html, channel, exclude_keywords, role_keywords):
         if not title:
             continue
         if is_excluded(title, text, exclude_keywords):
+            continue
+        if not is_vacancy(title, text):
             continue
 
         apply_url = f"https://t.me/{channel}/{post_id}"
@@ -197,7 +231,12 @@ def parse_hirehi(html, role_keywords):
 
 
 def parse_hh(src, exclude_keywords, role_keywords):
-    HH_HEADERS = {"User-Agent": "design-jobs-dashboard/1.0 (personal job tracker)"}
+    HH_HEADERS = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                      "AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/124.0.0.0 Safari/537.36",
+        "HH-User-Agent": "design-jobs-dashboard/1.0 (000korsa000@gmail.com)",
+    }
     seen_ids = set()
     jobs = []
     date_from = (datetime.date.today() - datetime.timedelta(days=2)).isoformat()

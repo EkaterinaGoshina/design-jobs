@@ -360,18 +360,6 @@
     },
     {
       "s": "uxwork",
-      "pid": 1435,
-      "time": "14:59",
-      "t": "Product designer, senior · MWS Cloud Platform (сайт)",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "#удалённо (из России)",
-      "url": "https://hh.ru/vacancy/131000105"
-    },
-    {
-      "s": "uxwork",
       "pid": 1436,
       "time": "07:04",
       "t": "Продуктовый дизайнер · Нетология",
@@ -396,18 +384,6 @@
     },
     {
       "s": "uxwork",
-      "pid": 1438,
-      "time": "09:54",
-      "t": "Продуктовый дизайнер, senior · Яндекс Путешествия (контентный стрим: страницы объектов)",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "#Москва #продукт",
-      "url": "https://yandex.ru/jobs/vacancies/dizayner-produkta-v-yandeks-puteshestviya-39588"
-    },
-    {
-      "s": "uxwork",
       "pid": 1439,
       "time": "19:17",
       "t": "Продуктовый дизайнер, senior · 100балльный репетитор",
@@ -417,18 +393,6 @@
       "role": "product",
       "sal": "#удалённо #продукт",
       "url": "https://hh.ru/vacancy/131215677"
-    },
-    {
-      "s": "uxwork",
-      "pid": 1440,
-      "time": "06:44",
-      "t": "Продуктовый дизайнер · Альфа-Банк (Альфа-Бизнес)",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "#удалённо #Москва",
-      "url": "https://t.me/uxwork/1440"
     },
     {
       "s": "uxwork",
@@ -515,42 +479,6 @@
       "url": "https://t.me/uxwork/1448"
     },
     {
-      "s": "uxwork",
-      "pid": 1449,
-      "time": "18:25",
-      "t": "Продуктовый дизайнер, senior · Ozon Tech (департамент SRE)",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "#удалённо #Москва",
-      "url": "http://hh.ru/"
-    },
-    {
-      "s": "uxwork",
-      "pid": 1450,
-      "time": "19:00",
-      "t": "Продуктовый дизайнер, senior · Pragmatica (в аутстафф)",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "#Москва #СПб",
-      "url": "https://buildin.ai/share/367c8401-2912-455c-9d54-6b7f52058188"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5734,
-      "time": "11:48",
-      "t": "Ищу 2D моушн-дизайнера для долгосрочного образовательного YouTube-проекта о библейской истории и истории Древнего Ближнего Востока (научпоп)",
-      "c": "—",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Задачи: •  Коллажная анимация и кинетическая типографика для talking head видео",
-      "url": "http://t.me/sirik_89"
-    },
-    {
       "s": "dsgn_vacancies",
       "pid": 5735,
       "time": "05:25",
@@ -621,18 +549,6 @@
       "role": "other",
       "sal": "МагнитТех Задачи:",
       "url": "https://magnit.tech/vacancies/2848"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5742,
-      "time": "06:31",
-      "t": "Дизайнер в МТС Кампус",
-      "c": "МТС Кампус",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Задачи: - разрабатывать визуалы для коммуникаций по обучению и развитию: баннеры, рассылки, промо-материалы;",
-      "url": "https://job.mts.ru/vacancy/646361647463532761"
     },
     {
       "s": "dsgn_vacancies",
@@ -732,18 +648,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5751,
-      "time": "08:19",
-      "t": "На фрилансе важно уметь фильтровать заказчиков",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Иногда проблема не в том, что нет заказов, а в том, что попадаются только неадекватные. Это типичная ошибка новичка. Отсюда сразу вытекают выгорание и синдром самозванца. Как быть? Разберём в понедельник на бесплатном курсе. Ещё каждый сдел",
-      "url": "https://t.me/dsgn_vacancies/5751"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 5752,
       "time": "07:29",
       "t": "Коммуникационный дизайнер (стажёр) в Рекламу",
@@ -768,15 +672,15 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5754,
-      "time": "09:11",
-      "t": "Зачем платить за подписку на Freepik?",
+      "pid": 5755,
+      "time": "13:03",
+      "t": "монтажер для серии горизонтальных роликов (talking head + графика поверх)",
       "c": "—",
-      "lvl": "unknown",
+      "lvl": "lead",
       "fmt": "unknown",
       "role": "other",
-      "sal": "В канале Prime Stock",
-      "url": "https://t.me/dsgn_vacancies/5754"
+      "sal": "​ задачи:",
+      "url": "http://t.me/airrtech"
     },
     {
       "s": "sparklesjobs",
@@ -887,42 +791,6 @@
       "url": "https://job-boards.greenhouse.io/oura/jobs/4227724009"
     },
     {
-      "s": "zarubezhom_jobs",
-      "pid": 3832,
-      "time": "15:15",
-      "t": "Как развивать карьеру продакту",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Если вам интересен продакт-менеджмент на уровне международных компаний — стоит обратить внимание на канал ProductDo",
-      "url": "https://t.me/zarubezhom_jobs/3832"
-    },
-    {
-      "s": "careerspace",
-      "pid": 14581,
-      "time": "07:04",
-      "t": "Есть только один способ провести майские с пользой для карьеры: пойти отдыхать. В карточках раскрываем методику подробнее.",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "А чтобы совместить приятное с полезным, подпишитесь на канал Это МТС | Карьера",
-      "url": "https://t.me/careerspace/14581"
-    },
-    {
-      "s": "careerspace",
-      "pid": 14590,
-      "time": "11:03",
-      "t": "Этот вопрос задают на каждом собеседовании, и многие кандидаты делают одно и то же: либо врут, либо начинают жаловаться. Оба варианта выстав",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "➡️ Хотя рассказать о любой причине ухода легко, и вот готовые формулы для самых частых ситуаций.",
-      "url": "https://t.me/nastya_careerspace_bot?start=telegram-careerspace-case-080526"
-    },
-    {
       "s": "careerspace",
       "pid": 14598,
       "time": "11:03",
@@ -936,27 +804,15 @@
     },
     {
       "s": "careerspace",
-      "pid": 14599,
-      "time": "14:38",
-      "t": "Старший продуктовый дизайнер / Invitro",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "🖥 Invitro",
-      "url": "https://careerspace.app/job/234051?utm_source=telegram&amp;utm_medium=careerspace"
-    },
-    {
-      "s": "careerspace",
-      "pid": 14600,
-      "time": "07:12",
-      "t": "3 вещи, чтобы после",
+      "pid": 14601,
+      "time": "12:42",
+      "t": "Руководитель проектов по закупкам / Бюро 1440",
       "c": "—",
       "lvl": "unknown",
-      "fmt": "unknown",
+      "fmt": "hybrid",
       "role": "other",
-      "sal": "выпуска из универа всё было ок с работой",
-      "url": "https://t.me/careerspace/14600"
+      "sal": "🚀 Бюро 1440",
+      "url": "https://careerspace.app/job/234338?utm_source=telegram&amp;utm_medium=careerspace"
     },
     {
       "s": "design_jobs_uxui",
@@ -984,18 +840,6 @@
     },
     {
       "s": "design_jobs_uxui",
-      "pid": 1125,
-      "time": "10:02",
-      "t": "За последний год AI-инструменты стремительно вошли в работу дизайнера.",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Индустрия не успевает их все осмыслять: Cursor, Claude, Figma MCP, новый Claude Design от Anthropic (агент, который сам проектирует интерфейсы). А в вакансиях AI всё чаще уже не плюс, а требование. Инструментов много. А как встроить это в р",
-      "url": "https://t.me/design_jobs_uxui/1125"
-    },
-    {
-      "s": "design_jobs_uxui",
       "pid": 1126,
       "time": "07:08",
       "t": "Вакансии в",
@@ -1005,18 +849,6 @@
       "role": "other",
       "sal": "❤️ Яндекс — коммуникационные дизайнеры (Middle / Senior)",
       "url": "https://t.me/design_jobs_uxui/1126"
-    },
-    {
-      "s": "design_jobs_uxui",
-      "pid": 1127,
-      "time": "17:03",
-      "t": "Крипту теперь можно спокойно выводить на карту или по СПБ — без p2p и сомнительных переводов.",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "🛡 🌟",
-      "url": "https://t.me/design_jobs_uxui/1127"
     },
     {
       "s": "design_jobs_uxui",
@@ -1032,30 +864,6 @@
     },
     {
       "s": "design_jobs_uxui",
-      "pid": 1131,
-      "time": "07:38",
-      "t": "Креативный дизайнер",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "Удалённо ‍",
-      "url": "https://www.vseti.app/b2b"
-    },
-    {
-      "s": "design_jobs_uxui",
-      "pid": 1133,
-      "time": "07:04",
-      "t": "Whiteboard. Как совладать с тревогой?",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Последнее время на консультациях дизайнеры часто задают мне вопрос: «Как быть с парализующим волнением на Whiteboard интервью?» По моему опыту, может помочь следующие:",
-      "url": "https://t.me/design_jobs_uxui/1133"
-    },
-    {
-      "s": "design_jobs_uxui",
       "pid": 1134,
       "time": "09:38",
       "t": "Продуктовый дизайнер (стажёр) в Игры",
@@ -1065,18 +873,6 @@
       "role": "product",
       "sal": "Москва, гибрид ‍",
       "url": "https://www.vseti.app/b2b"
-    },
-    {
-      "s": "design_jobs_uxui",
-      "pid": 1138,
-      "time": "07:02",
-      "t": "7 дней бесплатного обучения UX/UI-дизайну!",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": "🔥 Организовали для тебя бесплатный онлайн-интенсив по UX/UI-дизайну с практикой, обратной связью и куратором.",
-      "url": "https://itlogia.ru/intensive/uxui?utm_source=tg&amp;utm_medium=group&amp;utm_campaign=uxui_180526&amp;utm_content=010526_design_jobs_uxui&amp;erid=2W5zFJNEi2D"
     },
     {
       "s": "design_jobs_uxui",
@@ -1112,18 +908,6 @@
       "fmt": "remote",
       "role": "other",
       "sal": "Удаленно ‍",
-      "url": "https://www.vseti.app/b2b"
-    },
-    {
-      "s": "design_jobs_uxui",
-      "pid": 1143,
-      "time": "07:08",
-      "t": "UX/UI Designer (Web / Mobile / Desktop",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "Москва, офис или СПБ BoilerLab — международная IT-компания, 8 лет развиваем продукты в AI, Crypto и SaaS для пользователей из США, Европы и Канады. Среди наших проектов — Atomic Wallet, один из крупнейших криптокошельков в мире (15+ млн пол",
       "url": "https://www.vseti.app/b2b"
     },
     {
@@ -1163,18 +947,6 @@
       "url": "https://t.me/young_relocate/1805"
     },
     {
-      "s": "young_relocate",
-      "pid": 1810,
-      "time": "07:05",
-      "t": "#подкаст",
-      "c": "—",
-      "lvl": "junior",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Как быть с командой и не выгореть самому? Привет! Мы —",
-      "url": "https://t.me/young_relocate/1810"
-    },
-    {
       "s": "huggabletalents",
       "pid": 2692,
       "time": "13:03",
@@ -1212,18 +984,6 @@
     },
     {
       "s": "huggabletalents",
-      "pid": 2702,
-      "time": "13:10",
-      "t": "Когда бизнес — это целый отдел в одном человеке.",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "⏮ ⏭",
-      "url": "https://t.me/huggabletalents/2702"
-    },
-    {
-      "s": "huggabletalents",
       "pid": 2704,
       "time": "07:04",
       "t": "Арт-директор в staya",
@@ -1233,30 +993,6 @@
       "role": "other",
       "sal": "Гибрид, офис в Москве, З/П обсуждается индивидуально staya",
       "url": "https://t.me/huggabletalents/2704"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 2706,
-      "time": "13:02",
-      "t": "Как человеку без профильного опыта и образования попасть в новую сферу с нормальным уровнем дохода?",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "⏮ На вопрос ответит Денис Сметнев, сооснователь Skyeng и uForce (uforce.pro), автор телеграм-канала «Сметнёв, uForce и рок-н-ролл».",
-      "url": "https://t.me/huggabletalents/2706"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 2707,
-      "time": "16:01",
-      "t": "Собеседования для вас — стандартный процесс или пугающая процедура?",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Если второе, то предлагаем пересмотреть свои убеждения хотя бы в отношении одной компании — Авито. Коллеги изменили подход к собеседованиям и упростили все, что только возможно для корпорации: ➡️",
-      "url": "https://t.me/huggabletalents/2707"
     },
     {
       "s": "huggabletalents",
@@ -1293,30 +1029,6 @@
       "role": "other",
       "sal": "Гибрид, офис в Москве, З/П обсуждается индивидуально Яндекс Фабрика",
       "url": "https://yandex.ru/jobs/services/fabrika"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 2711,
-      "time": "12:34",
-      "t": "Менеджер по развитию B2B-направления в SETTERS EDUCATION",
-      "c": "SETTERS EDUCATION",
-      "lvl": "unknown",
-      "fmt": "hybrid",
-      "role": "other",
-      "sal": "Гибрид, офис в Москве, З/П обсуждается индивидуально SETTERS EDUCATION",
-      "url": "https://t.me/huggabletalents/2711"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 2712,
-      "time": "10:01",
-      "t": "Как строится карьера в фэшн-индустрии",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "В рубрике #карьерныйпуть",
-      "url": "https://t.me/huggabletalents/2712"
     }
   ]
 }
