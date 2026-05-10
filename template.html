@@ -6,101 +6,69 @@
 <title>Дизайн-вакансии — дашборд</title>
 <style>
   :root { color-scheme: light; }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  /* ===== DESKTOP ===== */
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-    background: #f5f5f7;
-    color: #1a1a1a;
-    margin: 0;
-    padding: 12px 16px 60px;
-    font-size: 14px;
-    line-height: 1.45;
+    background: #f5f5f7; color: #1a1a1a;
+    margin: 0; padding: 12px 16px 60px;
+    font-size: 14px; line-height: 1.45;
   }
   .meta { font-size: 11px; color: #8e8e93; padding: 4px 4px 8px; }
-
-  /* Фильтры */
   .filters {
-    background: #fff; border-radius: 14px;
-    margin-bottom: 12px; overflow: hidden;
-    border: 1px solid #e5e5ea;
-  }
-  .filters-toggle {
-    display: none;
-    width: 100%; padding: 14px 16px;
-    background: none; border: none; cursor: pointer;
-    font-size: 15px; font-weight: 500; color: #1a1a1a;
-    text-align: left; justify-content: space-between; align-items: center;
-  }
-  .filters-toggle-icon { font-size: 12px; color: #8e8e93; transition: transform 0.2s; }
-  .filters-toggle.open .filters-toggle-icon { transform: rotate(180deg); }
-  .filters-body {
     display: flex; flex-wrap: wrap; gap: 6px;
-    padding: 12px 16px 14px; align-items: center;
+    padding: 12px 14px; background: #fff; border-radius: 14px;
+    margin-bottom: 12px; align-items: center;
+    border: 1px solid #e5e5ea;
   }
   .filters .label {
     font-size: 11px; text-transform: uppercase; color: #8e8e93;
-    margin-right: 4px; letter-spacing: 0.5px;
+    margin-right: 2px; letter-spacing: 0.5px;
   }
   #search {
-    padding: 8px 12px; border: 1px solid #d0d0d5; border-radius: 10px;
-    font-size: 15px; flex: 1; min-width: 180px; background: #f5f5f7;
-    -webkit-appearance: none;
+    padding: 7px 11px; border: 1px solid #d0d0d5; border-radius: 8px;
+    font-size: 13px; flex: 1; min-width: 180px; background: #f5f5f7;
+    outline: none;
   }
   .chip {
-    padding: 6px 13px; background: #f5f5f7; border: 1px solid transparent;
-    border-radius: 999px; cursor: pointer; font-size: 13px;
+    padding: 5px 12px; background: #f5f5f7; border: 1px solid transparent;
+    border-radius: 999px; cursor: pointer; font-size: 12px;
     user-select: none; transition: all 0.1s; white-space: nowrap;
   }
   .chip:hover { border-color: #8e8e93; }
-  .chip.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .chip.active { background: #1a1a1a; color: #fff; }
   .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: 100%; }
-  .stats { font-size: 13px; color: #6e6e73; padding: 6px 2px 10px; }
+  .stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
 
-  /* Сетка карточек */
   #list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    align-items: start;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px; align-items: start;
   }
   @media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { #list { grid-template-columns: 1fr; } }
-
-  /* Мобильные стили */
-  @media (max-width: 600px) {
-    body { font-size: 15px; padding: 10px 12px 80px; background: #f5f5f7; }
-    .meta { font-size: 12px; }
-    .filters-toggle { display: flex; }
-    .filters-body { display: none; padding: 0 12px 14px; }
-    .filters-body.open { display: flex; }
-    #search { font-size: 16px; padding: 10px 14px; }
-    .chip { font-size: 14px; padding: 8px 14px; }
-    .stats { font-size: 13px; }
-  }
 
   .card {
     border: 1px solid #e5e5ea; border-radius: 14px;
-    padding: 14px 16px; background: #fff;
+    padding: 13px 15px; background: #fff;
     transition: opacity 0.15s, background 0.15s, border-color 0.15s;
   }
-  .card.status-viewed { opacity: 0.72; }
+  .card.status-viewed { opacity: 0.68; }
   .card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
-  .card.status-skip { opacity: 0.38; }
+  .card.status-skip { opacity: 0.35; }
   .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-  .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; flex: 1; color: #1a1a1a; }
+  .card-title { font-weight: 600; font-size: 14px; line-height: 1.3; flex: 1; }
   .status-badge {
     font-size: 11px; padding: 2px 8px; border-radius: 999px;
-    white-space: nowrap; flex-shrink: 0; align-self: flex-start;
+    white-space: nowrap; flex-shrink: 0;
   }
   .status-badge.viewed { background: #f0f0f4; color: #6e6e73; }
   .status-badge.applied { background: #e8f5e9; color: #2e7d32; font-weight: 600; }
   .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
   .tag {
     font-size: 10px; padding: 2px 8px; border-radius: 999px;
-    background: #f0f0f4; color: #444;
-    text-transform: lowercase; letter-spacing: 0.2px;
+    background: #f0f0f4; color: #444; letter-spacing: 0.2px;
   }
-  .tag.source { background: #e8f0fe; color: #1967d2; text-transform: none; }
+  .tag.source { background: #e8f0fe; color: #1967d2; }
   .tag.level-middle { background: #fff8e1; color: #b07000; }
   .tag.level-senior { background: #e8f5e9; color: #2e7d32; }
   .tag.level-junior { background: #f3e5f5; color: #7b1fa2; }
@@ -110,36 +78,155 @@
   .tag.format-office { background: #fbe9e7; color: #bf360c; }
   .tag.role { background: #ede7f6; color: #4527a0; }
   .tag.fresh { background: #d4edda; color: #155724; font-weight: 600; }
-  .pub { font-size: 11px; color: #8e8e93; margin-top: 6px; }
+  .pub { font-size: 11px; color: #8e8e93; margin-top: 5px; }
   .card-desc { font-size: 13px; color: #3a3a3c; margin-top: 4px; line-height: 1.4; }
-  .card-actions { display: flex; gap: 6px; margin-top: 8px; align-items: center; flex-wrap: wrap; }
+  .card-actions { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
   .btn {
-    padding: 7px 13px; border: 1px solid #d0d0d5; background: #fff;
-    border-radius: 8px; cursor: pointer; font-size: 13px;
+    padding: 6px 12px; border: 1px solid #d0d0d5; background: #fff;
+    border-radius: 8px; cursor: pointer; font-size: 12px;
     text-decoration: none; color: #1a1a1a;
-    display: inline-flex; align-items: center; gap: 4px;
-    -webkit-tap-highlight-color: transparent;
+    display: inline-flex; align-items: center; gap: 3px;
   }
   .btn:hover { background: #f5f5f7; }
-  .btn-primary { background: #0a84ff; color: white; border-color: #0a84ff; }
+  .btn-primary { background: #0a84ff; color: #fff; border-color: #0a84ff; }
   .btn-primary:hover { background: #0066cc; }
-  .btn-link { border: none; background: none; color: #6e6e73; padding: 7px 8px; }
-  .btn-link:hover { color: #1a1a1a; background: #f5f5f7; }
-  .btn-status { font-size: 13px; border-radius: 8px; }
+  .btn-link { border: none; background: none; color: #6e6e73; padding: 6px 8px; }
+  .btn-link:hover { color: #1a1a1a; background: #f5f5f7; border-radius: 8px; }
+  .btn-status { font-size: 12px; }
   .btn-status.active-viewed { background: #f0f0f4; border-color: #8e8e93; color: #3a3a3c; }
   .btn-status.active-applied { background: #e8f5e9; border-color: #4caf50; color: #2e7d32; font-weight: 600; }
   .btn-status.active-skip { background: #f5f5f7; border-color: #c7c7cc; color: #8e8e93; }
   .empty { text-align: center; padding: 40px 20px; color: #8e8e93; font-size: 13px; }
+
+  /* Mobile-only elements hidden on desktop */
+  .mobile-header { display: none; }
+  .filter-sheet-overlay { display: none; }
+
+  /* ===== MOBILE ===== */
   @media (max-width: 600px) {
-    .card { padding: 14px; border-radius: 14px; }
-    .card-title { font-size: 15px; }
+    body { padding: 0 0 90px; background: #f2f2f7; font-size: 15px; }
+
+    /* Скрываем десктопные фильтры */
+    .filters { display: none; }
+    .meta { display: none; }
+    .stats { font-size: 13px; padding: 8px 16px 4px; }
+
+    /* Sticky шапка */
+    .mobile-header {
+      display: block;
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(242,242,247,0.92);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      padding: 10px 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .mobile-search-row {
+      display: flex; gap: 10px; align-items: center;
+      padding-bottom: 10px;
+    }
+    #search-mobile {
+      flex: 1; padding: 10px 14px;
+      background: rgba(118,118,128,0.12);
+      border: none; border-radius: 12px;
+      font-size: 16px; outline: none;
+      color: #1a1a1a;
+    }
+    #search-mobile::placeholder { color: #8e8e93; }
+    .filter-icon-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(118,118,128,0.12); border: none;
+      cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative;
+    }
+    .filter-icon-btn.has-active::after {
+      content: ''; position: absolute; top: 6px; right: 6px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #0a84ff; border: 2px solid #f2f2f7;
+    }
+
+    /* Горизонтальные табы статуса */
+    .status-tabs {
+      display: flex; gap: 6px; overflow-x: auto;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      padding-bottom: 10px; padding-right: 16px;
+    }
+    .status-tabs::-webkit-scrollbar { display: none; }
+    .status-tab {
+      padding: 6px 14px; border-radius: 999px; border: none;
+      font-size: 13px; font-weight: 500; cursor: pointer;
+      white-space: nowrap; flex-shrink: 0;
+      background: rgba(118,118,128,0.12); color: #3a3a3c;
+      transition: all 0.15s;
+    }
+    .status-tab.active {
+      background: #1a1a1a; color: #fff;
+    }
+    .status-tab.active.tab-applied { background: #2e7d32; }
+    .status-tab.active.tab-viewed { background: #555; }
+
+    /* Карточки на мобильном */
+    #list { grid-template-columns: 1fr; gap: 0; padding: 10px 0 0; }
+    .card {
+      border-radius: 0; border-left: none; border-right: none;
+      border-top: none; border-bottom: 1px solid #e5e5ea;
+      padding: 16px; margin: 0;
+    }
+    .card:first-child { border-top: 1px solid #e5e5ea; }
+    .card-title { font-size: 16px; font-weight: 600; line-height: 1.3; }
+    .card-desc { font-size: 14px; margin-top: 6px; }
+    .pub { font-size: 12px; margin-top: 6px; }
     .tag { font-size: 11px; padding: 3px 9px; }
-    .btn { font-size: 14px; padding: 9px 14px; border-radius: 10px; }
-    .btn-link { font-size: 14px; padding: 9px 10px; }
-    .card-actions { gap: 8px; margin-top: 10px; }
-    .card-desc { font-size: 14px; }
-    .pub { font-size: 12px; }
     .status-badge { font-size: 12px; padding: 3px 10px; }
+    .card-actions { gap: 8px; margin-top: 12px; }
+    .btn { font-size: 14px; padding: 9px 16px; border-radius: 10px; }
+    .btn-link { font-size: 14px; padding: 9px 10px; }
+    .btn-status { font-size: 13px; padding: 8px 13px; }
+    .empty { padding: 60px 20px; font-size: 15px; }
+
+    /* Шторка фильтров */
+    .filter-sheet-overlay {
+      display: block;
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(0,0,0,0.4);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .filter-sheet-overlay.open { opacity: 1; pointer-events: all; }
+    .filter-sheet {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: #fff; border-radius: 20px 20px 0 0;
+      padding: 0 0 40px;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.32,0,0.67,0);
+      max-height: 85vh; overflow-y: auto;
+    }
+    .filter-sheet-overlay.open .filter-sheet {
+      transform: translateY(0);
+      transition: transform 0.3s cubic-bezier(0.33,1,0.68,1);
+    }
+    .filter-sheet-handle {
+      width: 36px; height: 4px; border-radius: 2px;
+      background: #d0d0d5; margin: 12px auto 0;
+    }
+    .filter-sheet-title {
+      font-size: 17px; font-weight: 600;
+      padding: 16px 20px 4px;
+    }
+    .filter-section { padding: 12px 20px; }
+    .filter-section-label {
+      font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+      color: #8e8e93; margin-bottom: 8px;
+    }
+    .filter-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-chips .chip { font-size: 14px; padding: 8px 16px; }
+    .filter-apply-btn {
+      display: block; width: calc(100% - 40px); margin: 8px 20px 0;
+      padding: 14px; background: #0a84ff; color: #fff;
+      border: none; border-radius: 14px; font-size: 16px; font-weight: 600;
+      cursor: pointer; text-align: center;
+    }
   }
 </style>
 </head>
@@ -147,43 +234,91 @@
 
 <div class="meta" id="meta"></div>
 
+<!-- Мобильная шапка (скрыта на десктопе) -->
+<div class="mobile-header">
+  <div class="mobile-search-row">
+    <input id="search-mobile" type="search" placeholder="🔍 Поиск..." autocomplete="off" />
+    <button class="filter-icon-btn" id="filterOpenBtn" title="Фильтры">⚙️</button>
+  </div>
+  <div class="status-tabs" id="statusTabs">
+    <button class="status-tab active" data-tab="all">Все</button>
+    <button class="status-tab tab-new" data-tab="new">Новые</button>
+    <button class="status-tab tab-viewed" data-tab="viewed">👀 Смотрела</button>
+    <button class="status-tab tab-applied" data-tab="applied">✅ Откликнулась</button>
+    <button class="status-tab tab-skip" data-tab="skip">✖ Скрытые</button>
+  </div>
+</div>
+
+<!-- Шторка фильтров для мобильного -->
+<div class="filter-sheet-overlay" id="filterOverlay">
+  <div class="filter-sheet" id="filterSheet">
+    <div class="filter-sheet-handle"></div>
+    <div class="filter-sheet-title">Фильтры</div>
+    <div class="filter-section">
+      <div class="filter-section-label">Роль</div>
+      <div class="filter-chips">
+        <span class="chip role-filter active" data-role="ux">UX/UI</span>
+        <span class="chip role-filter active" data-role="product">Продуктовый</span>
+        <span class="chip role-filter active" data-role="web">Веб</span>
+        <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+      </div>
+    </div>
+    <div class="filter-section">
+      <div class="filter-section-label">Грейд</div>
+      <div class="filter-chips">
+        <span class="chip level-filter active" data-level="middle">Middle</span>
+        <span class="chip level-filter" data-level="junior">Junior</span>
+        <span class="chip level-filter" data-level="senior">Senior</span>
+        <span class="chip level-filter" data-level="lead">Lead</span>
+        <span class="chip level-filter active" data-level="unknown">Не указан</span>
+      </div>
+    </div>
+    <div class="filter-section">
+      <div class="filter-section-label">Формат</div>
+      <div class="filter-chips">
+        <span class="chip format-filter active" data-format="remote">Удалёнка</span>
+        <span class="chip format-filter" data-format="hybrid">Гибрид</span>
+        <span class="chip format-filter" data-format="office">Офис</span>
+        <span class="chip format-filter active" data-format="unknown">Не указан</span>
+      </div>
+    </div>
+    <button class="filter-apply-btn" id="filterApplyBtn">Применить</button>
+  </div>
+</div>
+
+<!-- Десктопные фильтры -->
 <div class="filters">
-  <button class="filters-toggle" id="filtersToggle">
-    Фильтры <span class="filters-toggle-icon">▾</span>
-  </button>
-  <div class="filters-body" id="filtersBody">
-    <div class="row">
-      <input id="search" placeholder="🔍 поиск по тексту, компании, навыку..." />
-    </div>
-    <div class="row">
-      <span class="label">роль</span>
-      <span class="chip role-filter active" data-role="ux">UX/UI</span>
-      <span class="chip role-filter active" data-role="product">Продуктовый</span>
-      <span class="chip role-filter active" data-role="web">Веб</span>
-      <span class="chip role-filter" data-role="other">Прочий дизайн</span>
-    </div>
-    <div class="row">
-      <span class="label">грейд</span>
-      <span class="chip level-filter active" data-level="middle">Middle</span>
-      <span class="chip level-filter" data-level="junior">Junior</span>
-      <span class="chip level-filter" data-level="senior">Senior</span>
-      <span class="chip level-filter" data-level="lead">Lead</span>
-      <span class="chip level-filter active" data-level="unknown">Не указан</span>
-    </div>
-    <div class="row">
-      <span class="label">формат</span>
-      <span class="chip format-filter active" data-format="remote">Удалёнка</span>
-      <span class="chip format-filter" data-format="hybrid">Гибрид</span>
-      <span class="chip format-filter" data-format="office">Офис</span>
-      <span class="chip format-filter active" data-format="unknown">Не указан</span>
-    </div>
-    <div class="row">
-      <span class="label">статус</span>
-      <span class="chip status-filter active" data-status="new">Новые</span>
-      <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
-      <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
-      <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
-    </div>
+  <div class="row">
+    <input id="search" placeholder="🔍 поиск по тексту, компании, навыку..." />
+  </div>
+  <div class="row">
+    <span class="label">роль</span>
+    <span class="chip role-filter active" data-role="ux">UX/UI</span>
+    <span class="chip role-filter active" data-role="product">Продуктовый</span>
+    <span class="chip role-filter active" data-role="web">Веб</span>
+    <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+  </div>
+  <div class="row">
+    <span class="label">грейд</span>
+    <span class="chip level-filter active" data-level="middle">Middle</span>
+    <span class="chip level-filter" data-level="junior">Junior</span>
+    <span class="chip level-filter" data-level="senior">Senior</span>
+    <span class="chip level-filter" data-level="lead">Lead</span>
+    <span class="chip level-filter active" data-level="unknown">Не указан</span>
+  </div>
+  <div class="row">
+    <span class="label">формат</span>
+    <span class="chip format-filter active" data-format="remote">Удалёнка</span>
+    <span class="chip format-filter" data-format="hybrid">Гибрид</span>
+    <span class="chip format-filter" data-format="office">Офис</span>
+    <span class="chip format-filter active" data-format="unknown">Не указан</span>
+  </div>
+  <div class="row">
+    <span class="label">статус</span>
+    <span class="chip status-filter active" data-status="new">Новые</span>
+    <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
+    <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
+    <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
   </div>
 </div>
 
@@ -203,78 +338,81 @@
     const bySrc = {};
     JOBS.forEach(j => { (bySrc[j.s] = bySrc[j.s] || []).push(j); });
     Object.values(bySrc).forEach(arr => {
-      arr.sort((a,b) => (b.pid || 0) - (a.pid || 0));
-      arr.slice(0, 3).forEach(j => j.fresh = true);
+      arr.sort((a,b) => (b.pid||0)-(a.pid||0));
+      arr.slice(0,3).forEach(j => j.fresh = true);
     });
   })();
 
-  const STORE_STATUS = 'designJobs.status.v1';
-  const STORE_HIDDEN_LEGACY = 'designJobs.hidden.v2';
+  const STORE_STATUS  = 'designJobs.status.v1';
+  const STORE_HIDDEN  = 'designJobs.hidden.v2';
   const STORE_FILTERS = 'designJobs.filters.v2';
 
-  const state = { statuses: loadStatuses() };
+  const state = {
+    statuses: loadStatuses(),
+    mobileTab: 'all',   // all | new | viewed | applied | skip
+    mobileSearch: ''
+  };
 
   function loadStatuses() {
-    let statuses = {};
-    try { statuses = JSON.parse(localStorage.getItem(STORE_STATUS) || '{}'); } catch (e) {}
+    let s = {};
+    try { s = JSON.parse(localStorage.getItem(STORE_STATUS) || '{}'); } catch(e){}
     try {
-      const oldHidden = JSON.parse(localStorage.getItem(STORE_HIDDEN_LEGACY) || '[]');
-      oldHidden.forEach(url => { if (!statuses[url]) statuses[url] = 'skip'; });
-      if (oldHidden.length) {
-        localStorage.setItem(STORE_STATUS, JSON.stringify(statuses));
-        localStorage.removeItem(STORE_HIDDEN_LEGACY);
-      }
-    } catch (e) {}
-    return statuses;
+      const old = JSON.parse(localStorage.getItem(STORE_HIDDEN) || '[]');
+      old.forEach(u => { if (!s[u]) s[u] = 'skip'; });
+      if (old.length) { localStorage.setItem(STORE_STATUS, JSON.stringify(s)); localStorage.removeItem(STORE_HIDDEN); }
+    } catch(e){}
+    return s;
   }
+  function saveStatuses() { localStorage.setItem(STORE_STATUS, JSON.stringify(state.statuses)); }
 
-  function saveStatuses() {
-    localStorage.setItem(STORE_STATUS, JSON.stringify(state.statuses));
-  }
-
-  function setStatus(url, newStatus) {
-    if (state.statuses[url] === newStatus) delete state.statuses[url];
-    else state.statuses[url] = newStatus;
-    saveStatuses();
-    render();
-  }
-
-  function saveFilters() {
-    localStorage.setItem(STORE_FILTERS, JSON.stringify({
-      role: getActiveSet('.role-filter', 'data-role'),
-      level: getActiveSet('.level-filter', 'data-level'),
-      format: getActiveSet('.format-filter', 'data-format'),
-    }));
-  }
-
-  function loadFilters() {
-    try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch (e) { return null; }
-  }
-
-  function getActiveSet(sel, attr) {
-    return Array.from(document.querySelectorAll(sel + '.active')).map(el => el.getAttribute(attr));
+  function setStatus(url, ns) {
+    if (state.statuses[url] === ns) delete state.statuses[url];
+    else state.statuses[url] = ns;
+    saveStatuses(); render();
   }
 
   function getJobStatus(j) { return state.statuses[j.url] || null; }
 
+  function isMobile() { return window.innerWidth <= 600; }
+
+  function getActiveSet(sel, attr) {
+    return Array.from(document.querySelectorAll(sel+'.active')).map(el => el.getAttribute(attr));
+  }
+
+  function saveFilters() {
+    localStorage.setItem(STORE_FILTERS, JSON.stringify({
+      role: getActiveSet('.role-filter','data-role'),
+      level: getActiveSet('.level-filter','data-level'),
+      format: getActiveSet('.format-filter','data-format'),
+    }));
+  }
+
   function applyFilters() {
-    const search = document.getElementById('search').value.trim().toLowerCase();
-    const roles = getActiveSet('.role-filter', 'data-role');
-    const levels = getActiveSet('.level-filter', 'data-level');
-    const formats = getActiveSet('.format-filter', 'data-format');
-    const statusChips = getActiveSet('.status-filter', 'data-status');
+    const roles   = getActiveSet('.role-filter','data-role');
+    const levels  = getActiveSet('.level-filter','data-level');
+    const formats = getActiveSet('.format-filter','data-format');
 
-    let visible = JOBS.filter(j => roles.includes(j.role));
-    visible = visible.filter(j => levels.includes(j.lvl));
-    visible = visible.filter(j => formats.includes(j.fmt));
-    visible = visible.filter(j => statusChips.includes(getJobStatus(j) || 'new'));
+    let search = '';
+    if (isMobile()) search = state.mobileSearch;
+    else search = (document.getElementById('search').value||'').trim().toLowerCase();
 
-    if (search) {
-      visible = visible.filter(j => {
-        const h = (j.t + ' ' + j.c + ' ' + (j.sal || '') + ' ' + (j.note || '') + ' ' + j.s).toLowerCase();
-        return h.includes(search);
-      });
+    const statusChips = isMobile() ? null : getActiveSet('.status-filter','data-status');
+
+    let visible = JOBS.filter(j => roles.includes(j.role) && levels.includes(j.lvl) && formats.includes(j.fmt));
+
+    if (isMobile()) {
+      const tab = state.mobileTab;
+      if (tab !== 'all') {
+        visible = visible.filter(j => (getJobStatus(j)||'new') === tab);
+      }
+    } else {
+      visible = visible.filter(j => statusChips.includes(getJobStatus(j)||'new'));
     }
+
+    if (search) visible = visible.filter(j =>
+      (j.t+' '+j.c+' '+(j.sal||'')+' '+(j.note||'')+' '+j.s).toLowerCase().includes(search)
+    );
+
     return visible;
   }
 
@@ -282,119 +420,165 @@
     const list = document.getElementById('list');
     const visible = applyFilters();
 
-    const appliedCount = Object.values(state.statuses).filter(s => s === 'applied').length;
-    const viewedCount = Object.values(state.statuses).filter(s => s === 'viewed').length;
-    const skipCount = Object.values(state.statuses).filter(s => s === 'skip').length;
+    const appliedCount = Object.values(state.statuses).filter(s=>s==='applied').length;
+    const viewedCount  = Object.values(state.statuses).filter(s=>s==='viewed').length;
+    const skipCount    = Object.values(state.statuses).filter(s=>s==='skip').length;
 
-    let statsStr = 'Показано: ' + visible.length + ' из ' + JOBS.length;
-    if (appliedCount) statsStr += '  ·  ✅ откликнулась: ' + appliedCount;
-    if (viewedCount) statsStr += '  ·  👀 просмотрела: ' + viewedCount;
-    if (skipCount) statsStr += '  ·  ✖ не интересует: ' + skipCount;
+    let statsStr = 'Показано: '+visible.length+' из '+JOBS.length;
+    if (appliedCount) statsStr += '  ·  ✅ '+appliedCount;
+    if (viewedCount)  statsStr += '  ·  👀 '+viewedCount;
+    if (skipCount)    statsStr += '  ·  ✖ '+skipCount;
     document.getElementById('counter').textContent = statsStr;
 
-    if (visible.length === 0) {
-      list.innerHTML = '<div class="empty">Ничего не найдено по выбранным фильтрам.<br>Попробуй включить другие грейды или роли.</div>';
+    if (!visible.length) {
+      list.innerHTML = '<div class="empty">Ничего не найдено.<br>Попробуй изменить фильтры.</div>';
       return;
     }
-
     list.innerHTML = visible.map(renderCard).join('');
     list.querySelectorAll('.card').forEach(card => {
       const url = card.dataset.url;
       card.querySelectorAll('.btn-status').forEach(btn => {
-        btn.addEventListener('click', () => setStatus(url, btn.dataset.status));
+        btn.addEventListener('click', e => { e.stopPropagation(); setStatus(url, btn.dataset.status); });
       });
     });
   }
 
   function renderCard(j) {
     const status = getJobStatus(j);
-    let cardClass = 'card';
-    if (status === 'viewed') cardClass += ' status-viewed';
-    if (status === 'applied') cardClass += ' status-applied';
-    if (status === 'skip') cardClass += ' status-skip';
+    let cls = 'card';
+    if (status==='viewed') cls+=' status-viewed';
+    if (status==='applied') cls+=' status-applied';
+    if (status==='skip') cls+=' status-skip';
 
-    const tags = ['<span class="tag source">' + esc(j.s) + '</span>'];
+    const tags = ['<span class="tag source">'+esc(j.s)+'</span>'];
     if (j.fresh) tags.push('<span class="tag fresh">свежее</span>');
-    if (j.lvl !== 'unknown') tags.push('<span class="tag level-' + j.lvl + '">' + j.lvl + '</span>');
-    if (j.fmt !== 'unknown') tags.push('<span class="tag format-' + j.fmt + '">' + fmtLabel(j.fmt) + '</span>');
-    tags.push('<span class="tag role">' + roleLabel(j.role) + '</span>');
+    if (j.lvl!=='unknown') tags.push('<span class="tag level-'+j.lvl+'">'+j.lvl+'</span>');
+    if (j.fmt!=='unknown') tags.push('<span class="tag format-'+j.fmt+'">'+fmtLabel(j.fmt)+'</span>');
+    tags.push('<span class="tag role">'+roleLabel(j.role)+'</span>');
 
     let badge = '';
-    if (status === 'viewed') badge = '<span class="status-badge viewed">👀 Просмотрела</span>';
-    if (status === 'applied') badge = '<span class="status-badge applied">✅ Откликнулась</span>';
+    if (status==='viewed') badge='<span class="status-badge viewed">👀 Просмотрела</span>';
+    if (status==='applied') badge='<span class="status-badge applied">✅ Откликнулась</span>';
 
-    let pubLine = '';
-    if (j.s === 'HireHi') pubLine = 'Из текущей ленты HireHi (id #' + j.pid + ')';
-    else if (j.time) pubLine = 'Опубликовано в ' + esc(j.time) + ' · пост #' + j.pid + ' в @' + j.s;
-    else if (j.pid) pubLine = 'Пост #' + j.pid + ' в @' + j.s;
+    let pub = '';
+    if (j.s==='HireHi') pub='id #'+j.pid+' · HireHi';
+    else if (j.time) pub=j.time+' · @'+j.s;
+    else if (j.pid) pub='#'+j.pid+' · @'+j.s;
 
-    const btnViewed = '<button class="btn btn-status' + (status === 'viewed' ? ' active-viewed' : '') + '" data-status="viewed">👀 Просмотрела</button>';
-    const btnApplied = '<button class="btn btn-status' + (status === 'applied' ? ' active-applied' : '') + '" data-status="applied">✅ Откликнулась</button>';
-    const btnSkip = '<button class="btn btn-status btn-link' + (status === 'skip' ? ' active-skip' : '') + '" data-status="skip">✖ Не интересует</button>';
+    const bV='<button class="btn btn-status'+(status==='viewed'?' active-viewed':'')+'" data-status="viewed">👀</button>';
+    const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
+    const bS='<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
 
-    return '' +
-      '<div class="' + cardClass + '" data-url="' + escAttr(j.url) + '">' +
-        '<div class="card-head">' +
-          '<div class="card-title">' + esc(j.t) +
-            (j.c ? ' <span style="color:#8e8e93;font-weight:400;">· ' + esc(j.c) + '</span>' : '') +
-          '</div>' +
-          badge +
-        '</div>' +
-        '<div class="card-tags">' + tags.join('') + '</div>' +
-        (j.sal ? '<div class="card-desc">' + esc(j.sal) + (j.note ? ' · <i>' + esc(j.note) + '</i>' : '') + '</div>' : '') +
-        (pubLine ? '<div class="pub">' + pubLine + '</div>' : '') +
-        '<div class="card-actions">' +
-          '<a class="btn btn-primary" href="' + escAttr(j.url) + '" target="_blank" rel="noopener">Открыть ↗</a>' +
-          btnViewed + btnApplied + btnSkip +
-        '</div>' +
-      '</div>';
+    return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
+      '<div class="card-head"><div class="card-title">'+esc(j.t)+
+        (j.c?' <span style="color:#8e8e93;font-weight:400">· '+esc(j.c)+'</span>':'')+
+      '</div>'+badge+'</div>'+
+      '<div class="card-tags">'+tags.join('')+'</div>'+
+      (j.sal?'<div class="card-desc">'+esc(j.sal)+(j.note?' · <i>'+esc(j.note)+'</i>':'')+'</div>':'')+
+      (pub?'<div class="pub">'+esc(pub)+'</div>':'')+
+      '<div class="card-actions">'+
+        '<a class="btn btn-primary" href="'+escAttr(j.url)+'" target="_blank" rel="noopener">Открыть ↗</a>'+
+        bV+bA+bS+
+      '</div></div>';
   }
 
-  function fmtLabel(f) { return { remote: 'удалёнка', hybrid: 'гибрид', office: 'офис' }[f] || f; }
-  function roleLabel(r) { return { product: 'продуктовый', ux: 'ux/ui', web: 'веб', other: 'дизайн' }[r] || r; }
-  function esc(s) {
-    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-  function escAttr(s) { return esc(s).replace(/"/g, '&quot;'); }
+  function fmtLabel(f){return{remote:'удалёнка',hybrid:'гибрид',office:'офис'}[f]||f;}
+  function roleLabel(r){return{product:'продуктовый',ux:'ux/ui',web:'веб',other:'дизайн'}[r]||r;}
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function escAttr(s){return esc(s).replace(/"/g,'&quot;');}
 
-  function setupChips() {
-    // Кнопка раскрытия фильтров на мобильном
-    const toggle = document.getElementById('filtersToggle');
-    const body = document.getElementById('filtersBody');
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        const open = body.classList.toggle('open');
-        toggle.classList.toggle('open', open);
-      });
+  function setupDesktop() {
+    document.getElementById('search').addEventListener('input', () => render());
+    document.querySelectorAll('.filters .chip').forEach(chip => {
+      chip.addEventListener('click', () => { chip.classList.toggle('active'); saveFilters(); render(); });
+    });
+    const f = (() => { try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch(e){ return null; } })();
+    if (f) {
+      const restore = (sel, attr, set) => document.querySelectorAll(sel).forEach(el =>
+        el.classList.toggle('active', (set||[]).includes(el.getAttribute(attr))));
+      if (f.role)   restore('.filters .role-filter',  'data-role',   f.role);
+      if (f.level)  restore('.filters .level-filter', 'data-level',  f.level);
+      if (f.format) restore('.filters .format-filter','data-format', f.format);
     }
+  }
 
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        chip.classList.toggle('active'); saveFilters(); render();
+  function setupMobile() {
+    // Поиск
+    document.getElementById('search-mobile').addEventListener('input', e => {
+      state.mobileSearch = e.target.value.trim().toLowerCase(); render();
+    });
+
+    // Табы статуса
+    document.querySelectorAll('.status-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        state.mobileTab = tab.dataset.tab;
+        render();
       });
     });
-    document.getElementById('search').addEventListener('input', () => render());
-    const f = loadFilters();
-    if (f) {
-      const restore = (sel, attr, set) => {
-        document.querySelectorAll(sel).forEach(el => {
-          el.classList.toggle('active', (set || []).includes(el.getAttribute(attr)));
-        });
-      };
-      if (f.role) restore('.role-filter', 'data-role', f.role);
-      if (f.level) restore('.level-filter', 'data-level', f.level);
-      if (f.format) restore('.format-filter', 'data-format', f.format);
+
+    // Открыть шторку
+    const overlay = document.getElementById('filterOverlay');
+    document.getElementById('filterOpenBtn').addEventListener('click', () => {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Закрыть по клику на фон
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) closeSheet();
+    });
+
+    // Применить и закрыть
+    document.getElementById('filterApplyBtn').addEventListener('click', () => {
+      saveFilters(); render(); closeSheet();
+    });
+
+    function closeSheet() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
     }
+
+    // Чипы в шторке
+    document.querySelectorAll('.filter-sheet .chip').forEach(chip => {
+      chip.addEventListener('click', () => chip.classList.toggle('active'));
+    });
+
+    // Синхронизируем чипы шторки с десктопными
+    const f = (() => { try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch(e){ return null; } })();
+    if (f) {
+      const restore = (sel, attr, set) => document.querySelectorAll(sel).forEach(el =>
+        el.classList.toggle('active', (set||[]).includes(el.getAttribute(attr))));
+      if (f.role)   restore('.filter-sheet .role-filter',  'data-role',   f.role);
+      if (f.level)  restore('.filter-sheet .level-filter', 'data-level',  f.level);
+      if (f.format) restore('.filter-sheet .format-filter','data-format', f.format);
+    }
+
+    // Индикатор на кнопке фильтров если есть активные нестандартные фильтры
+    function updateFilterBadge() {
+      const defaults = { role:['ux','product','web'], level:['middle','unknown'], format:['remote','unknown'] };
+      const roles   = getActiveSet('.filter-sheet .role-filter','data-role');
+      const levels  = getActiveSet('.filter-sheet .level-filter','data-level');
+      const formats = getActiveSet('.filter-sheet .format-filter','data-format');
+      const changed = JSON.stringify(roles.sort())  !== JSON.stringify(defaults.role.sort())  ||
+                      JSON.stringify(levels.sort()) !== JSON.stringify(defaults.level.sort()) ||
+                      JSON.stringify(formats.sort())!== JSON.stringify(defaults.format.sort());
+      document.getElementById('filterOpenBtn').classList.toggle('has-active', changed);
+    }
+    document.querySelectorAll('.filter-sheet .chip').forEach(c => c.addEventListener('click', updateFilterBadge));
+    updateFilterBadge();
   }
 
+  // meta
   const counts = {};
-  JOBS.forEach(j => { counts[j.s] = (counts[j.s] || 0) + 1; });
-  const srcStr = Object.entries(counts).map(([k,v]) => k + ' (' + v + ')').join(' · ');
+  JOBS.forEach(j => { counts[j.s] = (counts[j.s]||0)+1; });
   document.getElementById('meta').textContent =
-    'Снимок: ' + SNAPSHOT_DATE + ' · ' + JOBS.length + ' вакансий · ' + srcStr +
-    ' · топ-3 в каждом источнике помечены «свежее»';
+    'Снимок: '+SNAPSHOT_DATE+' · '+JOBS.length+' вакансий · '+
+    Object.entries(counts).map(([k,v])=>k+' ('+v+')').join(' · ');
 
-  setupChips();
+  setupDesktop();
+  setupMobile();
   render();
 })();
 </script>
