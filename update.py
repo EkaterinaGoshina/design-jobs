@@ -196,6 +196,74 @@ def parse_hirehi(html, role_keywords):
     return unique
 
 
+def parse_hh(src, exclude_keywords, role_keywords):
+    HH_HEADERS = {"User-Agent": "design-jobs-dashboard/1.0 (personal job tracker)"}
+    seen_ids = set()
+    jobs = []
+    date_from = (datetime.date.today() - datetime.timedelta(days=2)).isoformat()
+
+    for query in src.get("queries", []):
+        params = {
+            "text": query,
+            "per_page": 50,
+            "order_by": "publication_time",
+            "date_from": date_from,
+        }
+        try:
+            r = requests.get(src["url"], params=params, headers=HH_HEADERS, timeout=30)
+            r.raise_for_status()
+            data = r.json()
+        except Exception as e:
+            print(f"  hh.ru error for '{query}': {e}", file=sys.stderr)
+            continue
+
+        for v in data.get("items", []):
+            vid = int(v["id"])
+            if vid in seen_ids:
+                continue
+            seen_ids.add(vid)
+
+            title = v.get("name", "")
+            if is_excluded(title, "", exclude_keywords):
+                continue
+
+            exp = v.get("experience", {}).get("id", "")
+            lvl = {"noExperience": "junior", "between1And3": "middle",
+                   "between3And6": "senior", "moreThan6": "lead"}.get(exp, "unknown")
+
+            sched = v.get("schedule", {}).get("id", "")
+            fmt = {"remote": "remote", "fullDay": "office",
+                   "flexible": "hybrid"}.get(sched, "unknown")
+
+            sal_obj = v.get("salary") or {}
+            sal_parts = []
+            if sal_obj.get("from"):
+                sal_parts.append(f"от {sal_obj['from']:,}".replace(",", " ") + " ₽")
+            if sal_obj.get("to"):
+                sal_parts.append(f"до {sal_obj['to']:,}".replace(",", " ") + " ₽")
+            sal = " — ".join(sal_parts) if sal_parts else None
+
+            pub = v.get("published_at", "")
+            time_str = pub[11:16] if len(pub) >= 16 else None
+
+            jobs.append({
+                "s": "hh.ru",
+                "pid": vid,
+                "time": time_str,
+                "t": title[:140],
+                "c": v.get("employer", {}).get("name", "—"),
+                "lvl": lvl,
+                "fmt": fmt,
+                "role": detect_role(title, role_keywords),
+                "sal": sal,
+                "url": v.get("alternate_url", ""),
+            })
+
+        time.sleep(0.5)
+
+    return jobs
+
+
 def generate(all_jobs):
     template = TEMPLATE_FILE.read_text(encoding="utf-8")
     snapshot_date = datetime.date.today().isoformat()
@@ -224,19 +292,22 @@ def main():
             continue
         name = src["name"]
         print(f"Fetching {name}...")
-        html = fetch_html(src["url"])
-        if not html:
-            print(f"  → skip (fetch failed)")
-            continue
 
-        if src["kind"] == "tg":
-            jobs = parse_telegram(html, name, exclude_keywords, role_keywords)
-        elif src["kind"] == "hirehi":
-            jobs = parse_hirehi(html, role_keywords)
+        if src["kind"] == "hh":
+            jobs = parse_hh(src, exclude_keywords, role_keywords)
         else:
-            continue
+            html = fetch_html(src["url"])
+            if not html:
+                print(f"  → skip (fetch failed)")
+                continue
+            if src["kind"] == "tg":
+                jobs = parse_telegram(html, name, exclude_keywords, role_keywords)
+            elif src["kind"] == "hirehi":
+                jobs = parse_hirehi(html, role_keywords)
+            else:
+                continue
 
-        key = "HireHi" if src["kind"] == "hirehi" else name
+        key = "HireHi" if src["kind"] == "hirehi" else ("hh.ru" if src["kind"] == "hh" else name)
         new_by_source[key] = jobs
         print(f"  → {len(jobs)} вакансий")
         time.sleep(1)

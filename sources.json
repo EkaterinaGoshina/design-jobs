@@ -10,7 +10,9 @@
     {"kind": "tg", "name": "young_relocate",  "url": "https://t.me/s/young_relocate",  "enabled": true},
     {"kind": "tg", "name": "careerspace",     "url": "https://t.me/s/careerspace",     "enabled": true},
     {"kind": "tg", "name": "huggabletalents", "url": "https://t.me/s/huggabletalents", "enabled": true},
-    {"kind": "hirehi", "name": "HireHi",      "url": "https://hirehi.ru/?category=design&search=ux/ui", "enabled": true}
+    {"kind": "hirehi", "name": "HireHi",      "url": "https://hirehi.ru/?category=design&search=ux/ui", "enabled": true},
+    {"kind": "hh",     "name": "hh.ru",       "url": "https://api.hh.ru/vacancies",                      "enabled": true,
+     "queries": ["UX дизайнер", "UI дизайнер", "продуктовый дизайнер", "web designer", "веб дизайнер"]}
   ],
 
   "_filter_comment": "Что точно не показывать: парсер дропнет вакансию, если в title или начале body найдёт любое из этих ключевых слов",

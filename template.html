@@ -455,14 +455,15 @@
     if (status==='viewed') badge='<span class="status-badge viewed">👀 Просмотрела</span>';
     if (status==='applied') badge='<span class="status-badge applied">✅ Откликнулась</span>';
 
-    const sourceLabel = (j.s==='HireHi') ? 'HireHi' : '@'+j.s;
+    const sourceLabel = (j.s==='HireHi') ? 'HireHi' : (j.s==='hh.ru') ? 'hh.ru' : '@'+j.s;
     const dateStr = fmtDate(j.time);
 
     const bV='<button class="btn btn-status'+(status==='viewed'?' active-viewed':'')+'" data-status="viewed">👀</button>';
     const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
     const bS='<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
 
-    const postUrl = (j.s !== 'HireHi') ? 'https://t.me/'+j.s+'/'+j.pid : j.url;
+    const isTg = (j.s !== 'HireHi' && j.s !== 'hh.ru');
+    const postUrl = isTg ? 'https://t.me/'+j.s+'/'+j.pid : j.url;
     const applyUrl = (j.url !== postUrl) ? j.url : null;
 
     return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
