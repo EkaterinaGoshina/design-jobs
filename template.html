@@ -451,6 +451,10 @@
     const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
     const bS='<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
 
+    // Для TG-постов всегда открываем сам пост, а не ссылку на отклик
+    const postUrl = (j.s !== 'HireHi') ? 'https://t.me/'+j.s+'/'+j.pid : j.url;
+    const applyUrl = (j.url !== postUrl) ? j.url : null;
+
     return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
       '<div class="card-head"><div class="card-title">'+esc(j.t)+
         (j.c?' <span style="color:#8e8e93;font-weight:400">· '+esc(j.c)+'</span>':'')+
@@ -459,7 +463,8 @@
       (j.sal?'<div class="card-desc">'+esc(j.sal)+(j.note?' · <i>'+esc(j.note)+'</i>':'')+'</div>':'')+
       (pub?'<div class="pub">'+esc(pub)+'</div>':'')+
       '<div class="card-actions">'+
-        '<a class="btn btn-primary" href="'+escAttr(j.url)+'" target="_blank" rel="noopener">Открыть ↗</a>'+
+        '<a class="btn btn-primary" href="'+escAttr(postUrl)+'" target="_blank" rel="noopener">Читать ↗</a>'+
+        (applyUrl?'<a class="btn" href="'+escAttr(applyUrl)+'" target="_blank" rel="noopener">Откликнуться</a>':'')+
         bV+bA+bS+
       '</div></div>';
   }
