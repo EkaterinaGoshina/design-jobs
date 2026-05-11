@@ -1,6 +1,116 @@
 {
-  "snapshot_date": "2026-05-10",
+  "snapshot_date": "2026-05-11",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 42878,
+      "t": "Продуктовый дизайнер",
+      "c": "Unlimit",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "product",
+      "sal": "~ 276 000 ₽, офис Сербия",
+      "url": "https://hirehi.ru/design/produktovyi-dizainer-42878"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42871,
+      "t": "ui designer",
+      "c": "NDA",
+      "lvl": "junior",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "~ 87 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ui-designer-42871"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42854,
+      "t": "product designer",
+      "c": "NDA",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "~ 201 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/product-designer-42854"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42843,
+      "t": "product designer",
+      "c": "SmartRecruiters",
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "~ 300 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/product-designer-42843"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42834,
+      "t": "коммуникационный дизайнер",
+      "c": "Т1",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "~ 143 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/kommunikatsionnyi-dizainer-42834"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42813,
+      "t": "creative director",
+      "c": "NDA",
+      "lvl": "lead",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "~ 311 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/creative-director-42813"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42811,
+      "t": "ux/ui-дизайнер",
+      "c": "TEN MIXAIL VLADIMIROVICH",
+      "lvl": "junior",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "от 32 000 ₽, офис Ташкент",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-42811"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42794,
+      "t": "Product Designer",
+      "c": "Joom",
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "~ 270 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/product-designer-42794"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42784,
+      "t": "UX/UI дизайнер",
+      "c": "übernatural",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "от 200 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-42784"
+    },
+    {
+      "s": "HireHi",
+      "pid": 42779,
+      "t": "Графический дизайнер",
+      "c": "MacCoffee",
+      "lvl": "middle",
+      "fmt": "hybrid",
+      "role": "other",
+      "sal": "~ 111 000 ₽, гибрид",
+      "url": "https://hirehi.ru/design/graficheskii-dizainer-42779"
+    },
     {
       "s": "HireHi",
       "pid": 42755,
@@ -187,116 +297,6 @@
       "role": "product",
       "sal": "~ 308 000 ₽, гибрид Москва",
       "url": "https://hirehi.ru/design/produktovyi-dizainer-42571"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42564,
-      "t": "ux/ui-дизайнер",
-      "c": "Startups DNA",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "от 96 000 ₽, офис Ташкент",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-42564"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42563,
-      "t": "UX/UI дизайнер",
-      "c": "MediaPeace",
-      "lvl": "junior",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "от 24 000 ₽, офис Алматы",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-42563"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42546,
-      "t": "ux/ui-дизайнер",
-      "c": "Вайт Рэбит",
-      "lvl": "junior",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "от 74 000 ₽, офис Пермь",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-42546"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42543,
-      "t": "Продуктовый дизайнер",
-      "c": "Росгосстрах",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "~ 277 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/produktovyi-dizainer-42543"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42542,
-      "t": "ux/ui-дизайнер",
-      "c": "Js-Alfa",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "от 80 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-42542"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42530,
-      "t": "Product Designer",
-      "c": "NDA",
-      "lvl": "junior",
-      "fmt": "office",
-      "role": "product",
-      "sal": "~ 106 000 ₽, офис Питер",
-      "url": "https://hirehi.ru/design/product-designer-42530"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42504,
-      "t": "Product Designer",
-      "c": "Звук",
-      "lvl": "senior",
-      "fmt": "hybrid",
-      "role": "product",
-      "sal": "зп не указана, гибрид Москва",
-      "url": "https://hirehi.ru/design/product-designer-42504"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42495,
-      "t": "арт-директор",
-      "c": "depotwpf",
-      "lvl": "lead",
-      "fmt": "office",
-      "role": "other",
-      "sal": "~ 205 000 ₽, офис Москва",
-      "url": "https://hirehi.ru/design/art-direktor-42495"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42482,
-      "t": "ux/ui designer",
-      "c": "BoilerLab",
-      "lvl": "senior",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "~ 230 000 ₽, гибрид Москва",
-      "url": "https://hirehi.ru/design/ux-ui-designer-42482"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42440,
-      "t": "web designer",
-      "c": "NDA",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "web",
-      "sal": "~ 110 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/web-designer-42440"
     },
     {
       "s": "uxwork",
@@ -492,19 +492,6 @@
       "role": "product",
       "sal": "#Москва #продукт",
       "url": "https://t.me/uxwork/1448"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5735,
-      "date": "2026-05-03",
-      "time": "05:25",
-      "t": "Дизайнер продукта (стажёр) в Поиск по финансам",
-      "c": "Поиск по финансам",
-      "lvl": "junior",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "Задачи: - исследование и анализ форм сбора данных",
-      "url": "https://yandex.ru/jobs/vacancies/dizayner-produkta-stazhyor-v-poisk-po-finansam-44984"
     },
     {
       "s": "dsgn_vacancies",
@@ -858,6 +845,32 @@
       "url": "https://careerspace.app/job/234338?utm_source=telegram&amp;utm_medium=careerspace"
     },
     {
+      "s": "careerspace",
+      "pid": 14604,
+      "date": "2026-05-11",
+      "time": "10:30",
+      "t": "Вакансии в продажах — от KAM до премиум-менеджера",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "💼 💼",
+      "url": "https://careerspace.app/job/235871?utm_source=telegram&amp;utm_medium=careerspace"
+    },
+    {
+      "s": "careerspace",
+      "pid": 14606,
+      "date": "2026-05-11",
+      "time": "14:02",
+      "t": "Старший руководитель по развитию продукта / Альфа-Банк",
+      "c": "—",
+      "lvl": "senior",
+      "fmt": "hybrid",
+      "role": "other",
+      "sal": "💼 Альфа-Банк",
+      "url": "http://hh.ru/"
+    },
+    {
       "s": "design_jobs_uxui",
       "pid": 1122,
       "date": "2026-04-20",
@@ -963,19 +976,6 @@
     },
     {
       "s": "young_relocate",
-      "pid": 1793,
-      "date": "2026-04-30",
-      "time": "11:10",
-      "t": "Variant Group hiring",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "✅ At Variant Group, we build B2C and B2B SaaS products that millions of people use every day — from résumé builders to legal document generators. We turn complex challenges into simple, accessible solutions.",
-      "url": "https://t.me/young_relocate/1793"
-    },
-    {
-      "s": "young_relocate",
       "pid": 1798,
       "date": "2026-05-01",
       "time": "15:04",
@@ -999,19 +999,6 @@
       "role": "other",
       "sal": "Remote Eqvilent is a global proprietary quantitative trading firm.  We develop and run high-frequency trading strategies using advanced research and deep learning models.",
       "url": "https://t.me/young_relocate/1805"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 2692,
-      "date": "2026-04-28",
-      "time": "13:03",
-      "t": "Ксюша…",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Вакансии, собеседования, условия и так по кругу... За каждым откликом и оффером стоит живой человек — с сомнениями, паузами, страхом сделать шаг в неизвестность. Мы хотим делиться реальными историями людей, на чей карьерный путь повлиял наш",
-      "url": "https://t.me/huggabletalents/2692"
     },
     {
       "s": "huggabletalents",
@@ -1090,6 +1077,19 @@
       "role": "other",
       "sal": "Гибрид, офис в Москве, З/П обсуждается индивидуально Яндекс Фабрика",
       "url": "https://yandex.ru/jobs/services/fabrika"
+    },
+    {
+      "s": "huggabletalents",
+      "pid": 2714,
+      "date": "2026-05-11",
+      "time": "11:35",
+      "t": "Дизайнер в belle you",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "office",
+      "role": "other",
+      "sal": "Офис, Москва, З/П обсуждается индивидуально belle you",
+      "url": "https://hh.ru/vacancy/132246036?utm_source=chatgpt.com"
     }
   ]
 }
