@@ -441,6 +441,14 @@
       card.querySelectorAll('.btn-status').forEach(btn => {
         btn.addEventListener('click', e => { e.stopPropagation(); setStatus(url, btn.dataset.status); });
       });
+      const readBtn = card.querySelector('.btn-primary');
+      if (readBtn) {
+        readBtn.addEventListener('click', () => {
+          if (!state.statuses[url] || state.statuses[url] === 'new') {
+            setStatus(url, 'viewed');
+          }
+        });
+      }
     });
   }
 
