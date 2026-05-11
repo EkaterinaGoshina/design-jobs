@@ -3,6 +3,17 @@
   "jobs": [
     {
       "s": "HireHi",
+      "pid": 42889,
+      "t": "Game Designer",
+      "c": "SaibirStudio",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "от 80 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/game-designer-42889"
+    },
+    {
+      "s": "HireHi",
       "pid": 42878,
       "t": "Продуктовый дизайнер",
       "c": "Unlimit",
@@ -288,17 +299,6 @@
       "url": "https://hirehi.ru/design/graficheskii-dizainer-42609"
     },
     {
-      "s": "HireHi",
-      "pid": 42571,
-      "t": "Продуктовый дизайнер",
-      "c": "Wildberries",
-      "lvl": "senior",
-      "fmt": "hybrid",
-      "role": "product",
-      "sal": "~ 308 000 ₽, гибрид Москва",
-      "url": "https://hirehi.ru/design/produktovyi-dizainer-42571"
-    },
-    {
       "s": "uxwork",
       "pid": 1430,
       "date": "2026-02-14",
@@ -495,32 +495,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5736,
-      "date": "2026-05-03",
-      "time": "06:48",
-      "t": "Ищем дизайнера YouTube-обложек с опытом",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Нужно сделать обложку для выпуска на YouTube с обзором автомобиля. Требования к кандидату",
-      "url": "http://t.me/bndchmp"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5737,
-      "date": "2026-05-03",
-      "time": "06:50",
-      "t": "Всем привет!",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Ищем дизайнера, нужно пересобрать визуально сайт https://ugc-market.ru",
-      "url": "http://t.me/ugcmarkett"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 5738,
       "date": "2026-05-03",
       "time": "09:45",
@@ -700,6 +674,19 @@
       "role": "other",
       "sal": "​ задачи:",
       "url": "http://t.me/airrtech"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 5758,
+      "date": "2026-05-11",
+      "time": "18:23",
+      "t": "ИЩУ ДИЗАЙНЕРА ОБЛОЖЕК ДЛЯ РИЛС",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "-строго пк -Photoshop",
+      "url": "http://t.me/kai1l1"
     },
     {
       "s": "sparklesjobs",
