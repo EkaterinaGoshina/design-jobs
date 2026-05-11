@@ -49,7 +49,7 @@
     display: flex; flex-direction: column;
   }
   .card-actions { margin-top: auto; }
-  .card.status-viewed { opacity: 0.68; }
+  .card.status-viewed { background: #f0f0f4; border-color: #c7c7cc; color: #6e6e73; }
   .card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
   .card.status-skip { opacity: 0.35; }
   .card.status-test { background: #fff8e1; border-color: #ffe082; }
@@ -480,7 +480,6 @@
     const sourceLabel = (j.s==='HireHi') ? 'HireHi' : (j.s==='hh.ru') ? 'hh.ru' : '@'+j.s;
     const dateStr = fmtDate(j.date, j.time);
 
-    const bV='<button class="btn btn-status'+(status==='viewed'?' active-viewed':'')+'" data-status="viewed">👀</button>';
     const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
     const bT='<button class="btn btn-status'+(status==='test'?' active-test':'')+'" data-status="test">📝</button>';
     const bS='<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
@@ -497,7 +496,7 @@
       '<div class="card-footer">'+
         '<div class="card-actions">'+
           '<a class="btn btn-primary" href="'+escAttr(postUrl)+'" target="_blank" rel="noopener">Читать ↗</a>'+
-          bV+bA+bT+bS+
+          bA+bT+bS+
         '</div>'+
         (dateStr?'<span class="card-date">'+esc(dateStr)+'</span>':'')+
       '</div></div>';
