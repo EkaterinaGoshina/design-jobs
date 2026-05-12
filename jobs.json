@@ -3,6 +3,127 @@
   "jobs": [
     {
       "s": "HireHi",
+      "pid": 43165,
+      "t": "UX/UI дизайнер",
+      "c": "Skytec Games",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "~ 130 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-43165"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43159,
+      "t": "product designer",
+      "c": "NDA",
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "~ 347 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/product-designer-43159"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43152,
+      "t": "graphic designer",
+      "c": "Volka",
+      "lvl": "middle",
+      "fmt": "office",
+      "role": "other",
+      "sal": "~ 183 000 ₽, офис Лимассол",
+      "url": "https://hirehi.ru/design/graphic-designer-43152"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43142,
+      "t": "Digital designer",
+      "c": "Rendeavour",
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "~ 237 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/digital-designer-43142"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43138,
+      "t": "ux/ui-дизайнер",
+      "c": "Глобус",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "~ 133 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-43138"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43137,
+      "t": "ux/ui-дизайнер",
+      "c": "Финтех-Платформа",
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "~ 208 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-43137"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43102,
+      "t": "веб-дизайнер",
+      "c": "Фонд Талант и успех",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "web",
+      "sal": "от 90 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/veb-dizainer-43102"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43101,
+      "t": "Product Designer",
+      "c": "ВЛАДИС",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "~ 189 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/product-designer-43101"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43097,
+      "t": "Дизайнер продукта",
+      "c": "Сравни",
+      "lvl": "junior",
+      "fmt": "office",
+      "role": "product",
+      "sal": "~ 102 000 ₽, офис Москва",
+      "url": "https://hirehi.ru/design/dizainer-produkta-43097"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43094,
+      "t": "Дизайнер продукта",
+      "c": "Security Vision",
+      "lvl": "middle",
+      "fmt": "office",
+      "role": "product",
+      "sal": "~ 203 000 ₽, офис Москва",
+      "url": "https://hirehi.ru/design/dizainer-produkta-43094"
+    },
+    {
+      "s": "HireHi",
+      "pid": 43091,
+      "t": "Graphic Designer",
+      "c": "Яндекс Фабрика",
+      "lvl": "lead",
+      "fmt": "hybrid",
+      "role": "other",
+      "sal": "~ 244 000 ₽, гибрид",
+      "url": "https://hirehi.ru/design/graphic-designer-43091"
+    },
+    {
+      "s": "HireHi",
       "pid": 43030,
       "t": "game designer",
       "c": "NDA",
@@ -22,17 +143,6 @@
       "role": "ux",
       "sal": "~ 218 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-43028"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42995,
-      "t": "Дизайнер продукта",
-      "c": "Протей НТЦ",
-      "lvl": "middle",
-      "fmt": "hybrid",
-      "role": "product",
-      "sal": "от 170 000 ₽, гибрид Питер",
-      "url": "https://hirehi.ru/design/dizainer-produkta-42995"
     },
     {
       "s": "HireHi",
@@ -187,116 +297,6 @@
       "role": "product",
       "sal": "~ 300 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/product-designer-42843"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42813,
-      "t": "creative director",
-      "c": "NDA",
-      "lvl": "lead",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "~ 311 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/creative-director-42813"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42811,
-      "t": "ux/ui-дизайнер",
-      "c": "TEN MIXAIL VLADIMIROVICH",
-      "lvl": "junior",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "от 32 000 ₽, офис Ташкент",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-42811"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42794,
-      "t": "Product Designer",
-      "c": "Joom",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "~ 270 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/product-designer-42794"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42784,
-      "t": "UX/UI дизайнер",
-      "c": "übernatural",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "от 200 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-42784"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42779,
-      "t": "Графический дизайнер",
-      "c": "MacCoffee",
-      "lvl": "middle",
-      "fmt": "hybrid",
-      "role": "other",
-      "sal": "~ 111 000 ₽, гибрид",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-42779"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42755,
-      "t": "game designer",
-      "c": "NDA",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 80 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/game-designer-42755"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42754,
-      "t": "графический дизайнер",
-      "c": "FlyOne",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "other",
-      "sal": "~ 60 000 ₽, офис Ереван",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-42754"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42724,
-      "t": "ux/ui-дизайнер",
-      "c": "VIDA CONSTA MOMENT",
-      "lvl": "junior",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "от 19 200 ₽, гибрид Ташкент",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-42724"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42706,
-      "t": "Product Designer",
-      "c": "Sputnik8",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "~ 203 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/product-designer-42706"
-    },
-    {
-      "s": "HireHi",
-      "pid": 42700,
-      "t": "Product Designer",
-      "c": "Домклик",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "~ 291 000 ₽, удалённо по РФ",
-      "url": "https://hirehi.ru/design/product-designer-42700"
     },
     {
       "s": "uxwork",
@@ -495,45 +495,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5741,
-      "date": "2026-05-05",
-      "time": "04:15",
-      "t": "Промышленный дизайнер",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "hybrid",
-      "role": "other",
-      "sal": "МагнитТех Задачи:",
-      "url": "https://magnit.tech/vacancies/2848"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5743,
-      "date": "2026-05-05",
-      "time": "19:16",
-      "t": "Также нужен дизайнер для стикерпака — добавить в существующий новые эмодзи и адаптировать их под ТЗ (сделать меньше, закруглить и т.д.).",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "На постоянку нужен дизайнер, который для Московского канала сможет оперативно (в течении 20 минут) делать фирменные медиа. Форматов будет немного, нагрузки тоже, 1-3 медиа в день. В лс пожалуйста сразу цену за единицу каждое медиа и кейсы, ",
-      "url": "http://t.me/DRM_V"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5744,
-      "date": "2026-05-05",
-      "time": "19:25",
-      "t": "UI/UX дизайнер в штат (мультимедиа)",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "Мы — компания «Открытые технологии». Делаем интерактивные музеи, мультимедийные инсталляции и масштабные выставочные пространства. Ищем в команду сильного UI/UX дизайнера на фуллтайм. Предстоит:",
-      "url": "http://t.me/weykum"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 5745,
       "date": "2026-05-06",
       "time": "04:25",
@@ -687,6 +648,32 @@
       "role": "other",
       "sal": "Нужно срочно сделать вывеску для коммерции • Отклики без портфолио",
       "url": "https://t.me/dsgn_vacancies/5760"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 5761,
+      "date": "2026-05-12",
+      "time": "12:54",
+      "t": "AI в дизайне это уже не про отдельные тулзы",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "На днях наткнулся на цифру: 94% компаний",
+      "url": "https://t.me/dsgn_vacancies/5761"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 5763,
+      "date": "2026-05-12",
+      "time": "18:39",
+      "t": "Продуктовый дизайнер в стрим \"UGC и Гараж\"",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": "Вам предстоит отвечать за весь опыт владения авто после покупки — пользовательский контент, отзывы и советы в \"Бортжурнале\" , ежедневные сервисы (заправки/мойки/страховки/запчасти) и рекомендации по обслуживанию в \"Гараже\" Растить ретеншн, ",
+      "url": "http://t.me/anavarda"
     },
     {
       "s": "sparklesjobs",
@@ -989,19 +976,6 @@
     },
     {
       "s": "young_relocate",
-      "pid": 1798,
-      "date": "2026-05-01",
-      "time": "15:04",
-      "t": "Principal Product Designer /",
-      "c": "—",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "Recraft.ai United Kingdom, relocation",
-      "url": "https://wantapply.com/principal-product-designer-at-recraft-ai"
-    },
-    {
-      "s": "young_relocate",
       "pid": 1805,
       "date": "2026-05-06",
       "time": "09:59",
@@ -1014,30 +988,17 @@
       "url": "https://t.me/young_relocate/1805"
     },
     {
-      "s": "huggabletalents",
-      "pid": 2701,
-      "date": "2026-05-04",
-      "time": "11:10",
-      "t": "Управляющий / Операционный менеджер в Frenchie",
-      "c": "Frenchie",
-      "lvl": "unknown",
-      "fmt": "office",
-      "role": "other",
-      "sal": "Офис, Москва, З/П обсуждается индивидуально Frenchie",
-      "url": "https://t.me/huggabletalents/2701"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 2704,
-      "date": "2026-05-05",
-      "time": "07:04",
-      "t": "Арт-директор в staya",
+      "s": "young_relocate",
+      "pid": 1819,
+      "date": "2026-05-12",
+      "time": "13:26",
+      "t": "#datascience",
       "c": "—",
-      "lvl": "unknown",
-      "fmt": "hybrid",
+      "lvl": "senior",
+      "fmt": "remote",
       "role": "other",
-      "sal": "Гибрид, офис в Москве, З/П обсуждается индивидуально staya",
-      "url": "https://t.me/huggabletalents/2704"
+      "sal": "Senior Data Scientist (PAI) / Akvelon Remote (Poland preferred)",
+      "url": "https://wantapply.com/senior-data-scientist-pai-at-akvelon"
     },
     {
       "s": "huggabletalents",
@@ -1103,6 +1064,19 @@
       "role": "other",
       "sal": "Удаленка, З/П от 60 000 до 140 000 рублей ICG Agency",
       "url": "https://t.me/huggabletalents/2716"
+    },
+    {
+      "s": "huggabletalents",
+      "pid": 2718,
+      "date": "2026-05-12",
+      "time": "13:03",
+      "t": "PR-менеджер в HIRCOST",
+      "c": "HIRCOST",
+      "lvl": "unknown",
+      "fmt": "hybrid",
+      "role": "other",
+      "sal": "Гибрид, офис в Санкт-Петербурге, З/П обсуждается индивидуально HIRCOST",
+      "url": "https://t.me/huggabletalents/2718"
     }
   ]
 }
