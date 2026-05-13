@@ -83,7 +83,8 @@ body {
 .stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
 #list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: stretch; }
 @media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
-.card { border: 1px solid #e5e5ea; border-radius: 14px; padding: 13px 15px; background: #fff; transition: opacity 0.15s, background 0.15s, border-color 0.15s; display: flex; flex-direction: column; }
+.card { border: 1px solid #e5e5ea; border-radius: 14px; padding: 13px 15px; background: #fff; transition: opacity 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; cursor: pointer; }
+.card:hover { border-color: #c7c7cc; box-shadow: 0 2px 10px rgba(0,0,0,0.07); }
 .card-actions { margin-top: auto; }
 .card.status-viewed { background: #f0f0f4; border-color: #c7c7cc; color: #6e6e73; }
 .card.status-applied { background: #f0faf0; border-color: #b2dfdb; cursor: pointer; }
@@ -780,15 +781,17 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
           if (!state.statuses[url] || state.statuses[url] === 'new') setStatus(url, 'viewed');
         });
       }
-      // Клик по карточке → трекер (только если вакансия там есть)
+      // Клик по карточке → добавляем в трекер если нет, переходим к строке
       card.addEventListener('click', e => {
         if (e.target.closest('a,button')) return;
-        const st = state.statuses[url];
+        const j = JOBS.find(j => j.url === url);
         let pl = {};
-        try { pl = JSON.parse(localStorage.getItem('designJobs.pipeline.v1') || '{}'); } catch(e){}
-        if (st === 'applied' || st === 'test' || pl[url]) {
-          window.goToTrackerRow(url);
+        try { pl = JSON.parse(localStorage.getItem('designJobs.pipeline.v1') || '{}'); } catch(err){}
+        if (!pl[url]) {
+          pl[url] = { title: j ? j.t : url, source: j ? j.s : '' };
+          localStorage.setItem('designJobs.pipeline.v1', JSON.stringify(pl));
         }
+        window.goToTrackerRow(url);
       });
     });
   }
