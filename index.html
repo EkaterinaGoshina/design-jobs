@@ -137,15 +137,40 @@ body {
   background: #f0f0f4; color: #6e6e73; font-size: 12px;
   padding: 3px 10px; border-radius: 999px; white-space: nowrap;
 }
-.stats-bar {
-  display: flex; gap: 16px; padding: 0 16px 10px;
-  font-size: 12px; color: #6e6e73; flex-wrap: wrap;
+.stats-bar { display: none; }
+.stat-cards {
+  display: flex; gap: 10px; padding: 0 16px 14px;
+  flex-wrap: wrap;
 }
-.pl-stat { display: flex; align-items: center; gap: 5px; }
-.stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.stat-dot.active  { background: #0a84ff; }
-.stat-dot.offer   { background: #34c759; }
-.stat-dot.reject  { background: #c7c7cc; }
+.stat-card {
+  flex: 1; min-width: 90px; max-width: 160px;
+  background: #fff; border: 1.5px solid #e5e5ea;
+  border-radius: 14px; padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.stat-card-num {
+  font-size: 26px; font-weight: 700; line-height: 1;
+  color: #1a1a1a;
+}
+.stat-card-label {
+  font-size: 11px; color: #8e8e93; font-weight: 500; white-space: nowrap;
+}
+.stat-card.c-active  { border-color: #a8d8ff; background: #f0f8ff; }
+.stat-card.c-active  .stat-card-num { color: #0a84ff; }
+.stat-card.c-offer   { border-color: #a8f0c0; background: #f0fff5; }
+.stat-card.c-offer   .stat-card-num { color: #1c7a3e; }
+.stat-card.c-reject  { border-color: #e5e5ea; background: #f5f5f7; }
+.stat-card.c-reject  .stat-card-num { color: #6e6e73; }
+.stat-card.c-ignore  { border-color: #ffd6a5; background: #fff8f0; }
+.stat-card.c-ignore  .stat-card-num { color: #c05000; }
+.stat-card.c-test    { border-color: #ffd6a5; background: #fffbf0; }
+.stat-card.c-test    .stat-card-num { color: #7a5000; }
+.stat-card.c-total   { border-color: #e5e5ea; }
+.stat-card.c-total   .stat-card-num { color: #3a3a3c; }
+.stat-sub {
+  font-size: 10px; color: #8e8e93; margin-top: 2px;
+  line-height: 1.4;
+}
 .table-wrap { padding: 0 16px; overflow-x: auto; }
 table {
   width: 100%; border-collapse: collapse;
@@ -389,6 +414,9 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
   #panel-tracker { padding: 8px 0 0; }
   .pl-header { padding: 4px 16px 8px; }
   .stats-bar { padding: 0 16px 8px; }
+  .stat-cards { padding: 0 12px 12px; gap: 8px; }
+  .stat-card { min-width: 70px; padding: 10px 12px; border-radius: 12px; }
+  .stat-card-num { font-size: 22px; }
   .table-wrap { padding: 0; }
   table { border-radius: 0; border-left: none; border-right: none; }
   thead { top: 0; }
@@ -514,6 +542,7 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
   </div>
 
   <div class="stats-bar" id="pl-stats"></div>
+  <div class="stat-cards" id="stat-cards"></div>
 
   <div class="tracker-search-row">
     <div class="tracker-search-wrap">
@@ -1008,15 +1037,32 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       return note.includes(searchQ) || title.includes(searchQ) || src.includes(searchQ);
     }) : allRows;
     const pl = plLs(PK);
-    document.getElementById('cnt').textContent = rows.length;
-    const offers  = rows.filter(r => (pl[r.url]||{}).result === 'offer').length;
-    const rejects = rows.filter(r => (pl[r.url]||{}).result === 'reject').length;
-    const active  = rows.length - offers - rejects;
-    const stats = [];
-    if (active)  stats.push('<span class="pl-stat"><span class="stat-dot active"></span>'+active+' в работе</span>');
-    if (offers)  stats.push('<span class="pl-stat"><span class="stat-dot offer"></span>'+offers+' оффер'+(offers>1?'а':'')+'</span>');
-    if (rejects) stats.push('<span class="pl-stat"><span class="stat-dot reject"></span>'+rejects+' отказ'+(rejects>1?'а':'')+'</span>');
-    document.getElementById('pl-stats').innerHTML = stats.join('');
+    const allPl = plLs(PK);
+    const total   = allRows.length;
+    const offers  = allRows.filter(r => (allPl[r.url]||{}).result === 'offer').length;
+    const rejects = allRows.filter(r => (allPl[r.url]||{}).result === 'reject').length;
+    const ignores = allRows.filter(r => (allPl[r.url]||{}).result === 'ignore').length;
+    const active  = total - offers - rejects - ignores;
+    const tGot    = allRows.filter(r => (allPl[r.url]||{}).testStage === 'получила').length;
+    const tDoing  = allRows.filter(r => (allPl[r.url]||{}).testStage === 'делаю').length;
+    const tSent   = allRows.filter(r => (allPl[r.url]||{}).testStage === 'отправила').length;
+    const testTotal = tGot + tDoing + tSent;
+    document.getElementById('cnt').textContent = total;
+    function sc(cls, num, label, sub) {
+      if (!num && cls !== 'c-total') return '';
+      return '<div class="stat-card '+cls+'">'+
+        '<div class="stat-card-num">'+num+'</div>'+
+        '<div class="stat-card-label">'+label+'</div>'+
+        (sub ? '<div class="stat-sub">'+sub+'</div>' : '')+
+      '</div>';
+    }
+    document.getElementById('stat-cards').innerHTML =
+      sc('c-total',  total,   'Всего откликов') +
+      sc('c-active', active,  'В работе') +
+      sc('c-test',   testTotal, 'Тестовых', [tGot?'получила: '+tGot:'', tDoing?'делаю: '+tDoing:'', tSent?'отправила: '+tSent:''].filter(Boolean).join(' · ')) +
+      sc('c-offer',  offers,  'Офферов 🎉') +
+      sc('c-reject', rejects, 'Отказов') +
+      sc('c-ignore', ignores, 'Игноров 🙈');
     const tbl = document.getElementById('tbl');
     const plEmpty = document.getElementById('pl-empty');
     if (rows.length === 0) {
@@ -1062,7 +1108,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       return '<tr class="'+rowCls+'" data-url="'+plEsc(r.url)+'">'+
         '<td class="col-vacancy"><a class="job-title" href="'+plEsc(r.url)+'" target="_blank" rel="noopener" title="'+plEsc(r.title)+'">'+plEsc(r.title)+'</a><span class="job-source">'+plEsc(plSrcLabel(r.source))+'</span></td>'+
         appliedCell+testCell+callCell+
-        '<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option></select></td>'+
+        '<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option><option value="ignore"'+(p.result==='ignore'?' selected':'')+'>🙈 Игнор</option></select></td>'+
         '<td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td>'+
         '<td class="col-del"><button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует">🗑️</button></td></tr>';
     }).join('');
