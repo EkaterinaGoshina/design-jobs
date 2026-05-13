@@ -275,6 +275,31 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
   text-align: center; padding: 64px 20px; color: #8e8e93; font-size: 14px;
 }
 .empty-state strong { display: block; font-size: 20px; color: #3a3a3c; margin-bottom: 8px; }
+.tracker-search-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.tracker-search-wrap {
+  position: relative; flex: 1;
+}
+.tracker-search-wrap::before {
+  content: '🔍'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  font-size: 13px; pointer-events: none; opacity: 0.5;
+}
+.tracker-search {
+  width: 100%; padding: 8px 12px 8px 32px;
+  border: 1.5px solid #e5e5ea; border-radius: 12px;
+  font-size: 14px; font-family: inherit; background: #f5f5f7;
+  color: #1a1a1a; transition: border-color 0.15s, background 0.15s;
+  box-sizing: border-box;
+}
+.tracker-search:focus { outline: none; border-color: #0a84ff; background: #fff; }
+.tracker-search::placeholder { color: #b0b0b8; }
+.tracker-search-clr {
+  display: none; background: none; border: none; cursor: pointer;
+  color: #8e8e93; font-size: 16px; padding: 4px 8px; line-height: 1;
+}
+.tracker-search-clr:hover { color: #ff3b30; }
+.tracker-search-clr.visible { display: block; }
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
@@ -489,6 +514,13 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
   </div>
 
   <div class="stats-bar" id="pl-stats"></div>
+
+  <div class="tracker-search-row">
+    <div class="tracker-search-wrap">
+      <input class="tracker-search" id="tracker-search" type="text" placeholder="Поиск по заметкам, вакансиям, источнику…" autocomplete="off">
+    </div>
+    <button class="tracker-search-clr" id="tracker-search-clr" title="Очистить">✕</button>
+  </div>
 
   <div class="table-wrap">
     <table id="tbl" style="display:none">
@@ -947,9 +979,34 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
   document.addEventListener('click', closeDp);
   // ===========================
 
+  // ===== TRACKER SEARCH =====
+  (function() {
+    const inp = document.getElementById('tracker-search');
+    const clr = document.getElementById('tracker-search-clr');
+    if (!inp) return;
+    inp.addEventListener('input', () => {
+      clr.classList.toggle('visible', inp.value.length > 0);
+      if (typeof window.renderTracker === 'function') window.renderTracker();
+    });
+    clr.addEventListener('click', () => {
+      inp.value = '';
+      clr.classList.remove('visible');
+      if (typeof window.renderTracker === 'function') window.renderTracker();
+      inp.focus();
+    });
+  })();
+
   function renderTracker() {
     if (!document.getElementById('tbl')) return;
-    const rows = getRows();
+    const searchQ = (document.getElementById('tracker-search')?.value || '').trim().toLowerCase();
+    const allRows = getRows();
+    const rows = searchQ ? allRows.filter(r => {
+      const pl = plLs(PK);
+      const note = ((pl[r.url] || {}).note || '').toLowerCase();
+      const title = (r.title || '').toLowerCase();
+      const src = (r.source || '').toLowerCase();
+      return note.includes(searchQ) || title.includes(searchQ) || src.includes(searchQ);
+    }) : allRows;
     const pl = plLs(PK);
     document.getElementById('cnt').textContent = rows.length;
     const offers  = rows.filter(r => (pl[r.url]||{}).result === 'offer').length;
@@ -962,7 +1019,13 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     document.getElementById('pl-stats').innerHTML = stats.join('');
     const tbl = document.getElementById('tbl');
     const plEmpty = document.getElementById('pl-empty');
-    if (rows.length === 0) { tbl.style.display = 'none'; plEmpty.style.display = 'block'; return; }
+    if (rows.length === 0) {
+      tbl.style.display = 'none'; plEmpty.style.display = 'block';
+      plEmpty.innerHTML = searchQ
+        ? '<strong>Ничего не найдено</strong>Попробуй другой запрос'
+        : '<strong>Пока пусто</strong>Нажми ✅ на вакансии — она появится здесь';
+      return;
+    }
     tbl.style.display = 'table'; plEmpty.style.display = 'none';
     const DATE_FIELDS = ['appliedDate','callDate'];
     const TEST_STAGES = ['получила','делаю','отправила'];
