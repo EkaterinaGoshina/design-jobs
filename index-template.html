@@ -880,7 +880,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         '<td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td>'+
         '<td class="col-del">'+
           '<button class="reset-row-btn" data-url="'+plEsc(r.url)+'" title="Сбросить данные строки">↺</button>'+
-          '<button class="del-btn" data-url="'+plEsc(r.url)+'" title="Убрать из трекера">✕</button>'+
+          '<button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует">🗑️</button>'+
         '</td></tr>';
     }).join('');
     const tbody = document.getElementById('tbody');
@@ -908,7 +908,8 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         const url = btn.dataset.url;
         const p = plLs(PK); delete p[url]; savePL(p);
         const s = plLs(SK);
-        if (s[url] === 'applied' || s[url] === 'test') { s[url] = 'viewed'; localStorage.setItem(SK, JSON.stringify(s)); }
+        s[url] = 'skip';
+        localStorage.setItem(SK, JSON.stringify(s));
         renderTracker();
       });
     });
