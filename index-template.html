@@ -1064,10 +1064,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         appliedCell+testCell+callCell+
         '<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option></select></td>'+
         '<td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td>'+
-        '<td class="col-del">'+
-          '<button class="reset-row-btn" data-url="'+plEsc(r.url)+'" title="Сбросить данные строки">↺</button>'+
-          '<button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует">🗑️</button>'+
-        '</td></tr>';
+        '<td class="col-del"><button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует">🗑️</button></td></tr>';
     }).join('');
     const tbody = document.getElementById('tbody');
     tbody.querySelectorAll('.dp-trigger').forEach(btn => {
@@ -1089,17 +1086,6 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     });
     tbody.querySelectorAll('.result-sel').forEach(sel => { sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); renderTracker(); }); });
     tbody.querySelectorAll('.note-inp').forEach(inp => { inp.addEventListener('blur', () => setPF(inp.dataset.url, 'note', inp.value || null)); });
-    tbody.querySelectorAll('.reset-row-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const p = plLs(PK);
-        if (p[btn.dataset.url]) {
-          const kept = { title: p[btn.dataset.url].title, source: p[btn.dataset.url].source };
-          p[btn.dataset.url] = kept;
-          savePL(p);
-        }
-        renderTracker();
-      });
-    });
     tbody.querySelectorAll('.del-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const url = btn.dataset.url;
