@@ -176,7 +176,7 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
 .col-date   { width: 94px; }
 .col-result { width: 130px; }
 .col-note   { min-width: 130px; }
-.col-del    { width: 34px; text-align: center; }
+.col-del    { width: 60px; text-align: center; white-space: nowrap; }
 .job-title {
   display: block; font-size: 13px; font-weight: 600; color: #1a1a1a;
   text-decoration: none; line-height: 1.3; margin-bottom: 2px;
@@ -185,19 +185,29 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
 .job-title:hover { color: #0a84ff; }
 .job-source { font-size: 11px; font-weight: 700; color: #8e8e93; }
 .date-wrap { display: flex; align-items: center; gap: 3px; }
+.date-cell-inner { position: relative; display: inline-block; }
 .date-btn {
   background: none; border: 1px dashed #d0d0d5; border-radius: 6px;
   padding: 4px 8px; font-size: 12px; color: #8e8e93;
-  cursor: pointer; white-space: nowrap; font-family: inherit;
+  cursor: pointer; white-space: nowrap; font-family: inherit; display: block;
 }
 .date-btn:hover { border-color: #8e8e93; color: #3a3a3c; background: #f5f5f7; }
 .date-btn.filled { border-style: solid; border-color: #e5e5ea; color: #1a1a1a; background: #fff; font-weight: 500; }
+.date-inp-overlay {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  width: 100%; height: 100%; font-size: 0;
+}
 .date-clr {
   background: none; border: none; cursor: pointer;
   color: #c7c7cc; font-size: 11px; padding: 2px 3px; line-height: 1;
   font-family: inherit;
 }
 .date-clr:hover { color: #8e8e93; }
+.reset-row-btn {
+  background: none; border: none; cursor: pointer;
+  color: #c7c7cc; font-size: 13px; padding: 4px 5px; line-height: 1;
+}
+.reset-row-btn:hover { color: #ff9500; }
 .result-sel {
   border: 1px solid #e5e5ea; border-radius: 8px;
   padding: 5px 6px; font-size: 12px; background: #fff;
@@ -834,17 +844,6 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     savePL(p);
   }
 
-  function pickDate(url, field, current, cb) {
-    const pool = document.getElementById('date-pool');
-    const inp = document.createElement('input');
-    inp.type = 'date'; inp.value = current || '';
-    pool.appendChild(inp);
-    const cleanup = () => { if (pool.contains(inp)) pool.removeChild(inp); };
-    inp.addEventListener('change', () => { cb(inp.value || null); cleanup(); });
-    inp.addEventListener('blur', () => setTimeout(cleanup, 300));
-    try { inp.showPicker(); } catch { inp.click(); }
-  }
-
   function renderTracker() {
     if (!document.getElementById('tbl')) return;
     const rows = getRows();
@@ -868,19 +867,42 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       const rowCls = p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : '';
       const dateCells = FIELDS.map(f => {
         const v = p[f];
-        return '<td class="col-date"><div class="date-wrap"><button class="date-btn'+(v?' filled':'')+'" data-url="'+plEsc(r.url)+'" data-field="'+f+'">'+(v ? plEsc(fmtPlDate(v)) : '+ дата')+'</button>'+(v ? '<button class="date-clr" data-url="'+plEsc(r.url)+'" data-field="'+f+'">✕</button>' : '')+'</div></td>';
+        return '<td class="col-date"><div class="date-wrap"><div class="date-cell-inner"><button class="date-btn'+(v?' filled':'')+'">'+
+          (v ? plEsc(fmtPlDate(v)) : '+ дата')+
+          '</button><input type="date" class="date-inp-overlay" data-url="'+plEsc(r.url)+'" data-field="'+f+'" value="'+(v||'')+'"></div>'+
+          (v ? '<button class="date-clr" data-url="'+plEsc(r.url)+'" data-field="'+f+'">✕</button>' : '')+
+          '</div></td>';
       }).join('');
-      return '<tr class="'+rowCls+'" data-url="'+plEsc(r.url)+'"><td class="col-vacancy"><a class="job-title" href="'+plEsc(r.url)+'" target="_blank" rel="noopener" title="'+plEsc(r.title)+'">'+plEsc(r.title)+'</a><span class="job-source">'+plEsc(plSrcLabel(r.source))+'</span></td>'+dateCells+'<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option></select></td><td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td><td class="col-del"><button class="del-btn" data-url="'+plEsc(r.url)+'" title="Убрать">✕</button></td></tr>';
+      return '<tr class="'+rowCls+'" data-url="'+plEsc(r.url)+'">'+
+        '<td class="col-vacancy"><a class="job-title" href="'+plEsc(r.url)+'" target="_blank" rel="noopener" title="'+plEsc(r.title)+'">'+plEsc(r.title)+'</a><span class="job-source">'+plEsc(plSrcLabel(r.source))+'</span></td>'+
+        dateCells+
+        '<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option></select></td>'+
+        '<td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td>'+
+        '<td class="col-del">'+
+          '<button class="reset-row-btn" data-url="'+plEsc(r.url)+'" title="Сбросить данные строки">↺</button>'+
+          '<button class="del-btn" data-url="'+plEsc(r.url)+'" title="Убрать из трекера">✕</button>'+
+        '</td></tr>';
     }).join('');
     const tbody = document.getElementById('tbody');
-    tbody.querySelectorAll('.date-btn').forEach(btn => {
-      btn.addEventListener('click', () => { pickDate(btn.dataset.url, btn.dataset.field, getPF(btn.dataset.url, btn.dataset.field), val => { setPF(btn.dataset.url, btn.dataset.field, val); renderTracker(); }); });
+    tbody.querySelectorAll('.date-inp-overlay').forEach(inp => {
+      inp.addEventListener('change', () => { setPF(inp.dataset.url, inp.dataset.field, inp.value || null); renderTracker(); });
     });
     tbody.querySelectorAll('.date-clr').forEach(btn => {
       btn.addEventListener('click', e => { e.stopPropagation(); setPF(btn.dataset.url, btn.dataset.field, null); renderTracker(); });
     });
     tbody.querySelectorAll('.result-sel').forEach(sel => { sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); renderTracker(); }); });
     tbody.querySelectorAll('.note-inp').forEach(inp => { inp.addEventListener('blur', () => setPF(inp.dataset.url, 'note', inp.value || null)); });
+    tbody.querySelectorAll('.reset-row-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = plLs(PK);
+        if (p[btn.dataset.url]) {
+          const kept = { title: p[btn.dataset.url].title, source: p[btn.dataset.url].source };
+          p[btn.dataset.url] = kept;
+          savePL(p);
+        }
+        renderTracker();
+      });
+    });
     tbody.querySelectorAll('.del-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const url = btn.dataset.url;
