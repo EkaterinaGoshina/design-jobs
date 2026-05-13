@@ -25,6 +25,8 @@ TEMPLATE_FILE        = HERE / "template.html"
 OUTPUT_FILE          = HERE / "dashboard.html"
 PIPELINE_TEMPLATE    = HERE / "pipeline-template.html"
 PIPELINE_OUTPUT      = HERE / "pipeline.html"
+INDEX_TEMPLATE       = HERE / "index-template.html"
+INDEX_OUTPUT         = HERE / "index.html"
 
 
 def main() -> int:
@@ -56,9 +58,14 @@ def main() -> int:
     # Генерируем pipeline.html
     if PIPELINE_TEMPLATE.exists():
         pl_tmpl = PIPELINE_TEMPLATE.read_text(encoding="utf-8")
-        pl_out = pl_tmpl.replace("__SNAPSHOT_DATE__", snapshot_date)
-        pl_out = pl_out.replace("__JOBS_JSON__", jobs_json)
+        pl_out = pl_tmpl.replace("__SNAPSHOT_DATE__", snapshot_date).replace("__JOBS_JSON__", jobs_json)
         PIPELINE_OUTPUT.write_text(pl_out, encoding="utf-8")
+
+    # Генерируем index.html (объединённый дашборд + трекер)
+    if INDEX_TEMPLATE.exists():
+        ix_tmpl = INDEX_TEMPLATE.read_text(encoding="utf-8")
+        ix_out = ix_tmpl.replace("__SNAPSHOT_DATE__", snapshot_date).replace("__JOBS_JSON__", jobs_json)
+        INDEX_OUTPUT.write_text(ix_out, encoding="utf-8")
 
     # Считаем по источникам — для отчёта
     counts: dict = {}

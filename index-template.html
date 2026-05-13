@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вакансии — UX/UI</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+/* ===== DESKTOP BODY ===== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  background: #f5f5f7; color: #1a1a1a;
+  margin: 0; padding: 12px 16px 60px;
+  font-size: 14px; line-height: 1.45;
+}
+
+/* ===== APP NAV — DESKTOP (sticky top bar) ===== */
+.app-nav {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e5e5ea;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: -12px -16px 12px;
+}
+.app-nav-tab {
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #f0f0f4;
+  color: #6e6e73;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.15s, color 0.15s;
+}
+.app-nav-tab:hover { background: #e5e5ea; }
+.app-nav-tab.active { background: #1a1a1a; color: #fff; }
+.nav-badge {
+  background: #e5e5ea;
+  color: #6e6e73;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+}
+.app-nav-tab.active .nav-badge {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+/* ===== APP PANELS ===== */
+.app-panel { display: none; }
+.app-panel.active { display: block; }
+
+#panel-tracker {
+  padding: 12px 0 0;
+}
+
+/* ===== DASHBOARD CSS ===== */
+.page-footer { font-size: 11px; color: #b0b0b8; padding: 32px 4px 12px; text-align: center; line-height: 1.7; }
+.filters {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 12px 14px; background: #fff; border-radius: 14px;
+  margin-bottom: 12px; align-items: center;
+  border: 1px solid #e5e5ea;
+}
+.filters .label { font-size: 11px; text-transform: uppercase; color: #8e8e93; margin-right: 2px; letter-spacing: 0.5px; }
+.chip { padding: 5px 12px; background: #f5f5f7; border: 1px solid transparent; border-radius: 999px; cursor: pointer; font-size: 12px; user-select: none; transition: all 0.1s; white-space: nowrap; }
+.chip:hover { border-color: #8e8e93; }
+.chip.active { background: #1a1a1a; color: #fff; }
+.row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: 100%; }
+.stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
+#list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: stretch; }
+@media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
+.card { border: 1px solid #e5e5ea; border-radius: 14px; padding: 13px 15px; background: #fff; transition: opacity 0.15s, background 0.15s, border-color 0.15s; display: flex; flex-direction: column; }
+.card-actions { margin-top: auto; }
+.card.status-viewed { background: #f0f0f4; border-color: #c7c7cc; color: #6e6e73; }
+.card.status-applied { background: #f0faf0; border-color: #b2dfdb; }
+.card.status-skip { opacity: 0.35; }
+.card.status-test { background: #fff3cd; border-color: #ffa000; border-width: 2px; }
+.card-source { font-size: 13px; font-weight: 700; color: #8e8e93; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.fresh-dot { background: #d4edda; color: #155724; font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 999px; }
+.card-title { font-weight: 600; font-size: 14px; line-height: 1.3; margin-bottom: 4px; }
+.card-date { font-size: 11px; color: #b0b0b8; text-align: right; margin-top: auto; padding-top: 6px; }
+.status-badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+.status-badge.viewed { background: #f0f0f4; color: #6e6e73; }
+.status-badge.applied { background: #e8f5e9; color: #2e7d32; font-weight: 600; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+.tag { font-size: 10px; padding: 2px 8px; border-radius: 999px; background: #f0f0f4; color: #444; letter-spacing: 0.2px; }
+.tag.level-middle { background: #fff8e1; color: #b07000; }
+.tag.level-senior { background: #e8f5e9; color: #2e7d32; }
+.tag.level-junior { background: #f3e5f5; color: #7b1fa2; }
+.tag.level-lead { background: #fce4ec; color: #c2185b; }
+.tag.format-remote { background: #e1f5fe; color: #01579b; }
+.tag.format-hybrid { background: #fff3e0; color: #e65100; }
+.tag.format-office { background: #fbe9e7; color: #bf360c; }
+.tag.role { background: #ede7f6; color: #4527a0; }
+.card-desc { font-size: 13px; color: #3a3a3c; margin-top: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-actions { display: flex; gap: 5px; margin-top: auto; padding-top: 8px; flex-wrap: wrap; align-items: center; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: auto; padding-top: 8px; }
+.card-footer .card-actions { margin-top: 0; padding-top: 0; }
+#resetFiltersDesktop { padding: 5px 14px; border: 1px solid #c7c7cc; border-radius: 999px; background: #fff; color: #3a3a3c; font-size: 12px; cursor: pointer; }
+#resetFiltersDesktop:hover { background: #f5f5f7; border-color: #8e8e93; }
+.btn { padding: 6px 12px; border: 1px solid #d0d0d5; background: #fff; border-radius: 8px; cursor: pointer; font-size: 12px; text-decoration: none; color: #1a1a1a; display: inline-flex; align-items: center; gap: 3px; }
+.btn:hover { background: #f5f5f7; }
+.btn-primary { background: #0a84ff; color: #fff; border-color: #0a84ff; }
+.btn-primary:hover { background: #0066cc; }
+.btn-link { border: none; background: none; color: #6e6e73; padding: 6px 8px; }
+.btn-link:hover { color: #1a1a1a; background: #f5f5f7; border-radius: 8px; }
+.btn-status { font-size: 12px; }
+.btn-status.active-applied { background: #e8f5e9; border-color: #4caf50; color: #2e7d32; font-weight: 600; }
+.btn-status.active-skip { background: #f5f5f7; border-color: #c7c7cc; color: #8e8e93; }
+.btn-status.active-test { background: #fff8e1; border-color: #ffc107; color: #b07000; font-weight: 600; }
+.status-badge.test { background: #fff8e1; color: #b07000; font-weight: 600; }
+.empty { text-align: center; padding: 40px 20px; color: #8e8e93; font-size: 13px; }
+.mobile-header { display: none; }
+.filter-sheet-overlay { display: none; }
+
+/* ===== TRACKER CSS ===== */
+.pl-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 4px 16px 10px;
+}
+.pl-title { font-size: 17px; font-weight: 700; flex: 1; }
+.count-badge {
+  background: #f0f0f4; color: #6e6e73; font-size: 12px;
+  padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+}
+.stats-bar {
+  display: flex; gap: 16px; padding: 0 16px 10px;
+  font-size: 12px; color: #6e6e73; flex-wrap: wrap;
+}
+.pl-stat { display: flex; align-items: center; gap: 5px; }
+.stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.stat-dot.active  { background: #0a84ff; }
+.stat-dot.offer   { background: #34c759; }
+.stat-dot.reject  { background: #c7c7cc; }
+.table-wrap { padding: 0 16px; overflow-x: auto; }
+table {
+  width: 100%; border-collapse: collapse;
+  background: #fff; border-radius: 14px;
+  overflow: hidden; border: 1px solid #e5e5ea;
+  min-width: 740px;
+}
+thead { background: #f5f5f7; position: sticky; top: 57px; z-index: 5; }
+th {
+  padding: 9px 12px; text-align: left;
+  font-size: 11px; font-weight: 600; color: #8e8e93;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e5ea; white-space: nowrap;
+}
+td {
+  padding: 10px 12px; border-bottom: 1px solid #f0f0f4;
+  vertical-align: middle;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+tr.row-offer td:first-child { border-left: 3px solid #34c759; }
+tr.row-reject { opacity: 0.5; }
+tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
+.col-vacancy { min-width: 200px; max-width: 260px; }
+.col-date   { width: 94px; }
+.col-result { width: 130px; }
+.col-note   { min-width: 130px; }
+.col-del    { width: 34px; text-align: center; }
+.job-title {
+  display: block; font-size: 13px; font-weight: 600; color: #1a1a1a;
+  text-decoration: none; line-height: 1.3; margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px;
+}
+.job-title:hover { color: #0a84ff; }
+.job-source { font-size: 11px; font-weight: 700; color: #8e8e93; }
+.date-wrap { display: flex; align-items: center; gap: 3px; }
+.date-btn {
+  background: none; border: 1px dashed #d0d0d5; border-radius: 6px;
+  padding: 4px 8px; font-size: 12px; color: #8e8e93;
+  cursor: pointer; white-space: nowrap; font-family: inherit;
+}
+.date-btn:hover { border-color: #8e8e93; color: #3a3a3c; background: #f5f5f7; }
+.date-btn.filled { border-style: solid; border-color: #e5e5ea; color: #1a1a1a; background: #fff; font-weight: 500; }
+.date-clr {
+  background: none; border: none; cursor: pointer;
+  color: #c7c7cc; font-size: 11px; padding: 2px 3px; line-height: 1;
+  font-family: inherit;
+}
+.date-clr:hover { color: #8e8e93; }
+.result-sel {
+  border: 1px solid #e5e5ea; border-radius: 8px;
+  padding: 5px 6px; font-size: 12px; background: #fff;
+  color: #1a1a1a; cursor: pointer; width: 100%;
+  font-family: inherit; appearance: none; -webkit-appearance: none;
+}
+.result-sel:focus { outline: none; border-color: #0a84ff; }
+.note-inp {
+  border: none; background: transparent; width: 100%;
+  font-size: 12px; color: #3a3a3c; font-family: inherit;
+  padding: 2px 0; min-width: 0;
+}
+.note-inp:focus { outline: none; }
+.note-inp::placeholder { color: #c7c7cc; }
+.del-btn {
+  background: none; border: none; cursor: pointer;
+  color: #d0d0d5; font-size: 14px; padding: 4px 6px; line-height: 1;
+}
+.del-btn:hover { color: #ff3b30; }
+.empty-state {
+  text-align: center; padding: 64px 20px; color: #8e8e93; font-size: 14px;
+}
+.empty-state strong { display: block; font-size: 20px; color: #3a3a3c; margin-bottom: 8px; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  body { padding: 0 0 70px; background: #f2f2f7; font-size: 15px; }
+
+  /* Mobile bottom nav */
+  .app-nav {
+    position: fixed; bottom: 0; left: 0; right: 0; top: auto;
+    z-index: 500;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid #e5e5ea;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 env(safe-area-inset-bottom, 8px);
+    margin: 0;
+  }
+  .app-nav-tab {
+    flex: 1;
+    border-radius: 0;
+    background: none;
+    padding: 6px 8px;
+    font-size: 12px;
+    color: #8e8e93;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    border: none;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .app-nav-tab:hover { background: none; }
+  .app-nav-tab.active { color: #0a84ff; font-weight: 600; background: none; }
+  .nav-badge {
+    background: #e5e5ea;
+    color: #6e6e73;
+  }
+  .app-nav-tab.active .nav-badge {
+    background: #0a84ff;
+    color: #fff;
+  }
+
+  /* Dashboard mobile */
+  .filters { display: none; }
+  .page-footer { font-size: 11px; padding: 24px 16px 16px; }
+  .stats { font-size: 13px; padding: 8px 16px 4px; }
+  .mobile-header { display: block; position: sticky; top: 0; z-index: 200; background: rgba(242,242,247,0.95); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); padding: 8px 12px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .mobile-search-row { display: none; }
+  .filter-icon-btn { width: 34px; height: 34px; border-radius: 10px; background: rgba(118,118,128,0.12); border: none; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; margin-bottom: 8px; margin-left: auto; }
+  .filter-icon-btn.has-active::after { content: ''; position: absolute; top: 4px; right: 4px; width: 7px; height: 7px; border-radius: 50%; background: #0a84ff; border: 2px solid #f2f2f7; }
+  .status-tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; padding-bottom: 8px; }
+  .status-tab { padding: 6px 4px; border-radius: 10px; border: none; font-size: 12px; font-weight: 500; cursor: pointer; white-space: nowrap; text-align: center; background: rgba(118,118,128,0.12); color: #3a3a3c; transition: all 0.15s; }
+  .status-tab.active { background: #1a1a1a; color: #fff; }
+  .status-tab.active.tab-applied { background: #2e7d32; }
+  .status-tab.active.tab-test { background: #b07000; }
+  .status-tab.active.tab-viewed { background: #555; }
+  #list { grid-template-columns: 1fr; gap: 0; padding: 10px 0 0; }
+  .card { border-radius: 0; border-left: none; border-right: none; border-top: none; border-bottom: 1px solid #e5e5ea; padding: 16px; margin: 0; }
+  .card:first-child { border-top: 1px solid #e5e5ea; }
+  .card-title { font-size: 16px; font-weight: 600; line-height: 1.3; }
+  .card-desc { font-size: 14px; margin-top: 6px; }
+  .tag { font-size: 11px; padding: 3px 9px; }
+  .status-badge { font-size: 12px; padding: 3px 10px; }
+  .card-actions { gap: 8px; margin-top: 12px; }
+  .btn { font-size: 14px; padding: 9px 16px; border-radius: 10px; }
+  .btn-link { font-size: 14px; padding: 9px 10px; }
+  .btn-status { font-size: 13px; padding: 8px 13px; }
+  .empty { padding: 60px 20px; font-size: 15px; }
+  .filter-sheet-overlay { display: block; position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.4); opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .filter-sheet-overlay.open { opacity: 1; pointer-events: all; }
+  .filter-sheet { position: absolute; bottom: 0; left: 0; right: 0; background: #fff; border-radius: 20px 20px 0 0; padding: 0 0 40px; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.32,0,0.67,0); max-height: 85vh; overflow-y: auto; }
+  .filter-sheet-overlay.open .filter-sheet { transform: translateY(0); transition: transform 0.3s cubic-bezier(0.33,1,0.68,1); }
+  .filter-sheet-handle { width: 36px; height: 4px; border-radius: 2px; background: #d0d0d5; margin: 12px auto 0; }
+  .filter-sheet-title { font-size: 17px; font-weight: 600; padding: 16px 20px 4px; }
+  .filter-section { padding: 12px 20px; }
+  .filter-section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #8e8e93; margin-bottom: 8px; }
+  .filter-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-chips .chip { font-size: 14px; padding: 8px 16px; }
+  .filter-apply-btn { display: block; width: calc(100% - 40px); margin: 8px 20px 0; padding: 14px; background: #0a84ff; color: #fff; border: none; border-radius: 14px; font-size: 16px; font-weight: 600; cursor: pointer; text-align: center; }
+  .filter-reset-btn { display: block; width: calc(100% - 40px); margin: 8px 20px 0; padding: 12px; background: none; color: #8e8e93; border: none; font-size: 14px; cursor: pointer; text-align: center; }
+
+  /* Tracker mobile */
+  #panel-tracker { padding: 8px 0 0; }
+  .pl-header { padding: 4px 16px 8px; }
+  .stats-bar { padding: 0 16px 8px; }
+  .table-wrap { padding: 0; }
+  table { border-radius: 0; border-left: none; border-right: none; }
+  thead { top: 0; }
+  .empty-state { padding: 48px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== APP NAVIGATION ===== -->
+<nav class="app-nav" id="appNav">
+  <button class="app-nav-tab active" data-panel="dashboard" id="navDashboard">
+    📋 Вакансии
+  </button>
+  <button class="app-nav-tab" data-panel="tracker" id="navTracker">
+    ✅ Трекер · <span class="nav-badge" id="trackerBadge"></span>
+  </button>
+</nav>
+
+<!-- ===== PANEL: DASHBOARD ===== -->
+<div class="app-panel active" id="panel-dashboard">
+
+  <!-- Мобильная шапка (скрыта на десктопе) -->
+  <div class="mobile-header">
+    <div class="mobile-search-row">
+      <button class="filter-icon-btn" id="filterOpenBtn" title="Фильтры">⚙️</button>
+    </div>
+    <div class="status-tabs" id="statusTabs">
+      <button class="status-tab active" data-tab="all">Все</button>
+      <button class="status-tab tab-new" data-tab="new">Новые</button>
+      <button class="status-tab tab-viewed" data-tab="viewed">👀 Смотрела</button>
+      <button class="status-tab tab-applied" data-tab="applied">✅ Откликнулась</button>
+      <button class="status-tab tab-test" data-tab="test">📝 Тестовое</button>
+      <button class="status-tab tab-skip" data-tab="skip">✖ Скрытые</button>
+    </div>
+  </div>
+
+  <div class="filter-sheet-overlay" id="filterOverlay">
+    <div class="filter-sheet" id="filterSheet">
+      <div class="filter-sheet-handle"></div>
+      <div class="filter-sheet-title">Фильтры</div>
+      <div class="filter-section">
+        <div class="filter-section-label">Роль</div>
+        <div class="filter-chips">
+          <span class="chip role-filter active" data-role="ux">UX/UI</span>
+          <span class="chip role-filter active" data-role="product">Продуктовый</span>
+          <span class="chip role-filter active" data-role="web">Веб</span>
+          <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-section-label">Грейд</div>
+        <div class="filter-chips">
+          <span class="chip level-filter active" data-level="middle">Middle</span>
+          <span class="chip level-filter" data-level="junior">Junior</span>
+          <span class="chip level-filter" data-level="senior">Senior</span>
+          <span class="chip level-filter" data-level="lead">Lead</span>
+          <span class="chip level-filter active" data-level="unknown">Не указан</span>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-section-label">Формат</div>
+        <div class="filter-chips">
+          <span class="chip format-filter active" data-format="remote">Удалёнка</span>
+          <span class="chip format-filter" data-format="hybrid">Гибрид</span>
+          <span class="chip format-filter" data-format="office">Офис</span>
+          <span class="chip format-filter active" data-format="unknown">Не указан</span>
+        </div>
+      </div>
+      <button class="filter-apply-btn" id="filterApplyBtn">Применить</button>
+      <button class="filter-reset-btn" id="filterResetMobile">Сбросить все фильтры</button>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="row">
+      <span class="label">роль</span>
+      <span class="chip role-filter active" data-role="ux">UX/UI</span>
+      <span class="chip role-filter active" data-role="product">Продуктовый</span>
+      <span class="chip role-filter active" data-role="web">Веб</span>
+      <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+    </div>
+    <div class="row">
+      <span class="label">грейд</span>
+      <span class="chip level-filter active" data-level="middle">Middle</span>
+      <span class="chip level-filter" data-level="junior">Junior</span>
+      <span class="chip level-filter" data-level="senior">Senior</span>
+      <span class="chip level-filter" data-level="lead">Lead</span>
+      <span class="chip level-filter active" data-level="unknown">Не указан</span>
+    </div>
+    <div class="row">
+      <span class="label">формат</span>
+      <span class="chip format-filter active" data-format="remote">Удалёнка</span>
+      <span class="chip format-filter" data-format="hybrid">Гибрид</span>
+      <span class="chip format-filter" data-format="office">Офис</span>
+      <span class="chip format-filter active" data-format="unknown">Не указан</span>
+    </div>
+    <div class="row">
+      <span class="label">статус</span>
+      <span class="chip status-filter active" data-status="new">Новые</span>
+      <span class="chip status-filter active" data-status="viewed">👀 Просмотрела</span>
+      <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
+      <span class="chip status-filter active" data-status="test">📝 Тестовое</span>
+      <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
+    </div>
+    <div class="row">
+      <button id="resetFiltersDesktop">↺ Сбросить фильтры</button>
+    </div>
+  </div>
+
+  <div class="stats" id="counter"></div>
+  <div id="list"></div>
+  <div class="page-footer" id="meta"></div>
+
+</div><!-- /panel-dashboard -->
+
+<!-- ===== PANEL: TRACKER ===== -->
+<div class="app-panel" id="panel-tracker">
+
+  <div class="pl-header">
+    <div class="pl-title">Трекер</div>
+    <span class="count-badge" id="cnt">0</span>
+  </div>
+
+  <div class="stats-bar" id="pl-stats"></div>
+
+  <div class="table-wrap">
+    <table id="tbl" style="display:none">
+      <thead>
+        <tr>
+          <th class="col-vacancy">Вакансия</th>
+          <th class="col-date">Откликнулась</th>
+          <th class="col-date">Тестовое</th>
+          <th class="col-date">Отправила</th>
+          <th class="col-date">Созвон</th>
+          <th class="col-result">Итог</th>
+          <th class="col-note">Заметка</th>
+          <th class="col-del"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty-state" id="pl-empty" style="display:none">
+      <strong>Пока пусто</strong>
+      Нажми ✅ на вакансии — она появится здесь
+    </div>
+  </div>
+
+  <div id="date-pool" style="position:absolute;opacity:0;width:0;height:0;overflow:hidden;pointer-events:none"></div>
+
+</div><!-- /panel-tracker -->
+
+<script>
+'use strict';
+
+// ===== SHARED GLOBALS =====
+const SNAPSHOT_DATE = "__SNAPSHOT_DATE__";
+const JOBS = __JOBS_JSON__;
+const jobMap = {};
+JOBS.forEach(j => { jobMap[j.url] = j; });
+
+// ===== 1. TAB SWITCHING IIFE =====
+(function() {
+  const panels = {
+    dashboard: document.getElementById('panel-dashboard'),
+    tracker:   document.getElementById('panel-tracker'),
+  };
+  const navTabs = document.querySelectorAll('.app-nav-tab');
+
+  function getTrackerCount() {
+    try {
+      const s = JSON.parse(localStorage.getItem('designJobs.status.v1') || '{}');
+      return Object.values(s).filter(v => v === 'applied' || v === 'test').length;
+    } catch(e) { return 0; }
+  }
+
+  function updateBadge() {
+    const n = getTrackerCount();
+    const el = document.getElementById('trackerBadge');
+    if (el) el.textContent = n ? String(n) : '';
+  }
+
+  function showPanel(name) {
+    if (!panels[name]) name = 'dashboard';
+    Object.entries(panels).forEach(([key, el]) => {
+      if (el) el.classList.toggle('active', key === name);
+    });
+    navTabs.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.panel === name);
+    });
+    if (name === 'tracker') {
+      document.title = 'Трекер откликов';
+      if (typeof window.renderTracker === 'function') window.renderTracker();
+    } else {
+      document.title = 'Вакансии — UX/UI';
+      if (typeof window.renderDashboard === 'function') window.renderDashboard();
+    }
+    updateBadge();
+  }
+
+  navTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.dataset.panel;
+      history.replaceState(null, '', name === 'tracker' ? '#tracker' : '#dashboard');
+      showPanel(name);
+    });
+  });
+
+  window.addEventListener('hashchange', () => {
+    showPanel(location.hash === '#tracker' ? 'tracker' : 'dashboard');
+  });
+
+  // Initial load
+  showPanel(location.hash === '#tracker' ? 'tracker' : 'dashboard');
+
+  // Keep badge updated when localStorage changes from other tabs
+  window.addEventListener('storage', e => {
+    if (e.key === 'designJobs.status.v1' || e.key === 'designJobs.pipeline.v1') updateBadge();
+  });
+})();
+
+// ===== 2. DASHBOARD IIFE =====
+(function() {
+  if (!document.getElementById('panel-dashboard')) return;
+
+  (function markFresh() {
+    const bySrc = {};
+    JOBS.forEach(j => { (bySrc[j.s] = bySrc[j.s] || []).push(j); });
+    Object.values(bySrc).forEach(arr => {
+      arr.sort((a,b) => (b.pid||0)-(a.pid||0));
+      arr.slice(0,3).forEach(j => j.fresh = true);
+    });
+  })();
+
+  const STORE_STATUS   = 'designJobs.status.v1';
+  const STORE_PIPELINE = 'designJobs.pipeline.v1';
+  const STORE_HIDDEN   = 'designJobs.hidden.v2';
+  const STORE_FILTERS  = 'designJobs.filters.v2';
+
+  const state = { statuses: loadStatuses(), mobileTab: 'all', mobileSearch: '' };
+
+  function loadStatuses() {
+    let s = {};
+    try { s = JSON.parse(localStorage.getItem(STORE_STATUS) || '{}'); } catch(e){}
+    try {
+      const old = JSON.parse(localStorage.getItem(STORE_HIDDEN) || '[]');
+      old.forEach(u => { if (!s[u]) s[u] = 'skip'; });
+      if (old.length) { localStorage.setItem(STORE_STATUS, JSON.stringify(s)); localStorage.removeItem(STORE_HIDDEN); }
+    } catch(e){}
+    return s;
+  }
+  function saveStatuses() { localStorage.setItem(STORE_STATUS, JSON.stringify(state.statuses)); }
+
+  function setStatus(url, ns) {
+    const old = state.statuses[url];
+    if (old === ns) delete state.statuses[url];
+    else {
+      state.statuses[url] = ns;
+      if (ns === 'applied' && old !== 'applied') {
+        try {
+          const pl = JSON.parse(localStorage.getItem(STORE_PIPELINE) || '{}');
+          if (!pl[url]) pl[url] = {};
+          if (!pl[url].appliedDate) {
+            pl[url].appliedDate = new Date().toISOString().slice(0,10);
+            const j = JOBS.find(x => x.url === url);
+            if (j) { pl[url].title = j.t; pl[url].source = j.s; }
+          }
+          localStorage.setItem(STORE_PIPELINE, JSON.stringify(pl));
+        } catch(e) {}
+      }
+    }
+    saveStatuses(); render();
+  }
+
+  function getJobStatus(j) { return state.statuses[j.url] || null; }
+  function isMobile() { return window.innerWidth <= 600; }
+  function getActiveSet(sel, attr) {
+    return Array.from(document.querySelectorAll(sel+'.active')).map(el => el.getAttribute(attr));
+  }
+
+  function saveFilters() {
+    localStorage.setItem(STORE_FILTERS, JSON.stringify({
+      role:   getActiveSet('.role-filter','data-role'),
+      level:  getActiveSet('.level-filter','data-level'),
+      format: getActiveSet('.format-filter','data-format'),
+    }));
+  }
+
+  function applyFilters() {
+    const roles   = getActiveSet('.role-filter','data-role');
+    const levels  = getActiveSet('.level-filter','data-level');
+    const formats = getActiveSet('.format-filter','data-format');
+    const statusChips = isMobile() ? null : getActiveSet('.status-filter','data-status');
+    let visible = JOBS.filter(j => roles.includes(j.role) && levels.includes(j.lvl) && formats.includes(j.fmt));
+    if (isMobile()) {
+      const tab = state.mobileTab;
+      if (tab !== 'all') visible = visible.filter(j => (getJobStatus(j)||'new') === tab);
+    } else {
+      visible = visible.filter(j => statusChips.includes(getJobStatus(j)||'new'));
+    }
+    return visible;
+  }
+
+  function render() {
+    const list = document.getElementById('list');
+    const visible = applyFilters();
+    const appliedCount = Object.values(state.statuses).filter(s=>s==='applied').length;
+    const viewedCount  = Object.values(state.statuses).filter(s=>s==='viewed').length;
+    const skipCount    = Object.values(state.statuses).filter(s=>s==='skip').length;
+    const testCount    = Object.values(state.statuses).filter(s=>s==='test').length;
+    const trackerN = appliedCount + testCount;
+    const tcEl = document.getElementById('trackerBadge');
+    if (tcEl) tcEl.textContent = trackerN ? trackerN : '';
+    let statsStr = 'Показано: '+visible.length+' из '+JOBS.length;
+    if (appliedCount) statsStr += '  ·  ✅ '+appliedCount;
+    if (testCount)    statsStr += '  ·  📝 '+testCount;
+    if (viewedCount)  statsStr += '  ·  👀 '+viewedCount;
+    if (skipCount)    statsStr += '  ·  ✖ '+skipCount;
+    document.getElementById('counter').textContent = statsStr;
+    if (!visible.length) {
+      list.innerHTML = '<div class="empty">Ничего не найдено.<br>Попробуй изменить фильтры.</div>';
+      return;
+    }
+    list.innerHTML = visible.map(renderCard).join('');
+    list.querySelectorAll('.card').forEach(card => {
+      const url = card.dataset.url;
+      card.querySelectorAll('.btn-status').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); setStatus(url, btn.dataset.status); });
+      });
+      const readBtn = card.querySelector('.btn-primary');
+      if (readBtn) {
+        readBtn.addEventListener('click', () => {
+          if (!state.statuses[url] || state.statuses[url] === 'new') setStatus(url, 'viewed');
+        });
+      }
+    });
+  }
+  window.renderDashboard = render;
+
+  function renderCard(j) {
+    const status = getJobStatus(j);
+    let cls = 'card';
+    if (status==='viewed') cls+=' status-viewed';
+    if (status==='applied') cls+=' status-applied';
+    if (status==='skip') cls+=' status-skip';
+    if (status==='test') cls+=' status-test';
+    const tags = [];
+    if (j.lvl!=='unknown') tags.push('<span class="tag level-'+j.lvl+'">'+j.lvl+'</span>');
+    if (j.fmt!=='unknown') tags.push('<span class="tag format-'+j.fmt+'">'+fmtLabel(j.fmt)+'</span>');
+    tags.push('<span class="tag role">'+roleLabel(j.role)+'</span>');
+    let badge = '';
+    if (status==='viewed') badge='<span class="status-badge viewed">👀 Просмотрела</span>';
+    if (status==='applied') badge='<span class="status-badge applied">✅ Откликнулась</span>';
+    if (status==='test') badge='<span class="status-badge test">📝 Тестовое</span>';
+    const sourceLabel = (j.s==='HireHi') ? 'HireHi' : (j.s==='hh.ru') ? 'hh.ru' : '@'+j.s;
+    const dateStr = fmtDate(j.date, j.time);
+    const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
+    const bT='<button class="btn btn-status'+(status==='test'?' active-test':'')+'" data-status="test">📝</button>';
+    const bS='<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
+    const isTg = (j.s !== 'HireHi' && j.s !== 'hh.ru');
+    const postUrl = isTg ? 'https://t.me/'+j.s+'/'+j.pid : j.url;
+    return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
+      '<div class="card-source">'+esc(sourceLabel)+(j.fresh?' <span class="fresh-dot">новое</span>':'')+(badge?' '+badge:'')+'</div>'+
+      '<div class="card-title">'+esc(j.t)+'</div>'+
+      '<div class="card-tags">'+tags.join('')+'</div>'+
+      (j.sal?'<div class="card-desc">'+esc(j.sal)+'</div>':'')+
+      '<div class="card-footer">'+
+        '<div class="card-actions">'+
+          '<a class="btn btn-primary" href="'+escAttr(postUrl)+'" target="_blank" rel="noopener">Читать ↗</a>'+
+          bA+bT+bS+
+        '</div>'+
+        (dateStr?'<span class="card-date">'+esc(dateStr)+'</span>':'')+
+      '</div></div>';
+  }
+
+  function fmtLabel(f){return{remote:'удалёнка',hybrid:'гибрид',office:'офис'}[f]||f;}
+  function roleLabel(r){return{product:'продуктовый',ux:'ux/ui',web:'веб',other:'дизайн'}[r]||r;}
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function escAttr(s){return esc(s).replace(/"/g,'&quot;');}
+  const MONTHS = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+  function fmtDate(date, time) {
+    if (!date && !time) return '';
+    const today = new Date(); today.setHours(0,0,0,0);
+    const postDay = date ? new Date(date) : new Date(SNAPSHOT_DATE);
+    postDay.setHours(0,0,0,0);
+    const diff = Math.round((today - postDay) / 86400000);
+    let prefix;
+    if (diff === 0) prefix = 'сегодня';
+    else if (diff === 1) prefix = 'вчера';
+    else prefix = postDay.getDate()+' '+MONTHS[postDay.getMonth()];
+    return time ? prefix+' в '+time : prefix;
+  }
+
+  const DEFAULT_FILTERS = { role: ['ux','product','web'], level: ['middle','unknown'], format: ['remote','unknown'], status: ['new','viewed','applied'] };
+
+  function resetFilters() {
+    document.querySelectorAll('.filters .role-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.role.includes(el.dataset.role)));
+    document.querySelectorAll('.filters .level-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.level.includes(el.dataset.level)));
+    document.querySelectorAll('.filters .format-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.format.includes(el.dataset.format)));
+    document.querySelectorAll('.filters .status-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.status.includes(el.dataset.status)));
+    document.querySelectorAll('.filter-sheet .role-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.role.includes(el.dataset.role)));
+    document.querySelectorAll('.filter-sheet .level-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.level.includes(el.dataset.level)));
+    document.querySelectorAll('.filter-sheet .format-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.format.includes(el.dataset.format)));
+    state.mobileTab = 'all';
+    document.querySelectorAll('.status-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === 'all'));
+    localStorage.removeItem(STORE_FILTERS);
+    render();
+  }
+
+  function setupDesktop() {
+    document.getElementById('resetFiltersDesktop').addEventListener('click', resetFilters);
+    document.querySelectorAll('.filters .chip').forEach(chip => {
+      chip.addEventListener('click', () => { chip.classList.toggle('active'); saveFilters(); render(); });
+    });
+    const f = (function(){ try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch(e){ return null; } })();
+    if (f) {
+      const restore = (sel, attr, set) => document.querySelectorAll(sel).forEach(el => el.classList.toggle('active', (set||[]).includes(el.getAttribute(attr))));
+      if (f.role)   restore('.filters .role-filter',  'data-role',   f.role);
+      if (f.level)  restore('.filters .level-filter', 'data-level',  f.level);
+      if (f.format) restore('.filters .format-filter','data-format', f.format);
+    }
+  }
+
+  function setupMobile() {
+    document.querySelectorAll('.status-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        state.mobileTab = tab.dataset.tab;
+        render();
+      });
+    });
+    const overlay = document.getElementById('filterOverlay');
+    document.getElementById('filterOpenBtn').addEventListener('click', () => { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeSheet(); });
+    document.getElementById('filterApplyBtn').addEventListener('click', () => { saveFilters(); render(); closeSheet(); });
+    document.getElementById('filterResetMobile').addEventListener('click', () => { resetFilters(); closeSheet(); });
+    function closeSheet() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+    document.querySelectorAll('.filter-sheet .chip').forEach(chip => { chip.addEventListener('click', () => chip.classList.toggle('active')); });
+    const f = (function(){ try { return JSON.parse(localStorage.getItem(STORE_FILTERS)); } catch(e){ return null; } })();
+    if (f) {
+      const restore = (sel, attr, set) => document.querySelectorAll(sel).forEach(el => el.classList.toggle('active', (set||[]).includes(el.getAttribute(attr))));
+      if (f.role)   restore('.filter-sheet .role-filter',  'data-role',   f.role);
+      if (f.level)  restore('.filter-sheet .level-filter', 'data-level',  f.level);
+      if (f.format) restore('.filter-sheet .format-filter','data-format', f.format);
+    }
+    function updateFilterBadge() {
+      const defaults = { role:['ux','product','web'], level:['middle','unknown'], format:['remote','unknown'] };
+      const roles   = getActiveSet('.filter-sheet .role-filter','data-role');
+      const levels  = getActiveSet('.filter-sheet .level-filter','data-level');
+      const formats = getActiveSet('.filter-sheet .format-filter','data-format');
+      const changed = JSON.stringify(roles.sort()) !== JSON.stringify(defaults.role.sort()) ||
+                      JSON.stringify(levels.sort()) !== JSON.stringify(defaults.level.sort()) ||
+                      JSON.stringify(formats.sort()) !== JSON.stringify(defaults.format.sort());
+      document.getElementById('filterOpenBtn').classList.toggle('has-active', changed);
+    }
+    document.querySelectorAll('.filter-sheet .chip').forEach(c => c.addEventListener('click', updateFilterBadge));
+    updateFilterBadge();
+  }
+
+  const counts = {};
+  JOBS.forEach(j => { counts[j.s] = (counts[j.s]||0)+1; });
+  const srcLine = Object.entries(counts).sort((a,b) => b[1]-a[1]).map(([k,v]) => k+' ('+v+')').join(' · ');
+  document.getElementById('meta').innerHTML = 'Обновлено: '+SNAPSHOT_DATE+' · всего '+JOBS.length+' вакансий<br><span style="font-size:10px;opacity:0.7">'+srcLine+'</span>';
+
+  setupDesktop();
+  setupMobile();
+  render();
+})();
+
+// ===== 3. TRACKER IIFE =====
+(function() {
+  if (!document.getElementById('panel-tracker')) return;
+
+  const SK = 'designJobs.status.v1';
+  const PK = 'designJobs.pipeline.v1';
+  const PL_MONTHS = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+
+  function plLs(key) { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch { return {}; } }
+  function savePL(d) { localStorage.setItem(PK, JSON.stringify(d)); }
+
+  function fmtPlDate(iso) {
+    if (!iso) return null;
+    const d = new Date(iso + 'T00:00:00');
+    return d.getDate() + ' ' + PL_MONTHS[d.getMonth()];
+  }
+
+  function plEsc(s) {
+    return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function plSrcLabel(s) { return (s === 'HireHi' || s === 'hh.ru') ? s : '@' + s; }
+
+  function getRows() {
+    const status = plLs(SK);
+    const pl = plLs(PK);
+    const seen = new Set();
+    const rows = [];
+    for (const [url, st] of Object.entries(status)) {
+      if (st !== 'applied' && st !== 'test') continue;
+      seen.add(url);
+      const j = jobMap[url] || {};
+      rows.push({ url, title: j.t || url, source: j.s || '', ...(pl[url] || {}) });
+    }
+    for (const [url, data] of Object.entries(pl)) {
+      if (seen.has(url)) continue;
+      const j = jobMap[url] || {};
+      rows.push({ url, title: data.title || j.t || url, source: data.source || j.s || '', ...data });
+    }
+    return rows;
+  }
+
+  function getPF(url, field) { return (plLs(PK)[url] || {})[field] || null; }
+
+  function setPF(url, field, value) {
+    const p = plLs(PK);
+    if (!p[url]) p[url] = {};
+    const j = jobMap[url];
+    if (j) { p[url].title = j.t; p[url].source = j.s; }
+    if (value != null && value !== '') p[url][field] = value;
+    else delete p[url][field];
+    savePL(p);
+  }
+
+  function pickDate(url, field, current, cb) {
+    const pool = document.getElementById('date-pool');
+    const inp = document.createElement('input');
+    inp.type = 'date'; inp.value = current || '';
+    pool.appendChild(inp);
+    const cleanup = () => { if (pool.contains(inp)) pool.removeChild(inp); };
+    inp.addEventListener('change', () => { cb(inp.value || null); cleanup(); });
+    inp.addEventListener('blur', () => setTimeout(cleanup, 300));
+    try { inp.showPicker(); } catch { inp.click(); }
+  }
+
+  function renderTracker() {
+    if (!document.getElementById('tbl')) return;
+    const rows = getRows();
+    const pl = plLs(PK);
+    document.getElementById('cnt').textContent = rows.length;
+    const offers  = rows.filter(r => (pl[r.url]||{}).result === 'offer').length;
+    const rejects = rows.filter(r => (pl[r.url]||{}).result === 'reject').length;
+    const active  = rows.length - offers - rejects;
+    const stats = [];
+    if (active)  stats.push('<span class="pl-stat"><span class="stat-dot active"></span>'+active+' в работе</span>');
+    if (offers)  stats.push('<span class="pl-stat"><span class="stat-dot offer"></span>'+offers+' оффер'+(offers>1?'а':'')+'</span>');
+    if (rejects) stats.push('<span class="pl-stat"><span class="stat-dot reject"></span>'+rejects+' отказ'+(rejects>1?'а':'')+'</span>');
+    document.getElementById('pl-stats').innerHTML = stats.join('');
+    const tbl = document.getElementById('tbl');
+    const plEmpty = document.getElementById('pl-empty');
+    if (rows.length === 0) { tbl.style.display = 'none'; plEmpty.style.display = 'block'; return; }
+    tbl.style.display = 'table'; plEmpty.style.display = 'none';
+    const FIELDS = ['appliedDate','testDate','sentDate','callDate'];
+    document.getElementById('tbody').innerHTML = rows.map(r => {
+      const p = pl[r.url] || {};
+      const rowCls = p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : '';
+      const dateCells = FIELDS.map(f => {
+        const v = p[f];
+        return '<td class="col-date"><div class="date-wrap"><button class="date-btn'+(v?' filled':'')+'" data-url="'+plEsc(r.url)+'" data-field="'+f+'">'+(v ? plEsc(fmtPlDate(v)) : '+ дата')+'</button>'+(v ? '<button class="date-clr" data-url="'+plEsc(r.url)+'" data-field="'+f+'">✕</button>' : '')+'</div></td>';
+      }).join('');
+      return '<tr class="'+rowCls+'" data-url="'+plEsc(r.url)+'"><td class="col-vacancy"><a class="job-title" href="'+plEsc(r.url)+'" target="_blank" rel="noopener" title="'+plEsc(r.title)+'">'+plEsc(r.title)+'</a><span class="job-source">'+plEsc(plSrcLabel(r.source))+'</span></td>'+dateCells+'<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option></select></td><td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td><td class="col-del"><button class="del-btn" data-url="'+plEsc(r.url)+'" title="Убрать">✕</button></td></tr>';
+    }).join('');
+    const tbody = document.getElementById('tbody');
+    tbody.querySelectorAll('.date-btn').forEach(btn => {
+      btn.addEventListener('click', () => { pickDate(btn.dataset.url, btn.dataset.field, getPF(btn.dataset.url, btn.dataset.field), val => { setPF(btn.dataset.url, btn.dataset.field, val); renderTracker(); }); });
+    });
+    tbody.querySelectorAll('.date-clr').forEach(btn => {
+      btn.addEventListener('click', e => { e.stopPropagation(); setPF(btn.dataset.url, btn.dataset.field, null); renderTracker(); });
+    });
+    tbody.querySelectorAll('.result-sel').forEach(sel => { sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); renderTracker(); }); });
+    tbody.querySelectorAll('.note-inp').forEach(inp => { inp.addEventListener('blur', () => setPF(inp.dataset.url, 'note', inp.value || null)); });
+    tbody.querySelectorAll('.del-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.dataset.url;
+        const p = plLs(PK); delete p[url]; savePL(p);
+        const s = plLs(SK);
+        if (s[url] === 'applied' || s[url] === 'test') { s[url] = 'viewed'; localStorage.setItem(SK, JSON.stringify(s)); }
+        renderTracker();
+      });
+    });
+  }
+  window.renderTracker = renderTracker;
+  window.addEventListener('storage', e => { if (e.key === SK || e.key === PK) renderTracker(); });
+  renderTracker();
+})();
+</script>
+</body>
+</html>
