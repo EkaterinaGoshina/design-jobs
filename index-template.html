@@ -463,7 +463,6 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
         <div class="filter-chips">
           <span class="chip role-filter active" data-role="ux">UX/UI</span>
           <span class="chip role-filter active" data-role="product">Продуктовый</span>
-          <span class="chip role-filter active" data-role="web">Веб</span>
           <span class="chip role-filter" data-role="other">Прочий дизайн</span>
         </div>
       </div>
@@ -496,7 +495,6 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
       <span class="label">роль</span>
       <span class="chip role-filter active" data-role="ux">UX/UI</span>
       <span class="chip role-filter active" data-role="product">Продуктовый</span>
-      <span class="chip role-filter active" data-role="web">Веб</span>
       <span class="chip role-filter" data-role="other">Прочий дизайн</span>
     </div>
     <div class="row">
@@ -800,7 +798,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
   }
 
   function fmtLabel(f){return{remote:'удалёнка',hybrid:'гибрид',office:'офис'}[f]||f;}
-  function roleLabel(r){return{product:'продуктовый',ux:'ux/ui',web:'веб',other:'дизайн'}[r]||r;}
+  function roleLabel(r){return{product:'продуктовый',ux:'ux/ui',other:'дизайн'}[r]||r;}
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function escAttr(s){return esc(s).replace(/"/g,'&quot;');}
   const MONTHS = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
@@ -817,7 +815,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     return time ? prefix+' в '+time : prefix;
   }
 
-  const DEFAULT_FILTERS = { role: ['ux','product','web'], level: ['middle','unknown'], format: ['remote','unknown'], status: ['new','viewed','applied'] };
+  const DEFAULT_FILTERS = { role: ['ux','product'], level: ['middle','unknown'], format: ['remote','unknown'], status: ['new','viewed','applied'] };
 
   function resetFilters() {
     document.querySelectorAll('.filters .role-filter').forEach(el => el.classList.toggle('active', DEFAULT_FILTERS.role.includes(el.dataset.role)));
@@ -871,7 +869,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       if (f.format) restore('.filter-sheet .format-filter','data-format', f.format);
     }
     function updateFilterBadge() {
-      const defaults = { role:['ux','product','web'], level:['middle','unknown'], format:['remote','unknown'] };
+      const defaults = { role:['ux','product'], level:['middle','unknown'], format:['remote','unknown'] };
       const roles   = getActiveSet('.filter-sheet .role-filter','data-role');
       const levels  = getActiveSet('.filter-sheet .level-filter','data-level');
       const formats = getActiveSet('.filter-sheet .format-filter','data-format');

@@ -33,7 +33,9 @@
   "role_keywords": {
     "product": ["продуктов", "product designer", "дизайнер продукта", "дизайнер интерфейс"],
     "ux": ["ux/ui", "ui/ux", "ux-дизайн", "ui-дизайн", "ux дизайн", "ux designer", "ui designer", "интерфейс"],
-    "web": ["веб-дизайн", "веб дизайн", "web designer", "web-designer", "веб дизайнер"],
-    "other": ["арт-директор", "art director", "графический", "graphic designer", "motion", "иллюстратор", "иллюстра"]
+    "other": ["веб-дизайн", "веб дизайн", "web designer", "web-designer", "веб дизайнер",
+              "арт-директор", "art director", "графический", "graphic designer",
+              "motion", "иллюстратор", "иллюстра",
+              "геймдизайн", "game designer", "гейм-дизайн", "игровой дизайн", "gaming", "gamedesign"]
   }
 }
