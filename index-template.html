@@ -149,11 +149,14 @@ body {
 .table-wrap { padding: 0 16px; overflow-x: auto; }
 table {
   width: 100%; border-collapse: collapse;
-  background: #fff; border-radius: 14px;
-  overflow: hidden; border: 1px solid #e5e5ea;
-  min-width: 740px;
+  background: #fff; border: 1px solid #e5e5ea;
+  min-width: 740px; border-radius: 14px;
 }
-thead { background: #f5f5f7; position: sticky; top: 57px; z-index: 5; }
+thead { background: #f5f5f7; }
+thead tr:first-child th:first-child { border-radius: 14px 0 0 0; }
+thead tr:first-child th:last-child  { border-radius: 0 14px 0 0; }
+tbody tr:last-child td:first-child  { border-radius: 0 0 0 14px; }
+tbody tr:last-child td:last-child   { border-radius: 0 0 14px 0; }
 th {
   padding: 9px 12px; text-align: left;
   font-size: 11px; font-weight: 600; color: #8e8e93;
