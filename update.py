@@ -14,6 +14,8 @@ SOURCES_FILE = HERE / "sources.json"
 JOBS_FILE = HERE / "jobs.json"
 OUTPUT_FILE = HERE / "dashboard.html"
 TEMPLATE_FILE = HERE / "template.html"
+INDEX_TEMPLATE_FILE = HERE / "index-template.html"
+INDEX_OUTPUT_FILE = HERE / "index.html"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -312,14 +314,25 @@ def parse_hh(src, exclude_keywords, role_keywords):
 
 
 def generate(all_jobs):
-    template = TEMPLATE_FILE.read_text(encoding="utf-8")
     snapshot_date = datetime.date.today().isoformat()
     all_jobs.sort(key=lambda j: (j["s"], -(j.get("pid") or 0)))
     jobs_json = json.dumps(all_jobs, ensure_ascii=False, separators=(",", ":"))
+
+    # dashboard.html (старый шаблон, оставляем для совместимости)
+    template = TEMPLATE_FILE.read_text(encoding="utf-8")
     output = (template
               .replace("__SNAPSHOT_DATE__", snapshot_date)
               .replace("__JOBS_JSON__", jobs_json))
     OUTPUT_FILE.write_text(output, encoding="utf-8")
+
+    # index.html (объединённый дашборд + трекер — главная страница)
+    if INDEX_TEMPLATE_FILE.exists():
+        ix_tmpl = INDEX_TEMPLATE_FILE.read_text(encoding="utf-8")
+        ix_out = (ix_tmpl
+                  .replace("__SNAPSHOT_DATE__", snapshot_date)
+                  .replace("__JOBS_JSON__", jobs_json))
+        INDEX_OUTPUT_FILE.write_text(ix_out, encoding="utf-8")
+
     return snapshot_date, len(all_jobs)
 
 
