@@ -174,6 +174,7 @@ tr.row-reject { opacity: 0.5; }
 tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
 .col-vacancy { min-width: 200px; max-width: 260px; }
 .col-date   { width: 94px; }
+.col-test   { width: 130px; }
 .col-result { width: 130px; }
 .col-note   { min-width: 130px; }
 .col-del    { width: 60px; text-align: center; white-space: nowrap; }
@@ -238,6 +239,14 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
   cursor: pointer; border-radius: 8px; font-family: inherit;
 }
 .dp-clear:hover { background: #f5f5f7; color: #ff3b30; }
+.test-stages { display: flex; gap: 3px; flex-wrap: wrap; }
+.test-stage-btn {
+  font-size: 11px; padding: 3px 7px; border-radius: 6px;
+  border: 1px solid #e5e5ea; background: #f5f5f7;
+  color: #8e8e93; cursor: pointer; font-family: inherit; white-space: nowrap;
+}
+.test-stage-btn:hover { border-color: #8e8e93; color: #3a3a3c; }
+.test-stage-btn.active { background: #fff3cd; border-color: #ffa000; color: #7a5000; font-weight: 600; }
 .reset-row-btn {
   background: none; border: none; cursor: pointer;
   color: #c7c7cc; font-size: 13px; padding: 4px 5px; line-height: 1;
@@ -487,8 +496,7 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
         <tr>
           <th class="col-vacancy">Вакансия</th>
           <th class="col-date">Откликнулась</th>
-          <th class="col-date">Тестовое</th>
-          <th class="col-date">Отправила</th>
+          <th class="col-test">Тестовое</th>
           <th class="col-date">Созвон</th>
           <th class="col-result">Итог</th>
           <th class="col-note">Заметка</th>
@@ -956,11 +964,13 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     const plEmpty = document.getElementById('pl-empty');
     if (rows.length === 0) { tbl.style.display = 'none'; plEmpty.style.display = 'block'; return; }
     tbl.style.display = 'table'; plEmpty.style.display = 'none';
-    const FIELDS = ['appliedDate','testDate','sentDate','callDate'];
+    const DATE_FIELDS = ['appliedDate','callDate'];
+    const TEST_STAGES = ['получила','делаю','отправила'];
     document.getElementById('tbody').innerHTML = rows.map(r => {
       const p = pl[r.url] || {};
       const rowCls = p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : '';
-      const dateCells = FIELDS.map(f => {
+
+      const appliedCell = (f => {
         const v = p[f];
         return '<td class="col-date"><div class="date-wrap">'+
           '<button class="date-btn'+(v?' filled':'')+' dp-trigger" data-url="'+plEsc(r.url)+'" data-field="'+f+'" data-val="'+(v||'')+'">'+
@@ -968,10 +978,27 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
           '</button>'+
           (v ? '<button class="date-clr" data-url="'+plEsc(r.url)+'" data-field="'+f+'">✕</button>' : '')+
           '</div></td>';
-      }).join('');
+      })('appliedDate');
+
+      const testCell = '<td class="col-test"><div class="test-stages">'+
+        TEST_STAGES.map(s =>
+          '<button class="test-stage-btn'+(p.testStage===s?' active':'')+'" data-url="'+plEsc(r.url)+'" data-stage="'+s+'">'+s+'</button>'
+        ).join('')+
+        '</div></td>';
+
+      const callCell = (f => {
+        const v = p[f];
+        return '<td class="col-date"><div class="date-wrap">'+
+          '<button class="date-btn'+(v?' filled':'')+' dp-trigger" data-url="'+plEsc(r.url)+'" data-field="'+f+'" data-val="'+(v||'')+'">'+
+            (v ? plEsc(fmtPlDate(v)) : '+ дата')+
+          '</button>'+
+          (v ? '<button class="date-clr" data-url="'+plEsc(r.url)+'" data-field="'+f+'">✕</button>' : '')+
+          '</div></td>';
+      })('callDate');
+
       return '<tr class="'+rowCls+'" data-url="'+plEsc(r.url)+'">'+
         '<td class="col-vacancy"><a class="job-title" href="'+plEsc(r.url)+'" target="_blank" rel="noopener" title="'+plEsc(r.title)+'">'+plEsc(r.title)+'</a><span class="job-source">'+plEsc(plSrcLabel(r.source))+'</span></td>'+
-        dateCells+
+        appliedCell+testCell+callCell+
         '<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option></select></td>'+
         '<td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td>'+
         '<td class="col-del">'+
@@ -988,6 +1015,14 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     });
     tbody.querySelectorAll('.date-clr').forEach(btn => {
       btn.addEventListener('click', e => { e.stopPropagation(); setPF(btn.dataset.url, btn.dataset.field, null); renderTracker(); });
+    });
+    tbody.querySelectorAll('.test-stage-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const cur = getPF(btn.dataset.url, 'testStage');
+        setPF(btn.dataset.url, 'testStage', cur === btn.dataset.stage ? null : btn.dataset.stage);
+        renderTracker();
+      });
     });
     tbody.querySelectorAll('.result-sel').forEach(sel => { sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); renderTracker(); }); });
     tbody.querySelectorAll('.note-inp').forEach(inp => { inp.addEventListener('blur', () => setPF(inp.dataset.url, 'note', inp.value || null)); });
