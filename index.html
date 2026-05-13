@@ -185,24 +185,59 @@ tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
 .job-title:hover { color: #0a84ff; }
 .job-source { font-size: 11px; font-weight: 700; color: #8e8e93; }
 .date-wrap { display: flex; align-items: center; gap: 3px; }
-.date-cell-inner { position: relative; display: inline-block; }
 .date-btn {
   background: none; border: 1px dashed #d0d0d5; border-radius: 6px;
   padding: 4px 8px; font-size: 12px; color: #8e8e93;
-  cursor: pointer; white-space: nowrap; font-family: inherit; display: block;
+  cursor: pointer; white-space: nowrap; font-family: inherit;
 }
 .date-btn:hover { border-color: #8e8e93; color: #3a3a3c; background: #f5f5f7; }
 .date-btn.filled { border-style: solid; border-color: #e5e5ea; color: #1a1a1a; background: #fff; font-weight: 500; }
-.date-inp-overlay {
-  position: absolute; inset: 0; opacity: 0; cursor: pointer;
-  width: 100%; height: 100%; font-size: 0;
-}
 .date-clr {
   background: none; border: none; cursor: pointer;
   color: #c7c7cc; font-size: 11px; padding: 2px 3px; line-height: 1;
   font-family: inherit;
 }
 .date-clr:hover { color: #8e8e93; }
+
+/* ===== CUSTOM DATE PICKER ===== */
+.dp-popup {
+  position: fixed; z-index: 2000;
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+  padding: 14px; width: 232px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  animation: dpIn 0.15s ease;
+}
+@keyframes dpIn { from { opacity:0; transform: scale(0.95) translateY(-4px); } to { opacity:1; transform: none; } }
+.dp-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.dp-month-label { font-size: 14px; font-weight: 700; color: #1a1a1a; }
+.dp-nav {
+  background: #f0f0f4; border: none; border-radius: 8px;
+  width: 28px; height: 28px; cursor: pointer; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: #3a3a3c; line-height: 1;
+}
+.dp-nav:hover { background: #e5e5ea; }
+.dp-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.dp-dn { font-size: 10px; color: #8e8e93; text-align: center; padding: 3px 0 5px; font-weight: 600; }
+.dp-d {
+  font-size: 13px; text-align: center; padding: 5px 2px;
+  border-radius: 8px; cursor: pointer; border: none;
+  background: none; font-family: inherit; color: #1a1a1a; line-height: 1.2;
+}
+.dp-d:hover { background: #f0f0f4; }
+.dp-d.dp-today { color: #0a84ff; font-weight: 700; }
+.dp-d.dp-sel { background: #0a84ff !important; color: #fff; font-weight: 600; }
+.dp-d.dp-empty { cursor: default; pointer-events: none; }
+.dp-clear {
+  width: 100%; margin-top: 8px; padding: 7px;
+  background: none; border: none; color: #8e8e93; font-size: 12px;
+  cursor: pointer; border-radius: 8px; font-family: inherit;
+}
+.dp-clear:hover { background: #f5f5f7; color: #ff3b30; }
 .reset-row-btn {
   background: none; border: none; cursor: pointer;
   color: #c7c7cc; font-size: 13px; padding: 4px 5px; line-height: 1;
@@ -844,6 +879,66 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     savePL(p);
   }
 
+  // ===== CUSTOM DATE PICKER =====
+  let dpPopup = null;
+  const DP_MONTHS = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  const DP_DAYS   = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+
+  function closeDp() { if (dpPopup) { dpPopup.remove(); dpPopup = null; } }
+
+  function openDp(anchorEl, currentIso, onSelect) {
+    closeDp();
+    const today = new Date();
+    const sel   = currentIso ? new Date(currentIso + 'T00:00:00') : null;
+    let vy = sel ? sel.getFullYear() : today.getFullYear();
+    let vm = sel ? sel.getMonth()    : today.getMonth();
+
+    dpPopup = document.createElement('div');
+    dpPopup.className = 'dp-popup';
+    document.body.appendChild(dpPopup);
+
+    function drawDp() {
+      const first   = new Date(vy, vm, 1);
+      const total   = new Date(vy, vm + 1, 0).getDate();
+      const startDow = (first.getDay() + 6) % 7;
+      let days = DP_DAYS.map(d => '<span class="dp-dn">'+d+'</span>').join('');
+      for (let i = 0; i < startDow; i++) days += '<button class="dp-d dp-empty"></button>';
+      for (let d = 1; d <= total; d++) {
+        const isT = today.getFullYear()===vy && today.getMonth()===vm && today.getDate()===d;
+        const isS = sel && sel.getFullYear()===vy && sel.getMonth()===vm && sel.getDate()===d;
+        days += '<button class="dp-d'+(isT?' dp-today':'')+(isS?' dp-sel':'')+'" data-d="'+d+'">'+d+'</button>';
+      }
+      dpPopup.innerHTML =
+        '<div class="dp-header">'+
+          '<button class="dp-nav" id="dpPrev">‹</button>'+
+          '<span class="dp-month-label">'+DP_MONTHS[vm]+' '+vy+'</span>'+
+          '<button class="dp-nav" id="dpNext">›</button>'+
+        '</div>'+
+        '<div class="dp-grid">'+days+'</div>'+
+        '<button class="dp-clear">Очистить</button>';
+
+      dpPopup.querySelector('#dpPrev').onclick = e => { e.stopPropagation(); vm--; if(vm<0){vm=11;vy--;} drawDp(); };
+      dpPopup.querySelector('#dpNext').onclick = e => { e.stopPropagation(); vm++; if(vm>11){vm=0;vy++;} drawDp(); };
+      dpPopup.querySelector('.dp-clear').onclick = e => { e.stopPropagation(); onSelect(null); closeDp(); };
+      dpPopup.querySelectorAll('.dp-d[data-d]').forEach(btn => {
+        btn.onclick = e => {
+          e.stopPropagation();
+          const iso = vy+'-'+String(vm+1).padStart(2,'0')+'-'+String(+btn.dataset.d).padStart(2,'0');
+          onSelect(iso); closeDp();
+        };
+      });
+    }
+    drawDp();
+
+    const r = anchorEl.getBoundingClientRect();
+    let top = r.bottom + 6, left = r.left;
+    if (left + 240 > window.innerWidth - 8) left = window.innerWidth - 248;
+    if (top + 320 > window.innerHeight)     top  = r.top - 320 - 6;
+    dpPopup.style.cssText += ';top:'+top+'px;left:'+left+'px';
+  }
+  document.addEventListener('click', closeDp);
+  // ===========================
+
   function renderTracker() {
     if (!document.getElementById('tbl')) return;
     const rows = getRows();
@@ -867,9 +962,10 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       const rowCls = p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : '';
       const dateCells = FIELDS.map(f => {
         const v = p[f];
-        return '<td class="col-date"><div class="date-wrap"><div class="date-cell-inner"><button class="date-btn'+(v?' filled':'')+'">'+
-          (v ? plEsc(fmtPlDate(v)) : '+ дата')+
-          '</button><input type="date" class="date-inp-overlay" data-url="'+plEsc(r.url)+'" data-field="'+f+'" value="'+(v||'')+'"></div>'+
+        return '<td class="col-date"><div class="date-wrap">'+
+          '<button class="date-btn'+(v?' filled':'')+' dp-trigger" data-url="'+plEsc(r.url)+'" data-field="'+f+'" data-val="'+(v||'')+'">'+
+            (v ? plEsc(fmtPlDate(v)) : '+ дата')+
+          '</button>'+
           (v ? '<button class="date-clr" data-url="'+plEsc(r.url)+'" data-field="'+f+'">✕</button>' : '')+
           '</div></td>';
       }).join('');
@@ -884,8 +980,11 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         '</td></tr>';
     }).join('');
     const tbody = document.getElementById('tbody');
-    tbody.querySelectorAll('.date-inp-overlay').forEach(inp => {
-      inp.addEventListener('change', () => { setPF(inp.dataset.url, inp.dataset.field, inp.value || null); renderTracker(); });
+    tbody.querySelectorAll('.dp-trigger').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        openDp(btn, btn.dataset.val || null, iso => { setPF(btn.dataset.url, btn.dataset.field, iso); renderTracker(); });
+      });
     });
     tbody.querySelectorAll('.date-clr').forEach(btn => {
       btn.addEventListener('click', e => { e.stopPropagation(); setPF(btn.dataset.url, btn.dataset.field, null); renderTracker(); });
