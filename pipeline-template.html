@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Трекер откликов</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  background: #f5f5f7; color: #1a1a1a;
+  margin: 0; padding: 0 0 40px;
+  font-size: 14px; line-height: 1.45;
+}
+
+.page-header {
+  background: #fff; border-bottom: 1px solid #e5e5ea;
+  padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+  position: sticky; top: 0; z-index: 10;
+}
+.back-link {
+  color: #0a84ff; text-decoration: none; font-size: 14px;
+  display: flex; align-items: center; gap: 3px; white-space: nowrap;
+}
+.back-link:hover { opacity: 0.7; }
+.page-title { font-size: 17px; font-weight: 700; flex: 1; }
+.count-badge {
+  background: #f0f0f4; color: #6e6e73; font-size: 12px;
+  padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+}
+
+.stats-bar {
+  display: flex; gap: 16px; padding: 10px 16px 0;
+  font-size: 12px; color: #6e6e73; flex-wrap: wrap;
+}
+.stat { display: flex; align-items: center; gap: 5px; }
+.stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.stat-dot.active  { background: #0a84ff; }
+.stat-dot.offer   { background: #34c759; }
+.stat-dot.reject  { background: #c7c7cc; }
+
+.table-wrap { padding: 12px 16px; overflow-x: auto; }
+
+table {
+  width: 100%; border-collapse: collapse;
+  background: #fff; border-radius: 14px;
+  overflow: hidden; border: 1px solid #e5e5ea;
+  min-width: 740px;
+}
+thead { background: #f5f5f7; position: sticky; top: 57px; z-index: 5; }
+th {
+  padding: 9px 12px; text-align: left;
+  font-size: 11px; font-weight: 600; color: #8e8e93;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e5ea; white-space: nowrap;
+}
+td {
+  padding: 10px 12px; border-bottom: 1px solid #f0f0f4;
+  vertical-align: middle;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+tr.row-offer td:first-child { border-left: 3px solid #34c759; }
+tr.row-reject { opacity: 0.5; }
+tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
+
+.col-vacancy { min-width: 200px; max-width: 260px; }
+.col-date   { width: 94px; }
+.col-result { width: 130px; }
+.col-note   { min-width: 130px; }
+.col-del    { width: 34px; text-align: center; }
+
+.job-title {
+  display: block; font-size: 13px; font-weight: 600; color: #1a1a1a;
+  text-decoration: none; line-height: 1.3; margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px;
+}
+.job-title:hover { color: #0a84ff; }
+.job-source { font-size: 11px; font-weight: 700; color: #8e8e93; }
+
+/* Date cells */
+.date-wrap { display: flex; align-items: center; gap: 3px; }
+.date-btn {
+  background: none; border: 1px dashed #d0d0d5; border-radius: 6px;
+  padding: 4px 8px; font-size: 12px; color: #8e8e93;
+  cursor: pointer; white-space: nowrap; font-family: inherit;
+}
+.date-btn:hover { border-color: #8e8e93; color: #3a3a3c; background: #f5f5f7; }
+.date-btn.filled { border-style: solid; border-color: #e5e5ea; color: #1a1a1a; background: #fff; font-weight: 500; }
+.date-clr {
+  background: none; border: none; cursor: pointer;
+  color: #c7c7cc; font-size: 11px; padding: 2px 3px; line-height: 1;
+  font-family: inherit;
+}
+.date-clr:hover { color: #8e8e93; }
+
+/* Result */
+.result-sel {
+  border: 1px solid #e5e5ea; border-radius: 8px;
+  padding: 5px 6px; font-size: 12px; background: #fff;
+  color: #1a1a1a; cursor: pointer; width: 100%;
+  font-family: inherit; appearance: none; -webkit-appearance: none;
+}
+.result-sel:focus { outline: none; border-color: #0a84ff; }
+
+/* Note */
+.note-inp {
+  border: none; background: transparent; width: 100%;
+  font-size: 12px; color: #3a3a3c; font-family: inherit;
+  padding: 2px 0; min-width: 0;
+}
+.note-inp:focus { outline: none; }
+.note-inp::placeholder { color: #c7c7cc; }
+
+/* Delete */
+.del-btn {
+  background: none; border: none; cursor: pointer;
+  color: #d0d0d5; font-size: 14px; padding: 4px 6px; line-height: 1;
+}
+.del-btn:hover { color: #ff3b30; }
+
+/* Empty */
+.empty-state {
+  text-align: center; padding: 64px 20px; color: #8e8e93; font-size: 14px;
+}
+.empty-state strong { display: block; font-size: 20px; color: #3a3a3c; margin-bottom: 8px; }
+.empty-state a { color: #0a84ff; text-decoration: none; }
+
+/* Hidden date pool */
+#date-pool { position: absolute; opacity: 0; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <a href="dashboard.html" class="back-link">← Дашборд</a>
+  <div class="page-title">Трекер</div>
+  <span class="count-badge" id="cnt">0</span>
+</div>
+
+<div class="stats-bar" id="stats"></div>
+
+<div class="table-wrap">
+  <table id="tbl" style="display:none">
+    <thead>
+      <tr>
+        <th class="col-vacancy">Вакансия</th>
+        <th class="col-date">Откликнулась</th>
+        <th class="col-date">Тестовое</th>
+        <th class="col-date">Отправила</th>
+        <th class="col-date">Созвон</th>
+        <th class="col-result">Итог</th>
+        <th class="col-note">Заметка</th>
+        <th class="col-del"></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="empty-state" id="empty" style="display:none">
+    <strong>Пока пусто</strong>
+    Нажми ✅ на вакансии в <a href="dashboard.html">дашборде</a> —<br>она появится здесь
+  </div>
+</div>
+
+<div id="date-pool"></div>
+
+<script>
+(function(){
+'use strict';
+
+const JOBS = __JOBS_JSON__;
+const SK = 'designJobs.status.v1';
+const PK = 'designJobs.pipeline.v1';
+const MONTHS = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+
+const jobMap = {};
+JOBS.forEach(j => { jobMap[j.url] = j; });
+
+function ls(key) { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch { return {}; } }
+function savePL(d) { localStorage.setItem(PK, JSON.stringify(d)); }
+
+function fmtDate(iso) {
+  if (!iso) return null;
+  const d = new Date(iso + 'T00:00:00');
+  return d.getDate() + ' ' + MONTHS[d.getMonth()];
+}
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function srcLabel(s) {
+  return (s === 'HireHi' || s === 'hh.ru') ? s : '@' + s;
+}
+
+function getRows() {
+  const status = ls(SK);
+  const pl = ls(PK);
+  const seen = new Set();
+  const rows = [];
+
+  for (const [url, st] of Object.entries(status)) {
+    if (st !== 'applied' && st !== 'test') continue;
+    seen.add(url);
+    const j = jobMap[url] || {};
+    rows.push({ url, title: j.t || url, source: j.s || '', ...(pl[url] || {}) });
+  }
+  for (const [url, data] of Object.entries(pl)) {
+    if (seen.has(url)) continue;
+    const j = jobMap[url] || {};
+    rows.push({ url, title: data.title || j.t || url, source: data.source || j.s || '', ...data });
+  }
+  return rows;
+}
+
+function getPF(url, field) { return (ls(PK)[url] || {})[field] || null; }
+
+function setPF(url, field, value) {
+  const p = ls(PK);
+  if (!p[url]) p[url] = {};
+  const j = jobMap[url];
+  if (j) { p[url].title = j.t; p[url].source = j.s; }
+  if (value != null && value !== '') p[url][field] = value;
+  else delete p[url][field];
+  savePL(p);
+}
+
+function pickDate(url, field, current, cb) {
+  const pool = document.getElementById('date-pool');
+  const inp = document.createElement('input');
+  inp.type = 'date';
+  inp.value = current || '';
+  pool.appendChild(inp);
+  const cleanup = () => { if (pool.contains(inp)) pool.removeChild(inp); };
+  inp.addEventListener('change', () => { cb(inp.value || null); cleanup(); });
+  inp.addEventListener('blur', () => setTimeout(cleanup, 300));
+  try { inp.showPicker(); } catch { inp.click(); }
+}
+
+function render() {
+  const rows = getRows();
+  const pl = ls(PK);
+
+  document.getElementById('cnt').textContent = rows.length;
+
+  const offers  = rows.filter(r => (pl[r.url]||{}).result === 'offer').length;
+  const rejects = rows.filter(r => (pl[r.url]||{}).result === 'reject').length;
+  const active  = rows.length - offers - rejects;
+  const stats   = [];
+  if (active)  stats.push(`<span class="stat"><span class="stat-dot active"></span>${active} в работе</span>`);
+  if (offers)  stats.push(`<span class="stat"><span class="stat-dot offer"></span>${offers} оффер${offers>1?'а':''}</span>`);
+  if (rejects) stats.push(`<span class="stat"><span class="stat-dot reject"></span>${rejects} отказ${rejects>1?'а':''}</span>`);
+  document.getElementById('stats').innerHTML = stats.join('');
+
+  const tbl   = document.getElementById('tbl');
+  const empty = document.getElementById('empty');
+  if (rows.length === 0) { tbl.style.display = 'none'; empty.style.display = 'block'; return; }
+  tbl.style.display = 'table'; empty.style.display = 'none';
+
+  const FIELDS = ['appliedDate','testDate','sentDate','callDate'];
+
+  document.getElementById('tbody').innerHTML = rows.map(r => {
+    const p = pl[r.url] || {};
+    const rowCls = p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : '';
+
+    const dateCells = FIELDS.map(f => {
+      const v = p[f];
+      return `<td class="col-date"><div class="date-wrap">
+        <button class="date-btn${v?' filled':''}" data-url="${esc(r.url)}" data-field="${f}">
+          ${v ? esc(fmtDate(v)) : '+ дата'}
+        </button>
+        ${v ? `<button class="date-clr" data-url="${esc(r.url)}" data-field="${f}">✕</button>` : ''}
+      </div></td>`;
+    }).join('');
+
+    return `<tr class="${rowCls}" data-url="${esc(r.url)}">
+      <td class="col-vacancy">
+        <a class="job-title" href="${esc(r.url)}" target="_blank" rel="noopener" title="${esc(r.title)}">${esc(r.title)}</a>
+        <span class="job-source">${esc(srcLabel(r.source))}</span>
+      </td>
+      ${dateCells}
+      <td class="col-result">
+        <select class="result-sel" data-url="${esc(r.url)}">
+          <option value="">—</option>
+          <option value="offer"  ${p.result==='offer' ?'selected':''}>🎉 Оффер</option>
+          <option value="reject" ${p.result==='reject'?'selected':''}>❌ Отказ</option>
+        </select>
+      </td>
+      <td class="col-note">
+        <input class="note-inp" data-url="${esc(r.url)}" value="${esc(p.note||'')}" placeholder="заметка...">
+      </td>
+      <td class="col-del">
+        <button class="del-btn" data-url="${esc(r.url)}" title="Убрать из трекера">✕</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  const tbody = document.getElementById('tbody');
+
+  tbody.querySelectorAll('.date-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      pickDate(btn.dataset.url, btn.dataset.field, getPF(btn.dataset.url, btn.dataset.field), val => {
+        setPF(btn.dataset.url, btn.dataset.field, val);
+        render();
+      });
+    });
+  });
+
+  tbody.querySelectorAll('.date-clr').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      setPF(btn.dataset.url, btn.dataset.field, null);
+      render();
+    });
+  });
+
+  tbody.querySelectorAll('.result-sel').forEach(sel => {
+    sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); render(); });
+  });
+
+  tbody.querySelectorAll('.note-inp').forEach(inp => {
+    inp.addEventListener('blur', () => setPF(inp.dataset.url, 'note', inp.value || null));
+  });
+
+  tbody.querySelectorAll('.del-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const url = btn.dataset.url;
+      const p = ls(PK); delete p[url]; savePL(p);
+      const s = ls(SK);
+      if (s[url] === 'applied' || s[url] === 'test') { s[url] = 'viewed'; localStorage.setItem(SK, JSON.stringify(s)); }
+      render();
+    });
+  });
+}
+
+window.addEventListener('storage', e => { if (e.key === SK || e.key === PK) render(); });
+render();
+})();
+</script>
+</body>
+</html>

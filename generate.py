@@ -20,9 +20,11 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 
-JOBS_FILE = HERE / "jobs.json"
-TEMPLATE_FILE = HERE / "template.html"
-OUTPUT_FILE = HERE / "dashboard.html"
+JOBS_FILE            = HERE / "jobs.json"
+TEMPLATE_FILE        = HERE / "template.html"
+OUTPUT_FILE          = HERE / "dashboard.html"
+PIPELINE_TEMPLATE    = HERE / "pipeline-template.html"
+PIPELINE_OUTPUT      = HERE / "pipeline.html"
 
 
 def main() -> int:
@@ -50,6 +52,13 @@ def main() -> int:
     output = output.replace("__JOBS_JSON__", jobs_json)
 
     OUTPUT_FILE.write_text(output, encoding="utf-8")
+
+    # Генерируем pipeline.html
+    if PIPELINE_TEMPLATE.exists():
+        pl_tmpl = PIPELINE_TEMPLATE.read_text(encoding="utf-8")
+        pl_out = pl_tmpl.replace("__SNAPSHOT_DATE__", snapshot_date)
+        pl_out = pl_out.replace("__JOBS_JSON__", jobs_json)
+        PIPELINE_OUTPUT.write_text(pl_out, encoding="utf-8")
 
     # Считаем по источникам — для отчёта
     counts: dict = {}

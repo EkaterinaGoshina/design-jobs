@@ -327,6 +327,7 @@
   </div>
   <div class="row">
     <button id="resetFiltersDesktop">↺ Сбросить фильтры</button>
+    <a href="pipeline.html" id="trackerLink" style="margin-left:auto;padding:5px 14px;border:1px solid #c7c7cc;border-radius:999px;background:#fff;color:#3a3a3c;font-size:12px;text-decoration:none;display:inline-flex;align-items:center;gap:5px;">📋 Трекер <span id="trackerCount"></span></a>
   </div>
 </div>
 
@@ -352,7 +353,8 @@
     });
   })();
 
-  const STORE_STATUS  = 'designJobs.status.v1';
+  const STORE_STATUS   = 'designJobs.status.v1';
+  const STORE_PIPELINE = 'designJobs.pipeline.v1';
   const STORE_HIDDEN  = 'designJobs.hidden.v2';
   const STORE_FILTERS = 'designJobs.filters.v2';
 
@@ -375,8 +377,24 @@
   function saveStatuses() { localStorage.setItem(STORE_STATUS, JSON.stringify(state.statuses)); }
 
   function setStatus(url, ns) {
-    if (state.statuses[url] === ns) delete state.statuses[url];
-    else state.statuses[url] = ns;
+    const old = state.statuses[url];
+    if (old === ns) delete state.statuses[url];
+    else {
+      state.statuses[url] = ns;
+      // При первом отклике — записать дату в трекер
+      if (ns === 'applied' && old !== 'applied') {
+        try {
+          const pl = JSON.parse(localStorage.getItem(STORE_PIPELINE) || '{}');
+          if (!pl[url]) pl[url] = {};
+          if (!pl[url].appliedDate) {
+            pl[url].appliedDate = new Date().toISOString().slice(0,10);
+            const j = JOBS.find(x => x.url === url);
+            if (j) { pl[url].title = j.t; pl[url].source = j.s; }
+          }
+          localStorage.setItem(STORE_PIPELINE, JSON.stringify(pl));
+        } catch(e) {}
+      }
+    }
     saveStatuses(); render();
   }
 
@@ -431,6 +449,9 @@
     const viewedCount  = Object.values(state.statuses).filter(s=>s==='viewed').length;
     const skipCount    = Object.values(state.statuses).filter(s=>s==='skip').length;
     const testCount    = Object.values(state.statuses).filter(s=>s==='test').length;
+    const trackerN = appliedCount + testCount;
+    const tcEl = document.getElementById('trackerCount');
+    if (tcEl) tcEl.textContent = trackerN ? '· '+trackerN : '';
 
     let statsStr = 'Показано: '+visible.length+' из '+JOBS.length;
     if (appliedCount) statsStr += '  ·  ✅ '+appliedCount;
