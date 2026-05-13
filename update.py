@@ -55,8 +55,11 @@ def detect_format(text):
 
 def detect_role(text, role_keywords):
     t = text.lower()
-    for role, kws in role_keywords.items():
-        for kw in kws:
+    # "other" проверяем первым — графический/веб/геймдев всегда вытесняют UX/product
+    for kw in role_keywords.get("other", []):
+        if kw in t: return "other"
+    for role in ("product", "ux"):
+        for kw in role_keywords.get(role, []):
             if kw in t: return role
     return "other"
 

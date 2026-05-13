@@ -749,7 +749,7 @@
       "c": "Salmon",
       "lvl": "unknown",
       "fmt": "remote",
-      "role": "product",
+      "role": "other",
       "sal": "📍 Удалёнка",
       "url": "https://careers.salmon.ph/open-roles?ashby_jid=a7de7355-b627-4c93-a17b-424645ed893b"
     },
@@ -1139,7 +1139,7 @@
       "c": "DCUT",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
+      "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/132748685"
     },
@@ -1204,7 +1204,7 @@
       "c": "Лига Цифровой Экономики",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
+      "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/133042474"
     },
@@ -1269,7 +1269,7 @@
       "c": "Реальное Продвижение",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
+      "role": "other",
       "sal": "от 60 000 до 80 000 ₽",
       "url": "https://hh.ru/vacancy/133032787"
     },
