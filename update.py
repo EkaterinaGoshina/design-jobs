@@ -313,6 +313,101 @@ def parse_hh(src, exclude_keywords, role_keywords):
     return jobs
 
 
+def parse_hh_rss(src, exclude_keywords, role_keywords):
+    """Парсит HH.ru через публичные RSS-фиды — без OAuth, без токенов."""
+    seen_ids = set()
+    seen_titles = set()   # дедупликация по company+title (защита от спама)
+    jobs = []
+
+    for feed_url in src.get("feeds", []):
+        xml = fetch_html(feed_url)
+        if not xml:
+            continue
+
+        soup = BeautifulSoup(xml, "xml")
+        for item in soup.find_all("item"):
+            title = (item.find("title") or {}).get_text(strip=True)
+            link  = (item.find("link")  or {}).get_text(strip=True)
+            desc_raw = (item.find("description") or {}).get_text(strip=True)
+            pub   = (item.find("pubDate") or {}).get_text(strip=True)
+
+            if not title or not link:
+                continue
+
+            # ID из URL: /vacancy/12345678
+            m = re.search(r'/vacancy/(\d+)', link)
+            vid = int(m.group(1)) if m else 0
+            if not vid or vid in seen_ids:
+                continue
+            seen_ids.add(vid)
+
+            # Дедупликация по title+company (защита от массового постинга)
+            title_key = re.sub(r'\s+', ' ', title.lower().strip())
+            # company определим позже, пока используем только title для предварительной проверки
+
+            # Парсим HTML внутри description
+            body = BeautifulSoup(desc_raw, "html.parser").get_text(" ", strip=True)
+
+            if is_excluded(title, body, exclude_keywords):
+                continue
+            if not is_vacancy(title, body):
+                # HH-вакансии всегда настоящие — пропускаем is_vacancy только для TG
+                pass
+
+            # Компания: "Вакансия компании: Название Создана: ..."
+            company = "—"
+            m_co = re.search(r'Вакансия компании:\s*(.+?)(?:\s*Создана:|$)', body)
+            if m_co:
+                company = m_co.group(1).strip()
+
+            # Зарплата: "Предполагаемый уровень месячного дохода: от 100 000 руб."
+            sal = None
+            m_sal = re.search(r'месячного дохода:\s*([^\n<]+)', body)
+            if m_sal:
+                raw = m_sal.group(1).strip()
+                if raw.lower() not in ("не указан", "не указана", "—", ""):
+                    sal = raw
+
+            # Регион
+            region = None
+            m_reg = re.search(r'Регион:\s*([^\n<]+)', body)
+            if m_reg:
+                region = m_reg.group(1).strip()
+
+            # Дата: ISO 8601 "2026-05-13T16:38:54+03:00"
+            pub_date = None
+            time_str = None
+            m_iso = re.search(r'(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})', pub)
+            if m_iso:
+                pub_date = m_iso.group(1)
+                time_str = m_iso.group(2)
+
+            fmt = detect_format((region or "") + " " + body[:200])
+
+            dedup_key = f"{company.lower().strip()}|{title_key}"
+            if dedup_key in seen_titles:
+                continue
+            seen_titles.add(dedup_key)
+
+            jobs.append({
+                "s": "hh.ru",
+                "pid": vid,
+                "date": pub_date,
+                "time": time_str,
+                "t": title[:140],
+                "c": company,
+                "lvl": detect_level(title + " " + body[:300]),
+                "fmt": fmt,
+                "role": detect_role(title + " " + body[:200], role_keywords),
+                "sal": sal,
+                "url": link,
+            })
+
+        time.sleep(1)
+
+    return jobs
+
+
 def generate(all_jobs):
     snapshot_date = datetime.date.today().isoformat()
     all_jobs.sort(key=lambda j: (j["s"], -(j.get("pid") or 0)))
@@ -355,6 +450,8 @@ def main():
 
         if src["kind"] == "hh":
             jobs = parse_hh(src, exclude_keywords, role_keywords)
+        elif src["kind"] == "hh_rss":
+            jobs = parse_hh_rss(src, exclude_keywords, role_keywords)
         else:
             html = fetch_html(src["url"])
             if not html:
@@ -367,7 +464,7 @@ def main():
             else:
                 continue
 
-        key = "HireHi" if src["kind"] == "hirehi" else ("hh.ru" if src["kind"] == "hh" else name)
+        key = "HireHi" if src["kind"] == "hirehi" else ("hh.ru" if src["kind"] in ("hh", "hh_rss") else name)
         new_by_source[key] = jobs
         print(f"  → {len(jobs)} вакансий")
         time.sleep(1)

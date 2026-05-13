@@ -12,7 +12,15 @@
     {"kind": "tg", "name": "huggabletalents", "url": "https://t.me/s/huggabletalents", "enabled": true},
     {"kind": "hirehi", "name": "HireHi",      "url": "https://hirehi.ru/?category=design&search=ux/ui", "enabled": true},
     {"kind": "hh",     "name": "hh.ru",       "url": "https://api.hh.ru/vacancies",                      "enabled": false,
-     "queries": ["UX дизайнер", "UI дизайнер", "продуктовый дизайнер", "web designer", "веб дизайнер"]}
+     "queries": ["UX дизайнер", "UI дизайнер", "продуктовый дизайнер", "web designer", "веб дизайнер"]},
+    {"kind": "hh_rss", "name": "hh.ru",       "enabled": true,
+     "feeds": [
+       "https://hh.ru/search/vacancy/rss?text=UX+дизайнер&area=113&experience=between1And3&order_by=publication_time",
+       "https://hh.ru/search/vacancy/rss?text=UI+дизайнер&area=113&experience=between1And3&order_by=publication_time",
+       "https://hh.ru/search/vacancy/rss?text=продуктовый+дизайнер&area=113&order_by=publication_time",
+       "https://hh.ru/search/vacancy/rss?text=UX%2FUI+designer&area=113&order_by=publication_time"
+     ]
+    }
   ],
 
   "_filter_comment": "Что точно не показывать: парсер дропнет вакансию, если в title или начале body найдёт любое из этих ключевых слов",
@@ -26,7 +34,9 @@
     "аналитик", "analyst",
     "маркетолог", "marketing", "smm-", "smm ", "crm specialist",
     "devops", "sre engineer", "fundraiser",
-    "копирайтер", "контент-креатор", "контент-менеджер"
+    "копирайтер", "контент-креатор", "контент-менеджер",
+    "технический писат", "системный аналитик", "бизнес-аналитик",
+    "руководитель проект", "менеджер проект", "scrum master"
   ],
 
   "_role_comment": "Эти ключи отбираются для дашборда. role=other = всё что просто 'дизайн' но не входит в основные.",
