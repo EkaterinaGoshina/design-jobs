@@ -3,39 +3,6 @@
   "jobs": [
     {
       "s": "HireHi",
-      "pid": 43375,
-      "t": "Graphic Designer",
-      "c": "Lenkep recruitment",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "до 96 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-43375"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43374,
-      "t": "Graphic Designer",
-      "c": "Гекса",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 100 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-43374"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43373,
-      "t": "Graphic Designer",
-      "c": "Burger Club",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 60 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-43373"
-    },
-    {
-      "s": "HireHi",
       "pid": 43369,
       "t": "Продуктовый дизайнер",
       "c": "ПСБ",
@@ -44,17 +11,6 @@
       "role": "product",
       "sal": "~ 184 000 ₽, гибрид",
       "url": "https://hirehi.ru/design/produktovyi-dizainer-43369"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43366,
-      "t": "Graphic Designer",
-      "c": "Сияй",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "дорогая, от 50 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-43366"
     },
     {
       "s": "HireHi",
@@ -69,17 +25,6 @@
     },
     {
       "s": "HireHi",
-      "pid": 43344,
-      "t": "Графический дизайнер",
-      "c": "Metaleks.Art",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 60 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43344"
-    },
-    {
-      "s": "HireHi",
       "pid": 43343,
       "t": "ux/ui-дизайнер",
       "c": "ФОДЖИН",
@@ -88,28 +33,6 @@
       "role": "ux",
       "sal": "от 80 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-43343"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43341,
-      "t": "game designer",
-      "c": "Xdevs",
-      "lvl": "lead",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "~ 260 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/game-designer-43341"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43340,
-      "t": "game Designer",
-      "c": "Next Genium",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 50 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/game-designer-43340"
     },
     {
       "s": "HireHi",
@@ -124,17 +47,6 @@
     },
     {
       "s": "HireHi",
-      "pid": 43331,
-      "t": "graphic designer",
-      "c": "Sanber",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "~ 45 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-43331"
-    },
-    {
-      "s": "HireHi",
       "pid": 43317,
       "t": "web designer",
       "c": "Freedom Bank",
@@ -143,17 +55,6 @@
       "role": "other",
       "sal": "~ 182 000 ₽, гибрид",
       "url": "https://hirehi.ru/design/web-designer-43317"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43311,
-      "t": "Графический дизайнер",
-      "c": "Aviasales",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "~ 127 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43311"
     },
     {
       "s": "HireHi",
@@ -176,39 +77,6 @@
       "role": "ux",
       "sal": "~ 136 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-43295"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43294,
-      "t": "Графический дизайнер",
-      "c": "SOFORIA",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 30 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43294"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43276,
-      "t": "Графический дизайнер",
-      "c": "ПОКОЛЕНИЕ ТРЕНДОВ",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 50 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43276"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43265,
-      "t": "Графический дизайнер",
-      "c": "Josicore",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 50 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43265"
     },
     {
       "s": "HireHi",
@@ -253,50 +121,6 @@
       "role": "product",
       "sal": "~ 275 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/product-designer-43235"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43233,
-      "t": "Графический дизайнер",
-      "c": "Restaurant Guru",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "до 150 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43233"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43228,
-      "t": "game Designer",
-      "c": "AGames",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "~ 157 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/game-designer-43228"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43220,
-      "t": "Графический дизайнер",
-      "c": "Outdoor.kz",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 32 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43220"
-    },
-    {
-      "s": "HireHi",
-      "pid": 43216,
-      "t": "Графический дизайнер",
-      "c": "NDA",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 60 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-43216"
     },
     {
       "s": "uxwork",
@@ -518,19 +342,6 @@
       "role": "product",
       "sal": "Задачи :",
       "url": "https://career.domclick.ru/vacancy/starshii-produktovyi-dizainer-v-napravlenie-vnutrennie-servisy-131187747"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5748,
-      "date": "2026-05-06",
-      "time": "15:57",
-      "t": "Моушн-дизайнер (Trading high-risk)",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "​ Мы ищем самостоятельного моушн-дизайнера, который понимает, что рекламный ролик — это инструмент, а не просто визуальная форма.",
-      "url": "http://t.me/nastya_ivch"
     },
     {
       "s": "dsgn_vacancies",
@@ -898,19 +709,6 @@
     },
     {
       "s": "design_jobs_uxui",
-      "pid": 1139,
-      "date": "2026-05-04",
-      "time": "07:08",
-      "t": "Графический дизайнер",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "office",
-      "role": "other",
-      "sal": "Москва, офис ‍",
-      "url": "https://www.vseti.app/b2b"
-    },
-    {
-      "s": "design_jobs_uxui",
       "pid": 1140,
       "date": "2026-05-05",
       "time": "07:38",
@@ -1054,19 +852,6 @@
     },
     {
       "s": "huggabletalents",
-      "pid": 2710,
-      "date": "2026-05-07",
-      "time": "09:15",
-      "t": "Ведущий графический дизайнер в Яндекс Фабрику",
-      "c": "Яндекс Фабрику",
-      "lvl": "unknown",
-      "fmt": "hybrid",
-      "role": "other",
-      "sal": "Гибрид, офис в Москве, З/П обсуждается индивидуально Яндекс Фабрика",
-      "url": "https://yandex.ru/jobs/services/fabrika"
-    },
-    {
-      "s": "huggabletalents",
       "pid": 2714,
       "date": "2026-05-11",
       "time": "11:35",
@@ -1132,19 +917,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 132748685,
-      "date": "2026-05-13",
-      "time": "14:37",
-      "t": "UX/UI дизайнер | Графический дизайнер",
-      "c": "DCUT",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/132748685"
-    },
-    {
-      "s": "hh.ru",
       "pid": 133049186,
       "date": "2026-05-13",
       "time": "14:18",
@@ -1194,19 +966,6 @@
       "role": "other",
       "sal": "от 110 000 ₽",
       "url": "https://hh.ru/vacancy/133043658"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133042474,
-      "date": "2026-05-13",
-      "time": "12:34",
-      "t": "Графический дизайнер / UX/UI-дизайнер",
-      "c": "Лига Цифровой Экономики",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133042474"
     },
     {
       "s": "hh.ru",
@@ -1272,19 +1031,6 @@
       "role": "other",
       "sal": "от 60 000 до 80 000 ₽",
       "url": "https://hh.ru/vacancy/133032787"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133058346,
-      "date": "2026-05-13",
-      "time": "16:40",
-      "t": "Графический дизайнер",
-      "c": "БАЗАР",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133058346"
     },
     {
       "s": "hh.ru",
