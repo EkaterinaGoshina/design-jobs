@@ -364,6 +364,7 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
 .test-stage-btn.got.active   { background: #dbeafe; border-color: #4c8ff1; color: #1e40af; }
 .test-stage-btn.doing.active { background: #fff3cd; border-color: #ff9500; color: #7a4500; }
 .test-stage-btn.sent.active  { background: #dcfce7; border-color: #34c759; color: #166534; }
+.test-stage-btn.none.active  { background: #f0f0f4; border-color: #8e8e93; color: #3a3a3c; }
 .pin-btn {
   background: none; border: none; cursor: pointer;
   font-size: 15px; padding: 4px 5px; line-height: 1;
@@ -1248,7 +1249,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     }
     tbl.style.display = 'table'; plEmpty.style.display = 'none';
     const DATE_FIELDS = ['appliedDate','callDate'];
-    const TEST_STAGES = ['получила','делаю','отправила'];
+    const TEST_STAGES = ['получила','делаю','отправила','не было'];
     document.getElementById('tbody').innerHTML = rows.map(r => {
       const p = pl[r.url] || {};
       const testRowCls = p.testStage === 'получила' ? 'row-test-got' : p.testStage === 'делаю' ? 'row-test-doing' : p.testStage === 'отправила' ? 'row-test-sent' : '';
@@ -1265,7 +1266,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
           '</div></td>';
       })('appliedDate');
 
-      const STAGE_CLS = { 'получила': 'got', 'делаю': 'doing', 'отправила': 'sent' };
+      const STAGE_CLS = { 'получила': 'got', 'делаю': 'doing', 'отправила': 'sent', 'не было': 'none' };
       const testCell = '<td class="col-test"><div class="test-stages">'+
         TEST_STAGES.map(s =>
           '<button class="test-stage-btn '+STAGE_CLS[s]+(p.testStage===s?' active':'')+'" data-url="'+plEsc(r.url)+'" data-stage="'+s+'">'+s+'</button>'
