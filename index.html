@@ -1346,6 +1346,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       const saveTime = () => setPF(inp.dataset.url, 'callTime', inp.value || null);
       inp.addEventListener('change', saveTime);
       inp.addEventListener('blur', saveTime);
+      inp.addEventListener('input', saveTime);
     });
     tbody.querySelectorAll('.call-verdict-btn').forEach(btn => {
       btn.addEventListener('click', e => {
