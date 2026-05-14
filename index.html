@@ -222,6 +222,14 @@ tr.row-test-sent  td:first-child { border-left: 3px solid #34c759; }
 }
 .call-platform-btn:hover { border-color: #8e8e93; color: #3a3a3c; }
 .call-platform-btn.active { background: #e8f4ff; border-color: #0a84ff; color: #0a84ff; font-weight: 600; }
+.call-detail-inp {
+  border: 1px solid #d0d0d5; border-radius: 6px;
+  padding: 4px 8px; font-size: 11px; color: #3a3a3c;
+  font-family: inherit; background: #f9f9fb; width: 100%;
+  box-sizing: border-box; margin-top: 2px;
+}
+.call-detail-inp:focus { outline: none; border-color: #0a84ff; background: #fff; }
+.call-detail-inp::placeholder { color: #b0b0b8; }
 .call-time-inp {
   border: 1px dashed #d0d0d5; border-radius: 6px;
   padding: 3px 7px; font-size: 12px; color: #3a3a3c;
@@ -1220,23 +1228,32 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         '</div></td>';
 
       const CALL_PLATFORMS = ['Meet','Zoom','Telegram','Телефон','Офис'];
+      const CALL_PLACEHOLDERS = {
+        'Meet': 'meet.google.com/...',
+        'Zoom': 'zoom.us/j/... или ID',
+        'Telegram': '@username или ссылка',
+        'Телефон': '+7 ...',
+        'Офис': 'Адрес офиса'
+      };
       const callCell = (() => {
         const v = p.callDate;
         const plat = p.callPlatform || '';
         const ctime = p.callTime || '';
+        const detail = p.callDetail || '';
         return '<td class="col-call"><div class="call-wrap">'+
           '<div class="date-wrap">'+
             '<button class="date-btn'+(v?' filled':'')+' dp-trigger" data-url="'+plEsc(r.url)+'" data-field="callDate" data-val="'+(v||'')+'">'+
               (v ? plEsc(fmtPlDate(v)) : '+ дата')+
             '</button>'+
             (v ? '<button class="date-clr" data-url="'+plEsc(r.url)+'" data-field="callDate">✕</button>' : '')+
-            (v ? '<input class="call-time-inp" data-url="'+plEsc(r.url)+'" type="time" value="'+plEsc(ctime)+'" placeholder="время" title="Время созвона">' : '')+
+            (v ? '<input class="call-time-inp" data-url="'+plEsc(r.url)+'" type="time" value="'+plEsc(ctime)+'" title="Время созвона">' : '')+
           '</div>'+
           '<div class="call-platforms">'+
             CALL_PLATFORMS.map(pt =>
               '<button class="call-platform-btn'+(plat===pt?' active':'')+'" data-url="'+plEsc(r.url)+'" data-platform="'+pt+'">'+pt+'</button>'
             ).join('')+
           '</div>'+
+          (plat ? '<input class="call-detail-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(detail)+'" placeholder="'+plEsc(CALL_PLACEHOLDERS[plat]||'детали...')+'">' : '')+
         '</div></td>';
       })();
 
@@ -1269,12 +1286,23 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       btn.addEventListener('click', e => {
         e.stopPropagation();
         const cur = getPF(btn.dataset.url, 'callPlatform');
-        setPF(btn.dataset.url, 'callPlatform', cur === btn.dataset.platform ? null : btn.dataset.platform);
+        const next = cur === btn.dataset.platform ? null : btn.dataset.platform;
+        if (next !== cur) setPF(btn.dataset.url, 'callDetail', null); // сброс деталей при смене платформы
+        setPF(btn.dataset.url, 'callPlatform', next);
         renderTracker();
+        // фокус на поле деталей если платформа выбрана
+        if (next) setTimeout(() => {
+          const inp = document.querySelector('.call-detail-inp[data-url="'+btn.dataset.url+'"]');
+          if (inp) inp.focus();
+        }, 50);
       });
     });
     tbody.querySelectorAll('.call-time-inp').forEach(inp => {
       inp.addEventListener('change', () => setPF(inp.dataset.url, 'callTime', inp.value || null));
+    });
+    tbody.querySelectorAll('.call-detail-inp').forEach(inp => {
+      inp.addEventListener('blur', () => setPF(inp.dataset.url, 'callDetail', inp.value.trim() || null));
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); });
     });
     tbody.querySelectorAll('.result-sel').forEach(sel => { sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); renderTracker(); }); });
     tbody.querySelectorAll('.note-inp').forEach(inp => { inp.addEventListener('blur', () => setPF(inp.dataset.url, 'note', inp.value || null)); });
