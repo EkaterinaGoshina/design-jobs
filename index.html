@@ -230,6 +230,26 @@ tr.row-test-sent  td:first-child { border-left: 3px solid #34c759; }
 }
 .call-detail-inp:focus { outline: none; border-color: #0a84ff; background: #fff; }
 .call-detail-inp::placeholder { color: #b0b0b8; }
+.call-verdict-row { display: flex; gap: 5px; margin-top: 4px; }
+.call-verdict-btn {
+  flex: 1; font-size: 11px; padding: 4px 6px; border-radius: 7px;
+  border: 1.5px solid #e5e5ea; background: #f5f5f7;
+  cursor: pointer; font-family: inherit; font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+.call-verdict-btn.happened { border-color: #34c759; color: #1a7a3a; }
+.call-verdict-btn.happened:hover { background: #edfaf2; }
+.call-verdict-btn.missed { border-color: #ff9500; color: #a05000; }
+.call-verdict-btn.missed:hover { background: #fff6e8; }
+.call-status-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; padding: 5px 10px;
+  border-radius: 8px; cursor: pointer; border: none;
+  font-family: inherit; transition: opacity 0.15s;
+}
+.call-status-badge:hover { opacity: 0.7; }
+.call-status-badge.happened { background: #edfaf2; color: #1a7a3a; }
+.call-status-badge.missed   { background: #fff6e8; color: #a05000; }
 .call-time-inp {
   border: 1px dashed #d0d0d5; border-radius: 6px;
   padding: 3px 7px; font-size: 12px; color: #3a3a3c;
@@ -1228,18 +1248,37 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         '</div></td>';
 
       const CALL_PLATFORMS = ['Meet','Zoom','Telegram','Телефон','Офис'];
-      const CALL_PLACEHOLDERS = {
-        'Meet': 'meet.google.com/...',
-        'Zoom': 'zoom.us/j/... или ID',
-        'Telegram': '@username или ссылка',
-        'Телефон': '+7 ...',
-        'Офис': 'Адрес офиса'
-      };
+      const CALL_PLACEHOLDERS = { 'Meet':'meet.google.com/...','Zoom':'zoom.us/j/... или ID','Telegram':'@username или ссылка','Телефон':'+7 ...','Офис':'Адрес офиса' };
+
+      // Проверяем, прошёл ли созвон (дата + час на созвон)
+      function isCallPast(callDate, callTime) {
+        if (!callDate) return false;
+        const dt = new Date(callDate + 'T' + (callTime || '23:59') + ':00');
+        return (Date.now() - dt.getTime()) > 60 * 60 * 1000; // +1 час
+      }
+
       const callCell = (() => {
         const v = p.callDate;
         const plat = p.callPlatform || '';
         const ctime = p.callTime || '';
         const detail = p.callDetail || '';
+        const callStatus = p.callStatus || null; // 'happened' | 'missed' | null
+
+        // Состояние 1: статус уже выставлен → компактный бейдж с отменой
+        if (callStatus) {
+          const isHappened = callStatus === 'happened';
+          const label = isHappened ? '✓ состоялся' : '✗ не состоялся';
+          const cls = isHappened ? 'happened' : 'missed';
+          return '<td class="col-call">'+
+            '<button class="call-status-badge '+cls+' call-status-undo" data-url="'+plEsc(r.url)+'" title="Нажми, чтобы отменить">'+
+              label+' <span style="font-size:10px;opacity:0.6">↩</span>'+
+            '</button>'+
+          '</td>';
+        }
+
+        // Состояние 2: созвон прошёл, статус не выставлен → показать кнопки вердикта
+        const showVerdict = v && isCallPast(v, ctime);
+
         return '<td class="col-call"><div class="call-wrap">'+
           '<div class="date-wrap">'+
             '<button class="date-btn'+(v?' filled':'')+' dp-trigger" data-url="'+plEsc(r.url)+'" data-field="callDate" data-val="'+(v||'')+'">'+
@@ -1254,6 +1293,12 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
             ).join('')+
           '</div>'+
           (plat ? '<input class="call-detail-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(detail)+'" placeholder="'+plEsc(CALL_PLACEHOLDERS[plat]||'детали...')+'">' : '')+
+          (showVerdict ?
+            '<div class="call-verdict-row">'+
+              '<button class="call-verdict-btn happened" data-url="'+plEsc(r.url)+'" data-verdict="happened">✓ состоялся</button>'+
+              '<button class="call-verdict-btn missed"   data-url="'+plEsc(r.url)+'" data-verdict="missed">✗ не состоялся</button>'+
+            '</div>'
+          : '')+
         '</div></td>';
       })();
 
@@ -1300,6 +1345,20 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     tbody.querySelectorAll('.call-time-inp').forEach(inp => {
       inp.addEventListener('change', () => setPF(inp.dataset.url, 'callTime', inp.value || null));
     });
+    tbody.querySelectorAll('.call-verdict-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        setPF(btn.dataset.url, 'callStatus', btn.dataset.verdict);
+        renderTracker();
+      });
+    });
+    tbody.querySelectorAll('.call-status-undo').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        setPF(btn.dataset.url, 'callStatus', null);
+        renderTracker();
+      });
+    });
     tbody.querySelectorAll('.call-detail-inp').forEach(inp => {
       inp.addEventListener('blur', () => setPF(inp.dataset.url, 'callDetail', inp.value.trim() || null));
       inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); });
@@ -1320,6 +1379,18 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
   window.renderTracker = renderTracker;
   window.addEventListener('storage', e => { if (e.key === SK || e.key === PK) renderTracker(); });
   renderTracker();
+
+  // Авто-перерисовка когда созвон «протухает» (раз в минуту)
+  setInterval(() => {
+    const pl = plLs(PK);
+    const hasUpcoming = Object.values(pl).some(p => {
+      if (p.callStatus || !p.callDate) return false;
+      const dt = new Date(p.callDate + 'T' + (p.callTime || '23:59') + ':00');
+      const diff = Date.now() - dt.getTime();
+      return diff > 0 && diff < 2 * 60 * 60 * 1000; // созвон прошёл <2 часов назад
+    });
+    if (hasUpcoming) renderTracker();
+  }, 60 * 1000);
 })();
 
 // ===== ADD VACANCY MODAL =====
