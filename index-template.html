@@ -1254,7 +1254,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       function isCallPast(callDate, callTime) {
         if (!callDate) return false;
         const dt = new Date(callDate + 'T' + (callTime || '23:59') + ':00');
-        return (Date.now() - dt.getTime()) > 60 * 60 * 1000; // +1 час
+        return Date.now() > dt.getTime(); // сразу после времени созвона
       }
 
       const callCell = (() => {
@@ -1343,7 +1343,9 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       });
     });
     tbody.querySelectorAll('.call-time-inp').forEach(inp => {
-      inp.addEventListener('change', () => setPF(inp.dataset.url, 'callTime', inp.value || null));
+      const saveTime = () => setPF(inp.dataset.url, 'callTime', inp.value || null);
+      inp.addEventListener('change', saveTime);
+      inp.addEventListener('blur', saveTime);
     });
     tbody.querySelectorAll('.call-verdict-btn').forEach(btn => {
       btn.addEventListener('click', e => {
