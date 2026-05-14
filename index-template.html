@@ -200,12 +200,13 @@ tr:hover td { background: #fafafa; }
 tr.row-offer td:first-child { border-left: 3px solid #34c759; }
 tr.row-reject { opacity: 0.5; }
 tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
-tr.row-test-got  td { background: #fffdf0; }
-tr.row-test-got  td:first-child { border-left: 3px solid #ffd54f; }
-tr.row-test-doing td { background: #fff8e1; }
-tr.row-test-doing td:first-child { border-left: 3px solid #ffa000; }
-tr.row-test-sent  td { background: #f0fff4; }
+tr.row-test-got   td { background: #eef3ff; }
+tr.row-test-got   td:first-child { border-left: 3px solid #4c8ff1; }
+tr.row-test-doing td { background: #fff8e6; }
+tr.row-test-doing td:first-child { border-left: 3px solid #ff9500; }
+tr.row-test-sent  td { background: #edfbf0; }
 tr.row-test-sent  td:first-child { border-left: 3px solid #34c759; }
+tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
 .col-vacancy { min-width: 200px; max-width: 260px; }
 .col-date   { width: 94px; }
 .col-test   { width: 130px; }
@@ -359,7 +360,17 @@ tr.row-test-sent  td:first-child { border-left: 3px solid #34c759; }
   color: #8e8e93; cursor: pointer; font-family: inherit; white-space: nowrap;
 }
 .test-stage-btn:hover { border-color: #8e8e93; color: #3a3a3c; }
-.test-stage-btn.active { background: #fff3cd; border-color: #ffa000; color: #7a5000; font-weight: 600; }
+.test-stage-btn.active { font-weight: 600; }
+.test-stage-btn.got.active   { background: #dbeafe; border-color: #4c8ff1; color: #1e40af; }
+.test-stage-btn.doing.active { background: #fff3cd; border-color: #ff9500; color: #7a4500; }
+.test-stage-btn.sent.active  { background: #dcfce7; border-color: #34c759; color: #166534; }
+.pin-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 15px; padding: 4px 5px; line-height: 1;
+  color: #d1d1d6; transition: color 0.15s;
+}
+.pin-btn:hover { color: #ff9500; }
+.pin-btn.pinned { color: #ff9500; }
 .reset-row-btn {
   background: none; border: none; cursor: pointer;
   color: #c7c7cc; font-size: 13px; padding: 4px 5px; line-height: 1;
@@ -1199,6 +1210,8 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     }) : allRows;
     const pl = plLs(PK);
     const allPl = plLs(PK);
+    // Сортировка: приоритетные вакансии сначала
+    rows.sort((a, b) => ((allPl[b.url]||{}).priority ? 1 : 0) - ((allPl[a.url]||{}).priority ? 1 : 0));
     const total   = allRows.length;
     const offers  = allRows.filter(r => (allPl[r.url]||{}).result === 'offer').length;
     const rejects = allRows.filter(r => (allPl[r.url]||{}).result === 'reject').length;
@@ -1239,7 +1252,8 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     document.getElementById('tbody').innerHTML = rows.map(r => {
       const p = pl[r.url] || {};
       const testRowCls = p.testStage === 'получила' ? 'row-test-got' : p.testStage === 'делаю' ? 'row-test-doing' : p.testStage === 'отправила' ? 'row-test-sent' : '';
-      const rowCls = (p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : testRowCls);
+      const priorityCls = p.priority ? ' row-priority' : '';
+      const rowCls = (p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : testRowCls) + priorityCls;
 
       const appliedCell = (f => {
         const v = p[f];
@@ -1251,9 +1265,10 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
           '</div></td>';
       })('appliedDate');
 
+      const STAGE_CLS = { 'получила': 'got', 'делаю': 'doing', 'отправила': 'sent' };
       const testCell = '<td class="col-test"><div class="test-stages">'+
         TEST_STAGES.map(s =>
-          '<button class="test-stage-btn'+(p.testStage===s?' active':'')+'" data-url="'+plEsc(r.url)+'" data-stage="'+s+'">'+s+'</button>'
+          '<button class="test-stage-btn '+STAGE_CLS[s]+(p.testStage===s?' active':'')+'" data-url="'+plEsc(r.url)+'" data-stage="'+s+'">'+s+'</button>'
         ).join('')+
         '</div></td>';
 
@@ -1317,7 +1332,10 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         appliedCell+testCell+callCell+
         '<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option><option value="ignore"'+(p.result==='ignore'?' selected':'')+'>🙈 Игнор</option></select></td>'+
         '<td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td>'+
-        '<td class="col-del"><button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует">🗑️</button></td></tr>';
+        '<td class="col-del">'+
+          '<button class="pin-btn'+(p.priority?' pinned':'')+'" data-url="'+plEsc(r.url)+'" title="'+(p.priority?'Убрать приоритет':'Приоритет')+'">★</button>'+
+          '<button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует">🗑️</button>'+
+        '</td></tr>';
     }).join('');
     const tbody = document.getElementById('tbody');
     tbody.querySelectorAll('.dp-trigger').forEach(btn => {
@@ -1383,6 +1401,14 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       const saveNote = () => setPF(inp.dataset.url, 'note', inp.value || null);
       inp.addEventListener('input', saveNote);
       inp.addEventListener('blur', saveNote);
+    });
+    tbody.querySelectorAll('.pin-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const cur = getPF(btn.dataset.url, 'priority');
+        setPF(btn.dataset.url, 'priority', cur ? null : true);
+        renderTracker();
+      });
     });
     tbody.querySelectorAll('.del-btn').forEach(btn => {
       btn.addEventListener('click', () => {
