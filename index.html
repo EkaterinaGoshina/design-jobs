@@ -1178,6 +1178,16 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
 
   function renderTracker() {
     if (!document.getElementById('tbl')) return;
+    // Сохраняем несохранённые значения ДО перерисовки (защита от потери при ре-рендере)
+    document.querySelectorAll('.call-time-inp').forEach(inp => {
+      if (inp.value) setPF(inp.dataset.url, 'callTime', inp.value);
+    });
+    document.querySelectorAll('.call-detail-inp').forEach(inp => {
+      if (inp.value.trim()) setPF(inp.dataset.url, 'callDetail', inp.value.trim());
+    });
+    document.querySelectorAll('.note-inp').forEach(inp => {
+      setPF(inp.dataset.url, 'note', inp.value || null);
+    });
     const searchQ = (document.getElementById('tracker-search')?.value || '').trim().toLowerCase();
     const allRows = getRows();
     const rows = searchQ ? allRows.filter(r => {
@@ -1363,11 +1373,17 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       });
     });
     tbody.querySelectorAll('.call-detail-inp').forEach(inp => {
-      inp.addEventListener('blur', () => setPF(inp.dataset.url, 'callDetail', inp.value.trim() || null));
+      const saveDet = () => setPF(inp.dataset.url, 'callDetail', inp.value.trim() || null);
+      inp.addEventListener('input', saveDet);
+      inp.addEventListener('blur', saveDet);
       inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); });
     });
     tbody.querySelectorAll('.result-sel').forEach(sel => { sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); renderTracker(); }); });
-    tbody.querySelectorAll('.note-inp').forEach(inp => { inp.addEventListener('blur', () => setPF(inp.dataset.url, 'note', inp.value || null)); });
+    tbody.querySelectorAll('.note-inp').forEach(inp => {
+      const saveNote = () => setPF(inp.dataset.url, 'note', inp.value || null);
+      inp.addEventListener('input', saveNote);
+      inp.addEventListener('blur', saveNote);
+    });
     tbody.querySelectorAll('.del-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const url = btn.dataset.url;
