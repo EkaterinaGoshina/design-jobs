@@ -80,7 +80,9 @@ body {
 .chip:hover { border-color: #8e8e93; }
 .chip.active { background: #1a1a1a; color: #fff; }
 .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; width: 100%; }
-.stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; }
+.stats { font-size: 12px; color: #6e6e73; padding: 6px 2px 10px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.save-add-btn { background: none; border: 1px solid #d0d0d5; border-radius: 8px; padding: 4px 12px; font-size: 12px; color: #6e6e73; cursor: pointer; font-family: inherit; }
+.save-add-btn:hover { border-color: #ff9500; color: #ff9500; }
 #list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: stretch; }
 @media (max-width: 900px) { #list { grid-template-columns: repeat(2, 1fr); } }
 .card { border: 1px solid #e5e5ea; border-radius: 14px; padding: 13px 15px; background: #fff; transition: opacity 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; cursor: pointer; }
@@ -207,13 +209,40 @@ tr.row-test-doing td:first-child { border-left: 3px solid #ff9500; }
 tr.row-test-sent  td { background: #edfbf0; }
 tr.row-test-sent  td:first-child { border-left: 3px solid #34c759; }
 tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
-.col-vacancy { min-width: 200px; max-width: 260px; }
-.col-date   { width: 94px; }
-.col-test   { width: 130px; }
-.col-call   { width: 170px; }
-.col-result { width: 130px; }
-.col-note   { min-width: 130px; }
-.col-del    { width: 60px; text-align: center; white-space: nowrap; }
+.col-vacancy { min-width: 190px; max-width: 240px; }
+.col-date    { width: 90px; }
+.col-test    { width: 130px; }
+.col-stage   { width: 115px; }
+.col-call    { width: 165px; }
+.col-result  { width: 120px; }
+.col-note    { min-width: 110px; }
+.col-del     { width: 60px; text-align: center; white-space: nowrap; }
+/* Этапы интервью */
+.interview-stages { display: flex; gap: 3px; flex-wrap: wrap; }
+.int-stage-btn {
+  font-size: 11px; padding: 3px 7px; border-radius: 6px;
+  border: 1px solid #e5e5ea; background: #f5f5f7;
+  color: #8e8e93; cursor: pointer; font-family: inherit; white-space: nowrap;
+}
+.int-stage-btn:hover { border-color: #8e8e93; color: #3a3a3c; }
+.int-stage-btn.hr.active     { background: #dbeafe; border-color: #4c8ff1; color: #1e40af; font-weight: 600; }
+.int-stage-btn.tech.active   { background: #ede9fe; border-color: #8b5cf6; color: #5b21b6; font-weight: 600; }
+.int-stage-btn.final.active  { background: #fef9c3; border-color: #eab308; color: #854d0e; font-weight: 600; }
+/* Контакт HR */
+.contact-inp {
+  border: none; border-bottom: 1px solid #e5e5ea;
+  padding: 2px 0; font-size: 11px; color: #3a3a3c;
+  font-family: inherit; background: transparent; width: 100%;
+  box-sizing: border-box; margin-top: 4px; display: block;
+}
+.contact-inp:focus { outline: none; border-bottom-color: #0a84ff; }
+.contact-inp::placeholder { color: #c7c7cc; }
+/* Кнопка «сохранить» на карточке дашборда */
+.btn-save { background: none; border: 1px solid #e5e5ea; border-radius: 8px; padding: 4px 8px; cursor: pointer; font-size: 13px; color: #8e8e93; line-height: 1; }
+.btn-save:hover { border-color: #0a84ff; color: #0a84ff; }
+.btn-save.saved { border-color: #ff9500; color: #ff9500; background: #fff8f0; }
+/* Бейдж «сохранено» на карточке */
+.status-badge.saved { background: #fff3e0; color: #c77000; border: 1px solid #ffd59e; }
 .call-wrap  { display: flex; flex-direction: column; gap: 4px; }
 .call-platforms { display: flex; gap: 3px; flex-wrap: wrap; }
 .call-platform-btn {
@@ -625,15 +654,41 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
       <span class="chip status-filter active" data-status="applied">✅ Откликнулась</span>
       <span class="chip status-filter active" data-status="test">📝 Тестовое</span>
       <span class="chip status-filter" data-status="skip">✖ Не интересует</span>
+      <span class="chip status-filter" data-status="saved">🔖 Сохранённые</span>
     </div>
     <div class="row">
       <button id="resetFiltersDesktop">↺ Сбросить фильтры</button>
     </div>
   </div>
 
-  <div class="stats" id="counter"></div>
+  <div class="stats" id="counter">
+    <button class="save-add-btn" id="saveAddBtn">🔖 Добавить на потом</button>
+  </div>
   <div id="list"></div>
   <div class="page-footer" id="meta"></div>
+
+  <!-- Модалка «Сохранить на потом» -->
+  <div class="modal-overlay" id="saveModal">
+    <div class="modal">
+      <div class="modal-title">🔖 Сохранить на потом</div>
+      <div class="modal-field">
+        <label class="modal-label">Ссылка</label>
+        <input class="modal-input" id="sv-url" type="url" placeholder="https://linkedin.com/...">
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Название вакансии</label>
+        <input class="modal-input" id="sv-title" type="text" placeholder="Product Designer">
+      </div>
+      <div class="modal-field">
+        <label class="modal-label">Компания</label>
+        <input class="modal-input" id="sv-company" type="text" placeholder="Название компании">
+      </div>
+      <div class="modal-actions">
+        <button class="modal-cancel" id="saveModalCancel">Отмена</button>
+        <button class="modal-save" id="saveModalSave">Сохранить</button>
+      </div>
+    </div>
+  </div>
 
 </div><!-- /panel-dashboard -->
 
@@ -692,8 +747,9 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
       <thead>
         <tr>
           <th class="col-vacancy">Вакансия</th>
-          <th class="col-date">Откликнулась</th>
+          <th class="col-date">Отклик</th>
           <th class="col-test">Тестовое</th>
+          <th class="col-stage">Этап</th>
           <th class="col-call">Созвон</th>
           <th class="col-result">Итог</th>
           <th class="col-note">Заметка</th>
@@ -812,6 +868,16 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
   const STORE_PIPELINE = 'designJobs.pipeline.v1';
   const STORE_HIDDEN   = 'designJobs.hidden.v2';
   const STORE_FILTERS  = 'designJobs.filters.v2';
+  const STORE_SAVED    = 'designJobs.saved.v1';
+
+  function loadSaved() { try { return JSON.parse(localStorage.getItem(STORE_SAVED) || '{}'); } catch(e) { return {}; } }
+  function saveSaved(d) { localStorage.setItem(STORE_SAVED, JSON.stringify(d)); }
+  function toggleSaved(url, meta) {
+    const s = loadSaved();
+    if (s[url]) { delete s[url]; } else { s[url] = meta || { savedAt: new Date().toISOString().slice(0,10) }; }
+    saveSaved(s);
+    render();
+  }
 
   const state = { statuses: loadStatuses(), mobileTab: 'all', mobileSearch: '' };
 
@@ -867,13 +933,35 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     const levels  = getActiveSet('.level-filter','data-level');
     const formats = getActiveSet('.format-filter','data-format');
     const statusChips = isMobile() ? null : getActiveSet('.status-filter','data-status');
+    const savedOnly = !isMobile() && statusChips && statusChips.includes('saved') && statusChips.length === 1;
+    const showSaved = !isMobile() && statusChips && statusChips.includes('saved');
+
+    // Обычные вакансии из JOBS
     let visible = JOBS.filter(j => roles.includes(j.role) && levels.includes(j.lvl) && formats.includes(j.fmt));
     if (isMobile()) {
       const tab = state.mobileTab;
       if (tab !== 'all') visible = visible.filter(j => (getJobStatus(j)||'new') === tab);
     } else {
-      visible = visible.filter(j => statusChips.includes(getJobStatus(j)||'new'));
+      if (savedOnly) {
+        // Только сохранённые: из JOBS те что в saved + вручную добавленные
+        visible = visible.filter(j => !!loadSaved()[j.url]);
+      } else {
+        visible = visible.filter(j => statusChips.includes(getJobStatus(j)||'new'));
+      }
     }
+
+    // Добавляем вручную сохранённые (не из JOBS)
+    if (showSaved || savedOnly) {
+      const saved = loadSaved();
+      const jobUrls = new Set(JOBS.map(j => j.url));
+      Object.entries(saved).forEach(([url, meta]) => {
+        if (!jobUrls.has(url)) {
+          // Вручную добавленная вакансия — создаём псевдо-объект
+          visible.push({ url, t: meta.title || url, s: meta.source || 'вручную', c: meta.company || '', role: 'other', lvl: 'unknown', fmt: 'unknown', isSaved: true, savedMeta: meta });
+        }
+      });
+    }
+
     return visible;
   }
 
@@ -892,7 +980,8 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     if (testCount)    statsStr += '  ·  📝 '+testCount;
     if (viewedCount)  statsStr += '  ·  👀 '+viewedCount;
     if (skipCount)    statsStr += '  ·  ✖ '+skipCount;
-    document.getElementById('counter').textContent = statsStr;
+    const savedCount = Object.keys(loadSaved()).length;
+    document.getElementById('counter').textContent = statsStr + (savedCount ? '  ·  🔖 '+savedCount : '');
     if (!visible.length) {
       list.innerHTML = '<div class="empty">Ничего не найдено.<br>Попробуй изменить фильтры.</div>';
       return;
@@ -903,6 +992,14 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       card.querySelectorAll('.btn-status').forEach(btn => {
         btn.addEventListener('click', e => { e.stopPropagation(); setStatus(url, btn.dataset.status); });
       });
+      const saveBtn = card.querySelector('.btn-save');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          const j = JOBS.find(j => j.url === url);
+          toggleSaved(url, j ? { title: j.t, company: j.c, source: j.s, savedAt: new Date().toISOString().slice(0,10) } : { savedAt: new Date().toISOString().slice(0,10) });
+        });
+      }
       const readBtn = card.querySelector('.btn-primary');
       if (readBtn) {
         readBtn.addEventListener('click', e => {
@@ -923,16 +1020,45 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         window.goToTrackerRow(url);
       });
     });
+
+    // Кнопка «+ Добавить на потом» на дашборде
+    const saveAddBtn = document.getElementById('saveAddBtn');
+    if (saveAddBtn && !saveAddBtn._bound) {
+      saveAddBtn._bound = true;
+      saveAddBtn.addEventListener('click', () => {
+        document.getElementById('sv-url').value = '';
+        document.getElementById('sv-title').value = '';
+        document.getElementById('sv-company').value = '';
+        document.getElementById('saveModal').classList.add('open');
+        setTimeout(() => document.getElementById('sv-url').focus(), 100);
+      });
+      document.getElementById('saveModalCancel').addEventListener('click', () => document.getElementById('saveModal').classList.remove('open'));
+      document.getElementById('saveModal').addEventListener('click', e => { if (e.target === document.getElementById('saveModal')) document.getElementById('saveModal').classList.remove('open'); });
+      document.getElementById('saveModalSave').addEventListener('click', () => {
+        const url = document.getElementById('sv-url').value.trim();
+        const title = document.getElementById('sv-title').value.trim();
+        const company = document.getElementById('sv-company').value.trim();
+        if (!url && !title) { document.getElementById('sv-url').focus(); return; }
+        const key = url || ('saved-' + Date.now());
+        const saved = loadSaved();
+        saved[key] = { title: title || url, company, source: 'вручную', savedAt: new Date().toISOString().slice(0,10) };
+        saveSaved(saved);
+        document.getElementById('saveModal').classList.remove('open');
+        render();
+      });
+    }
   }
   window.renderDashboard = render;
 
   function renderCard(j) {
     const status = getJobStatus(j);
+    const isSavedCard = !!(loadSaved()[j.url]);
     let cls = 'card';
     if (status==='viewed') cls+=' status-viewed';
     if (status==='applied') cls+=' status-applied';
     if (status==='skip') cls+=' status-skip';
     if (status==='test') cls+=' status-test';
+    if (j.isSaved) cls+=' is-manual-saved';
     const tags = [];
     if (j.lvl!=='unknown') tags.push('<span class="tag level-'+j.lvl+'">'+j.lvl+'</span>');
     if (j.fmt!=='unknown') tags.push('<span class="tag format-'+j.fmt+'">'+fmtLabel(j.fmt)+'</span>');
@@ -941,22 +1067,25 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     if (status==='viewed') badge='<span class="status-badge viewed">👀 Просмотрела</span>';
     if (status==='applied') badge='<span class="status-badge applied">✅ Откликнулась</span>';
     if (status==='test') badge='<span class="status-badge test">📝 Тестовое</span>';
-    const sourceLabel = (j.s==='HireHi') ? 'HireHi' : (j.s==='hh.ru') ? 'hh.ru' : '@'+j.s;
-    const dateStr = fmtDate(j.date, j.time);
-    const bA='<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
-    const bT='<button class="btn btn-status'+(status==='test'?' active-test':'')+'" data-status="test">📝</button>';
-    const bS='<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
-    const isTg = (j.s !== 'HireHi' && j.s !== 'hh.ru');
+    if (isSavedCard) badge+='<span class="status-badge saved">🔖 Сохранено</span>';
+    const sourceLabel = j.isSaved ? (j.c ? esc(j.c) : esc(j.s)) : ((j.s==='HireHi') ? 'HireHi' : (j.s==='hh.ru') ? 'hh.ru' : '@'+j.s);
+    const dateStr = j.isSaved ? '' : fmtDate(j.date, j.time);
+    const bA = j.isSaved ? '' : '<button class="btn btn-status'+(status==='applied'?' active-applied':'')+'" data-status="applied">✅</button>';
+    const bT = j.isSaved ? '' : '<button class="btn btn-status'+(status==='test'?' active-test':'')+'" data-status="test">📝</button>';
+    const bS = j.isSaved ? '' : '<button class="btn btn-status btn-link'+(status==='skip'?' active-skip':'')+'" data-status="skip">✖</button>';
+    const bSave = '<button class="btn btn-save'+(isSavedCard?' saved':'')+'" data-save="1" title="'+(isSavedCard?'Убрать из сохранённых':'Сохранить на потом')+'">'+(isSavedCard?'🔖':'🔖')+'</button>';
+    const isTg = (j.s !== 'HireHi' && j.s !== 'hh.ru' && !j.isSaved);
     const postUrl = isTg ? 'https://t.me/'+j.s+'/'+j.pid : j.url;
     return '<div class="'+cls+'" data-url="'+escAttr(j.url)+'">' +
-      '<div class="card-source">'+esc(sourceLabel)+(j.fresh?' <span class="fresh-dot">новое</span>':'')+(badge?' '+badge:'')+'</div>'+
+      '<div class="card-source">'+sourceLabel+(j.fresh?' <span class="fresh-dot">новое</span>':'')+(badge?' '+badge:'')+'</div>'+
       '<div class="card-title">'+esc(j.t)+'</div>'+
+      (j.c && !j.isSaved ? '<div class="card-desc" style="font-size:11px;color:#8e8e93">'+esc(j.c)+'</div>' : '')+
       '<div class="card-tags">'+tags.join('')+'</div>'+
       (j.sal?'<div class="card-desc">'+esc(j.sal)+'</div>':'')+
       '<div class="card-footer">'+
         '<div class="card-actions">'+
           '<a class="btn btn-primary" href="'+escAttr(postUrl)+'" target="_blank" rel="noopener">Читать ↗</a>'+
-          bA+bT+bS+
+          bA+bT+bS+bSave+
         '</div>'+
         (dateStr?'<span class="card-date">'+esc(dateStr)+'</span>':'')+
       '</div></div>';
@@ -1200,6 +1329,9 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     document.querySelectorAll('.note-inp').forEach(inp => {
       setPF(inp.dataset.url, 'note', inp.value || null);
     });
+    document.querySelectorAll('.contact-inp').forEach(inp => {
+      setPF(inp.dataset.url, 'contactInfo', inp.value.trim() || null);
+    });
     const searchQ = (document.getElementById('tracker-search')?.value || '').trim().toLowerCase();
     const allRows = getRows();
     const rows = searchQ ? allRows.filter(r => {
@@ -1273,6 +1405,14 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         ).join('')+
         '</div></td>';
 
+      // Этапы интервью
+      const INT_STAGES = [['HR','hr'],['Тех','tech'],['Финал','final']];
+      const stageCell = '<td class="col-stage"><div class="interview-stages">'+
+        INT_STAGES.map(([label, key]) =>
+          '<button class="int-stage-btn '+key+(p.interviewStage===key?' active':'')+'" data-url="'+plEsc(r.url)+'" data-istage="'+key+'">'+label+'</button>'
+        ).join('')+
+        '</div></td>';
+
       const CALL_PLATFORMS = ['Meet','Zoom','Telegram','Телефон','Офис'];
       const CALL_PLACEHOLDERS = { 'Meet':'meet.google.com/...','Zoom':'zoom.us/j/... или ID','Telegram':'@username или ссылка','Телефон':'+7 ...','Офис':'Адрес офиса' };
 
@@ -1329,8 +1469,12 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       })();
 
       return '<tr class="'+rowCls+'" data-url="'+plEsc(r.url)+'">'+
-        '<td class="col-vacancy"><a class="job-title" href="'+plEsc(r.url)+'" target="_blank" rel="noopener" title="'+plEsc(r.title)+'">'+plEsc(r.title)+'</a><span class="job-source">'+plEsc(plSrcLabel(r.source))+'</span></td>'+
-        appliedCell+testCell+callCell+
+        '<td class="col-vacancy">'+
+          '<a class="job-title" href="'+plEsc(r.url)+'" target="_blank" rel="noopener" title="'+plEsc(r.title)+'">'+plEsc(r.title)+'</a>'+
+          '<span class="job-source">'+plEsc(plSrcLabel(r.source))+'</span>'+
+          '<input class="contact-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.contactInfo||'')+'" placeholder="контакт HR...">'+
+        '</td>'+
+        appliedCell+testCell+stageCell+callCell+
         '<td class="col-result"><select class="result-sel" data-url="'+plEsc(r.url)+'"><option value="">—</option><option value="offer"'+(p.result==='offer'?' selected':'')+'>🎉 Оффер</option><option value="reject"'+(p.result==='reject'?' selected':'')+'>❌ Отказ</option><option value="ignore"'+(p.result==='ignore'?' selected':'')+'>🙈 Игнор</option></select></td>'+
         '<td class="col-note"><input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка..."></td>'+
         '<td class="col-del">'+
@@ -1395,6 +1539,20 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       const saveDet = () => setPF(inp.dataset.url, 'callDetail', inp.value.trim() || null);
       inp.addEventListener('input', saveDet);
       inp.addEventListener('blur', saveDet);
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); });
+    });
+    tbody.querySelectorAll('.int-stage-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const cur = getPF(btn.dataset.url, 'interviewStage');
+        setPF(btn.dataset.url, 'interviewStage', cur === btn.dataset.istage ? null : btn.dataset.istage);
+        renderTracker();
+      });
+    });
+    tbody.querySelectorAll('.contact-inp').forEach(inp => {
+      const saveContact = () => setPF(inp.dataset.url, 'contactInfo', inp.value.trim() || null);
+      inp.addEventListener('input', saveContact);
+      inp.addEventListener('blur', saveContact);
       inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); });
     });
     tbody.querySelectorAll('.result-sel').forEach(sel => { sel.addEventListener('change', () => { setPF(sel.dataset.url, 'result', sel.value || null); renderTracker(); }); });
