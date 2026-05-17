@@ -156,12 +156,13 @@ body {
 .stat-cards { padding: 0 16px 16px; }
 .charts-wrap {
   display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+  justify-content: center;
 }
 .chart-donut-section {
-  display: flex; align-items: center; gap: 18px; flex-shrink: 0;
+  display: flex; align-items: center; gap: 22px; flex-shrink: 0;
 }
 .donut-container {
-  position: relative; width: 160px; height: 160px; flex-shrink: 0;
+  position: relative; width: 190px; height: 190px; flex-shrink: 0;
 }
 #donutChart { display: block; }
 .donut-center-label {
@@ -1529,7 +1530,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       const html = '<div class="charts-wrap">'+
         '<div class="chart-donut-section">'+
           '<div class="donut-container">'+
-            '<canvas id="donutChart" width="160" height="160"></canvas>'+
+            '<canvas id="donutChart" width="190" height="190"></canvas>'+
             '<div class="donut-center-label">'+
               '<div class="donut-num">'+total+'</div>'+
               '<div class="donut-sub">откликов</div>'+
@@ -1578,7 +1579,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         type: 'doughnut',
         data: { datasets: [{ data: chartData, backgroundColor: chartColors, borderWidth: 0, hoverOffset: 4 }] },
         options: {
-          cutout: '70%',
+          cutout: '76%',
           plugins: { legend: { display: false }, tooltip: { enabled: false } },
           animation: { duration: 300 },
           responsive: false,
