@@ -208,8 +208,10 @@ td {
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: #fafafa; }
 tr.row-offer td:first-child { border-left: 3px solid #34c759; }
-tr.row-reject { opacity: 0.5; }
+tr.row-reject { opacity: 0.45; }
 tr.row-reject td:first-child { border-left: 3px solid #c7c7cc; }
+tr.row-ignore td { color: #8e8e93; }
+tr.row-ignore td:first-child { border-left: 3px solid #d0d0d5; }
 tr.row-test-got   td { background: #eef3ff; }
 tr.row-test-got   td:first-child { border-left: 3px solid #4c8ff1; }
 tr.row-test-doing td { background: #fff8e6; }
@@ -471,25 +473,7 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
 .tracker-search-clr:hover { color: #ff3b30; }
 .tracker-search-clr.visible { display: block; }
 
-/* ===== TRACKER: ACTIVE / CLOSED SPLIT ===== */
-.closed-row { display: none; }
-#tbody.show-closed .closed-row { display: table-row; }
-.section-divider td {
-  padding: 8px 16px 8px;
-  background: #f5f5f7 !important;
-  border-top: 2px solid #e5e5ea;
-  border-bottom: 1px solid #e5e5ea;
-}
-.section-divider-btn {
-  background: none; border: none; cursor: pointer;
-  font-size: 12px; font-weight: 600; color: #6e6e73;
-  padding: 4px 10px 4px 4px; border-radius: 8px; font-family: inherit;
-  display: inline-flex; align-items: center; gap: 6px;
-  transition: background 0.12s, color 0.12s;
-}
-.section-divider-btn:hover { background: #e5e5ea; color: #1a1a1a; }
-.divider-arrow { font-size: 11px; transition: transform 0.2s; display: inline-block; }
-.section-divider-btn.open .divider-arrow { transform: rotate(90deg); }
+/* строки с итогом визуально оформлены через row-offer / row-reject — без скрытия */
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
@@ -606,11 +590,9 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
   #tbl tbody tr.row-test-doing { background: #fff8e6; }
   #tbl tbody tr.row-test-sent  { background: #edfbf0; }
   #tbl tbody tr.row-offer      { background: #f0fff4; }
-  #tbl tbody tr.row-reject     { background: #f9f9f9; opacity: 0.6; }
+  #tbl tbody tr.row-reject     { background: #f9f9f9; opacity: 0.5; }
+  #tbl tbody tr.row-ignore     { background: #fafafa; opacity: 0.7; }
   #tbl tbody tr.row-priority   { box-shadow: 0 0 0 2px #ffd60a, 0 1px 4px rgba(0,0,0,0.07); }
-  #tbl tbody.show-closed .closed-row { display: grid; }
-  #tbl tbody .section-divider { display: block; border-radius: 12px; overflow: hidden; margin: 4px 0; }
-  #tbl tbody .section-divider td { border-radius: 12px; }
   /* Все td — прозрачный фон чтобы виден bg строки */
   #tbl td {
     padding: 0; border: none;
@@ -1468,13 +1450,8 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     const pl = plLs(PK);
     const allPl = plLs(PK);
     // Сортировка: приоритетные вакансии сначала
-    const CLOSED_RESULTS = new Set(['offer','reject']); // ignore = молчат, всё ещё активно
-    rows.sort((a, b) => {
-      const pa = allPl[a.url] || {}, pb = allPl[b.url] || {};
-      const ac = CLOSED_RESULTS.has(pa.result), bc = CLOSED_RESULTS.has(pb.result);
-      if (ac !== bc) return ac ? 1 : -1; // closed идут вниз
-      return (pb.priority ? 1 : 0) - (pa.priority ? 1 : 0);
-    });
+    // Сортировка: закреплённые сначала, порядок добавления сохраняется
+    rows.sort((a, b) => ((allPl[b.url]||{}).priority ? 1 : 0) - ((allPl[a.url]||{}).priority ? 1 : 0));
     const total   = allRows.length;
     const offers  = allRows.filter(r => (allPl[r.url]||{}).result === 'offer').length;
     const rejects = allRows.filter(r => (allPl[r.url]||{}).result === 'reject').length;
@@ -1514,11 +1491,9 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     const TEST_STAGES = ['получила','делаю','отправила','не было'];
     document.getElementById('tbody').innerHTML = rows.map(r => {
       const p = pl[r.url] || {};
-      const isClosed = CLOSED_RESULTS.has(p.result);
       const testRowCls = p.testStage === 'получила' ? 'row-test-got' : p.testStage === 'делаю' ? 'row-test-doing' : p.testStage === 'отправила' ? 'row-test-sent' : '';
       const priorityCls = p.priority ? ' row-priority' : '';
-      const closedCls = isClosed ? ' closed-row' : '';
-      const rowCls = (p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : testRowCls) + priorityCls + closedCls;
+      const rowCls = (p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : p.result === 'ignore' ? 'row-ignore' : testRowCls) + priorityCls;
 
       const appliedCell = (f => {
         const v = p[f];
@@ -1628,27 +1603,6 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
         '</td></tr>';
     }).join('');
     const tbody = document.getElementById('tbody');
-    // Вставляем разделитель перед первой закрытой строкой
-    (function insertClosedDivider() {
-      const firstClosed = tbody.querySelector('.closed-row');
-      if (!firstClosed) return;
-      const closedRows = [...tbody.querySelectorAll('.closed-row')];
-      const closedCount = closedRows.length;
-      const hasOffer = closedRows.some(r => r.classList.contains('row-offer'));
-      const sep = document.createElement('tr');
-      sep.className = 'section-divider';
-      const td = document.createElement('td');
-      td.colSpan = 8;
-      td.innerHTML = '<button class="section-divider-btn" id="closedToggle">'+(hasOffer?'🎉 ':'')+'Завершённые · '+closedCount+' <span class="divider-arrow">▸</span></button>';
-      sep.appendChild(td);
-      tbody.insertBefore(sep, firstClosed);
-      document.getElementById('closedToggle').addEventListener('click', e => {
-        e.stopPropagation();
-        const isOpen = tbody.classList.toggle('show-closed');
-        const btn = document.getElementById('closedToggle');
-        if (btn) btn.classList.toggle('open', isOpen);
-      });
-    })();
     tbody.querySelectorAll('.dp-trigger').forEach(btn => {
       btn.addEventListener('click', e => {
         e.stopPropagation();
