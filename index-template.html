@@ -194,17 +194,18 @@ body {
 .chart-filter-banner {
   display: flex; align-items: center; gap: 10px;
   margin: 0 16px 10px;
-  padding: 8px 12px;
-  background: #eef0ff; border: 1px solid #c7ceff;
-  border-radius: 10px; font-size: 13px; font-weight: 500; color: #3730a3;
+  padding: 9px 14px;
+  border-radius: 12px; font-size: 13px; font-weight: 500;
+  /* цвет задаётся инлайн из JS */
 }
 .chart-filter-banner strong { font-weight: 700; }
 .chart-filter-clr {
   margin-left: auto; background: none; border: none; cursor: pointer;
-  font-size: 13px; color: #6366f1; padding: 2px 6px; border-radius: 6px;
-  font-family: inherit; font-weight: 600;
+  font-size: 12px; padding: 3px 8px; border-radius: 6px;
+  font-family: inherit; font-weight: 600; opacity: 0.7;
+  transition: opacity 0.12s;
 }
-.chart-filter-clr:hover { background: #c7ceff; }
+.chart-filter-clr:hover { opacity: 1; }
 .table-wrap { padding: 0 16px; overflow-x: auto; }
 table {
   width: 100%; border-collapse: collapse;
@@ -1603,17 +1604,26 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       const existing = document.querySelector('.chart-filter-banner');
       if (existing) existing.remove();
       if (!chartFilter) return;
-      const LABELS = { active: 'В работе', offer: 'Оффер', ignore: 'Игнор', reject: 'Отказ' };
-      const banner = document.createElement('div');
-      banner.className = 'chart-filter-banner';
+      const LABELS = { active: 'В работе', offer: 'Оффер 🎉', ignore: 'Игнор', reject: 'Отказ' };
+      // Цвета сегментов: bg, border, text — под каждый статус
+      const THEME = {
+        active: { bg: 'rgba(92,110,255,0.1)',  border: 'rgba(92,110,255,0.3)',  color: '#3730a3', btn: 'rgba(92,110,255,0.15)' },
+        offer:  { bg: 'rgba(34,197,94,0.1)',   border: 'rgba(34,197,94,0.35)',  color: '#15803d', btn: 'rgba(34,197,94,0.15)'  },
+        ignore: { bg: 'rgba(245,158,11,0.1)',  border: 'rgba(245,158,11,0.35)', color: '#92400e', btn: 'rgba(245,158,11,0.15)' },
+        reject: { bg: 'rgba(148,163,184,0.12)',border: 'rgba(148,163,184,0.4)', color: '#475569', btn: 'rgba(148,163,184,0.2)' },
+      };
+      const t = THEME[chartFilter] || THEME.active;
       const count = rows.filter(r => {
         const res = (allPl[r.url]||{}).result || null;
         return chartFilter === 'active'
           ? !['offer','reject','ignore'].includes(res)
           : res === chartFilter;
       }).length;
+      const banner = document.createElement('div');
+      banner.className = 'chart-filter-banner';
+      banner.style.cssText = 'background:'+t.bg+';border:1.5px solid '+t.border+';color:'+t.color;
       banner.innerHTML = 'Фильтр: <strong>'+LABELS[chartFilter]+'</strong> · '+count+' вак.'+
-        '<button class="chart-filter-clr">✕ Сбросить</button>';
+        '<button class="chart-filter-clr" style="color:'+t.color+'">✕ Сбросить</button>';
       banner.querySelector('.chart-filter-clr').addEventListener('click', () => {
         chartFilter = null; renderTracker();
       });
