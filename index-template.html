@@ -185,6 +185,26 @@ body {
 .test-bar-track { flex: 1; height: 7px; background: #f0f0f4; border-radius: 999px; overflow: hidden; }
 .test-bar-fill { height: 100%; border-radius: 999px; transition: width 0.4s ease; }
 .test-bar-num { font-size: 12px; font-weight: 700; color: #1a1a2e; width: 18px; text-align: right; }
+
+/* Chart filter */
+#donutChart { cursor: pointer; }
+.legend-row { cursor: pointer; border-radius: 8px; padding: 3px 6px; margin: -3px -6px; transition: background 0.12s; }
+.legend-row:hover { background: #f5f5f7; }
+.legend-row.active-filter { background: #eef0ff; }
+.chart-filter-banner {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 16px 10px;
+  padding: 8px 12px;
+  background: #eef0ff; border: 1px solid #c7ceff;
+  border-radius: 10px; font-size: 13px; font-weight: 500; color: #3730a3;
+}
+.chart-filter-banner strong { font-weight: 700; }
+.chart-filter-clr {
+  margin-left: auto; background: none; border: none; cursor: pointer;
+  font-size: 13px; color: #6366f1; padding: 2px 6px; border-radius: 6px;
+  font-family: inherit; font-weight: 600;
+}
+.chart-filter-clr:hover { background: #c7ceff; }
 .table-wrap { padding: 0 16px; overflow-x: auto; }
 table {
   width: 100%; border-collapse: collapse;
@@ -1426,6 +1446,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
   })();
 
   let donutChart = null;
+  let chartFilter = null; // 'active' | 'offer' | 'ignore' | 'reject' | null
 
   function renderTracker() {
     if (!document.getElementById('tbl')) return;
@@ -1469,27 +1490,25 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
 
     // ===== CHARTS =====
     (function renderCharts() {
-      const COLORS = {
-        active:  '#5c6eff',
-        offer:   '#22c55e',
-        reject:  '#94a3b8',
-        ignore:  '#f59e0b',
-        testGot:   '#5c6eff',
-        testDoing: '#f59e0b',
-        testSent:  '#22c55e',
+      const BASE_COLORS = {
+        active: '#5c6eff', offer: '#22c55e', ignore: '#f59e0b', reject: '#94a3b8'
       };
 
-      // Donut legend rows
-      function legRow(color, label, num) {
+      function segColor(key) {
+        if (!chartFilter) return BASE_COLORS[key];
+        return chartFilter === key ? BASE_COLORS[key] : BASE_COLORS[key] + '55';
+      }
+
+      function legRow(key, label, num) {
         if (!num) return '';
-        return '<div class="legend-row">'+
-          '<span class="leg-dot" style="background:'+color+'"></span>'+
+        const isActive = chartFilter === key;
+        return '<div class="legend-row'+(isActive?' active-filter':'')+'" data-filter="'+key+'">'+
+          '<span class="leg-dot" style="background:'+BASE_COLORS[key]+'"></span>'+
           '<span class="leg-label">'+label+'</span>'+
           '<span class="leg-num">'+num+'</span>'+
         '</div>';
       }
 
-      // Test progress bars
       function testBar(color, label, num, max) {
         if (!num) return '';
         const pct = max ? Math.round(num/max*100) : 0;
@@ -1511,11 +1530,11 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
               '<div class="donut-sub">откликов</div>'+
             '</div>'+
           '</div>'+
-          '<div class="donut-legend">'+
-            legRow(COLORS.active,  'В работе', active)+
-            legRow(COLORS.offer,   'Оффер 🎉', offers)+
-            legRow(COLORS.ignore,  'Игнор',    ignores)+
-            legRow(COLORS.reject,  'Отказ',    rejects)+
+          '<div class="donut-legend" id="donutLegend">'+
+            legRow('active', 'В работе', active)+
+            legRow('offer',  'Оффер 🎉', offers)+
+            legRow('ignore', 'Игнор',    ignores)+
+            legRow('reject', 'Отказ',    rejects)+
           '</div>'+
         '</div>';
 
@@ -1524,9 +1543,9 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
           '<div class="chart-test-section">'+
             '<div class="test-chart-title">Тестовые · '+testTotal2+'</div>'+
             '<div class="test-bars">'+
-              testBar(COLORS.testGot,   'Получила',   tGot,   testTotal2)+
-              testBar(COLORS.testDoing, 'Делаю',      tDoing, testTotal2)+
-              testBar(COLORS.testSent,  'Отправила',  tSent,  testTotal2)+
+              testBar(BASE_COLORS.active,  'Получила',  tGot,   testTotal2)+
+              testBar(BASE_COLORS.ignore,  'Делаю',     tDoing, testTotal2)+
+              testBar(BASE_COLORS.offer,   'Отправила', tSent,  testTotal2)+
             '</div>'+
           '</div>';
       }
@@ -1534,42 +1553,97 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
       html += '</div>';
       document.getElementById('stat-cards').innerHTML = html;
 
+      // Legend row click
+      document.getElementById('donutLegend').querySelectorAll('.legend-row').forEach(row => {
+        row.addEventListener('click', () => {
+          const key = row.dataset.filter;
+          chartFilter = (chartFilter === key) ? null : key;
+          renderTracker();
+        });
+      });
+
+      // Build chart data in order matching legRow: active, offer, ignore, reject
+      const segments = [
+        { key: 'active', val: active  },
+        { key: 'offer',  val: offers  },
+        { key: 'ignore', val: ignores },
+        { key: 'reject', val: rejects },
+      ].filter(s => s.val > 0);
+
+      const chartData   = segments.map(s => s.val);
+      const chartColors = segments.map(s => segColor(s.key));
+      const segKeys     = segments.map(s => s.key);
+
+      if (!chartData.length) { chartData.push(1); chartColors.push('#f0f0f4'); }
+
       // Draw donut
       const ctx = document.getElementById('donutChart');
       if (!ctx || typeof Chart === 'undefined') return;
       if (donutChart) { donutChart.destroy(); donutChart = null; }
 
-      const chartData = [], chartColors = [];
-      if (active)  { chartData.push(active);  chartColors.push(COLORS.active);  }
-      if (offers)  { chartData.push(offers);  chartColors.push(COLORS.offer);   }
-      if (ignores) { chartData.push(ignores); chartColors.push(COLORS.ignore);  }
-      if (rejects) { chartData.push(rejects); chartColors.push(COLORS.reject);  }
-      if (!chartData.length) { chartData.push(1); chartColors.push('#f0f0f4'); }
-
       donutChart = new Chart(ctx, {
         type: 'doughnut',
-        data: { datasets: [{ data: chartData, backgroundColor: chartColors, borderWidth: 0, hoverOffset: 3 }] },
+        data: { datasets: [{ data: chartData, backgroundColor: chartColors, borderWidth: 0, hoverOffset: 4 }] },
         options: {
           cutout: '70%',
           plugins: { legend: { display: false }, tooltip: { enabled: false } },
-          animation: { duration: 350 },
+          animation: { duration: 300 },
           responsive: false,
+          onClick: (evt, elements) => {
+            if (!elements.length) { chartFilter = null; renderTracker(); return; }
+            const clicked = segKeys[elements[0].index];
+            chartFilter = (chartFilter === clicked) ? null : clicked;
+            renderTracker();
+          }
         }
       });
     })();
+    // ===== FILTER BANNER =====
+    (function updateFilterBanner() {
+      const existing = document.querySelector('.chart-filter-banner');
+      if (existing) existing.remove();
+      if (!chartFilter) return;
+      const LABELS = { active: 'В работе', offer: 'Оффер', ignore: 'Игнор', reject: 'Отказ' };
+      const banner = document.createElement('div');
+      banner.className = 'chart-filter-banner';
+      const count = rows.filter(r => {
+        const res = (allPl[r.url]||{}).result || null;
+        return chartFilter === 'active'
+          ? !['offer','reject','ignore'].includes(res)
+          : res === chartFilter;
+      }).length;
+      banner.innerHTML = 'Фильтр: <strong>'+LABELS[chartFilter]+'</strong> · '+count+' вак.'+
+        '<button class="chart-filter-clr">✕ Сбросить</button>';
+      banner.querySelector('.chart-filter-clr').addEventListener('click', () => {
+        chartFilter = null; renderTracker();
+      });
+      const tableWrap = document.querySelector('.table-wrap');
+      if (tableWrap) tableWrap.parentNode.insertBefore(banner, tableWrap);
+    })();
+
+    // ===== APPLY CHART FILTER TO ROWS =====
+    const displayRows = chartFilter ? rows.filter(r => {
+      const res = (allPl[r.url]||{}).result || null;
+      return chartFilter === 'active'
+        ? !['offer','reject','ignore'].includes(res)
+        : res === chartFilter;
+    }) : rows;
+
     const tbl = document.getElementById('tbl');
     const plEmpty = document.getElementById('pl-empty');
-    if (rows.length === 0) {
+    if (displayRows.length === 0) {
       tbl.style.display = 'none'; plEmpty.style.display = 'block';
-      plEmpty.innerHTML = searchQ
-        ? '<strong>Ничего не найдено</strong>Попробуй другой запрос'
-        : '<strong>Пока пусто</strong>Нажми ✅ на вакансии — она появится здесь';
+      plEmpty.innerHTML = chartFilter
+        ? '<strong>Никого нет</strong>В этой категории пока пусто'
+        : (searchQ
+          ? '<strong>Ничего не найдено</strong>Попробуй другой запрос'
+          : '<strong>Пока пусто</strong>Нажми ✅ на вакансии — она появится здесь');
       return;
     }
     tbl.style.display = 'table'; plEmpty.style.display = 'none';
     const DATE_FIELDS = ['appliedDate','callDate'];
     const TEST_STAGES = ['получила','делаю','отправила','не было'];
-    document.getElementById('tbody').innerHTML = rows.map(r => {
+    document.getElementById('tbody').innerHTML = displayRows.map(r => {
       const p = pl[r.url] || {};
       const testRowCls = p.testStage === 'получила' ? 'row-test-got' : p.testStage === 'делаю' ? 'row-test-doing' : p.testStage === 'отправила' ? 'row-test-sent' : '';
       const priorityCls = p.priority ? ' row-priority' : '';
