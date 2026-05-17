@@ -4,16 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Вакансии — UX/UI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root { color-scheme: light; }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 /* ===== DESKTOP BODY ===== */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
   background: #f5f5f7; color: #1a1a1a;
   margin: 0; padding: 12px 16px 60px;
   font-size: 14px; line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ===== APP NAV — DESKTOP (sticky top bar) ===== */
@@ -57,6 +61,10 @@ body {
 .app-nav-tab.active .nav-badge {
   background: rgba(255,255,255,0.25);
   color: #fff;
+}
+.nav-icon {
+  width: 15px; height: 15px; flex-shrink: 0;
+  stroke-width: 2; vertical-align: middle;
 }
 
 /* ===== APP PANELS ===== */
@@ -137,7 +145,7 @@ body {
   display: flex; align-items: center; gap: 12px;
   padding: 4px 16px 10px;
 }
-.pl-title { font-size: 17px; font-weight: 700; flex: 1; }
+.pl-title { font-size: 20px; font-weight: 800; flex: 1; letter-spacing: -0.3px; }
 .count-badge {
   background: #f0f0f4; color: #6e6e73; font-size: 12px;
   padding: 3px 10px; border-radius: 999px; white-space: nowrap;
@@ -154,11 +162,11 @@ body {
   display: flex; flex-direction: column; gap: 4px;
 }
 .stat-card-num {
-  font-size: 26px; font-weight: 700; line-height: 1;
-  color: #1a1a1a;
+  font-size: 28px; font-weight: 800; line-height: 1;
+  color: #1a1a1a; letter-spacing: -0.5px;
 }
 .stat-card-label {
-  font-size: 11px; color: #8e8e93; font-weight: 500; white-space: nowrap;
+  font-size: 11px; color: #8e8e93; font-weight: 600; white-space: nowrap; letter-spacing: 0.1px;
 }
 .stat-card.c-active  { border-color: #a8d8ff; background: #f0f8ff; }
 .stat-card.c-active  .stat-card-num { color: #0a84ff; }
@@ -189,8 +197,8 @@ tbody tr:last-child td:first-child  { border-radius: 0 0 0 14px; }
 tbody tr:last-child td:last-child   { border-radius: 0 0 14px 0; }
 th {
   padding: 9px 12px; text-align: left;
-  font-size: 11px; font-weight: 600; color: #8e8e93;
-  text-transform: uppercase; letter-spacing: 0.5px;
+  font-size: 10px; font-weight: 700; color: #aeaeb2;
+  text-transform: uppercase; letter-spacing: 0.8px;
   border-bottom: 1px solid #e5e5ea; white-space: nowrap;
 }
 td {
@@ -288,11 +296,11 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
 .call-time-inp:focus { outline: none; border-color: #0a84ff; border-style: solid; }
 .job-title {
   display: block; font-size: 13px; font-weight: 600; color: #1a1a1a;
-  text-decoration: none; line-height: 1.3; margin-bottom: 2px;
+  text-decoration: none; line-height: 1.4; margin-bottom: 3px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px;
 }
 .job-title:hover { color: #0a84ff; }
-.job-source { font-size: 11px; font-weight: 700; color: #8e8e93; }
+.job-source { font-size: 11px; font-weight: 600; color: #aeaeb2; letter-spacing: 0.2px; }
 .mob-label { display: none; }
 .date-wrap { display: flex; align-items: center; gap: 3px; }
 .date-btn {
@@ -351,8 +359,9 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
 /* ===== ADD VACANCY MODAL ===== */
 .add-btn {
   background: #0a84ff; color: #fff; border: none; border-radius: 10px;
-  padding: 6px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
-  font-family: inherit; display: flex; align-items: center; gap: 5px;
+  padding: 7px 16px; font-size: 13px; font-weight: 600; cursor: pointer;
+  font-family: inherit; display: flex; align-items: center; gap: 6px;
+  letter-spacing: -0.1px;
 }
 .add-btn:hover { background: #0071e3; }
 .modal-overlay {
@@ -461,6 +470,26 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
 }
 .tracker-search-clr:hover { color: #ff3b30; }
 .tracker-search-clr.visible { display: block; }
+
+/* ===== TRACKER: ACTIVE / CLOSED SPLIT ===== */
+.closed-row { display: none; }
+#tbody.show-closed .closed-row { display: table-row; }
+.section-divider td {
+  padding: 8px 16px 8px;
+  background: #f5f5f7 !important;
+  border-top: 2px solid #e5e5ea;
+  border-bottom: 1px solid #e5e5ea;
+}
+.section-divider-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 12px; font-weight: 600; color: #6e6e73;
+  padding: 4px 10px 4px 4px; border-radius: 8px; font-family: inherit;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: background 0.12s, color 0.12s;
+}
+.section-divider-btn:hover { background: #e5e5ea; color: #1a1a1a; }
+.divider-arrow { font-size: 11px; transition: transform 0.2s; display: inline-block; }
+.section-divider-btn.open .divider-arrow { transform: rotate(90deg); }
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
@@ -579,6 +608,9 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
   #tbl tbody tr.row-offer      { background: #f0fff4; }
   #tbl tbody tr.row-reject     { background: #f9f9f9; opacity: 0.6; }
   #tbl tbody tr.row-priority   { box-shadow: 0 0 0 2px #ffd60a, 0 1px 4px rgba(0,0,0,0.07); }
+  #tbl tbody.show-closed .closed-row { display: grid; }
+  #tbl tbody .section-divider { display: block; border-radius: 12px; overflow: hidden; margin: 4px 0; }
+  #tbl tbody .section-divider td { border-radius: 12px; }
   /* Все td — прозрачный фон чтобы виден bg строки */
   #tbl td {
     padding: 0; border: none;
@@ -654,10 +686,12 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
 <!-- ===== APP NAVIGATION ===== -->
 <nav class="app-nav" id="appNav">
   <button class="app-nav-tab active" data-panel="dashboard" id="navDashboard">
-    📋 Вакансии
+    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Вакансии
   </button>
   <button class="app-nav-tab" data-panel="tracker" id="navTracker">
-    ✅ Трекер · <span class="nav-badge" id="trackerBadge"></span>
+    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    Трекер <span class="nav-badge" id="trackerBadge"></span>
   </button>
 </nav>
 
@@ -788,7 +822,7 @@ tr.row-priority td:first-child { border-left: 3px solid #ffd60a !important; }
   <div class="pl-header">
     <div class="pl-title">Трекер</div>
     <span class="count-badge" id="cnt">0</span>
-    <button class="add-btn" id="addVacancyBtn">+ Добавить</button>
+    <button class="add-btn" id="addVacancyBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Добавить</button>
   </div>
 
   <!-- Modal: add vacancy -->
@@ -1434,7 +1468,13 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     const pl = plLs(PK);
     const allPl = plLs(PK);
     // Сортировка: приоритетные вакансии сначала
-    rows.sort((a, b) => ((allPl[b.url]||{}).priority ? 1 : 0) - ((allPl[a.url]||{}).priority ? 1 : 0));
+    const CLOSED_RESULTS = new Set(['offer','reject','ignore']);
+    rows.sort((a, b) => {
+      const pa = allPl[a.url] || {}, pb = allPl[b.url] || {};
+      const ac = CLOSED_RESULTS.has(pa.result), bc = CLOSED_RESULTS.has(pb.result);
+      if (ac !== bc) return ac ? 1 : -1; // closed идут вниз
+      return (pb.priority ? 1 : 0) - (pa.priority ? 1 : 0);
+    });
     const total   = allRows.length;
     const offers  = allRows.filter(r => (allPl[r.url]||{}).result === 'offer').length;
     const rejects = allRows.filter(r => (allPl[r.url]||{}).result === 'reject').length;
@@ -1474,9 +1514,11 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     const TEST_STAGES = ['получила','делаю','отправила','не было'];
     document.getElementById('tbody').innerHTML = rows.map(r => {
       const p = pl[r.url] || {};
+      const isClosed = CLOSED_RESULTS.has(p.result);
       const testRowCls = p.testStage === 'получила' ? 'row-test-got' : p.testStage === 'делаю' ? 'row-test-doing' : p.testStage === 'отправила' ? 'row-test-sent' : '';
       const priorityCls = p.priority ? ' row-priority' : '';
-      const rowCls = (p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : testRowCls) + priorityCls;
+      const closedCls = isClosed ? ' closed-row' : '';
+      const rowCls = (p.result === 'offer' ? 'row-offer' : p.result === 'reject' ? 'row-reject' : testRowCls) + priorityCls + closedCls;
 
       const appliedCell = (f => {
         const v = p[f];
@@ -1581,11 +1623,32 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
           '<input class="note-inp" data-url="'+plEsc(r.url)+'" value="'+plEsc(p.note||'')+'" placeholder="заметка...">'+
         '</td>'+
         '<td class="col-del">'+
-          '<button class="pin-btn'+(p.priority?' pinned':'')+'" data-url="'+plEsc(r.url)+'" title="'+(p.priority?'Убрать приоритет':'Приоритет')+'">★</button>'+
-          '<button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует">🗑️</button>'+
+          '<button class="pin-btn'+(p.priority?' pinned':'')+'" data-url="'+plEsc(r.url)+'" title="'+(p.priority?'Убрать приоритет':'Приоритет')+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="'+(p.priority?'currentColor':'none')+'" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>'+
+          '<button class="del-btn" data-url="'+plEsc(r.url)+'" title="Не интересует"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>'+
         '</td></tr>';
     }).join('');
     const tbody = document.getElementById('tbody');
+    // Вставляем разделитель перед первой закрытой строкой
+    (function insertClosedDivider() {
+      const firstClosed = tbody.querySelector('.closed-row');
+      if (!firstClosed) return;
+      const closedRows = [...tbody.querySelectorAll('.closed-row')];
+      const closedCount = closedRows.length;
+      const hasOffer = closedRows.some(r => r.classList.contains('row-offer'));
+      const sep = document.createElement('tr');
+      sep.className = 'section-divider';
+      const td = document.createElement('td');
+      td.colSpan = 8;
+      td.innerHTML = '<button class="section-divider-btn" id="closedToggle">'+(hasOffer?'🎉 ':'')+'Завершённые · '+closedCount+' <span class="divider-arrow">▸</span></button>';
+      sep.appendChild(td);
+      tbody.insertBefore(sep, firstClosed);
+      document.getElementById('closedToggle').addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = tbody.classList.toggle('show-closed');
+        const btn = document.getElementById('closedToggle');
+        if (btn) btn.classList.toggle('open', isOpen);
+      });
+    })();
     tbody.querySelectorAll('.dp-trigger').forEach(btn => {
       btn.addEventListener('click', e => {
         e.stopPropagation();
