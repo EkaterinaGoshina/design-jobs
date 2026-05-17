@@ -1468,7 +1468,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
     const pl = plLs(PK);
     const allPl = plLs(PK);
     // Сортировка: приоритетные вакансии сначала
-    const CLOSED_RESULTS = new Set(['offer','reject','ignore']);
+    const CLOSED_RESULTS = new Set(['offer','reject']); // ignore = молчат, всё ещё активно
     rows.sort((a, b) => {
       const pa = allPl[a.url] || {}, pb = allPl[b.url] || {};
       const ac = CLOSED_RESULTS.has(pa.result), bc = CLOSED_RESULTS.has(pb.result);
