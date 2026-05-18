@@ -3,14 +3,58 @@
   "jobs": [
     {
       "s": "HireHi",
-      "pid": 44285,
-      "t": "graphic designer",
-      "c": "Skuratov Coffee",
+      "pid": 44304,
+      "t": "Product Designer",
+      "c": "Табор",
+      "lvl": "junior",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "~ 105 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/product-designer-44304"
+    },
+    {
+      "s": "HireHi",
+      "pid": 44299,
+      "t": "коммуникационный дизайнер",
+      "c": "Одноклассники",
       "lvl": "middle",
       "fmt": "remote",
       "role": "other",
-      "sal": "от 70 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-44285"
+      "sal": "~ 146 000 ₽, удалённо по РФ",
+      "url": "https://hirehi.ru/design/kommunikatsionnyi-dizainer-44299"
+    },
+    {
+      "s": "HireHi",
+      "pid": 44295,
+      "t": "арт-директор",
+      "c": "12 Космонавтов",
+      "lvl": "lead",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "~ 307 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/art-direktor-44295"
+    },
+    {
+      "s": "HireHi",
+      "pid": 44294,
+      "t": "Графический дизайнер",
+      "c": "Uzum",
+      "lvl": "lead",
+      "fmt": "office",
+      "role": "other",
+      "sal": "~ 246 000 ₽, офис Ташкент",
+      "url": "https://hirehi.ru/design/graficheskii-dizainer-44294"
+    },
+    {
+      "s": "HireHi",
+      "pid": 44290,
+      "t": "веб-дизайнер",
+      "c": "Biznetman",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "от 80 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/veb-dizainer-44290"
     },
     {
       "s": "HireHi",
@@ -253,50 +297,6 @@
       "role": "ux",
       "sal": "от 40 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-44066"
-    },
-    {
-      "s": "HireHi",
-      "pid": 44038,
-      "t": "ux дизайнер",
-      "c": "NDA",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "~ 110 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-dizainer-44038"
-    },
-    {
-      "s": "HireHi",
-      "pid": 44027,
-      "t": "Graphic Designer",
-      "c": "Международная Рекрутинговая Корпорация Лана",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 100 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-44027"
-    },
-    {
-      "s": "HireHi",
-      "pid": 44018,
-      "t": "Product Designer",
-      "c": "Ozon",
-      "lvl": "junior",
-      "fmt": "hybrid",
-      "role": "product",
-      "sal": "~ 123 000 ₽, гибрид Москва",
-      "url": "https://hirehi.ru/design/product-designer-44018"
-    },
-    {
-      "s": "HireHi",
-      "pid": 44013,
-      "t": "Graphic Designer",
-      "c": "CashCow.agency",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 50 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graphic-designer-44013"
     },
     {
       "s": "uxwork",
@@ -1132,6 +1132,32 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133224096,
+      "date": "2026-05-18",
+      "time": "22:39",
+      "t": "Product Designer",
+      "c": "Табор",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133224096"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133152609,
+      "date": "2026-05-18",
+      "time": "20:51",
+      "t": "Landing Page Manager / Conversion Manager (English)",
+      "c": "Международная академия фейспластики и остеопатии",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133152609"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133222084,
       "date": "2026-05-18",
       "time": "19:22",
@@ -1155,6 +1181,19 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/132348552"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133217916,
+      "date": "2026-05-18",
+      "time": "17:08",
+      "t": "Дизайнер промо-сайтов и UI/UX в маркетинговое агентство",
+      "c": "Ай-Экшн",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "до 100 000 ₽",
+      "url": "https://hh.ru/vacancy/133217916"
     },
     {
       "s": "hh.ru",
@@ -1223,6 +1262,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133212246,
+      "date": "2026-05-18",
+      "time": "15:33",
+      "t": "Программист С++",
+      "c": "Targem Games",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133212246"
+    },
+    {
+      "s": "hh.ru",
       "pid": 132668392,
       "date": "2026-05-18",
       "time": "14:49",
@@ -1249,16 +1301,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 132838525,
+      "pid": 132530778,
       "date": "2026-05-18",
-      "time": "12:41",
-      "t": "Веб-дизайнер / Web-designer",
-      "c": "CreativePeople",
+      "time": "12:46",
+      "t": "Веб-дизайнер",
+      "c": "Л-Системс",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/132838525"
+      "url": "https://hh.ru/vacancy/132530778"
     },
     {
       "s": "hh.ru",
@@ -1275,29 +1327,68 @@
     },
     {
       "s": "hh.ru",
-      "pid": 133212246,
+      "pid": 133224013,
       "date": "2026-05-18",
-      "time": "15:33",
-      "t": "Программист С++",
-      "c": "Targem Games",
-      "lvl": "unknown",
+      "time": "22:28",
+      "t": "Head of Growth / Growth Lead (US market / Amazon / Conversion Optimization)",
+      "c": "MAREE",
+      "lvl": "lead",
       "fmt": "unknown",
       "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/133212246"
+      "url": "https://hh.ru/vacancy/133224013"
     },
     {
       "s": "hh.ru",
-      "pid": 132530778,
+      "pid": 133223996,
       "date": "2026-05-18",
-      "time": "12:46",
-      "t": "Веб-дизайнер",
-      "c": "Л-Системс",
+      "time": "22:21",
+      "t": "Руководитель отдела A/B тестирования / CRO Lead",
+      "c": "MAREE",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133223996"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133223948,
+      "date": "2026-05-18",
+      "time": "22:11",
+      "t": "Growth Manager / Growth Hacker (US market / Amazon / Conversion Optimization)",
+      "c": "MAREE",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/132530778"
+      "url": "https://hh.ru/vacancy/133223948"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133136631,
+      "date": "2026-05-18",
+      "time": "21:19",
+      "t": "Дизайнер цифровых продуктов UX/UI (Senior)",
+      "c": "БКС Банк",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133136631"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132489325,
+      "date": "2026-05-18",
+      "time": "19:50",
+      "t": "Дизайнер веб-проектов",
+      "c": "Онпоинт",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132489325"
     },
     {
       "s": "hh.ru",
@@ -1311,6 +1402,19 @@
       "role": "other",
       "sal": "от 70 000 до 140 000 ₽",
       "url": "https://hh.ru/vacancy/132353856"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133151570,
+      "date": "2026-05-18",
+      "time": "19:06",
+      "t": "Руководитель отдела маркетинга и рекламы",
+      "c": "Научно-Производственное Объединение Кайсант",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 170 000 ₽",
+      "url": "https://hh.ru/vacancy/133151570"
     },
     {
       "s": "hh.ru",
@@ -1350,71 +1454,6 @@
       "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/130373321"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 132486827,
-      "date": "2026-05-18",
-      "time": "18:04",
-      "t": "Старший менеджер по работе с клиентами/Senior account manager",
-      "c": "PROGRESSION GROUP",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "до 230 000 ₽",
-      "url": "https://hh.ru/vacancy/132486827"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133219618,
-      "date": "2026-05-18",
-      "time": "17:46",
-      "t": "Дизайнер",
-      "c": "CEO agency",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 50 000 ₽",
-      "url": "https://hh.ru/vacancy/133219618"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 132856046,
-      "date": "2026-05-18",
-      "time": "17:42",
-      "t": "Продуктовый дизайнер",
-      "c": "169",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "от 150 000 до 200 000 ₽",
-      "url": "https://hh.ru/vacancy/132856046"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 126887225,
-      "date": "2026-05-18",
-      "time": "17:17",
-      "t": "Дизайнер упаковки",
-      "c": "Чижик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/126887225"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133218142,
-      "date": "2026-05-18",
-      "time": "17:11",
-      "t": "Помощник продуктолога",
-      "c": "Коваленко Александра Олеговна",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 40 000 ₽",
-      "url": "https://hh.ru/vacancy/133218142"
     },
     {
       "s": "hh.ru",
