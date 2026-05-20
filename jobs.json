@@ -3,6 +3,17 @@
   "jobs": [
     {
       "s": "HireHi",
+      "pid": 44853,
+      "t": "ux/ui-дизайнер",
+      "c": "Инвейдерс",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "~ 222 000 ₽, офис Москва",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-44853"
+    },
+    {
+      "s": "HireHi",
       "pid": 44842,
       "t": "Product Designer",
       "c": "СИНЕРГИЯ",
@@ -286,17 +297,6 @@
       "role": "ux",
       "sal": "~ 182 000 ₽, удалённо по РФ",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-44598"
-    },
-    {
-      "s": "HireHi",
-      "pid": 44569,
-      "t": "арт-директор",
-      "c": "NDA",
-      "lvl": "lead",
-      "fmt": "office",
-      "role": "other",
-      "sal": "~ 221 000 ₽, офис Москва",
-      "url": "https://hirehi.ru/design/art-direktor-44569"
     },
     {
       "s": "uxwork",
@@ -1106,6 +1106,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133327947,
+      "date": "2026-05-20",
+      "time": "23:36",
+      "t": "UX/UI-дизайнер",
+      "c": "ФЦ Августин",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 30 000 до 60 000 ₽",
+      "url": "https://hh.ru/vacancy/133327947"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133323100,
       "date": "2026-05-20",
       "time": "17:36",
@@ -1285,6 +1298,32 @@
       "role": "product",
       "sal": "от 100 000 до 150 000 ₽",
       "url": "https://hh.ru/vacancy/119016348"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132936200,
+      "date": "2026-05-20",
+      "time": "22:10",
+      "t": "Бизнес-ассистент владельца проектов на маркетплейсах",
+      "c": "HRassistant (ИП Кузнецова Ирина Андреевна)",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 80 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/132936200"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133327402,
+      "date": "2026-05-20",
+      "time": "21:56",
+      "t": "UX/UI-дизайнер",
+      "c": "Инвейдерс",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133327402"
     },
     {
       "s": "hh.ru",
