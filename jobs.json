@@ -3,6 +3,17 @@
   "jobs": [
     {
       "s": "HireHi",
+      "pid": 45078,
+      "t": "game designer",
+      "c": "BLACKHUB Games",
+      "lvl": "middle",
+      "fmt": "hybrid",
+      "role": "other",
+      "sal": "~ 157 000 ₽, гибрид",
+      "url": "https://hirehi.ru/design/game-designer-45078"
+    },
+    {
+      "s": "HireHi",
       "pid": 45060,
       "t": "веб-дизайнер",
       "c": "AZAT TEAM",
@@ -288,17 +299,6 @@
       "url": "https://hirehi.ru/design/ux-ui-dizainer-44853"
     },
     {
-      "s": "HireHi",
-      "pid": 44842,
-      "t": "Product Designer",
-      "c": "СИНЕРГИЯ",
-      "lvl": "junior",
-      "fmt": "office",
-      "role": "product",
-      "sal": "от 120 000 ₽, офис Москва",
-      "url": "https://hirehi.ru/design/product-designer-44842"
-    },
-    {
       "s": "uxwork",
       "pid": 1431,
       "date": "2026-02-19",
@@ -492,19 +492,6 @@
       "role": "product",
       "sal": "#удалённо (из РФ)",
       "url": "https://hh.ru/vacancy/132761040"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5766,
-      "date": "2026-05-14",
-      "time": "13:34",
-      "t": "Продуктовый дизайнер в команду Лайфстайл сервис, Домклик",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "hybrid",
-      "role": "product",
-      "sal": "Направление - команда помогает быть на связи с клиентом по средством чата в нижнем углу экрана. Работает с оценками по удовлетворенности и подключает Цифрового ассистента Задачи",
-      "url": "https://career.domclick.ru/vacancy/produktovyi-dizainer-v-komandu-laifstail-servisy-132322461"
     },
     {
       "s": "dsgn_vacancies",
@@ -1184,6 +1171,110 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133224013,
+      "date": "2026-05-21",
+      "time": "19:57",
+      "t": "Head of Growth / Growth Lead (US market / Amazon / Conversion Optimization)",
+      "c": "MAREE",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133224013"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133223996,
+      "date": "2026-05-21",
+      "time": "19:57",
+      "t": "Руководитель отдела A/B тестирования / CRO Lead",
+      "c": "MAREE",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133223996"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133223948,
+      "date": "2026-05-21",
+      "time": "19:57",
+      "t": "Growth Manager / Growth Hacker (US market / Amazon / Conversion Optimization)",
+      "c": "MAREE",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133223948"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132252583,
+      "date": "2026-05-21",
+      "time": "19:57",
+      "t": "Conversion Optimization Specialist / A/B Testing Specialist (CRO, US, Amazon)",
+      "c": "MAREE",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132252583"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 131053584,
+      "date": "2026-05-21",
+      "time": "19:57",
+      "t": "Conversion Rate Optimization Team Leader (CRO, US, Amazon)",
+      "c": "MAREE",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/131053584"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132489325,
+      "date": "2026-05-21",
+      "time": "19:50",
+      "t": "Дизайнер веб-проектов",
+      "c": "Онпоинт",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132489325"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133151570,
+      "date": "2026-05-21",
+      "time": "19:06",
+      "t": "Руководитель отдела маркетинга и рекламы",
+      "c": "Научно-Производственное Объединение Кайсант",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 170 000 ₽",
+      "url": "https://hh.ru/vacancy/133151570"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132488833,
+      "date": "2026-05-21",
+      "time": "19:04",
+      "t": "Менеджер по работе с ключевыми партнерами/Senior Account Manager (b2b)",
+      "c": "Право.ru",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 ₽",
+      "url": "https://hh.ru/vacancy/132488833"
+    },
+    {
+      "s": "hh.ru",
       "pid": 130373321,
       "date": "2026-05-21",
       "time": "18:13",
@@ -1223,68 +1314,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 132283122,
-      "date": "2026-05-21",
-      "time": "17:48",
-      "t": "Креативный дизайнер упаковки",
-      "c": "Леврана",
+      "pid": 133374868,
+      "date": "2026-05-22",
+      "time": "00:03",
+      "t": "Арт-директор / Art Director",
+      "c": "AGIMA",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/132283122"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 132856046,
-      "date": "2026-05-21",
-      "time": "17:42",
-      "t": "Продуктовый дизайнер",
-      "c": "169",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "от 150 000 до 200 000 ₽",
-      "url": "https://hh.ru/vacancy/132856046"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 126887225,
-      "date": "2026-05-21",
-      "time": "17:17",
-      "t": "Дизайнер упаковки",
-      "c": "Чижик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/126887225"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133368877,
-      "date": "2026-05-21",
-      "time": "17:10",
-      "t": "Руководитель группы продукта (b2c)",
-      "c": "Ozon Офис и Коммерция",
-      "lvl": "unknown",
-      "fmt": "office",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133368877"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133217212,
-      "date": "2026-05-21",
-      "time": "16:54",
-      "t": "Менеджер по продукту (девелопмент)",
-      "c": "КОРПОРАЦИЯ АЕОН",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133217212"
+      "sal": "до 170 000 ₽",
+      "url": "https://hh.ru/vacancy/133374868"
     },
     {
       "s": "hh.ru",
@@ -1480,32 +1519,6 @@
       "role": "product",
       "sal": "от 90 000 до 120 000 ₽",
       "url": "https://hh.ru/vacancy/133356562"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 132868303,
-      "date": "2026-05-21",
-      "time": "13:11",
-      "t": "UX/UI дизайнер",
-      "c": "X5, Медиа",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/132868303"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133202426,
-      "date": "2026-05-21",
-      "time": "13:09",
-      "t": "UX/UI-дизайнер (Health&Fitness)",
-      "c": "Физикл",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133202426"
     }
   ]
 }
