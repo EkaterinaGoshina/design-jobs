@@ -227,7 +227,7 @@ body {
       <span class="label">роль</span>
       <span class="chip role-filter active" data-role="ux">UX/UI</span>
       <span class="chip role-filter active" data-role="product">Продуктовый</span>
-      <span class="chip role-filter" data-role="other">Прочий дизайн</span>
+      <span class="chip role-filter active" data-role="other">Прочий дизайн</span>
     </div>
     <div class="row">
       <span class="label">грейд</span>
@@ -368,23 +368,28 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
   }
 
   function saveFilters() {
+    const scope = isMobile() ? '.filter-sheet ' : '.filters ';
     localStorage.setItem(STORE_FILTERS, JSON.stringify({
-      role:   getActiveSet('.role-filter','data-role'),
-      level:  getActiveSet('.level-filter','data-level'),
-      format: getActiveSet('.format-filter','data-format'),
+      role:   getActiveSet(scope+'.role-filter','data-role'),
+      level:  getActiveSet(scope+'.level-filter','data-level'),
+      format: getActiveSet(scope+'.format-filter','data-format'),
     }));
   }
 
   function applyFilters() {
-    const roles   = getActiveSet('.role-filter','data-role');
-    const levels  = getActiveSet('.level-filter','data-level');
-    const formats = getActiveSet('.format-filter','data-format');
-    const statusChips = isMobile() ? null : getActiveSet('.status-filter','data-status');
-    const savedOnly = !isMobile() && statusChips && statusChips.includes('saved') && statusChips.length === 1;
-    const showSaved = !isMobile() && statusChips && statusChips.includes('saved');
+    const mob   = isMobile();
+    const scope = mob ? '.filter-sheet ' : '.filters ';
+    const roles   = getActiveSet(scope+'.role-filter','data-role');
+    const levels  = getActiveSet(scope+'.level-filter','data-level');
+    const formats = getActiveSet(scope+'.format-filter','data-format');
+    const statusChips = mob ? null : getActiveSet('.filters .status-filter','data-status');
+    const savedOnly = !mob && statusChips && statusChips.includes('saved') && statusChips.length === 1;
+    const showSaved = !mob && statusChips && statusChips.includes('saved');
 
+    // intern считается junior для целей фильтра
+    const normLvl = lvl => lvl === 'intern' ? 'junior' : lvl;
     // Обычные вакансии из JOBS
-    let visible = JOBS.filter(j => roles.includes(j.role) && levels.includes(j.lvl) && formats.includes(j.fmt));
+    let visible = JOBS.filter(j => roles.includes(j.role) && levels.includes(normLvl(j.lvl)) && formats.includes(j.fmt));
     if (isMobile()) {
       const tab = state.mobileTab;
       if (tab !== 'all') visible = visible.filter(j => (getJobStatus(j)||'new') === tab);
