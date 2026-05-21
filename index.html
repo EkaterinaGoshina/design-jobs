@@ -8,6 +8,61 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<!-- Firebase sync (shared with tracker) -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getFirestore, doc, setDoc, onSnapshot, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCf95RNXb_Nu659KJljVxXbL7Fk9VN8HjI",
+    authDomain: "tracker-jobs.firebaseapp.com",
+    projectId: "tracker-jobs",
+    storageBucket: "tracker-jobs.firebasestorage.app",
+    messagingSenderId: "307964371204",
+    appId: "1:307964371204:web:8bbafe52bf54c895403051"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+  const DOC = doc(db, 'tracker', 'data');
+
+  const PK = 'designJobs.pipeline.v1';
+  const SK = 'designJobs.status.v1';
+
+  let syncing = false;
+
+  getDoc(DOC).then(snap => {
+    if (snap.exists()) {
+      const remote = snap.data();
+      if (remote.pipeline) localStorage.setItem(PK, JSON.stringify(remote.pipeline));
+      if (remote.status)   localStorage.setItem(SK, JSON.stringify(remote.status));
+    }
+    if (typeof window.__dashboardRefresh === 'function') window.__dashboardRefresh();
+  }).catch(() => {});
+
+  onSnapshot(DOC, snap => {
+    if (!snap.exists() || syncing) return;
+    const remote = snap.data();
+    if (remote.pipeline) localStorage.setItem(PK, JSON.stringify(remote.pipeline));
+    if (remote.status)   localStorage.setItem(SK, JSON.stringify(remote.status));
+    if (typeof window.__dashboardRefresh === 'function') window.__dashboardRefresh();
+  });
+
+  function pushToFirebase() {
+    syncing = true;
+    const pipeline = JSON.parse(localStorage.getItem(PK) || '{}');
+    const status   = JSON.parse(localStorage.getItem(SK)  || '{}');
+    setDoc(DOC, { pipeline, status, updatedAt: Date.now() })
+      .catch(() => {})
+      .finally(() => { syncing = false; });
+  }
+
+  const _setItem = localStorage.setItem.bind(localStorage);
+  localStorage.setItem = function(key, value) {
+    _setItem(key, value);
+    if (key === PK || key === SK) pushToFirebase();
+  };
+</script>
 <style>
 :root { color-scheme: light; }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -352,7 +407,7 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
           if (!pl[url].appliedDate) {
             pl[url].appliedDate = new Date().toISOString().slice(0,10);
             const j = JOBS.find(x => x.url === url);
-            if (j) { pl[url].title = j.t; pl[url].source = j.s; }
+            if (j) { pl[url].title = j.t; pl[url].source = j.s; pl[url].company = j.c || ''; }
           }
           localStorage.setItem(STORE_PIPELINE, JSON.stringify(pl));
         } catch(e) {}
@@ -621,6 +676,12 @@ JOBS.forEach(j => { jobMap[j.url] = j; });
   setupDesktop();
   setupMobile();
   render();
+
+  // Firebase вызывает это когда приходят данные с другого устройства
+  window.__dashboardRefresh = function() {
+    state.statuses = loadStatuses();
+    render();
+  };
 })();
 
 </script>
