@@ -3,6 +3,39 @@
   "jobs": [
     {
       "s": "HireHi",
+      "pid": 46139,
+      "t": "UX/UI Designer",
+      "c": "G5 Games",
+      "lvl": "lead",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "~ 339 073 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-designer-46139"
+    },
+    {
+      "s": "HireHi",
+      "pid": 46130,
+      "t": "graphic designer",
+      "c": "NDA",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "~ 90 711 ₽, удалённо",
+      "url": "https://hirehi.ru/design/graphic-designer-46130"
+    },
+    {
+      "s": "HireHi",
+      "pid": 46122,
+      "t": "Graphic Designer",
+      "c": "Social Discovery Group",
+      "lvl": "lead",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "~ 319 131 ₽, удалённо",
+      "url": "https://hirehi.ru/design/graphic-designer-46122"
+    },
+    {
+      "s": "HireHi",
       "pid": 46103,
       "t": "ux/ui-дизайнер",
       "c": "BLOCS-ME",
@@ -266,39 +299,6 @@
       "url": "https://hirehi.ru/design/ux-ui-dizainer-45893"
     },
     {
-      "s": "HireHi",
-      "pid": 45863,
-      "t": "illustrator",
-      "c": "Gyreberg",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "~ 200 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/illustrator-45863"
-    },
-    {
-      "s": "HireHi",
-      "pid": 45810,
-      "t": "ux/ui designer",
-      "c": "AffPapa",
-      "lvl": "senior",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "~ 230 000 ₽, офис Ереван",
-      "url": "https://hirehi.ru/design/ux-ui-designer-45810"
-    },
-    {
-      "s": "HireHi",
-      "pid": 45797,
-      "t": "Graphic Designer",
-      "c": "Яндекс Фабрика",
-      "lvl": "senior",
-      "fmt": "hybrid",
-      "role": "other",
-      "sal": "~ 223 000 ₽, гибрид",
-      "url": "https://hirehi.ru/design/graphic-designer-45797"
-    },
-    {
       "s": "uxwork",
       "pid": 1433,
       "date": "2026-02-25",
@@ -469,19 +469,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5783,
-      "date": "2026-05-20",
-      "time": "03:20",
-      "t": "Дизайнер продукта в Яндекс Вектор",
-      "c": "Яндекс Вектор",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "Яндекс Вектор помогает управлять городскими и производственными работами. Сейчас продукт в первую очередь развивается как сервис для коммунальных служб и подрядных организаций, которые занимаются уборкой городов, обслуживанием территорий и ",
-      "url": "https://yandex.ru/jobs/vacancies/dizayner-produkta-v-yandeks-vektor-45561"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 5787,
       "date": "2026-05-22",
       "time": "08:53",
@@ -596,6 +583,19 @@
       "role": "other",
       "sal": "Задачи: — снимать короткие ролики",
       "url": "https://t.me/Anatoliy1991"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 5803,
+      "date": "2026-05-26",
+      "time": "18:47",
+      "t": "Дизайнер в Дениум школу (удаленно)",
+      "c": "Дениум школу",
+      "lvl": "junior",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "Чем предстоит заниматься • создавать дизайн макетов по ТЗ от команды",
+      "url": "https://t.me/dsgn_vacancies/5803"
     },
     {
       "s": "sparklesjobs",
@@ -1106,6 +1106,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 132936200,
+      "date": "2026-05-26",
+      "time": "22:10",
+      "t": "Бизнес-ассистент владельца проектов на маркетплейсах",
+      "c": "HRassistant (ИП Кузнецова Ирина Андреевна)",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 80 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/132936200"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133109070,
       "date": "2026-05-26",
       "time": "20:01",
@@ -1220,19 +1233,6 @@
       "role": "other",
       "sal": "от 70 000 до 135 000 ₽",
       "url": "https://hh.ru/vacancy/132634921"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133523068,
-      "date": "2026-05-26",
-      "time": "17:55",
-      "t": "Менеджер по развитию продуктового бренда / ProdRel",
-      "c": "VK",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133523068"
     },
     {
       "s": "hh.ru",
