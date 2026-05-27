@@ -157,17 +157,6 @@
     },
     {
       "s": "HireHi",
-      "pid": 46229,
-      "t": "UX дизайнер",
-      "c": "Octo Games Studio",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "~ 97 653 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-dizainer-46229"
-    },
-    {
-      "s": "HireHi",
       "pid": 46225,
       "t": "Графический дизайнер",
       "c": "Копирка",
@@ -297,6 +286,17 @@
       "role": "ux",
       "sal": "~ 200 998 ₽, гибрид Москва",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-46066"
+    },
+    {
+      "s": "HireHi",
+      "pid": 46055,
+      "t": "Продуктовый дизайнер",
+      "c": "РОСЭЛТОРГ",
+      "lvl": "lead",
+      "fmt": "hybrid",
+      "role": "product",
+      "sal": "от 180 000 ₽, гибрид",
+      "url": "https://hirehi.ru/design/produktovyi-dizainer-46055"
     },
     {
       "s": "uxwork",
@@ -794,19 +794,6 @@
     },
     {
       "s": "design_jobs_uxui",
-      "pid": 1157,
-      "date": "2026-05-21",
-      "time": "07:00",
-      "t": "Ищут 10 человек, чтобы собирали чат-ботов по шаблону, как пазлы.",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "ЗП: от 5-9000₽ за вечер. Занятость: 3-4 часа в день.",
-      "url": "https://t.me/design_jobs_uxui/1157"
-    },
-    {
-      "s": "design_jobs_uxui",
       "pid": 1158,
       "date": "2026-05-21",
       "time": "08:08",
@@ -1197,6 +1184,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133434089,
+      "date": "2026-05-27",
+      "time": "22:54",
+      "t": "Проектный менеджер в отдел интернет-маркетинга (офис)",
+      "c": "SMART.Недвижимость",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 10 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/133434089"
+    },
+    {
+      "s": "hh.ru",
       "pid": 132578813,
       "date": "2026-05-27",
       "time": "20:40",
@@ -1324,19 +1324,6 @@
       "role": "other",
       "sal": "от 60 000 до 60 000 ₽",
       "url": "https://hh.ru/vacancy/133571683"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 126887225,
-      "date": "2026-05-27",
-      "time": "17:17",
-      "t": "Дизайнер упаковки",
-      "c": "Чижик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/126887225"
     },
     {
       "s": "hh.ru",
