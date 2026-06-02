@@ -1106,6 +1106,32 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133790367,
+      "date": "2026-06-03",
+      "time": "02:06",
+      "t": "Арт-директор",
+      "c": "Виви Мед",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133790367"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133434089,
+      "date": "2026-06-02",
+      "time": "22:54",
+      "t": "Проектный менеджер в отдел интернет-маркетинга (офис)",
+      "c": "SMART.Недвижимость",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 100 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/133434089"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133788225,
       "date": "2026-06-02",
       "time": "20:06",
@@ -1207,32 +1233,6 @@
       "role": "other",
       "sal": "от 70 000 до 120 000 ₽",
       "url": "https://hh.ru/vacancy/133371838"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133786156,
-      "date": "2026-06-02",
-      "time": "18:00",
-      "t": "Продуктовый дизайнер сайта / Product Designer",
-      "c": "ВЛАДИС",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133786156"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133785066,
-      "date": "2026-06-02",
-      "time": "17:27",
-      "t": "Контент-продюсер (сфера ЕГЭ/ОГЭ)",
-      "c": "Онлайн-школа Фоксфорд",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "до 110 000 ₽",
-      "url": "https://hh.ru/vacancy/133785066"
     },
     {
       "s": "hh.ru",
@@ -1376,19 +1376,6 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/133000488"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133772927,
-      "date": "2026-06-02",
-      "time": "14:17",
-      "t": "Инженер АСУ (Automation / Control Systems Engineer)",
-      "c": "ILTRINA",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133772927"
     },
     {
       "s": "careerspace",
