@@ -1119,6 +1119,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133836780,
+      "date": "2026-06-03",
+      "time": "23:13",
+      "t": "Продакт-менеджер / Менеджер по продукту (Fashion), МОСКВА",
+      "c": "Саютина Виктория Владимировна",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 80 000 до 140 000 ₽",
+      "url": "https://hh.ru/vacancy/133836780"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133835778,
       "date": "2026-06-03",
       "time": "20:54",
@@ -1223,29 +1236,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 133614970,
-      "date": "2026-06-03",
-      "time": "17:26",
-      "t": "Специалист по продукции (гематология, анализ мочи)",
-      "c": "ОМБ",
+      "pid": 133837214,
+      "date": "2026-06-04",
+      "time": "01:25",
+      "t": "Web UX/UI-дизайнер",
+      "c": "SMART MEALS FOR LIFE CATERING L.L.C",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133614970"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133831344,
-      "date": "2026-06-03",
-      "time": "17:12",
-      "t": "Менеджер по маркетингу (full-time, офис)",
-      "c": "ANCOR",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133831344"
+      "role": "ux",
+      "sal": "от 100 000 до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/133837214"
     },
     {
       "s": "hh.ru",
@@ -1363,19 +1363,6 @@
       "role": "ux",
       "sal": "от 60 000 до 90 000 ₽",
       "url": "https://hh.ru/vacancy/133447216"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133790367,
-      "date": "2026-06-03",
-      "time": "02:06",
-      "t": "Арт-директор",
-      "c": "Виви Мед",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133790367"
     },
     {
       "s": "careerspace",
