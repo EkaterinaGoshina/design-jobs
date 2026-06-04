@@ -3,6 +3,28 @@
   "jobs": [
     {
       "s": "HireHi",
+      "pid": 49122,
+      "t": "иллюстратор",
+      "c": "Ardor Media",
+      "lvl": "lead",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "от 92 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/illiustrator-49122"
+    },
+    {
+      "s": "HireHi",
+      "pid": 49117,
+      "t": "game designer",
+      "c": "NDA",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "250 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/game-designer-49117"
+    },
+    {
+      "s": "HireHi",
       "pid": 49105,
       "t": "product designer",
       "c": "NDA",
@@ -275,28 +297,6 @@
       "role": "other",
       "sal": "от 120 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/veb-dizainer-48811"
-    },
-    {
-      "s": "HireHi",
-      "pid": 48806,
-      "t": "Продуктовый дизайнер",
-      "c": "MR Group",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "~ 282 795 ₽, удалённо",
-      "url": "https://hirehi.ru/design/produktovyi-dizainer-48806"
-    },
-    {
-      "s": "HireHi",
-      "pid": 48804,
-      "t": "UX/UI дизайнер",
-      "c": "Студия Кефир",
-      "lvl": "lead",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "~ 286 987 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-48804"
     },
     {
       "s": "uxwork",
@@ -1197,6 +1197,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133882706,
+      "date": "2026-06-05",
+      "time": "00:10",
+      "t": "Product / UI Designer (SaaS, Part-Time)",
+      "c": "Синельников Сергей Викторович",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 80 000 до 100 000 ₽",
+      "url": "https://hh.ru/vacancy/133882706"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133709820,
       "date": "2026-06-04",
       "time": "11:58",
@@ -1210,29 +1223,42 @@
     },
     {
       "s": "hh.ru",
-      "pid": 127909339,
-      "date": "2026-06-04",
-      "time": "08:57",
-      "t": "Руководитель отдела контент-маркетинга (Маркетплейсы и Социальные сети)",
-      "c": "Софис",
+      "pid": 133882764,
+      "date": "2026-06-05",
+      "time": "00:28",
+      "t": "Продакт- менеджер (продюсер разработки и производства коллекционных игрушек)",
+      "c": "Дом Культуры",
       "lvl": "unknown",
-      "fmt": "office",
+      "fmt": "unknown",
       "role": "other",
-      "sal": "от 180 000 до 200 000 ₽",
-      "url": "https://hh.ru/vacancy/127909339"
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133882764"
     },
     {
       "s": "hh.ru",
-      "pid": 129382781,
-      "date": "2026-06-03",
-      "time": "18:45",
-      "t": "UX/UI Designer / Дизайнер интерфейсов / Web & Mobile",
-      "c": "Пуск",
+      "pid": 132936200,
+      "date": "2026-06-04",
+      "time": "22:10",
+      "t": "Бизнес-ассистент владельца проектов на маркетплейсах",
+      "c": "HRassistant (ИП Кузнецова Ирина Андреевна)",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/129382781"
+      "role": "other",
+      "sal": "от 80 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/132936200"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133109070,
+      "date": "2026-06-04",
+      "time": "20:01",
+      "t": "Head of VIP/ Руководитель отдела VIP (IGaming)",
+      "c": "KOLDEXI LTD",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 200 000 до 350 000 ₽",
+      "url": "https://hh.ru/vacancy/133109070"
     },
     {
       "s": "hh.ru",
@@ -1340,32 +1366,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 133874846,
-      "date": "2026-06-04",
-      "time": "16:37",
-      "t": "Chief Product Officer (CPO) / Руководитель продукта",
-      "c": "Крибрум",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133874846"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 132930445,
-      "date": "2026-06-04",
-      "time": "16:08",
-      "t": "Руководитель отдела маркетинга",
-      "c": "Salini SRL",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 230 000 ₽",
-      "url": "https://hh.ru/vacancy/132930445"
-    },
-    {
-      "s": "hh.ru",
       "pid": 133735515,
       "date": "2026-06-04",
       "time": "17:55",
@@ -1454,32 +1454,6 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/133653968"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133507858,
-      "date": "2026-06-04",
-      "time": "12:11",
-      "t": "UI/UX Designer (Game Dev)",
-      "c": "MadOut Games",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133507858"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133710475,
-      "date": "2026-06-04",
-      "time": "12:08",
-      "t": "Web-дизайнер / UI/UX дизайнер",
-      "c": "Adequo",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133710475"
     },
     {
       "s": "careerspace",
