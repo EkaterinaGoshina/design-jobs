@@ -3,6 +3,50 @@
   "jobs": [
     {
       "s": "HireHi",
+      "pid": 49422,
+      "t": "Graphic Designer",
+      "c": "LETTA",
+      "lvl": "junior",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "от 60 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/graphic-designer-49422"
+    },
+    {
+      "s": "HireHi",
+      "pid": 49421,
+      "t": "ux/ui designer",
+      "c": "Talentgrator",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "~ 65 951 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-designer-49421"
+    },
+    {
+      "s": "HireHi",
+      "pid": 49418,
+      "t": "product designer",
+      "c": "Talentgrator",
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "~ 335 264 ₽, удалённо",
+      "url": "https://hirehi.ru/design/product-designer-49418"
+    },
+    {
+      "s": "HireHi",
+      "pid": 49415,
+      "t": "brand designer",
+      "c": "ONY Agency",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "other",
+      "sal": "~ 185 398 ₽, офис Москва",
+      "url": "https://hirehi.ru/design/brand-designer-49415"
+    },
+    {
+      "s": "HireHi",
       "pid": 49363,
       "t": "Продуктовый дизайнер",
       "c": "Timepad",
@@ -253,50 +297,6 @@
       "role": "product",
       "sal": "до 256 000 ₽, удалённо",
       "url": "https://hirehi.ru/design/product-designer-49105"
-    },
-    {
-      "s": "HireHi",
-      "pid": 49097,
-      "t": "Дизайнер продукта",
-      "c": "Т-Банк",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "~ 300 540 ₽, удалённо по РФ",
-      "url": "https://hirehi.ru/design/dizainer-produkta-49097"
-    },
-    {
-      "s": "HireHi",
-      "pid": 49066,
-      "t": "Продуктовый дизайнер",
-      "c": "SpeShu.AI",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "~ 109 473 ₽, удалённо",
-      "url": "https://hirehi.ru/design/produktovyi-dizainer-49066"
-    },
-    {
-      "s": "HireHi",
-      "pid": 49065,
-      "t": "Графический дизайнер",
-      "c": "ДИС-3",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 100 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-49065"
-    },
-    {
-      "s": "HireHi",
-      "pid": 49045,
-      "t": "Графический дизайнер",
-      "c": "Хороший Сеть",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "от 40 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/graficheskii-dizainer-49045"
     },
     {
       "s": "uxwork",
@@ -1015,6 +1015,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 133921823,
+      "date": "2026-06-05",
+      "time": "23:31",
+      "t": "UX-редактор (Направление ПВЗ)",
+      "c": "RWB (Wildberries & Russ)",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133921823"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133217760,
       "date": "2026-06-05",
       "time": "17:05",
@@ -1080,32 +1093,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 133877502,
-      "date": "2026-06-04",
-      "time": "17:44",
-      "t": "Веб-дизайнер / Web Designer",
-      "c": "ART6",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 70 000 до 85 000 ₽",
-      "url": "https://hh.ru/vacancy/133877502"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133877307,
-      "date": "2026-06-04",
-      "time": "17:38",
-      "t": "Product Designer / Продуктовый дизайнер с фокусом на конверсию и продуктовые механики",
-      "c": "Центр Национальных Интеллектуальных Систем",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133877307"
-    },
-    {
-      "s": "hh.ru",
       "pid": 133882706,
       "date": "2026-06-05",
       "time": "00:10",
@@ -1116,6 +1103,19 @@
       "role": "ux",
       "sal": "от 80 000 до 100 000 ₽",
       "url": "https://hh.ru/vacancy/133882706"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133877502,
+      "date": "2026-06-04",
+      "time": "17:44",
+      "t": "Веб-дизайнер / Web Designer",
+      "c": "ART6",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 70 000 до 85 000 ₽",
+      "url": "https://hh.ru/vacancy/133877502"
     },
     {
       "s": "hh.ru",
@@ -1155,6 +1155,45 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/133107908"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133434089,
+      "date": "2026-06-05",
+      "time": "22:54",
+      "t": "Проектный менеджер в отдел интернет-маркетинга (офис)",
+      "c": "SMART.Недвижимость",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 100 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/133434089"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133920413,
+      "date": "2026-06-05",
+      "time": "19:39",
+      "t": "Бренд - менеджер",
+      "c": "Абрау-Дюрсо, Русский Винный Дом",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133920413"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133151570,
+      "date": "2026-06-05",
+      "time": "19:06",
+      "t": "Руководитель отдела маркетинга и рекламы",
+      "c": "Научно-Производственное Объединение Кайсант",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 170 000 ₽",
+      "url": "https://hh.ru/vacancy/133151570"
     },
     {
       "s": "hh.ru",
@@ -1220,45 +1259,6 @@
       "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/133572302"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133917999,
-      "date": "2026-06-05",
-      "time": "17:35",
-      "t": "Руководитель направления бизнес-маркетинга по продвижению цифровых сервисов для крупного бизнеса",
-      "c": "Альфа-Банк. Центральный офис",
-      "lvl": "unknown",
-      "fmt": "office",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133917999"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133917872,
-      "date": "2026-06-05",
-      "time": "17:32",
-      "t": "UX-редактор B2B",
-      "c": "RWB (Wildberries & Russ)",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133917872"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133917686,
-      "date": "2026-06-05",
-      "time": "17:25",
-      "t": "Контент-фотограф",
-      "c": "Холод-Сервис",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 80 000 ₽",
-      "url": "https://hh.ru/vacancy/133917686"
     },
     {
       "s": "hh.ru",
@@ -1415,19 +1415,6 @@
       "role": "ux",
       "sal": "от 70 000 ₽",
       "url": "https://hh.ru/vacancy/133904519"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133202426,
-      "date": "2026-06-05",
-      "time": "13:09",
-      "t": "UX/UI-дизайнер (Health&Fitness)",
-      "c": "Физикл",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133202426"
     },
     {
       "s": "careerspace",
