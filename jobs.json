@@ -1,6 +1,17 @@
 {
-  "snapshot_date": "2026-07-17",
+  "snapshot_date": "2026-07-18",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 65412,
+      "t": "ux/ui-дизайнер",
+      "c": "OpenRate",
+      "lvl": "senior",
+      "fmt": "hybrid",
+      "role": "ux",
+      "sal": "от 100 500 ₽, гибрид Астана",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-65412"
+    },
     {
       "s": "HireHi",
       "pid": 65105,
@@ -550,17 +561,6 @@
       "role": "ux",
       "sal": "~ 234 962 ₽, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-designer-60840"
-    },
-    {
-      "s": "HireHi",
-      "pid": 60809,
-      "t": "ux/ui-дизайнер",
-      "c": "SkyCapital",
-      "lvl": "junior",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "~ 112 516 ₽, гибрид Москва",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-60809"
     },
     {
       "s": "uxwork",
@@ -1227,6 +1227,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 134697154,
+      "date": "2026-07-18",
+      "time": "10:07",
+      "t": "UX/UI-дизайнер / Web дизайнер в офис",
+      "c": "Норские резиденции",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 120 000 до 120 000 ₽",
+      "url": "https://hh.ru/vacancy/134697154"
+    },
+    {
+      "s": "hh.ru",
       "pid": 134807413,
       "date": "2026-07-17",
       "time": "17:39",
@@ -1344,6 +1357,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135011362,
+      "date": "2026-07-18",
+      "time": "10:10",
+      "t": "Продуктовый дизайнер",
+      "c": "ИдаПроджект",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135011362"
+    },
+    {
+      "s": "hh.ru",
       "pid": 134220751,
       "date": "2026-07-17",
       "time": "10:09",
@@ -1357,29 +1383,68 @@
     },
     {
       "s": "hh.ru",
-      "pid": 134351376,
-      "date": "2026-07-17",
-      "time": "03:04",
-      "t": "UX/UI-дизайнер",
-      "c": "IT Solutions Management International Pte. Ltd.",
+      "pid": 134697345,
+      "date": "2026-07-18",
+      "time": "10:10",
+      "t": "Кладовщик",
+      "c": "Сантехмарк",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 110 000 ₽",
-      "url": "https://hh.ru/vacancy/134351376"
+      "role": "other",
+      "sal": "от 65 000 ₽",
+      "url": "https://hh.ru/vacancy/134697345"
     },
     {
       "s": "hh.ru",
-      "pid": 134767846,
-      "date": "2026-07-16",
-      "time": "19:12",
-      "t": "UX/UI-дизайнер",
-      "c": "МассПроект",
+      "pid": 134819770,
+      "date": "2026-07-18",
+      "time": "09:47",
+      "t": "Руководитель направления разработки продуктов (Малая бытовая техника)/Senior Product Development Man",
+      "c": "Премиум Кеа Груп",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134819770"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134293803,
+      "date": "2026-07-18",
+      "time": "09:24",
+      "t": "Старший продуктовый дизайнер",
+      "c": "Домклик",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134293803"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135007613,
+      "date": "2026-07-18",
+      "time": "09:06",
+      "t": "UX-дизайнер",
+      "c": "Транснефтьэнерго",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "ux",
-      "sal": "от 70 000 до 120 000 ₽",
-      "url": "https://hh.ru/vacancy/134767846"
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135007613"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135326937,
+      "date": "2026-07-17",
+      "time": "21:27",
+      "t": "Дизайн-директор продукта в сервис путешествий",
+      "c": "Туту",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135326937"
     },
     {
       "s": "hh.ru",
@@ -1448,81 +1513,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 134682315,
-      "date": "2026-07-17",
-      "time": "17:44",
-      "t": "Старший бренд-менеджер",
-      "c": "Реноме",
+      "pid": 134876616,
+      "date": "2026-07-18",
+      "time": "10:29",
+      "t": "Senior UI/UX designer (Gamedev)",
+      "c": "Студия Кефир",
       "lvl": "senior",
       "fmt": "unknown",
-      "role": "other",
+      "role": "ux",
       "sal": null,
-      "url": "https://hh.ru/vacancy/134682315"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135324511,
-      "date": "2026-07-17",
-      "time": "17:42",
-      "t": "Media Buyer (facebook ads)",
-      "c": "Международная продуктовая команда",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135324511"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 126887225,
-      "date": "2026-07-17",
-      "time": "17:17",
-      "t": "Дизайнер упаковки",
-      "c": "Чижик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/126887225"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134811107,
-      "date": "2026-07-17",
-      "time": "17:08",
-      "t": "Руководитель креативного маркетинга / CRO Lead",
-      "c": "MAREE",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134811107"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133121570,
-      "date": "2026-07-17",
-      "time": "17:07",
-      "t": "Руководитель направления коммуникационного дизайна",
-      "c": "iSpring",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/133121570"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134994303,
-      "date": "2026-07-17",
-      "time": "17:04",
-      "t": "Ведущий менеджер маркетплейса Ozon/Wildberries",
-      "c": "Hausberg LTD",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134994303"
+      "url": "https://hh.ru/vacancy/134876616"
     },
     {
       "s": "hh.ru",
@@ -1588,19 +1588,6 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/134659666"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 132322461,
-      "date": "2026-07-17",
-      "time": "09:50",
-      "t": "Продуктовый дизайнер в команду «Главная страница»",
-      "c": "Домклик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/132322461"
     }
   ]
 }
