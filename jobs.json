@@ -1,6 +1,17 @@
 {
-  "snapshot_date": "2026-07-18",
+  "snapshot_date": "2026-07-19",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 65585,
+      "t": "UX/UI Designer",
+      "c": "Ubiquiti Inc.",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "зп не указана, офис Киев",
+      "url": "https://hirehi.ru/design/ux-ui-designer-65585"
+    },
     {
       "s": "HireHi",
       "pid": 65412,
@@ -550,17 +561,6 @@
       "role": "ux",
       "sal": "~ 152 112 ₽, гибрид Москва",
       "url": "https://hirehi.ru/design/ux-ui-designer-60887"
-    },
-    {
-      "s": "HireHi",
-      "pid": 60840,
-      "t": "ux/ui designer",
-      "c": "Innowise",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "~ 234 962 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-designer-60840"
     },
     {
       "s": "uxwork",
@@ -1383,6 +1383,84 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135261370,
+      "date": "2026-07-19",
+      "time": "10:31",
+      "t": "Дизайнер-консультант Mr.Doors (федеральная компания, производство корпусной мебели)",
+      "c": "MrDoors Урал",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 80 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135261370"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134921882,
+      "date": "2026-07-19",
+      "time": "10:15",
+      "t": "Senior Mobile App Designer",
+      "c": "Диджитал Лайн",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 240 000 до 300 000 ₽",
+      "url": "https://hh.ru/vacancy/134921882"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134735373,
+      "date": "2026-07-19",
+      "time": "09:30",
+      "t": "Senior Graphic / Digital Designer",
+      "c": "Премиум Кеа Груп",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 250 000 ₽",
+      "url": "https://hh.ru/vacancy/134735373"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134421069,
+      "date": "2026-07-19",
+      "time": "08:37",
+      "t": "Бренд-менеджер FMCG",
+      "c": "Гербарика",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134421069"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134212829,
+      "date": "2026-07-18",
+      "time": "22:12",
+      "t": "Дизайнер одежды (Москва / Гуанчжоу)",
+      "c": "Tatikawear",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134212829"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 133983442,
+      "date": "2026-07-18",
+      "time": "19:36",
+      "t": "Дизайнер карточек маркетплейсов с фокусом на CTR (в офис)",
+      "c": "Стик Дизайн",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133983442"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135334588,
       "date": "2026-07-18",
       "time": "19:30",
@@ -1474,68 +1552,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 133660766,
-      "date": "2026-07-18",
-      "time": "16:35",
-      "t": "Коммуникационный / Веб дизайнер (AI-friendly)",
-      "c": "Kinescope",
+      "pid": 133292785,
+      "date": "2026-07-19",
+      "time": "10:53",
+      "t": "Designer UX/UI / Дизайнер пользовательских интерфейсов (TATLIN.UNIFIED)",
+      "c": "YADRO",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "other",
-      "sal": "до 200 000 ₽",
-      "url": "https://hh.ru/vacancy/133660766"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134541138,
-      "date": "2026-07-18",
-      "time": "16:12",
-      "t": "Руководитель отдела продаж",
-      "c": "ПростоМебель",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 150 000 до 250 000 ₽",
-      "url": "https://hh.ru/vacancy/134541138"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134716980,
-      "date": "2026-07-18",
-      "time": "15:25",
-      "t": "Ведущий SEO-специалист",
-      "c": "Юстронг",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 60 000 до 90 000 ₽",
-      "url": "https://hh.ru/vacancy/134716980"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133263581,
-      "date": "2026-07-18",
-      "time": "15:24",
-      "t": "Аккаунт-менеджер в отдел поддержки сайтов",
-      "c": "Пиксель Плюс",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 130 000 ₽",
-      "url": "https://hh.ru/vacancy/133263581"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134896851,
-      "date": "2026-07-18",
-      "time": "15:15",
-      "t": "Менеджер по продажам дизайнерской мебели (шоу-рум в Artplay)",
-      "c": "UNIKA MØBLAR",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 150 000 до 250 000 ₽",
-      "url": "https://hh.ru/vacancy/134896851"
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/133292785"
     },
     {
       "s": "hh.ru",
@@ -1655,19 +1681,6 @@
       "url": "https://hh.ru/vacancy/135322772"
     },
     {
-      "s": "hh.ru",
-      "pid": 134801527,
-      "date": "2026-07-17",
-      "time": "15:40",
-      "t": "AI Product Designer (UI/UX)",
-      "c": "Вебпрактик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134801527"
-    },
-    {
       "s": "careerspace",
       "pid": 15004,
       "date": "2026-07-18",
@@ -1679,6 +1692,19 @@
       "role": "other",
       "sal": "🙂 (удалёнка)",
       "url": "https://careerspace.app/job/248589?utm_source=telegram&amp;utm_medium=careerspace"
+    },
+    {
+      "s": "careerspace",
+      "pid": 15005,
+      "date": "2026-07-19",
+      "time": "07:11",
+      "t": "Надо ли вам войти в айти в 2026-м? (часть 2)",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "Продолжаем серию постов про войти в айти. Это вторая часть, первую можно прочитать постом выше",
+      "url": "https://t.me/careerspace/15005"
     }
   ]
 }
