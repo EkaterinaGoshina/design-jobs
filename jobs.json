@@ -1,6 +1,17 @@
 {
-  "snapshot_date": "2026-07-24",
+  "snapshot_date": "2026-07-25",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 68063,
+      "t": "ux/ui designer",
+      "c": "NDA",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "160 000 ₽, офис Ташкент",
+      "url": "https://hirehi.ru/design/ux-ui-designer-68063"
+    },
     {
       "s": "HireHi",
       "pid": 67971,
@@ -550,17 +561,6 @@
       "role": "ux",
       "sal": "зп не указана, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-designer-62994"
-    },
-    {
-      "s": "HireHi",
-      "pid": 62842,
-      "t": "ux/ui-дизайнер",
-      "c": "Weblics",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "от 200 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-62842"
     },
     {
       "s": "uxwork",
@@ -1448,6 +1448,84 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135261370,
+      "date": "2026-07-25",
+      "time": "10:31",
+      "t": "Дизайнер-консультант Mr.Doors (федеральная компания, производство корпусной мебели)",
+      "c": "MrDoors Урал",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 80 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135261370"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135459468,
+      "date": "2026-07-25",
+      "time": "10:16",
+      "t": "Специалист по контекстной рекламе (Директолог) / PPC B2B-специалист (Travel Tech & SaaS)",
+      "c": "Millennium",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135459468"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134921882,
+      "date": "2026-07-25",
+      "time": "10:15",
+      "t": "Senior Mobile App Designer",
+      "c": "Диджитал Лайн",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 240 000 до 300 000 ₽",
+      "url": "https://hh.ru/vacancy/134921882"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135565619,
+      "date": "2026-07-25",
+      "time": "09:44",
+      "t": "Проектный менеджер образовательных платформ",
+      "c": "Ангиофарм",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135565619"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134735373,
+      "date": "2026-07-25",
+      "time": "09:30",
+      "t": "Senior Graphic / Digital Designer",
+      "c": "Премиум Кеа Груп",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 250 000 ₽",
+      "url": "https://hh.ru/vacancy/134735373"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134212829,
+      "date": "2026-07-24",
+      "time": "22:12",
+      "t": "Дизайнер одежды (Москва / Гуанчжоу)",
+      "c": "Tatikawear",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134212829"
+    },
+    {
+      "s": "hh.ru",
       "pid": 133983442,
       "date": "2026-07-24",
       "time": "19:36",
@@ -1536,45 +1614,6 @@
       "role": "other",
       "sal": "до 150 000 ₽",
       "url": "https://hh.ru/vacancy/135334164"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134544472,
-      "date": "2026-07-24",
-      "time": "17:25",
-      "t": "Коммуникационный дизайнер",
-      "c": "ИдаПроджект",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134544472"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135244029,
-      "date": "2026-07-24",
-      "time": "17:00",
-      "t": "Менеджер по ассортименту коллекций и стайлингу",
-      "c": "IRNBY",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135244029"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135556911,
-      "date": "2026-07-24",
-      "time": "16:08",
-      "t": "Team Lead Media Buying",
-      "c": "Advert Technology Solutions",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135556911"
     },
     {
       "s": "hh.ru",
@@ -1731,19 +1770,6 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/134293803"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135007613,
-      "date": "2026-07-24",
-      "time": "09:06",
-      "t": "UX-дизайнер",
-      "c": "Транснефтьэнерго",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135007613"
     },
     {
       "s": "careerspace",
