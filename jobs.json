@@ -1,6 +1,28 @@
 {
-  "snapshot_date": "2026-07-31",
+  "snapshot_date": "2026-08-01",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 70662,
+      "t": "ux/ui дизайнер",
+      "c": "Mbank",
+      "lvl": "lead",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "зп не указана, офис Бишкек",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-70662"
+    },
+    {
+      "s": "HireHi",
+      "pid": 70625,
+      "t": "UX/UI дизайнер",
+      "c": "HyperHug",
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "зп не указана, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-70625"
+    },
     {
       "s": "HireHi",
       "pid": 70479,
@@ -541,28 +563,6 @@
       "url": "https://hirehi.ru/design/ux-ui-dizainer-66344"
     },
     {
-      "s": "HireHi",
-      "pid": 66308,
-      "t": "UX/UI Designer",
-      "c": "DIGITCORE",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-designer-66308"
-    },
-    {
-      "s": "HireHi",
-      "pid": 66258,
-      "t": "UX/UI дизайнер",
-      "c": "SET FLOW",
-      "lvl": "junior",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "от 59 200 ₽, гибрид Караганда",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-66258"
-    },
-    {
       "s": "uxwork",
       "pid": 1454,
       "date": "2026-05-27",
@@ -1032,19 +1032,6 @@
     },
     {
       "s": "zarubezhom_jobs",
-      "pid": 4073,
-      "date": "2026-07-24",
-      "time": "11:08",
-      "t": "Senior Data Scientist (Availability) в Emerging Travel Group",
-      "c": "Emerging Travel Group",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "Ребята активно ищут 🔥",
-      "url": "https://www.emergingtravel.com/career/positions/49/"
-    },
-    {
-      "s": "zarubezhom_jobs",
       "pid": 4076,
       "date": "2026-07-25",
       "time": "13:01",
@@ -1357,6 +1344,32 @@
     },
     {
       "s": "hh.ru",
+      "pid": 134351376,
+      "date": "2026-08-01",
+      "time": "03:04",
+      "t": "UX/UI-дизайнер",
+      "c": "IT Solutions Management International Pte. Ltd.",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 110 000 ₽",
+      "url": "https://hh.ru/vacancy/134351376"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135795392,
+      "date": "2026-07-31",
+      "time": "21:14",
+      "t": "Продуктовый дизайнер",
+      "c": "ТаймВэб",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135795392"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135679589,
       "date": "2026-07-31",
       "time": "19:31",
@@ -1422,19 +1435,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135759646,
-      "date": "2026-07-30",
-      "time": "18:15",
-      "t": "Продакт-менеджер в ИТ-компанию",
-      "c": "Радист Онлайн",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 120 000 ₽",
-      "url": "https://hh.ru/vacancy/135759646"
-    },
-    {
-      "s": "hh.ru",
       "pid": 135757854,
       "date": "2026-07-30",
       "time": "17:20",
@@ -1461,19 +1461,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135755264,
-      "date": "2026-07-30",
-      "time": "16:27",
-      "t": "AI-креатор / Вайбкодер",
-      "c": "Битрикс24",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135755264"
-    },
-    {
-      "s": "hh.ru",
       "pid": 135024661,
       "date": "2026-07-30",
       "time": "14:48",
@@ -1484,6 +1471,136 @@
       "role": "other",
       "sal": "от 123 000 ₽",
       "url": "https://hh.ru/vacancy/135024661"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135693630,
+      "date": "2026-08-01",
+      "time": "10:36",
+      "t": "Проектный менеджер (Отдел маркетинга Поле, Парковые кварталы)",
+      "c": "Поле Девелопмент",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135693630"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134780087,
+      "date": "2026-08-01",
+      "time": "09:58",
+      "t": "Менеджер продукта",
+      "c": "Вебпро",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134780087"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132322461,
+      "date": "2026-08-01",
+      "time": "09:50",
+      "t": "Продуктовый дизайнер в команду «Главная страница»",
+      "c": "Домклик",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132322461"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134967270,
+      "date": "2026-08-01",
+      "time": "09:43",
+      "t": "Продакт менеджер (женская одежда, fashion)",
+      "c": "I am pijama",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 120 000 ₽",
+      "url": "https://hh.ru/vacancy/134967270"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132330017,
+      "date": "2026-08-01",
+      "time": "09:39",
+      "t": "Ведущий менеджер по продукту (Жилищное строительство)",
+      "c": "ООО «РСТИ (специализированный застройщик)»",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132330017"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134963294,
+      "date": "2026-08-01",
+      "time": "08:37",
+      "t": "Директор по продукту и категорийному менеджменту / Head of Product & Category Development",
+      "c": "НОНТОН",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134963294"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135350263,
+      "date": "2026-08-01",
+      "time": "08:18",
+      "t": "Продуктовый менеджер",
+      "c": "ДельтаЛизинг",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135350263"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135166780,
+      "date": "2026-08-01",
+      "time": "06:07",
+      "t": "Менеджер товарной категории/категорийный менеджер",
+      "c": "ПТП ЗАРЯД",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135166780"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135796224,
+      "date": "2026-08-01",
+      "time": "01:39",
+      "t": "Руководитель по маркетплейсам (бытовая техника)",
+      "c": "Айбото",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 250 000 до 350 000 ₽",
+      "url": "https://hh.ru/vacancy/135796224"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135164131,
+      "date": "2026-07-31",
+      "time": "21:33",
+      "t": "Дизайн-директор",
+      "c": "Мебельная компания ZETTA",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 200 000 до 300 000 ₽",
+      "url": "https://hh.ru/vacancy/135164131"
     },
     {
       "s": "hh.ru",
@@ -1539,58 +1656,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135672005,
-      "date": "2026-07-31",
-      "time": "17:50",
-      "t": "Продуктовый веб-дизайнер (графика + веб)",
-      "c": "Родина Дарья",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135672005"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134953506,
-      "date": "2026-07-31",
-      "time": "17:49",
-      "t": "Операционный директор/ руководитель направления (digital-продукты в сфере красоты)",
-      "c": "BeautyClub365",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 250 000 ₽",
-      "url": "https://hh.ru/vacancy/134953506"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134811107,
-      "date": "2026-07-31",
-      "time": "17:40",
-      "t": "Руководитель креативного маркетинга / CRO Lead",
-      "c": "MAREE",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134811107"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135443627,
-      "date": "2026-07-31",
-      "time": "17:40",
-      "t": "Head of Amazon Store (CRO Lead) — владелец магазина и креативного тестирования",
-      "c": "MAREE",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135443627"
-    },
-    {
-      "s": "hh.ru",
       "pid": 135160364,
       "date": "2026-07-31",
       "time": "17:20",
@@ -1604,16 +1669,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135792761,
+      "pid": 135484800,
       "date": "2026-07-31",
-      "time": "17:17",
-      "t": "Креативный дизайнер",
-      "c": "ANCOR",
-      "lvl": "unknown",
+      "time": "16:37",
+      "t": "UX/UI-дизайнер (Middle+ / Senior)",
+      "c": "Цифровые Пространственные Технологии",
+      "lvl": "senior",
       "fmt": "unknown",
-      "role": "other",
-      "sal": "от 200 000 ₽",
-      "url": "https://hh.ru/vacancy/135792761"
+      "role": "ux",
+      "sal": "от 130 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135484800"
     },
     {
       "s": "hh.ru",
@@ -1627,19 +1692,6 @@
       "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/135484552"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135484800,
-      "date": "2026-07-31",
-      "time": "16:37",
-      "t": "UX/UI-дизайнер (Middle+ / Senior)",
-      "c": "Цифровые Пространственные Технологии",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 130 000 до 150 000 ₽",
-      "url": "https://hh.ru/vacancy/135484800"
     },
     {
       "s": "hh.ru",
@@ -1785,45 +1837,6 @@
       "url": "https://hh.ru/vacancy/134921882"
     },
     {
-      "s": "hh.ru",
-      "pid": 135624932,
-      "date": "2026-07-30",
-      "time": "20:18",
-      "t": "Менеджер продукта в IT / Создатель продукта",
-      "c": "Мой Класс",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 150 000 до 230 000 ₽",
-      "url": "https://hh.ru/vacancy/135624932"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135760713,
-      "date": "2026-07-30",
-      "time": "20:05",
-      "t": "Senior Product designer",
-      "c": "Мокка",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135760713"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135760645,
-      "date": "2026-07-30",
-      "time": "19:54",
-      "t": "Senior UI/UX-дизайнер (Gamedev)",
-      "c": "Crazy Panda",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135760645"
-    },
-    {
       "s": "careerspace",
       "pid": 15052,
       "date": "2026-07-28",
@@ -1861,6 +1874,19 @@
       "role": "other",
       "sal": "🙀 Ксения — категорийный менеджер в ритейле, 6 лет в профессии. Переезжала в другой город вслед за работой мужа и была уверена: без местных связей на новом месте прижиться будет трудно.",
       "url": "https://t.me/nastya_careerspace_bot?start=telegram-careerspace-reviews-290726"
+    },
+    {
+      "s": "careerspace",
+      "pid": 15063,
+      "date": "2026-08-01",
+      "time": "07:11",
+      "t": "Что делать, если вы выгорели",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "🥲 Как мне кажется, выгорание обросло советами про сон, магний и медитации, и почти все они лечат симптом, а не причину. Кстати, против здорового сна, магния и дыхательных практик я ничего не имею — наоборот, только за и сама практикую. Толь",
+      "url": "https://t.me/careerspace/15063"
     }
   ]
 }
