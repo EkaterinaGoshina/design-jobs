@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-08-01",
+  "snapshot_date": "2026-08-02",
   "jobs": [
     {
       "s": "HireHi",
@@ -564,19 +564,6 @@
     },
     {
       "s": "uxwork",
-      "pid": 1454,
-      "date": "2026-05-27",
-      "time": "07:08",
-      "t": "Продуктовые дизайнеры · Работяги",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "#удалённо (откуда угодно)",
-      "url": "https://t.me/uxwork/1454"
-    },
-    {
-      "s": "uxwork",
       "pid": 1456,
       "date": "2026-06-03",
       "time": "07:09",
@@ -772,19 +759,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5959,
-      "date": "2026-07-23",
-      "time": "09:45",
-      "t": "Старший дизайнер продукта Магнит Пэй",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "Направление - финтех-продукт — Магнит Пэй — интеграция с банками Задачи",
-      "url": "https://magnit.tech/vacancies/2964"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 5962,
       "date": "2026-07-25",
       "time": "11:59",
@@ -951,6 +925,19 @@
       "role": "product",
       "sal": "Задачи: Ответственность за дизайн визуализации данных в Nebius Platform и Nebius Grafana: создание понятных и масштабируемых интерфейсов для сложных облачных и AI-инфраструктурных продуктов, установка лучших практик дизайна дашбордов, вклад",
       "url": "https://careers.nebius.com/?gh_jid=4766823101"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 5980,
+      "date": "2026-08-02",
+      "time": "07:55",
+      "t": "В команду агентства нужен дизайнер, который умеет быстро и круто делать графические анонсы, лендинги для спецпроектов, с опытом email рассыл",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "Все задачи будут только внутренние, быстрое обсуждение, минимум правок Работа на парттайме, но не менее 3 часов в день у вас должно быть свободно",
+      "url": "http://t.me/hi_kinetica"
     },
     {
       "s": "sparklesjobs",
@@ -1448,19 +1435,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135786696,
-      "date": "2026-07-31",
-      "time": "14:55",
-      "t": "Младший продуктовый дизайнер (Системы и UX)",
-      "c": "Группа компаний «Триумф»",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "от 90 000 до 130 000 ₽",
-      "url": "https://hh.ru/vacancy/135786696"
-    },
-    {
-      "s": "hh.ru",
       "pid": 135011362,
       "date": "2026-08-01",
       "time": "15:42",
@@ -1500,16 +1474,55 @@
     },
     {
       "s": "hh.ru",
-      "pid": 129382781,
-      "date": "2026-07-30",
-      "time": "18:45",
-      "t": "UX/UI Designer / Дизайнер интерфейсов / Web & Mobile",
-      "c": "Пуск",
-      "lvl": "unknown",
+      "pid": 134293803,
+      "date": "2026-08-02",
+      "time": "09:24",
+      "t": "Старший продуктовый дизайнер",
+      "c": "Домклик",
+      "lvl": "senior",
       "fmt": "unknown",
       "role": "product",
       "sal": null,
-      "url": "https://hh.ru/vacancy/129382781"
+      "url": "https://hh.ru/vacancy/134293803"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135007613,
+      "date": "2026-08-02",
+      "time": "09:06",
+      "t": "UX-дизайнер",
+      "c": "Транснефтьэнерго",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135007613"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135584593,
+      "date": "2026-08-02",
+      "time": "09:00",
+      "t": "Руководитель отдела маркетинговых коммуникаций",
+      "c": "Сунержа",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135584593"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135326937,
+      "date": "2026-08-01",
+      "time": "21:27",
+      "t": "Дизайн-директор продукта в сервис путешествий",
+      "c": "Туту",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135326937"
     },
     {
       "s": "hh.ru",
@@ -1539,6 +1552,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 134876616,
+      "date": "2026-08-02",
+      "time": "10:29",
+      "t": "Senior UI/UX designer (Gamedev)",
+      "c": "Студия Кефир",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134876616"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135720676,
       "date": "2026-08-01",
       "time": "17:44",
@@ -1549,58 +1575,6 @@
       "role": "product",
       "sal": "от 200 000 ₽",
       "url": "https://hh.ru/vacancy/135720676"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 126887225,
-      "date": "2026-08-01",
-      "time": "17:17",
-      "t": "Дизайнер упаковки",
-      "c": "Чижик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/126887225"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135524712,
-      "date": "2026-08-01",
-      "time": "17:04",
-      "t": "Комьюнити-менеджер",
-      "c": "Аеза Групп",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "до 100 000 ₽",
-      "url": "https://hh.ru/vacancy/135524712"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134994303,
-      "date": "2026-08-01",
-      "time": "17:04",
-      "t": "Ведущий менеджер маркетплейса Ozon/Wildberries",
-      "c": "Hausberg LTD",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134994303"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135524526,
-      "date": "2026-08-01",
-      "time": "17:01",
-      "t": "Бренд-менеджер",
-      "c": "Omega Partners",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135524526"
     },
     {
       "s": "hh.ru",
@@ -1731,45 +1705,6 @@
       "role": "ux",
       "sal": "от 90 000 ₽",
       "url": "https://hh.ru/vacancy/135789242"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135784671,
-      "date": "2026-07-31",
-      "time": "14:13",
-      "t": "Lead Technical Artist",
-      "c": "Watt Studio",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135784671"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135272984,
-      "date": "2026-07-31",
-      "time": "14:03",
-      "t": "Senior UX/UI Designer",
-      "c": "Korzinka (Anglesey food)",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135272984"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135783637,
-      "date": "2026-07-31",
-      "time": "13:51",
-      "t": "Product designer",
-      "c": "i-Digital",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135783637"
     },
     {
       "s": "careerspace",
