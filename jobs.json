@@ -1,6 +1,17 @@
 {
-  "snapshot_date": "2026-08-07",
+  "snapshot_date": "2026-08-08",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 73963,
+      "t": "ux/ui designer for a global platform",
+      "c": "Quik Hire Staffing",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "от 197 200 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-a-global-platform-73963"
+    },
     {
       "s": "HireHi",
       "pid": 73809,
@@ -121,17 +132,6 @@
       "role": "ux",
       "sal": "зп не указана, офис Ижевск",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-73175"
-    },
-    {
-      "s": "HireHi",
-      "pid": 72859,
-      "t": "UX/UI Designer",
-      "c": "Uzum",
-      "lvl": "lead",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "зп не указана, гибрид Ташкент",
-      "url": "https://hirehi.ru/design/ux-ui-designer-72859"
     },
     {
       "s": "HireHi",
@@ -410,17 +410,6 @@
     },
     {
       "s": "HireHi",
-      "pid": 70008,
-      "t": "ux/ui-дизайнер",
-      "c": "ОсОО Хайлайт",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "от 63 522 ₽, офис Бишкек",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-70008"
-    },
-    {
-      "s": "HireHi",
       "pid": 69990,
       "t": "UX/UI дизайнер",
       "c": "DREAMTEAM APPS",
@@ -561,6 +550,17 @@
       "role": "ux",
       "sal": "зп не указана, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-68381"
+    },
+    {
+      "s": "HireHi",
+      "pid": 68354,
+      "t": "UX/UI дизайнер",
+      "c": "Andersen",
+      "lvl": "intern",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "от 50 650 ₽, удалённо по РФ",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-68354"
     },
     {
       "s": "uxwork",
@@ -1339,7 +1339,7 @@
       "lvl": "unknown",
       "fmt": "remote",
       "role": "other",
-      "sal": "Remote Kleos (formerly Stape) — a global teams management that handles itself: contracts, compliance, currencies, and invoices that come with that just happen.",
+      "sal": "#cto ✅",
       "url": "https://careers.kleos.io/jobs/8170966-chief-technology-officer-cto?utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=organic_posts"
     },
     {
@@ -1604,6 +1604,71 @@
     },
     {
       "s": "hh.ru",
+      "pid": 134293803,
+      "date": "2026-08-08",
+      "time": "09:24",
+      "t": "Старший продуктовый дизайнер",
+      "c": "Домклик",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134293803"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132330017,
+      "date": "2026-08-08",
+      "time": "09:12",
+      "t": "Ведущий менеджер по продукту (Жилищное строительство)",
+      "c": "ООО «РСТИ (специализированный застройщик)»",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132330017"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135584593,
+      "date": "2026-08-08",
+      "time": "09:00",
+      "t": "Руководитель отдела маркетинговых коммуникаций",
+      "c": "Сунержа",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135584593"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135326937,
+      "date": "2026-08-07",
+      "time": "21:27",
+      "t": "Дизайн-директор продукта в сервис путешествий",
+      "c": "Туту",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135326937"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135053254,
+      "date": "2026-08-07",
+      "time": "20:32",
+      "t": "Стажер отдела маркетинга",
+      "c": "Петровакс Фарм",
+      "lvl": "junior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135053254"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135902600,
       "date": "2026-08-07",
       "time": "18:19",
@@ -1653,32 +1718,6 @@
       "role": "product",
       "sal": "от 200 000 ₽",
       "url": "https://hh.ru/vacancy/135720676"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135465812,
-      "date": "2026-08-07",
-      "time": "17:36",
-      "t": "Руководитель отдела маркетинга",
-      "c": "Группа Аквилон",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135465812"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136036548,
-      "date": "2026-08-07",
-      "time": "17:30",
-      "t": "Директор по маркетингу ломбарда",
-      "c": "Sunlight",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136036548"
     },
     {
       "s": "hh.ru",
@@ -1770,19 +1809,6 @@
       "role": "ux",
       "sal": "от 110 000 ₽",
       "url": "https://hh.ru/vacancy/134351376"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135997095,
-      "date": "2026-08-06",
-      "time": "19:19",
-      "t": "Middle UI/UX-дизайнер / Product Designer",
-      "c": "SocialJet",
-      "lvl": "middle",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "от 80 000 ₽",
-      "url": "https://hh.ru/vacancy/135997095"
     },
     {
       "s": "careerspace",
