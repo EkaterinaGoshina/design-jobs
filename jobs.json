@@ -1,6 +1,28 @@
 {
-  "snapshot_date": "2026-08-08",
+  "snapshot_date": "2026-08-09",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 74128,
+      "t": "ux/ui designer for travel apps",
+      "c": "fluege.de",
+      "lvl": "senior",
+      "fmt": "hybrid",
+      "role": "ux",
+      "sal": "зп не указана, гибрид Берлин",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-travel-apps-74128"
+    },
+    {
+      "s": "HireHi",
+      "pid": 74099,
+      "t": "ux/ui дизайнер для iOS-приложений",
+      "c": "Кушнарев Александ Александрович",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "от 80 000 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-ios-prilozhenii-74099"
+    },
     {
       "s": "HireHi",
       "pid": 73963,
@@ -541,28 +563,6 @@
       "url": "https://hirehi.ru/design/ux-ui-designer-68457"
     },
     {
-      "s": "HireHi",
-      "pid": 68381,
-      "t": "UX/UI дизайнер",
-      "c": "Azur Games",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-68381"
-    },
-    {
-      "s": "HireHi",
-      "pid": 68354,
-      "t": "UX/UI дизайнер",
-      "c": "Andersen",
-      "lvl": "intern",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "от 50 650 ₽, удалённо по РФ",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-68354"
-    },
-    {
       "s": "uxwork",
       "pid": 1457,
       "date": "2026-06-04",
@@ -769,19 +769,6 @@
       "role": "other",
       "sal": "на что они смотрят в портфолио при найме (опрос проводился чуть больше года назад).",
       "url": "https://t.me/uxwork/1476"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5980,
-      "date": "2026-08-02",
-      "time": "07:55",
-      "t": "В команду агентства нужен дизайнер, который умеет быстро и круто делать графические анонсы, лендинги для спецпроектов, с опытом email рассыл",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Все задачи будут только внутренние, быстрое обсуждение, минимум правок Работа на парттайме, но не менее 3 часов в день у вас должно быть свободно",
-      "url": "https://t.me/dsgn_vacancies/5980"
     },
     {
       "s": "dsgn_vacancies",
@@ -1409,6 +1396,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135953894,
+      "date": "2026-08-08",
+      "time": "21:16",
+      "t": "UX/UI-дизайнер",
+      "c": "Даниленко Елена Рафхатовна",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 200 000 до 300 000 ₽",
+      "url": "https://hh.ru/vacancy/135953894"
+    },
+    {
+      "s": "hh.ru",
       "pid": 136046416,
       "date": "2026-08-08",
       "time": "18:57",
@@ -1539,16 +1539,55 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135515818,
-      "date": "2026-08-07",
-      "time": "13:54",
-      "t": "Графический / Продуктовый (Digital) дизайнер",
-      "c": "Поинкэр",
+      "pid": 136048684,
+      "date": "2026-08-09",
+      "time": "09:40",
+      "t": "Менеджер направления WATER & RECOVERY в Казани",
+      "c": "ПентаХаус",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "product",
-      "sal": "от 150 000 ₽",
-      "url": "https://hh.ru/vacancy/135515818"
+      "role": "other",
+      "sal": "от 100 000 до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/136048684"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135812521,
+      "date": "2026-08-09",
+      "time": "06:02",
+      "t": "Бренд-менеджер",
+      "c": "FIT SERVICE",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 65 000 ₽",
+      "url": "https://hh.ru/vacancy/135812521"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135624932,
+      "date": "2026-08-08",
+      "time": "20:18",
+      "t": "Менеджер продукта в IT / Создатель продукта",
+      "c": "Мой Класс",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 230 000 ₽",
+      "url": "https://hh.ru/vacancy/135624932"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135650333,
+      "date": "2026-08-08",
+      "time": "19:36",
+      "t": "Дизайнер презентаций (корпоративные и инвестиционные материалы)",
+      "c": "Банк ВТБ (ПАО), Подразделения Поддержки и Контроля",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135650333"
     },
     {
       "s": "hh.ru",
@@ -1643,42 +1682,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135618585,
+      "pid": 135760645,
       "date": "2026-08-08",
-      "time": "16:39",
-      "t": "Менеджер по маркетингу и рекламе",
-      "c": "Тойоми",
-      "lvl": "unknown",
+      "time": "19:54",
+      "t": "Senior UI/UX-дизайнер (Gamedev)",
+      "c": "Crazy Panda",
+      "lvl": "senior",
       "fmt": "unknown",
-      "role": "other",
-      "sal": "до 150 000 ₽",
-      "url": "https://hh.ru/vacancy/135618585"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135437305,
-      "date": "2026-08-08",
-      "time": "15:45",
-      "t": "Руководитель направления женская одежда / продакт менеджер",
-      "c": "LOOK.IN store",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 250 000 до 350 000 ₽",
-      "url": "https://hh.ru/vacancy/135437305"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 133263581,
-      "date": "2026-08-08",
-      "time": "15:24",
-      "t": "Аккаунт-менеджер в отдел поддержки сайтов",
-      "c": "Пиксель Плюс",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 130 000 ₽",
-      "url": "https://hh.ru/vacancy/133263581"
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135760645"
     },
     {
       "s": "hh.ru",
@@ -1770,32 +1783,6 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/135706598"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135364540,
-      "date": "2026-08-07",
-      "time": "11:34",
-      "t": "UX/UI-дизайнер (Health&Fitness)",
-      "c": "Физикл",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135364540"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134972991,
-      "date": "2026-08-07",
-      "time": "11:13",
-      "t": "Middle UX/UI-дизайнер (цифровые продукты)",
-      "c": "Технологии Доверия, Технологические услуги",
-      "lvl": "middle",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134972991"
     },
     {
       "s": "careerspace",
