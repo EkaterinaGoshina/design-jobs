@@ -1,6 +1,17 @@
 {
-  "snapshot_date": "2026-08-10",
+  "snapshot_date": "2026-08-11",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 74955,
+      "t": "ux/ui-дизайнер",
+      "c": "финтех в kense.app",
+      "lvl": "middle",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "от 70 314 ₽, офис Алматы",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-v-fintekh-74955"
+    },
     {
       "s": "HireHi",
       "pid": 74747,
@@ -552,17 +563,6 @@
       "url": "https://hirehi.ru/design/ux-ui-designer-70322"
     },
     {
-      "s": "HireHi",
-      "pid": 70178,
-      "t": "ux/ui-дизайнер",
-      "c": "Crazy Panda",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-70178"
-    },
-    {
       "s": "uxwork",
       "pid": 1457,
       "date": "2026-06-04",
@@ -772,32 +772,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5982,
-      "date": "2026-08-02",
-      "time": "13:18",
-      "t": "Web-to-App Designer в Onlyapps",
-      "c": "Onlyapps",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Задачи: Проектирование маркетинговых воронок от первого экрана до оплаты: онбординги, квизы, paywalls, checkout-процессы и upsell-экраны, тестирование новых идей для повышения конверсии, создание визуалов и креативов с помощью AI-инструмент",
-      "url": "https://www.linkedin.com/posts/zylkk_%D0%B2%D1%81%D0%B5%D0%BC-%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82-%D1%83-%D0%BD%D0%B0%D1%81-%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%B0-%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F-%D0%B2%D0%B0%D0%BA%D0%B0%D0%BD%D1%81%D0%B8%D1%8F-share-7486021561196654592-ZcA6/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAACRsAAsB90T3xZSuLA6HM1tvgPVt124xuqs"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 5983,
-      "date": "2026-08-03",
-      "time": "05:03",
-      "t": "Senior Mobile Product Designer (Discovery/MVP) в Digitalchemy",
-      "c": "Digitalchemy",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "Задачи: запуск нового продукта в нише outdoor с нуля (0→1): discovery, валидация ниш через цикл концепт → прототип → тест → решение, работа с метриками (Firebase/GA4) для поиска точек роста, участие в монетизации, создание и поддержка дизай",
-      "url": "https://digitalchemy.peopleforce.io/careers/v/217581-senior-product-designer-discoverymvp"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 5985,
       "date": "2026-08-03",
       "time": "13:31",
@@ -951,6 +925,19 @@
       "role": "other",
       "sal": "Задача: 1. Разработать один базовый шаблон (коробка + этикетка на флакон 30 мл) в строгом минималистичном стиле (чистая типографика или светлый вектор, без лишней тяжелой графики).",
       "url": "https://t.me/dsgn_vacancies/6003"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 6005,
+      "date": "2026-08-11",
+      "time": "04:19",
+      "t": "Продуктовый дизайнер (Авто.ру), любой город,  Т-Банк",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "Авто.ру — сервис для покупки и продажи автомобилей Задачи:",
+      "url": "https://www.tbank.ru/career/it/vacancy/moscow/produktovyj-dizajner-avtoru/55fc6a5b-fe48-455e-9e41-8277123acbe7/"
     },
     {
       "s": "sparklesjobs",
@@ -1369,17 +1356,17 @@
       "url": "https://t.me/young_relocate/2025"
     },
     {
-      "s": "huggabletalents",
-      "pid": 2929,
-      "date": "2026-08-05",
-      "time": "07:02",
-      "t": "Контент-продюсер в WineWood Moscow",
-      "c": "WineWood Moscow",
+      "s": "young_relocate",
+      "pid": 2027,
+      "date": "2026-08-11",
+      "time": "07:05",
+      "t": "UGC Program Manager — Ryze AI",
+      "c": "—",
       "lvl": "unknown",
-      "fmt": "office",
+      "fmt": "remote",
       "role": "other",
-      "sal": "Офис, Москва, З/П от 120 000 до 180 000 рублей WineWood Moscow",
-      "url": "https://hh.ru/vacancy/135562070"
+      "sal": "#ugc Remote",
+      "url": "http://careers.get-ryze.ai/jobs/ugc-program-manager"
     },
     {
       "s": "huggabletalents",
@@ -1578,6 +1565,84 @@
     },
     {
       "s": "hh.ru",
+      "pid": 134293803,
+      "date": "2026-08-11",
+      "time": "09:24",
+      "t": "Старший продуктовый дизайнер",
+      "c": "Домклик",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134293803"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132330017,
+      "date": "2026-08-11",
+      "time": "09:12",
+      "t": "Ведущий менеджер по продукту (Жилищное строительство)",
+      "c": "ООО «РСТИ (специализированный застройщик)»",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132330017"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135584593,
+      "date": "2026-08-11",
+      "time": "09:00",
+      "t": "Руководитель отдела маркетинговых коммуникаций",
+      "c": "Сунержа",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135584593"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136105810,
+      "date": "2026-08-11",
+      "time": "08:30",
+      "t": "Креатор",
+      "c": "dt group",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 120 000 ₽",
+      "url": "https://hh.ru/vacancy/136105810"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135326937,
+      "date": "2026-08-10",
+      "time": "21:27",
+      "t": "Дизайн-директор продукта в сервис путешествий",
+      "c": "Туту",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135326937"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136098847,
+      "date": "2026-08-10",
+      "time": "20:13",
+      "t": "Дизайнер упаковки",
+      "c": "Инфинити",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/136098847"
+    },
+    {
+      "s": "hh.ru",
       "pid": 136098514,
       "date": "2026-08-10",
       "time": "19:40",
@@ -1604,6 +1669,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 136097802,
+      "date": "2026-08-10",
+      "time": "19:01",
+      "t": "Продуктовый дизайнер",
+      "c": "Т-Банк. ИТ. Дизайн",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/136097802"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135902600,
       "date": "2026-08-10",
       "time": "18:19",
@@ -1614,19 +1692,6 @@
       "role": "other",
       "sal": "от 250 000 до 400 000 ₽",
       "url": "https://hh.ru/vacancy/135902600"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 130373321,
-      "date": "2026-08-10",
-      "time": "18:13",
-      "t": "Продакт-менеджер",
-      "c": "Фитокосметик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/130373321"
     },
     {
       "s": "hh.ru",
@@ -1643,19 +1708,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 136095156,
-      "date": "2026-08-10",
-      "time": "17:14",
-      "t": "Дизайнер мужской обуви",
-      "c": "WYSH BRAND",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 100 000 ₽",
-      "url": "https://hh.ru/vacancy/136095156"
-    },
-    {
-      "s": "hh.ru",
       "pid": 136094543,
       "date": "2026-08-10",
       "time": "17:06",
@@ -1666,19 +1718,6 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/136094543"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136090481,
-      "date": "2026-08-10",
-      "time": "15:48",
-      "t": "UX/UI-дизайнер",
-      "c": "ИнфоТеКС",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136090481"
     },
     {
       "s": "hh.ru",
@@ -1809,19 +1848,6 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/135863109"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134351376,
-      "date": "2026-08-10",
-      "time": "03:04",
-      "t": "UX/UI-дизайнер",
-      "c": "IT Solutions Management International Pte. Ltd.",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 110 000 ₽",
-      "url": "https://hh.ru/vacancy/134351376"
     },
     {
       "s": "careerspace",
