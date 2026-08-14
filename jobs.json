@@ -1,6 +1,61 @@
 {
-  "snapshot_date": "2026-08-13",
+  "snapshot_date": "2026-08-14",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 76599,
+      "t": "UX-UI Дизайнер",
+      "c": "Astana Hub",
+      "lvl": "junior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "офис Алматы",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-76599"
+    },
+    {
+      "s": "HireHi",
+      "pid": 76617,
+      "t": "UX/UI Дизайнер",
+      "c": "Astana Hub",
+      "lvl": "middle",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "от 54 046 ₽, офис Алматы",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-76617"
+    },
+    {
+      "s": "HireHi",
+      "pid": 76541,
+      "t": "UX/UI-дизайнер",
+      "c": "Astana Hub",
+      "lvl": "junior",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "~ 67 558 ₽, офис Астана",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-76541"
+    },
+    {
+      "s": "HireHi",
+      "pid": 76483,
+      "t": "ux/ui дизайнер",
+      "c": "iGaming в NDA",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "зп не указана, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-v-igaming-76483"
+    },
+    {
+      "s": "HireHi",
+      "pid": 76475,
+      "t": "ux/ui дизайнер для образовательного проекта",
+      "c": "INTER NATION ENGLISH SCHOOL (OOO INTEST MAX)",
+      "lvl": "middle",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "от 83 766 ₽, офис Ташкент",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-obrazovatel-nogo-proekta-76475"
+    },
     {
       "s": "HireHi",
       "pid": 76386,
@@ -508,61 +563,6 @@
       "url": "https://hirehi.ru/design/ux-ui-designer-73451"
     },
     {
-      "s": "HireHi",
-      "pid": 73379,
-      "t": "ux/ui designer in game interfaces",
-      "c": "Scorewarrior",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "зп не указана, офис",
-      "url": "https://hirehi.ru/design/ux-ui-designer-in-game-interfaces-73379"
-    },
-    {
-      "s": "HireHi",
-      "pid": 73186,
-      "t": "ux/ui designer",
-      "c": "NDA",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-designer-73186"
-    },
-    {
-      "s": "HireHi",
-      "pid": 73176,
-      "t": "ux/ui-дизайнер",
-      "c": "NDA",
-      "lvl": "junior",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "от 60 000 ₽, офис Пенза",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-73176"
-    },
-    {
-      "s": "HireHi",
-      "pid": 73175,
-      "t": "ux/ui-дизайнер",
-      "c": "ЭДС",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "зп не указана, офис Ижевск",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-73175"
-    },
-    {
-      "s": "HireHi",
-      "pid": 72823,
-      "t": "ux/ui designer",
-      "c": "NDA",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "зп не указана, офис Тбилиси",
-      "url": "https://hirehi.ru/design/ux-ui-designer-72823"
-    },
-    {
       "s": "uxwork",
       "pid": 1460,
       "date": "2026-06-19",
@@ -1045,19 +1045,6 @@
     },
     {
       "s": "design_jobs_uxui",
-      "pid": 1211,
-      "date": "2026-07-21",
-      "time": "07:08",
-      "t": "Бренд-дизайнер бренда",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "hybrid",
-      "role": "other",
-      "sal": "Москва, гибрид Яндекс Фабрика объединяет 11 брендов, сотни категорий и тысячи товаров — все они создаются с заботой о людях. Мы стремимся к уникальности бренда и продукта, ценим креативность, охотно экспериментируем и внедряем решения, кото",
-      "url": "https://www.vseti.app/b2b"
-    },
-    {
-      "s": "design_jobs_uxui",
       "pid": 1212,
       "date": "2026-07-22",
       "time": "07:08",
@@ -1253,28 +1240,15 @@
     },
     {
       "s": "young_relocate",
-      "pid": 2021,
-      "date": "2026-08-07",
-      "time": "07:05",
-      "t": "Коротко и по работному делу!",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "— Море IT & Digital вакансий на удалёнку — Каждый день",
-      "url": "https://t.me/it_vakansii_jobs"
-    },
-    {
-      "s": "young_relocate",
       "pid": 2022,
       "date": "2026-08-07",
       "time": "09:02",
-      "t": "E-commerce Lead / INOPRO",
+      "t": "-commerce",
       "c": "—",
       "lvl": "lead",
       "fmt": "remote",
       "role": "other",
-      "sal": "Remote INOPRO",
+      "sal": "#e E-commerce Lead / INOPRO",
       "url": "https://wantapply.com/e-commerce-lead-at-inopro?utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=organic_posts"
     },
     {
@@ -1300,7 +1274,7 @@
       "lvl": "senior",
       "fmt": "remote",
       "role": "other",
-      "sal": "Remote Ищем опытного SEO-специалиста, который возьмет на себя развитие органического трафика сайта.",
+      "sal": "#seo Remote",
       "url": "https://t.me/young_relocate/2025"
     },
     {
@@ -1604,16 +1578,81 @@
     },
     {
       "s": "hh.ru",
-      "pid": 136202186,
-      "date": "2026-08-13",
-      "time": "10:30",
-      "t": "UX/UI-дизайнер",
-      "c": "Your CodeReview",
+      "pid": 135220602,
+      "date": "2026-08-14",
+      "time": "10:20",
+      "t": "Член совета директоров/Chief Executive Officer (CEO) — Retail Architecture & Engineering",
+      "c": "АМТ Ард",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 100 000 ₽",
-      "url": "https://hh.ru/vacancy/136202186"
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135220602"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136241915,
+      "date": "2026-08-14",
+      "time": "10:15",
+      "t": "Ведущий бренд менеджер / Менеджер продукта - бытовая химия, косметика",
+      "c": "МУЛЬСАН",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 230 000 до 460 000 ₽",
+      "url": "https://hh.ru/vacancy/136241915"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132330017,
+      "date": "2026-08-14",
+      "time": "09:12",
+      "t": "Ведущий менеджер по продукту (Жилищное строительство)",
+      "c": "ООО «РСТИ (специализированный застройщик)»",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132330017"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135584593,
+      "date": "2026-08-14",
+      "time": "09:00",
+      "t": "Руководитель отдела маркетинговых коммуникаций",
+      "c": "Сунержа",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135584593"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135813833,
+      "date": "2026-08-14",
+      "time": "05:20",
+      "t": "Product менеджер",
+      "c": "Siberian Wellness",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135813833"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135326937,
+      "date": "2026-08-13",
+      "time": "21:27",
+      "t": "Дизайн-директор продукта в сервис путешествий",
+      "c": "Туту",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135326937"
     },
     {
       "s": "hh.ru",
@@ -1643,29 +1682,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135902600,
+      "pid": 135784671,
       "date": "2026-08-13",
-      "time": "18:19",
-      "t": "Арт-Директор/Креативный директор",
-      "c": "Daewoo Power Products",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 250 000 до 400 000 ₽",
-      "url": "https://hh.ru/vacancy/135902600"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 130373321,
-      "date": "2026-08-13",
-      "time": "18:13",
-      "t": "Продакт-менеджер",
-      "c": "Фитокосметик",
-      "lvl": "unknown",
+      "time": "18:04",
+      "t": "Lead Technical Artist",
+      "c": "Watt Studio",
+      "lvl": "lead",
       "fmt": "unknown",
       "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/130373321"
+      "url": "https://hh.ru/vacancy/135784671"
     },
     {
       "s": "hh.ru",
@@ -1679,45 +1705,6 @@
       "role": "product",
       "sal": "от 200 000 ₽",
       "url": "https://hh.ru/vacancy/135720676"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136228174,
-      "date": "2026-08-13",
-      "time": "17:30",
-      "t": "Младший менеджер (Ticketscloud)",
-      "c": "ON Медиа. Ticketscloud",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136228174"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135524712,
-      "date": "2026-08-13",
-      "time": "17:04",
-      "t": "Комьюнити-менеджер",
-      "c": "Аеза Групп",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "до 100 000 ₽",
-      "url": "https://hh.ru/vacancy/135524712"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135784671,
-      "date": "2026-08-13",
-      "time": "18:04",
-      "t": "Lead Technical Artist",
-      "c": "Watt Studio",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135784671"
     },
     {
       "s": "hh.ru",
