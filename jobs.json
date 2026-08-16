@@ -1,6 +1,28 @@
 {
-  "snapshot_date": "2026-08-15",
+  "snapshot_date": "2026-08-16",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 77249,
+      "t": "ux/ui designer for digital businesses",
+      "c": "Bending Spoons",
+      "lvl": "junior",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "от 816 464 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-digital-businesses-77249"
+    },
+    {
+      "s": "HireHi",
+      "pid": 77201,
+      "t": "ux/ui дизайнер для игровых интерфейсов",
+      "c": "NDA",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "зп не указана, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-igrovykh-interfeisov-77201"
+    },
     {
       "s": "HireHi",
       "pid": 77158,
@@ -541,28 +563,6 @@
       "url": "https://hirehi.ru/design/ux-ui-designer-74212"
     },
     {
-      "s": "HireHi",
-      "pid": 74190,
-      "t": "ux/ui дизайнер для игр",
-      "c": "Roblox в Двор Студио",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-igr-v-roblox-74190"
-    },
-    {
-      "s": "HireHi",
-      "pid": 74128,
-      "t": "ux/ui designer for travel apps",
-      "c": "fluege.de",
-      "lvl": "senior",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "зп не указана, гибрид Берлин",
-      "url": "https://hirehi.ru/design/ux-ui-designer-for-travel-apps-74128"
-    },
-    {
       "s": "uxwork",
       "pid": 1460,
       "date": "2026-06-19",
@@ -733,19 +733,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 5994,
-      "date": "2026-08-06",
-      "time": "12:29",
-      "t": "Требуется графический / коммуникационный дизайнер",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Ищем сильного дизайнера в команду DeepTech-компании",
-      "url": "https://t.me/dsgn_vacancies/5994"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 5995,
       "date": "2026-08-06",
       "time": "15:23",
@@ -886,6 +873,19 @@
       "role": "product",
       "sal": "Ищем начинающего специалиста, который поможет команде в продуктовых задачах Задачи:",
       "url": "https://yandex.ru/jobs/vacancies/produktoviy-dizayner-stazhyor-v-nedvizhimost-47916"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 6016,
+      "date": "2026-08-16",
+      "time": "05:28",
+      "t": "Продуктовый дизайнер в команду Домклик",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "Направление - главная страница Задачи",
+      "url": "https://career.domclick.ru/vacancy/produktovyi-dizainer-v-komandu-glavnaia-stranitsa-132322461"
     },
     {
       "s": "sparklesjobs",
@@ -1461,6 +1461,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135679589,
+      "date": "2026-08-15",
+      "time": "19:31",
+      "t": "Продуктовый дизайнер (SaaS / B2B)",
+      "c": "Технологии управления персоналом",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": "от 120 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135679589"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135991205,
       "date": "2026-08-15",
       "time": "16:08",
@@ -1497,6 +1510,45 @@
       "role": "ux",
       "sal": "от 100 000 до 125 000 ₽",
       "url": "https://hh.ru/vacancy/136269245"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135350263,
+      "date": "2026-08-16",
+      "time": "08:18",
+      "t": "Продуктовый менеджер",
+      "c": "ДельтаЛизинг",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135350263"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135863109,
+      "date": "2026-08-16",
+      "time": "07:39",
+      "t": "Продуктовый дизайнер в команду «Кабинет участника сделки»",
+      "c": "Домклик",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135863109"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135996998,
+      "date": "2026-08-15",
+      "time": "19:17",
+      "t": "Бренд-менеджер / Заместитель директора по маркетингу",
+      "c": "ТЕНЕТ",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 120 000 ₽",
+      "url": "https://hh.ru/vacancy/135996998"
     },
     {
       "s": "hh.ru",
@@ -1588,97 +1640,6 @@
       "role": "other",
       "sal": "от 100 000 до 100 000 ₽",
       "url": "https://hh.ru/vacancy/135662215"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135789774,
-      "date": "2026-08-15",
-      "time": "16:06",
-      "t": "Менеджер по продажам премиум-решений для интерьера",
-      "c": "ИВСОН",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 70 000 до 140 000 ₽",
-      "url": "https://hh.ru/vacancy/135789774"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135279168,
-      "date": "2026-08-15",
-      "time": "16:06",
-      "t": "Менеджер отдела маркетинга",
-      "c": "Лабконцепт",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 90 000 ₽",
-      "url": "https://hh.ru/vacancy/135279168"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135990798,
-      "date": "2026-08-15",
-      "time": "16:00",
-      "t": "CRM & retention manager",
-      "c": "Периодика Пресс",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135990798"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135655824,
-      "date": "2026-08-15",
-      "time": "14:39",
-      "t": "Head of Affiliate / Руководитель affiliate-направления (IGaming)",
-      "c": "KOLDEXI LTD",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 4 000 до 8 000 $",
-      "url": "https://hh.ru/vacancy/135655824"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135655246,
-      "date": "2026-08-15",
-      "time": "14:32",
-      "t": "Head of VIP/ Руководитель отдела VIP (IGaming)",
-      "c": "KOLDEXI LTD",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 150 000 до 400 000 ₽",
-      "url": "https://hh.ru/vacancy/135655246"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136174712,
-      "date": "2026-08-15",
-      "time": "13:55",
-      "t": "Менеджер продукта (мерч)",
-      "c": "Триколор Маркетинг и контент",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136174712"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135473635,
-      "date": "2026-08-15",
-      "time": "13:18",
-      "t": "Бизнес-тренер по продажам (адаптация и развитие команды)",
-      "c": "ГЕОМЕТРИУМ школа Дизайна Интерьера",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135473635"
     },
     {
       "s": "hh.ru",
