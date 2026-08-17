@@ -1,6 +1,17 @@
 {
-  "snapshot_date": "2026-08-16",
+  "snapshot_date": "2026-08-17",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 77358,
+      "t": "UX/UI Designer",
+      "c": "Bending Spoons",
+      "lvl": "junior",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "536 856 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-designer-77358"
+    },
     {
       "s": "HireHi",
       "pid": 77312,
@@ -88,17 +99,6 @@
       "role": "ux",
       "sal": "зп не указана, офис Казань",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-veb-i-mobil-nykh-interfeisov-76940"
-    },
-    {
-      "s": "HireHi",
-      "pid": 76928,
-      "t": "ux/ui designer for web and mobile applications",
-      "c": "BuzzingFrame",
-      "lvl": "junior",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-designer-for-web-and-mobile-applications-76928"
     },
     {
       "s": "HireHi",
@@ -564,19 +564,6 @@
     },
     {
       "s": "uxwork",
-      "pid": 1461,
-      "date": "2026-06-25",
-      "time": "09:35",
-      "t": "Product designer, senior · Digitalchemy (новый продукт в нише outdoor)",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "#удалённо #продукт",
-      "url": "https://digitalchemy.peopleforce.io/careers/v/217581-senior-product-designer-discoverymvp"
-    },
-    {
-      "s": "uxwork",
       "pid": 1462,
       "date": "2026-06-28",
       "time": "13:47",
@@ -717,6 +704,19 @@
       "role": "other",
       "sal": "на что они смотрят в портфолио при найме (опрос проводился чуть больше года назад).",
       "url": "https://t.me/uxwork/1476"
+    },
+    {
+      "s": "uxwork",
+      "pid": 1482,
+      "date": "2026-08-16",
+      "time": "20:01",
+      "t": "Александр Дудзинский написал,",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "как оформлять резюме и портфолио и готовиться к откликам и интервью .",
+      "url": "https://t.me/uxwork/1482"
     },
     {
       "s": "dsgn_vacancies",
@@ -1474,6 +1474,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 136255678,
+      "date": "2026-08-17",
+      "time": "09:09",
+      "t": "Digital-дизайнер",
+      "c": "Sunlight",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/136255678"
+    },
+    {
+      "s": "hh.ru",
       "pid": 134807413,
       "date": "2026-08-16",
       "time": "17:40",
@@ -1591,29 +1604,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135679589,
-      "date": "2026-08-15",
-      "time": "19:31",
-      "t": "Продуктовый дизайнер (SaaS / B2B)",
-      "c": "Технологии управления персоналом",
+      "pid": 136292291,
+      "date": "2026-08-17",
+      "time": "09:39",
+      "t": "Product Designer / UX Designer",
+      "c": "Банкирро",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "product",
-      "sal": "от 120 000 до 150 000 ₽",
-      "url": "https://hh.ru/vacancy/135679589"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135991205,
-      "date": "2026-08-15",
-      "time": "16:08",
-      "t": "UX/UI-дизайнер",
-      "c": "Агентство digital-маркетинга",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 70 000 до 90 000 ₽",
-      "url": "https://hh.ru/vacancy/135991205"
+      "sal": "до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/136292291"
     },
     {
       "s": "hh.ru",
@@ -1627,6 +1627,71 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/135011362"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135679589,
+      "date": "2026-08-15",
+      "time": "19:31",
+      "t": "Продуктовый дизайнер (SaaS / B2B)",
+      "c": "Технологии управления персоналом",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": "от 120 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135679589"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 132330017,
+      "date": "2026-08-17",
+      "time": "09:12",
+      "t": "Ведущий менеджер по продукту (Жилищное строительство)",
+      "c": "ООО «РСТИ (специализированный застройщик)»",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132330017"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135000175,
+      "date": "2026-08-17",
+      "time": "09:09",
+      "t": "Senior-дизайнер",
+      "c": "Sunlight",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/135000175"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135835999,
+      "date": "2026-08-17",
+      "time": "09:09",
+      "t": "Менеджер по маркетингу",
+      "c": "Sunlight",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135835999"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135584593,
+      "date": "2026-08-17",
+      "time": "09:00",
+      "t": "Руководитель отдела маркетинговых коммуникаций",
+      "c": "Сунержа",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135584593"
     },
     {
       "s": "hh.ru",
@@ -1656,6 +1721,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135128425,
+      "date": "2026-08-17",
+      "time": "09:23",
+      "t": "Преподаватель разработки компьютерных игр, дополненной и виртуальной реальности",
+      "c": "ГБПОУ ИТ.МОСКВА",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 140 000 ₽",
+      "url": "https://hh.ru/vacancy/135128425"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135720676,
       "date": "2026-08-16",
       "time": "17:44",
@@ -1666,32 +1744,6 @@
       "role": "product",
       "sal": "от 200 000 ₽",
       "url": "https://hh.ru/vacancy/135720676"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135524712,
-      "date": "2026-08-16",
-      "time": "17:04",
-      "t": "Комьюнити-менеджер",
-      "c": "Аеза Групп",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "до 100 000 ₽",
-      "url": "https://hh.ru/vacancy/135524712"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135524526,
-      "date": "2026-08-16",
-      "time": "17:01",
-      "t": "Бренд-менеджер",
-      "c": "Omega Partners",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135524526"
     },
     {
       "s": "hh.ru",
@@ -1812,6 +1864,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135991205,
+      "date": "2026-08-15",
+      "time": "16:08",
+      "t": "UX/UI-дизайнер",
+      "c": "Агентство digital-маркетинга",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 70 000 до 90 000 ₽",
+      "url": "https://hh.ru/vacancy/135991205"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135987184,
       "date": "2026-08-15",
       "time": "14:47",
@@ -1822,19 +1887,6 @@
       "role": "ux",
       "sal": "от 170 000 ₽",
       "url": "https://hh.ru/vacancy/135987184"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136269245,
-      "date": "2026-08-15",
-      "time": "06:18",
-      "t": "UX/UI-дизайнер",
-      "c": "Суслова Анна Александровна",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 100 000 до 125 000 ₽",
-      "url": "https://hh.ru/vacancy/136269245"
     }
   ]
 }
