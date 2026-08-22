@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-08-21",
+  "snapshot_date": "2026-08-22",
   "jobs": [
     {
       "s": "HireHi",
@@ -443,17 +443,6 @@
     },
     {
       "s": "HireHi",
-      "pid": 76617,
-      "t": "UX/UI Дизайнер",
-      "c": "Astana Hub",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "от 54 046 ₽, офис Алматы",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-76617"
-    },
-    {
-      "s": "HireHi",
       "pid": 76483,
       "t": "ux/ui дизайнер",
       "c": "iGaming в NDA",
@@ -561,6 +550,17 @@
       "role": "product",
       "sal": "от 151 475 ₽, гибрид Алматы",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-veb-produktov-76095"
+    },
+    {
+      "s": "HireHi",
+      "pid": 76070,
+      "t": "ux/ui designer for digital products",
+      "c": "Bending Spoons",
+      "lvl": "junior",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "от 527 305 ₽, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-digital-products-76070"
     },
     {
       "s": "uxwork",
@@ -1448,6 +1448,45 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135863109,
+      "date": "2026-08-22",
+      "time": "07:39",
+      "t": "Продуктовый дизайнер в команду «Кабинет участника сделки»",
+      "c": "Домклик",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135863109"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136507760,
+      "date": "2026-08-22",
+      "time": "05:48",
+      "t": "Старший менеджер Ozon",
+      "c": "Enix",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 100 000 до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/136507760"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136505345,
+      "date": "2026-08-21",
+      "time": "19:59",
+      "t": "Дизайнер упаковки",
+      "c": "X5, Управляющая компания",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/136505345"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135996998,
       "date": "2026-08-21",
       "time": "19:17",
@@ -1552,19 +1591,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135995577,
-      "date": "2026-08-21",
-      "time": "17:53",
-      "t": "Специалист по маркетингу",
-      "c": "SafeTech (СэйфТек)",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "до 150 000 ₽",
-      "url": "https://hh.ru/vacancy/135995577"
-    },
-    {
-      "s": "hh.ru",
       "pid": 135793522,
       "date": "2026-08-21",
       "time": "17:50",
@@ -1578,19 +1604,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135672005,
-      "date": "2026-08-21",
-      "time": "17:50",
-      "t": "Продуктовый веб-дизайнер (графика + веб)",
-      "c": "Родина Дарья",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135672005"
-    },
-    {
-      "s": "hh.ru",
       "pid": 132322461,
       "date": "2026-08-21",
       "time": "17:44",
@@ -1601,45 +1614,6 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/132322461"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 131181308,
-      "date": "2026-08-21",
-      "time": "17:33",
-      "t": "Дизайнер-художник в офис (обойные коллекции)",
-      "c": "Обойная фабрика ПАЛИТРА",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 150 000 ₽",
-      "url": "https://hh.ru/vacancy/131181308"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136502440,
-      "date": "2026-08-21",
-      "time": "17:12",
-      "t": "Менеджер отдела продаж (EdTech)",
-      "c": "Formfactor",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 100 000 до 180 000 ₽",
-      "url": "https://hh.ru/vacancy/136502440"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134778573,
-      "date": "2026-08-21",
-      "time": "17:07",
-      "t": "Старший менеджер продукта в Одноклассники",
-      "c": "VK, Одноклассники",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134778573"
     },
     {
       "s": "hh.ru",
@@ -1718,19 +1692,6 @@
       "role": "other",
       "sal": "от 150 000 до 230 000 ₽",
       "url": "https://hh.ru/vacancy/135624932"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135760645,
-      "date": "2026-08-20",
-      "time": "19:54",
-      "t": "Senior UI/UX-дизайнер (Gamedev)",
-      "c": "Crazy Panda",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135760645"
     },
     {
       "s": "careerspace",
