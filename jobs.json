@@ -1,6 +1,39 @@
 {
-  "snapshot_date": "2026-08-22",
+  "snapshot_date": "2026-08-23",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 80001,
+      "t": "ux/ui designer for flight portals",
+      "c": "fluege.de",
+      "lvl": "middle",
+      "fmt": "remote",
+      "role": "ux",
+      "sal": "зп не указана, удалённо",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-flight-portals-80001"
+    },
+    {
+      "s": "HireHi",
+      "pid": 79990,
+      "t": "UX/UI Designer",
+      "c": "Flatline Agency ™️",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "зп не указана, офис Амстердам",
+      "url": "https://hirehi.ru/design/ux-ui-designer-79990"
+    },
+    {
+      "s": "HireHi",
+      "pid": 79978,
+      "t": "ux/ui designer for ecommerce",
+      "c": "Hays",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "зп не указана, офис Лондон",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-ecommerce-79978"
+    },
     {
       "s": "HireHi",
       "pid": 79965,
@@ -530,39 +563,6 @@
       "url": "https://hirehi.ru/design/ux-ui-dizainer-web-interfeisov-i-mobil-nykh-prilozhenii-76374"
     },
     {
-      "s": "HireHi",
-      "pid": 76350,
-      "t": "ux/ui-дизайнер высоконагруженных веб-порталов",
-      "c": "Клерк.Ру",
-      "lvl": "lead",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "зп не указана, офис Краснодар",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-vysokonagruzhennykh-veb-portalov-76350"
-    },
-    {
-      "s": "HireHi",
-      "pid": 76313,
-      "t": "ux/ui-дизайнер онлайн-сервисов и приложений",
-      "c": "ИТ-ЛИНК",
-      "lvl": "junior",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "зп не указана, офис Москва",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-onlain-servisov-i-prilozhenii-76313"
-    },
-    {
-      "s": "HireHi",
-      "pid": 76198,
-      "t": "UX/UI дизайнер",
-      "c": "Axmor",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-76198"
-    },
-    {
       "s": "uxwork",
       "pid": 1465,
       "date": "2026-07-14",
@@ -707,19 +707,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 6018,
-      "date": "2026-08-17",
-      "time": "11:08",
-      "t": "ВАУ-марафон по растровой графике",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "🌿 24-28 августа",
-      "url": "https://t.me/dsgn_vacancies/6018"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 6028,
       "date": "2026-08-18",
       "time": "06:23",
@@ -795,6 +782,19 @@
       "role": "product",
       "sal": "Задачи: - Дизайн сложных security workflows: alert management, incident response, investigation timelines и операционные дашборды, создание data visualizations для обработки больших объёмов security данных, проектирование AI-powered experie",
       "url": "https://www.michaelpage.co.jp/en/job-detail/%E3%80%90japanese-not-required%E3%80%91product-designer%EF%BD%9C-li-remote/ref/jn-082026-7076569?aplitrak_email=YW5uYXlhbWFtb3RvLjk5MTU4LjU0MDNAcGFnZWpwLmFwbGl0cmFrLmNvbQ&amp;&amp;utm_source=linkedin&amp;utm_medium=status_update&amp;utm_campaign=jobposting"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 6047,
+      "date": "2026-08-23",
+      "time": "05:48",
+      "t": "Дизайнер продукта, Дзен",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": "Задачи :",
+      "url": "https://team.vk.company/vacancy/52436/"
     },
     {
       "s": "sparklesjobs",
@@ -1409,6 +1409,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135011362,
+      "date": "2026-08-22",
+      "time": "15:42",
+      "t": "Продуктовый дизайнер",
+      "c": "ИдаПроджект",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135011362"
+    },
+    {
+      "s": "hh.ru",
       "pid": 136499676,
       "date": "2026-08-21",
       "time": "16:13",
@@ -1422,16 +1435,42 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135011362,
-      "date": "2026-08-22",
-      "time": "15:42",
-      "t": "Продуктовый дизайнер",
-      "c": "ИдаПроджект",
+      "pid": 132330017,
+      "date": "2026-08-23",
+      "time": "09:12",
+      "t": "Ведущий менеджер по продукту (Жилищное строительство)",
+      "c": "ООО «РСТИ (специализированный застройщик)»",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132330017"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135584593,
+      "date": "2026-08-23",
+      "time": "09:00",
+      "t": "Руководитель отдела маркетинговых коммуникаций",
+      "c": "Сунержа",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 150 000 ₽",
+      "url": "https://hh.ru/vacancy/135584593"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136425723,
+      "date": "2026-08-23",
+      "time": "03:55",
+      "t": "Продуктовый менеджер",
+      "c": "ДельтаЛизинг",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "product",
       "sal": null,
-      "url": "https://hh.ru/vacancy/135011362"
+      "url": "https://hh.ru/vacancy/136425723"
     },
     {
       "s": "hh.ru",
@@ -1497,58 +1536,6 @@
       "role": "product",
       "sal": "от 200 000 до 270 000 ₽",
       "url": "https://hh.ru/vacancy/135467167"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136405199,
-      "date": "2026-08-22",
-      "time": "13:37",
-      "t": "Параметрический дизайнер / Вычислительный дизайнер / Computational Designer / Parametric Designer",
-      "c": "Фабрикод Инжиниринг",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 200 000 до 350 000 ₽",
-      "url": "https://hh.ru/vacancy/136405199"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136404983,
-      "date": "2026-08-22",
-      "time": "13:36",
-      "t": "Руководитель отдела маркетинга",
-      "c": "Группа компаний Kraska Store",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136404983"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136081517,
-      "date": "2026-08-22",
-      "time": "13:29",
-      "t": "Менеджер по маркетингу (Продакт)",
-      "c": "Леккер",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 110 000 ₽",
-      "url": "https://hh.ru/vacancy/136081517"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135886466,
-      "date": "2026-08-22",
-      "time": "13:16",
-      "t": "Тренер по обучению",
-      "c": "Apeyron Electrics",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135886466"
     },
     {
       "s": "hh.ru",
