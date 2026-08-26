@@ -1,6 +1,50 @@
 {
-  "snapshot_date": "2026-08-25",
+  "snapshot_date": "2026-08-26",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 81615,
+      "t": "ux/ui designer for AAA sports simulators",
+      "c": "SportSpired Games",
+      "lvl": "middle",
+      "fmt": "office",
+      "role": "ux",
+      "sal": "зп не указана, офис Белград",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-aaa-sports-simulators-81615"
+    },
+    {
+      "s": "HireHi",
+      "pid": 81588,
+      "t": "ux/ui дизайнер for Bundeswehr digital products",
+      "c": "BWI GmbH",
+      "lvl": "lead",
+      "fmt": "hybrid",
+      "role": "ux",
+      "sal": "от 712 112 ₽, гибрид Берлин",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-for-bundeswehr-digital-products-81588"
+    },
+    {
+      "s": "HireHi",
+      "pid": 81550,
+      "t": "ux/ui дизайнер клиентских продуктов",
+      "c": "True Engineering",
+      "lvl": "middle",
+      "fmt": "office",
+      "role": "product",
+      "sal": "зп не указана, офис Новосибирск",
+      "url": "https://hirehi.ru/design/ux-ui-dizainer-klientskikh-produktov-81550"
+    },
+    {
+      "s": "HireHi",
+      "pid": 81500,
+      "t": "ux/ui designer customer experience",
+      "c": "Merkle",
+      "lvl": "senior",
+      "fmt": "hybrid",
+      "role": "ux",
+      "sal": "зп не указана, гибрид Лиссабон",
+      "url": "https://hirehi.ru/design/ux-ui-designer-customer-experience-81500"
+    },
     {
       "s": "HireHi",
       "pid": 81304,
@@ -517,50 +561,6 @@
       "role": "ux",
       "sal": "до 75 000 ₽, гибрид Москва",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-77879"
-    },
-    {
-      "s": "HireHi",
-      "pid": 77806,
-      "t": "ux/ui дизайнер для платформы недвижимости",
-      "c": "ЯМКЕТ",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "от 120 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-platformy-nedvizhimosti-77806"
-    },
-    {
-      "s": "HireHi",
-      "pid": 77769,
-      "t": "ux/ui дизайнер мобильных приложений",
-      "c": "Корпу",
-      "lvl": "senior",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "от 150 000 ₽, гибрид Москва",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-mobil-nykh-prilozhenii-77769"
-    },
-    {
-      "s": "HireHi",
-      "pid": 77696,
-      "t": "ux/ui дизайнер для цифровых продуктов",
-      "c": "Ростелеком Информационные Технологии",
-      "lvl": "lead",
-      "fmt": "hybrid",
-      "role": "product",
-      "sal": "зп не указана, гибрид Москва",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-tsifrovykh-produktov-77696"
-    },
-    {
-      "s": "HireHi",
-      "pid": 77631,
-      "t": "ux/ui дизайнер мобильных приложений",
-      "c": "NDA",
-      "lvl": "middle",
-      "fmt": "office",
-      "role": "ux",
-      "sal": "зп не указана, офис Тбилиси",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-mobil-nykh-prilozhenii-77631"
     },
     {
       "s": "uxwork",
@@ -1227,6 +1227,32 @@
     },
     {
       "s": "hh.ru",
+      "pid": 135851076,
+      "date": "2026-08-25",
+      "time": "20:01",
+      "t": "Web-администратор сайта (офис 5/2)",
+      "c": "ТД Культура Дома",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 100 000 до 120 000 ₽",
+      "url": "https://hh.ru/vacancy/135851076"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136322316,
+      "date": "2026-08-25",
+      "time": "20:01",
+      "t": "Web-администратор сайта (офис)",
+      "c": "ТД Культура Дома",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 100 000 до 120 000 ₽",
+      "url": "https://hh.ru/vacancy/136322316"
+    },
+    {
+      "s": "hh.ru",
       "pid": 134807413,
       "date": "2026-08-25",
       "time": "17:40",
@@ -1357,6 +1383,84 @@
     },
     {
       "s": "hh.ru",
+      "pid": 132330017,
+      "date": "2026-08-26",
+      "time": "09:12",
+      "t": "Ведущий менеджер по продукту (Жилищное строительство)",
+      "c": "ООО «РСТИ (специализированный застройщик)»",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/132330017"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135813833,
+      "date": "2026-08-26",
+      "time": "06:53",
+      "t": "Product менеджер",
+      "c": "Siberian Wellness",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135813833"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136425723,
+      "date": "2026-08-26",
+      "time": "03:55",
+      "t": "Продуктовый менеджер",
+      "c": "ДельтаЛизинг",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/136425723"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134811107,
+      "date": "2026-08-25",
+      "time": "23:32",
+      "t": "Руководитель креативного маркетинга / CRO Lead",
+      "c": "MAREE",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/134811107"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135443627,
+      "date": "2026-08-25",
+      "time": "23:32",
+      "t": "Head of Amazon Store (CRO Lead) — владелец магазина и креативного тестирования",
+      "c": "MAREE",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135443627"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136611433,
+      "date": "2026-08-25",
+      "time": "20:51",
+      "t": "Руководитель отдела продаж",
+      "c": "Промышленное кадровое агентство Завод кадров",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 140 000 до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/136611433"
+    },
+    {
+      "s": "hh.ru",
       "pid": 135902600,
       "date": "2026-08-25",
       "time": "18:19",
@@ -1409,32 +1513,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135053254,
-      "date": "2026-08-25",
-      "time": "17:43",
-      "t": "Стажер отдела маркетинга",
-      "c": "Петровакс Фарм",
-      "lvl": "junior",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135053254"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136228087,
-      "date": "2026-08-25",
-      "time": "17:28",
-      "t": "Продакт менеджер",
-      "c": "Петровский и К",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 130 000 ₽",
-      "url": "https://hh.ru/vacancy/136228087"
-    },
-    {
-      "s": "hh.ru",
       "pid": 136607683,
       "date": "2026-08-25",
       "time": "17:11",
@@ -1445,19 +1523,6 @@
       "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/136607683"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136607305,
-      "date": "2026-08-25",
-      "time": "17:03",
-      "t": "Mobile Media Buyer (Google UAC / Meta)",
-      "c": "Crezu",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136607305"
     },
     {
       "s": "hh.ru",
@@ -1523,19 +1588,6 @@
       "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/136215213"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136263061,
-      "date": "2026-08-25",
-      "time": "10:34",
-      "t": "Junior UX/UI Designer",
-      "c": "Системы документооборота",
-      "lvl": "junior",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136263061"
     },
     {
       "s": "careerspace",
