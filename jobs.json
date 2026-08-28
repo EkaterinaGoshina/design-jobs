@@ -1,6 +1,39 @@
 {
-  "snapshot_date": "2026-08-27",
+  "snapshot_date": "2026-08-28",
   "jobs": [
+    {
+      "s": "HireHi",
+      "pid": 83105,
+      "t": "ux/ui designer in insurance",
+      "c": "Hiscox",
+      "lvl": "senior",
+      "fmt": "hybrid",
+      "role": "ux",
+      "sal": "зп не указана, гибрид Лиссабон",
+      "url": "https://hirehi.ru/design/ux-ui-designer-in-insurance-83105"
+    },
+    {
+      "s": "HireHi",
+      "pid": 83092,
+      "t": "ux/ui designer for multiplatform games",
+      "c": "Gameloft Barcelona",
+      "lvl": "senior",
+      "fmt": "hybrid",
+      "role": "ux",
+      "sal": "зп не указана, гибрид Барселона",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-multiplatform-games-83092"
+    },
+    {
+      "s": "HireHi",
+      "pid": 83062,
+      "t": "ux/ui designer for digital products",
+      "c": "EY",
+      "lvl": "senior",
+      "fmt": "hybrid",
+      "role": "ux",
+      "sal": "зп не указана, гибрид Никосия",
+      "url": "https://hirehi.ru/design/ux-ui-designer-for-digital-products-83062"
+    },
     {
       "s": "HireHi",
       "pid": 82949,
@@ -176,17 +209,6 @@
       "role": "ux",
       "sal": "зп не указана, гибрид Берлин",
       "url": "https://hirehi.ru/design/ux-ui-designer-for-ai-applications-82132"
-    },
-    {
-      "s": "HireHi",
-      "pid": 82055,
-      "t": "ux/ui дизайнер платёжной программы лояльности",
-      "c": "Национальная система платежных карт",
-      "lvl": "middle",
-      "fmt": "hybrid",
-      "role": "ux",
-      "sal": "зп не указана, гибрид Москва",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-platiozhnoi-programmy-loial-nosti-82055"
     },
     {
       "s": "HireHi",
@@ -487,17 +509,6 @@
     },
     {
       "s": "HireHi",
-      "pid": 79890,
-      "t": "ux/ui designer for developer tools",
-      "c": "Persona",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "зп не указана, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-designer-for-developer-tools-79890"
-    },
-    {
-      "s": "HireHi",
       "pid": 79674,
       "t": "ux/ui дизайнер",
       "c": "телеком в NDA",
@@ -550,17 +561,6 @@
       "role": "ux",
       "sal": "зп не указана, удалённо",
       "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-igr-79276"
-    },
-    {
-      "s": "HireHi",
-      "pid": 79219,
-      "t": "ux/ui дизайнер для SaaS-сервисов",
-      "c": "OUT.AGENCY",
-      "lvl": "middle",
-      "fmt": "remote",
-      "role": "ux",
-      "sal": "от 100 000 ₽, удалённо",
-      "url": "https://hirehi.ru/design/ux-ui-dizainer-dlia-saas-servisov-79219"
     },
     {
       "s": "uxwork",
@@ -1266,6 +1266,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 136706556,
+      "date": "2026-08-27",
+      "time": "21:05",
+      "t": "Веб-дизайнер",
+      "c": "Ростелеком Информационные Технологии",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/136706556"
+    },
+    {
+      "s": "hh.ru",
       "pid": 136706263,
       "date": "2026-08-27",
       "time": "20:22",
@@ -1276,6 +1289,19 @@
       "role": "product",
       "sal": "от 210 000 ₽",
       "url": "https://hh.ru/vacancy/136706263"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136568212,
+      "date": "2026-08-27",
+      "time": "19:43",
+      "t": "Дизайнер интерфейсов",
+      "c": "Дом Лента",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/136568212"
     },
     {
       "s": "hh.ru",
@@ -1396,32 +1422,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 136676150,
-      "date": "2026-08-27",
-      "time": "11:21",
-      "t": "UX/UI дизайнер (Lead Web Designer / UX/UI Designer)",
-      "c": "Ивлев Кирилл Валерьевич",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 250 000 ₽",
-      "url": "https://hh.ru/vacancy/136676150"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136347574,
-      "date": "2026-08-27",
-      "time": "11:10",
-      "t": "Дизайнер",
-      "c": "ТК Олдис",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 60 000 до 60 000 ₽",
-      "url": "https://hh.ru/vacancy/136347574"
-    },
-    {
-      "s": "hh.ru",
       "pid": 136705400,
       "date": "2026-08-27",
       "time": "18:42",
@@ -1445,6 +1445,32 @@
       "role": "product",
       "sal": "от 65 000 ₽",
       "url": "https://hh.ru/vacancy/136351754"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136676150,
+      "date": "2026-08-27",
+      "time": "11:21",
+      "t": "UX/UI дизайнер (Lead Web Designer / UX/UI Designer)",
+      "c": "Ивлев Кирилл Валерьевич",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 250 000 ₽",
+      "url": "https://hh.ru/vacancy/136676150"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 136347574,
+      "date": "2026-08-27",
+      "time": "11:10",
+      "t": "Дизайнер",
+      "c": "ТК Олдис",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 60 000 до 60 000 ₽",
+      "url": "https://hh.ru/vacancy/136347574"
     },
     {
       "s": "hh.ru",
@@ -1578,45 +1604,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 136562127,
-      "date": "2026-08-27",
-      "time": "16:26",
-      "t": "Проджект-менеджер/бренд-менеджер",
-      "c": "Отдельнов Олег Вадимович",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 80 000 до 100 000 ₽",
-      "url": "https://hh.ru/vacancy/136562127"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136700396,
-      "date": "2026-08-27",
-      "time": "16:26",
-      "t": "Ведущий менеджер по развитию сайтов",
-      "c": "Национальная система платежных карт",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136700396"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136561886,
-      "date": "2026-08-27",
-      "time": "16:22",
-      "t": "Менеджер по продажам",
-      "c": "ROBE GARDER",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 200 000 ₽",
-      "url": "https://hh.ru/vacancy/136561886"
-    },
-    {
-      "s": "hh.ru",
       "pid": 136705109,
       "date": "2026-08-27",
       "time": "18:20",
@@ -1679,32 +1666,6 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/136676616"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136145358,
-      "date": "2026-08-27",
-      "time": "11:03",
-      "t": "Продуктовый дизайнер",
-      "c": "MR Group, группа компаний",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136145358"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136671183,
-      "date": "2026-08-27",
-      "time": "10:07",
-      "t": "Графический/UI-UX дизайнер (Sber AntiFraud Platform)",
-      "c": "Сбер. Кибербезопасность",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/136671183"
     },
     {
       "s": "careerspace",
