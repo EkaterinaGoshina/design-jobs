@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-10-16",
+  "snapshot_date": "2026-10-17",
   "jobs": [
     {
       "s": "uxwork",
@@ -156,19 +156,6 @@
       "role": "other",
       "sal": "Основано на разборе 1000+ портфолио. Собрали ошибки, которые:",
       "url": "https://t.me/uxwork/1512"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 6204,
-      "date": "2026-10-12",
-      "time": "13:46",
-      "t": "AI-дизайнер (Fashion/Маркетплейсы",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Условия: - Оклад/фикс за базовый объём.",
-      "url": "https://t.me/lenmikkka"
     },
     {
       "s": "dsgn_vacancies",
@@ -429,19 +416,6 @@
       "role": "other",
       "sal": "📍 Ташкент",
       "url": "https://t.me/sparklesjobs/1142"
-    },
-    {
-      "s": "zarubezhom_jobs",
-      "pid": 4300,
-      "date": "2026-10-09",
-      "time": "11:43",
-      "t": "Recruitment Team Lead in AdTech company",
-      "c": "—",
-      "lvl": "lead",
-      "fmt": "remote",
-      "role": "other",
-      "sal": "Ребята активно ищут 🔥",
-      "url": "https://t.me/zarubezhom_jobs"
     },
     {
       "s": "zarubezhom_jobs",
@@ -730,6 +704,19 @@
       "url": "?q=%23%D0%BE%D1%82%D0%B7%D1%8B%D0%B2%D1%8B_careerspace"
     },
     {
+      "s": "careerspace",
+      "pid": 15475,
+      "date": "2026-10-17",
+      "time": "07:11",
+      "t": "Как ИИ разбирает ваши отклики или инструкция, которую вам hh не покажет",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "😒 В конце сентября hh обновил для работодателей инструкцию по ИИ-помощнику. Помощник сортирует отклики и сам задаёт кандидатам вопросы в чате. Работодатель её видит, соискатель нет. Разбираю, что из неё следует для вас.",
+      "url": "https://t.me/nastya_careerspace_bot?start=telegram-bezaspera-sale-121026"
+    },
+    {
       "s": "hh.ru",
       "pid": 129382781,
       "date": "2026-10-16",
@@ -861,16 +848,146 @@
     },
     {
       "s": "hh.ru",
-      "pid": 136330002,
-      "date": "2026-10-16",
-      "time": "20:27",
-      "t": "Дизайн-директор продукта в сервис путешествий",
-      "c": "Туту",
+      "pid": 137482885,
+      "date": "2026-10-17",
+      "time": "13:14",
+      "t": "Бренд-менеджер/продуктолог (косметика)",
+      "c": "Свобода",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/136330002"
+      "url": "https://hh.ru/vacancy/137482885"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 137763088,
+      "date": "2026-10-17",
+      "time": "12:32",
+      "t": "Менеджер по промо-маркетингу в Ozon Select",
+      "c": "Ozon Офис и Коммерция",
+      "lvl": "unknown",
+      "fmt": "office",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/137763088"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138471147,
+      "date": "2026-10-17",
+      "time": "11:59",
+      "t": "Продуктовый дизайнер",
+      "c": "Сервисный Дизайн",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138471147"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138051485,
+      "date": "2026-10-17",
+      "time": "11:58",
+      "t": "Руководитель отдела контента",
+      "c": "Drhead",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138051485"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 137903435,
+      "date": "2026-10-17",
+      "time": "11:56",
+      "t": "UX/UI Дизайнер (Middle)",
+      "c": "Антиплагиат",
+      "lvl": "middle",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/137903435"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138118477,
+      "date": "2026-10-17",
+      "time": "11:47",
+      "t": "Руководитель отдела маркетинга",
+      "c": "Пироги №1",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 180 000 ₽",
+      "url": "https://hh.ru/vacancy/138118477"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138252754,
+      "date": "2026-10-17",
+      "time": "11:20",
+      "t": "Дизайнер одежды (premium segment)",
+      "c": "Diana Danieli Home",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 ₽",
+      "url": "https://hh.ru/vacancy/138252754"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 137900451,
+      "date": "2026-10-17",
+      "time": "11:12",
+      "t": "Менеджер продукта/Продакт-менеджер (одежда / fashion)",
+      "c": "РУБУ-СП",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 120 000 ₽",
+      "url": "https://hh.ru/vacancy/137900451"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 137678637,
+      "date": "2026-10-17",
+      "time": "10:20",
+      "t": "Директор по маркетингу",
+      "c": "Dream Aero",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 200 000 ₽",
+      "url": "https://hh.ru/vacancy/137678637"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138042311,
+      "date": "2026-10-17",
+      "time": "09:54",
+      "t": "Менеджер по работе с дизайнерами и архитекторами",
+      "c": "OPEN HEAT",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 100 000 ₽",
+      "url": "https://hh.ru/vacancy/138042311"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138245479,
+      "date": "2026-10-17",
+      "time": "09:49",
+      "t": "Дизайнер (\"Оборонэнерго\"/ООО \"Центр управления проектами\")",
+      "c": "ЦУП",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138245479"
     },
     {
       "s": "hh.ru",
@@ -887,45 +1004,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 138029974,
-      "date": "2026-10-16",
-      "time": "18:46",
-      "t": "Менеджер-дизайнер в копицентр",
-      "c": "Рекламная мастерская КОНТУР",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 45 000 до 80 000 ₽",
-      "url": "https://hh.ru/vacancy/138029974"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134186338,
-      "date": "2026-10-16",
-      "time": "18:26",
-      "t": "Бизнес-партнёр ADMOS",
-      "c": "ADMOS",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 100 000 до 250 000 ₽",
-      "url": "https://hh.ru/vacancy/134186338"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 137661388,
-      "date": "2026-10-16",
-      "time": "18:26",
-      "t": "Localization Specialist / Специалист по локализации / Технический переводчик",
-      "c": "Айтулабс",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/137661388"
-    },
-    {
-      "s": "hh.ru",
       "pid": 138567773,
       "date": "2026-10-16",
       "time": "18:23",
@@ -936,71 +1014,6 @@
       "role": "product",
       "sal": "от 500 $",
       "url": "https://hh.ru/vacancy/138567773"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138028985,
-      "date": "2026-10-16",
-      "time": "18:16",
-      "t": "Бренд-дизайнер",
-      "c": "Greencosmetics",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/138028985"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135788811,
-      "date": "2026-10-16",
-      "time": "18:15",
-      "t": "SMM‑менеджер/Контент‑менеджер",
-      "c": "ИНФРА-М, Группа Компаний",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135788811"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 136241915,
-      "date": "2026-10-16",
-      "time": "18:01",
-      "t": "Ведущий бренд менеджер / Менеджер продукта - бытовая химия, косметика",
-      "c": "МУЛЬСАН",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 230 000 до 460 000 ₽",
-      "url": "https://hh.ru/vacancy/136241915"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 137807795,
-      "date": "2026-10-16",
-      "time": "17:52",
-      "t": "Арт директор / креативный директор / главный дизайнер Fashion",
-      "c": "look.online",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 200 000 ₽",
-      "url": "https://hh.ru/vacancy/137807795"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 137806998,
-      "date": "2026-10-16",
-      "time": "17:25",
-      "t": "Бренд-менеджер",
-      "c": "Домклик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/137806998"
     },
     {
       "s": "hh.ru",
@@ -1131,19 +1144,6 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/137971110"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138178568,
-      "date": "2026-10-15",
-      "time": "15:09",
-      "t": "UX/UI-дизайнер",
-      "c": "Метальников Артём Андреевич",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 200 000 ₽",
-      "url": "https://hh.ru/vacancy/138178568"
     }
   ]
 }
