@@ -159,19 +159,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 6272,
-      "date": "2026-10-28",
-      "time": "13:55",
-      "t": "Ищу ретушера фото",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Условия: писать в лс, желательно с примерами работ, нужно покрасить по референсу и нанести легкую ретушь, нормальную ретушь на съемку",
-      "url": "https://t.me/duyunovph"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 6273,
       "date": "2026-10-28",
       "time": "16:42",
@@ -340,6 +327,32 @@
       "url": "https://t.me/Marusya40ina"
     },
     {
+      "s": "dsgn_vacancies",
+      "pid": 6291,
+      "date": "2026-11-02",
+      "time": "16:18",
+      "t": "Ищем дизайнера ютуб-обложек",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "В экспертный блог ищем дизайнера на постоянную работу. Важно:",
+      "url": "https://t.me/elizaveta_dovgaliuk"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 6292,
+      "date": "2026-11-02",
+      "time": "17:14",
+      "t": "Я Андрей, 3d-визуализатор",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": ". Ищу дизайнеров интерьера для постоянного сотрудничества Пишите, обсудим детали.",
+      "url": "https://t.me/Semandy_Viz"
+    },
+    {
       "s": "sparklesjobs",
       "pid": 1134,
       "date": "2026-09-28",
@@ -455,6 +468,19 @@
       "role": "other",
       "sal": "📍 Remote (из ряда стран)",
       "url": "https://t.me/zarubezhom_jobs/3562"
+    },
+    {
+      "s": "zarubezhom_jobs",
+      "pid": 4370,
+      "date": "2026-11-02",
+      "time": "15:04",
+      "t": "Product Designer (UI/UX & Visual Design) в ArtWorkout",
+      "c": "ArtWorkout",
+      "lvl": "unknown",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "Ребята активно ищут 🔥",
+      "url": "https://artworkout.app/career/multidisciplinary-designer-ui-ux-visual"
     },
     {
       "s": "design_jobs_uxui",
@@ -624,19 +650,6 @@
       "role": "other",
       "sal": "Дайджест вакансий от зарубежных компаний на удаленку и релокацию. ⚡️",
       "url": "http://t.me/fintech_banking_jobs"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 3149,
-      "date": "2026-10-23",
-      "time": "13:18",
-      "t": "Рейтинг лучших работодателей",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "➡️ На",
-      "url": "http://hh.ru/"
     },
     {
       "s": "huggabletalents",
@@ -873,6 +886,19 @@
       "url": "https://t.me/nastya_careerspace_bot?start=telegram-careerspace-button-021126"
     },
     {
+      "s": "careerspace",
+      "pid": 15567,
+      "date": "2026-11-02",
+      "time": "15:03",
+      "t": "Финансовый директор (CFO) / Sunlight",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "💍 Sunlight",
+      "url": "https://careerspace.app/job/267986?utm_source=telegram&amp;utm_medium=careerspace"
+    },
+    {
       "s": "hh.ru",
       "pid": 134807413,
       "date": "2026-11-02",
@@ -1017,16 +1043,94 @@
     },
     {
       "s": "hh.ru",
-      "pid": 138973178,
-      "date": "2026-11-01",
-      "time": "14:19",
-      "t": "UX/UI-дизайнер для Marc & André WEAR",
-      "c": "Marc&Andre",
+      "pid": 138400924,
+      "date": "2026-11-02",
+      "time": "23:26",
+      "t": "Дизайнер упаковки/концепт-дизайнер",
+      "c": "LIFECOSM",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
+      "role": "other",
+      "sal": "от 120 000 ₽",
+      "url": "https://hh.ru/vacancy/138400924"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138725826,
+      "date": "2026-11-02",
+      "time": "20:55",
+      "t": "Руководитель T&D контент-завода (бренд уходовой косметики VOIS)",
+      "c": "VOIS (ООО Рокет Лаунч)",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/138973178"
+      "url": "https://hh.ru/vacancy/138725826"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138896725,
+      "date": "2026-11-02",
+      "time": "20:54",
+      "t": "Бренд-менеджер лакомства для животных",
+      "c": "Силаев Дмитрий Сергеевич",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 140 000 до 170 000 ₽",
+      "url": "https://hh.ru/vacancy/138896725"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139083365,
+      "date": "2026-11-02",
+      "time": "19:42",
+      "t": "Team Lead Product Design (Uzum Tezkor)",
+      "c": "UZUM TECHNOLOGIES. IT",
+      "lvl": "lead",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139083365"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138188128,
+      "date": "2026-11-02",
+      "time": "19:16",
+      "t": "Менеджер по работе с маркетплейсами",
+      "c": "Фудлаб",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 65 000 до 125 000 ₽",
+      "url": "https://hh.ru/vacancy/138188128"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139082031,
+      "date": "2026-11-02",
+      "time": "18:11",
+      "t": "Ведущий менеджер Wildberries",
+      "c": "Радикс",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "до 120 000 ₽",
+      "url": "https://hh.ru/vacancy/139082031"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139081997,
+      "date": "2026-11-02",
+      "time": "18:10",
+      "t": "Контент-лид",
+      "c": "Сбер. IT",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139081997"
     },
     {
       "s": "hh.ru",
@@ -1053,71 +1157,6 @@
       "role": "other",
       "sal": null,
       "url": "https://hh.ru/vacancy/139081213"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139018972,
-      "date": "2026-11-02",
-      "time": "17:17",
-      "t": "Продакт-менеджер / Категорийный менеджер",
-      "c": "Фуфина Колор Групп",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 200 000 до 200 000 ₽",
-      "url": "https://hh.ru/vacancy/139018972"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139079149,
-      "date": "2026-11-02",
-      "time": "16:56",
-      "t": "Продуктовый дизайнер в команду онбординга B2B, Ozon Банк",
-      "c": "Ozon Банк",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139079149"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139078778,
-      "date": "2026-11-02",
-      "time": "16:48",
-      "t": "Продуктовый менеджер / Ассистент продуктового менеджера (Beauty, Китай)",
-      "c": "Гарунова Аида Ибрагимовна",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": "от 70 000 до 100 000 ₽",
-      "url": "https://hh.ru/vacancy/139078778"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138183934,
-      "date": "2026-11-02",
-      "time": "16:46",
-      "t": "Руководитель коммерческого маркетинга",
-      "c": "TetChair",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/138183934"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 134571880,
-      "date": "2026-11-02",
-      "time": "16:18",
-      "t": "Бренд - менеджер (Крепкий алкоголь)",
-      "c": "Абрау-Дюрсо, Русский Винный Дом",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/134571880"
     },
     {
       "s": "hh.ru",
@@ -1209,19 +1248,6 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/138869690"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139049722,
-      "date": "2026-11-02",
-      "time": "09:30",
-      "t": "Senior Product Designer (Ташкент)",
-      "c": "KEYSOFT",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139049722"
     }
   ]
 }
