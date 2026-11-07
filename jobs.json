@@ -172,19 +172,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 6295,
-      "date": "2026-11-03",
-      "time": "18:50",
-      "t": "Ищу дизайнер граф с опытом",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Требования: - Кто умеет делает сильные дорогие гайды",
-      "url": "https://t.me/oksanadiorr"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 6297,
       "date": "2026-11-04",
       "time": "06:49",
@@ -328,16 +315,16 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 6321,
+      "pid": 6322,
       "date": "2026-11-07",
-      "time": "08:28",
-      "t": "Дизайнер карточек",
+      "time": "14:48",
+      "t": "Нужен дизайнер на новый проект",
       "c": "—",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
-      "sal": "Есть задача по дизайну карточек и ищу человека, который сможет помочь с реализацией. Готова рассмотреть дизайнеров любого уровня. Контакты:",
-      "url": "https://t.me/ekatya111"
+      "sal": "Необходимо разработать дизайн упаковки нескольких товарных позиций. Проект горящий, поэтому пишите те, кто готов оперативно взяться за работу. Присылайте портфолио с подобными работами и Ваш прайс.",
+      "url": "https://t.me/dsgn_vacancies/6322"
     },
     {
       "s": "sparklesjobs",
@@ -648,21 +635,8 @@
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
-      "sal": "После перерыва, с 15:00 МСК. Смотреть на YouTube",
+      "sal": "После перерыва, с 15:00 МСК UTC+3. Смотреть на YouTube",
       "url": "https://t.me/young_relocate/2213"
-    },
-    {
-      "s": "huggabletalents",
-      "pid": 3162,
-      "date": "2026-10-29",
-      "time": "10:35",
-      "t": "Инструкция по выживанию в эпоху ИИ-трансформаций",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Ознакомились с ежегодным отчетом McKinsey о состоянии рынка труда в США и нашли ответ на самый главный вопрос: ⏪",
-      "url": "https://t.me/huggabletalents/3162"
     },
     {
       "s": "huggabletalents",
@@ -730,6 +704,19 @@
       "url": "https://hh.ru/vacancy/139082175?hhtmFromLabel=employer_vacancy_tab&amp;hhtmFrom=employer"
     },
     {
+      "s": "huggabletalents",
+      "pid": 3183,
+      "date": "2026-11-07",
+      "time": "13:02",
+      "t": "Переход от восприятия работы как страдания к работе как источнику смысла уже случился, но мы не успели это осознать.",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "Мы привыкли считать работу неизбежной платой за взрослую жизнь: терпеть будни, ждать выходных и откладывать настоящую жизнь на потом. Но что, если труд может быть не повинностью, а способом жить? ⏪",
+      "url": "https://t.me/huggabletalents/3183"
+    },
+    {
       "s": "careerspace",
       "pid": 15583,
       "date": "2026-11-05",
@@ -780,6 +767,32 @@
       "role": "other",
       "sal": "📊 Большинство людей идут просить повышение после новогодних праздников или на годовой оценке в феврале–марте. А к этому времени деньги",
       "url": "https://t.me/nastya_careerspace_bot?start=telegram-bezaspera-offers-201026"
+    },
+    {
+      "s": "careerspace",
+      "pid": 15597,
+      "date": "2026-11-07",
+      "time": "13:37",
+      "t": "Senior Affiliate Manager / WINLINE",
+      "c": "—",
+      "lvl": "senior",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "🔗 WINLINE",
+      "url": "https://careerspace.app/job/267563?utm_source=telegram&amp;utm_medium=careerspace"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 137409284,
+      "date": "2026-11-07",
+      "time": "21:33",
+      "t": "UX/UI-дизайнер",
+      "c": "IT Solutions Management International Pte. Ltd.",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 125 000 ₽",
+      "url": "https://hh.ru/vacancy/137409284"
     },
     {
       "s": "hh.ru",
@@ -913,6 +926,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 138431119,
+      "date": "2026-11-06",
+      "time": "13:34",
+      "t": "Младший продуктовый дизайнер в B2B SaaS (Junior)",
+      "c": "Standfin",
+      "lvl": "junior",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": "от 80 000 до 80 000 ₽",
+      "url": "https://hh.ru/vacancy/138431119"
+    },
+    {
+      "s": "hh.ru",
       "pid": 139197645,
       "date": "2026-11-06",
       "time": "11:12",
@@ -926,29 +952,55 @@
     },
     {
       "s": "hh.ru",
-      "pid": 138790810,
-      "date": "2026-11-05",
-      "time": "19:21",
-      "t": "Веб-дизайнер в офис",
-      "c": "Старик Хинкалыч",
+      "pid": 137342359,
+      "date": "2026-11-07",
+      "time": "18:41",
+      "t": "Комьюнити-менеджер (игровая платформа)",
+      "c": "GG Orbit",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
-      "sal": "от 60 000 до 75 000 ₽",
-      "url": "https://hh.ru/vacancy/138790810"
+      "sal": "от 140 000 до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/137342359"
     },
     {
       "s": "hh.ru",
-      "pid": 138431119,
-      "date": "2026-11-06",
-      "time": "13:34",
-      "t": "Младший продуктовый дизайнер в B2B SaaS (Junior)",
-      "c": "Standfin",
-      "lvl": "junior",
+      "pid": 137922655,
+      "date": "2026-11-07",
+      "time": "18:01",
+      "t": "Design Director",
+      "c": "Онпоинт",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/137922655"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138797178,
+      "date": "2026-11-07",
+      "time": "16:53",
+      "t": "Менеджер по продукту (девелопмент)",
+      "c": "КОРПОРАЦИЯ АЕОН",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138797178"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 137117844,
+      "date": "2026-11-07",
+      "time": "15:38",
+      "t": "Директор продуктового департамента / CPO",
+      "c": "Российское общество Знание",
+      "lvl": "unknown",
       "fmt": "unknown",
       "role": "product",
-      "sal": "от 80 000 до 80 000 ₽",
-      "url": "https://hh.ru/vacancy/138431119"
+      "sal": "от 350 000 ₽",
+      "url": "https://hh.ru/vacancy/137117844"
     },
     {
       "s": "hh.ru",
@@ -1004,16 +1056,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 138471147,
+      "pid": 138852872,
       "date": "2026-11-07",
-      "time": "11:59",
-      "t": "Продуктовый дизайнер",
-      "c": "Сервисный Дизайн",
+      "time": "17:01",
+      "t": "UX/UI-дизайнер",
+      "c": "Богатый Курьер парк",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "product",
+      "role": "ux",
       "sal": null,
-      "url": "https://hh.ru/vacancy/138471147"
+      "url": "https://hh.ru/vacancy/138852872"
     },
     {
       "s": "hh.ru",
@@ -1027,58 +1079,6 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/139130822"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138642033,
-      "date": "2026-11-07",
-      "time": "09:46",
-      "t": "PR-менеджер / менеджер по бренду и внешним коммуникациям",
-      "c": "Damy Floor",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 150 000 ₽",
-      "url": "https://hh.ru/vacancy/138642033"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138531237,
-      "date": "2026-11-07",
-      "time": "09:26",
-      "t": "Руководитель партнёрского маркетинга и дизайнерского сообщества",
-      "c": "SKDESIGN (СК ДИЗАЙН)",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/138531237"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 135817809,
-      "date": "2026-11-07",
-      "time": "08:50",
-      "t": "Руководитель отдела маркетинга (B2B, лидогенерация, промышленный сектор)",
-      "c": "Специальные Материалы",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 120 000 до 250 000 ₽",
-      "url": "https://hh.ru/vacancy/135817809"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139223128,
-      "date": "2026-11-07",
-      "time": "08:47",
-      "t": "Руководитель отдела туристических проектов (Россия, приключенческие путешествия)",
-      "c": "RussiaDiscovery",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139223128"
     },
     {
       "s": "hh.ru",
@@ -1118,32 +1118,6 @@
       "role": "ux",
       "sal": "от 100 000 ₽",
       "url": "https://hh.ru/vacancy/139200903"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138810399,
-      "date": "2026-11-06",
-      "time": "10:51",
-      "t": "RF-инженер / Антенный инженер (LTE, 5G, GPS, Wi-Fi)",
-      "c": "НПП ТехноЛаб",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/138810399"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139187481,
-      "date": "2026-11-06",
-      "time": "07:47",
-      "t": "Руководитель направления продуктового дизайна",
-      "c": "Домклик",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139187481"
     }
   ]
 }
