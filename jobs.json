@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-11-09",
+  "snapshot_date": "2026-11-10",
   "jobs": [
     {
       "s": "uxwork",
@@ -169,32 +169,6 @@
       "role": "product",
       "sal": "#удалённо #продукт",
       "url": "https://top.co/careers/10772"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 6313,
-      "date": "2026-11-05",
-      "time": "14:03",
-      "t": "Ищем в команду дизайнера, который умеет не просто красиво оформлять макеты, а мыслить креативно",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Задачи: • Разрабатывать креативы для социальных сетей: посты, сторис, карусели, обложки и другие форматы.",
-      "url": "https://hh.ru/vacancy/139139789"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 6314,
-      "date": "2026-11-05",
-      "time": "15:05",
-      "t": "Ищу дизайнера с большим опытом работы",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "для доработки логотипа Задача разовая: проанализировать текущий вариант и внести необходимые корректировки. К отклику приложите примеры разработанных вами логотипов, фирстиля и ваш прайс.",
-      "url": "https://t.me/givemesomelove"
     },
     {
       "s": "dsgn_vacancies",
@@ -562,19 +536,6 @@
     },
     {
       "s": "young_relocate",
-      "pid": 2197,
-      "date": "2026-10-30",
-      "time": "11:54",
-      "t": "Senior Product Designer / ChatPlace",
-      "c": "—",
-      "lvl": "senior",
-      "fmt": "remote",
-      "role": "product",
-      "sal": "1️⃣ ⚡️",
-      "url": "https://wantapply.com/senior-product-designer-at-chatplace?utm_source=telegram&amp;utm_medium=social&amp;utm_campaign=organic_posts"
-    },
-    {
-      "s": "young_relocate",
       "pid": 2198,
       "date": "2026-11-02",
       "time": "08:01",
@@ -663,6 +624,19 @@
       "role": "other",
       "sal": "Чем больше контактов в LinkedIn, тем чаще рекрутеры видят ваш профиль и тем проще получить рекомендацию в нужную компанию. Как участвовать:",
       "url": "https://t.me/young_relocate/2214"
+    },
+    {
+      "s": "young_relocate",
+      "pid": 2217,
+      "date": "2026-11-09",
+      "time": "17:56",
+      "t": "Хочешь получить доступ к рефералам из 1,500 компаний? Вступай в сообщество ID Community",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "Иван Доронин сейчас развивает ID Community",
+      "url": "https://t.me/young_relocate/2217"
     },
     {
       "s": "huggabletalents",
@@ -900,6 +874,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 138431119,
+      "date": "2026-11-09",
+      "time": "13:34",
+      "t": "Младший продуктовый дизайнер в B2B SaaS (Junior)",
+      "c": "Standfin",
+      "lvl": "junior",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": "от 80 000 до 80 000 ₽",
+      "url": "https://hh.ru/vacancy/138431119"
+    },
+    {
+      "s": "hh.ru",
       "pid": 136124094,
       "date": "2026-11-09",
       "time": "12:36",
@@ -926,68 +913,81 @@
     },
     {
       "s": "hh.ru",
-      "pid": 139258553,
+      "pid": 136330002,
       "date": "2026-11-09",
-      "time": "11:55",
-      "t": "UX/UI-дизайнер (с вайб-кодингом)",
-      "c": "Айэмси",
+      "time": "20:27",
+      "t": "Дизайн-директор продукта в сервис путешествий",
+      "c": "Туту",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
+      "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/139258553"
+      "url": "https://hh.ru/vacancy/136330002"
     },
     {
       "s": "hh.ru",
-      "pid": 138600691,
+      "pid": 138629403,
       "date": "2026-11-09",
-      "time": "11:26",
-      "t": "UX/UI-дизайнер",
-      "c": "ЭВА ПРОДАКТ",
+      "time": "20:19",
+      "t": "Директор по продукту",
+      "c": "Слёрм",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "ux",
-      "sal": "от 120 000 ₽",
-      "url": "https://hh.ru/vacancy/138600691"
+      "role": "other",
+      "sal": "от 100 000 до 300 000 ₽",
+      "url": "https://hh.ru/vacancy/138629403"
     },
     {
       "s": "hh.ru",
-      "pid": 138431119,
+      "pid": 138981329,
       "date": "2026-11-09",
-      "time": "13:34",
-      "t": "Младший продуктовый дизайнер в B2B SaaS (Junior)",
-      "c": "Standfin",
-      "lvl": "junior",
-      "fmt": "unknown",
+      "time": "20:03",
+      "t": "Старший менеджер продукта (финтех, опыт продавца)",
+      "c": "Ozon Офис и Коммерция",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138981329"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138765030,
+      "date": "2026-11-09",
+      "time": "20:03",
+      "t": "Старший дизайнер продукта",
+      "c": "Компания «СПОРТМАСТЕР», Офис",
+      "lvl": "senior",
+      "fmt": "office",
       "role": "product",
-      "sal": "от 80 000 до 80 000 ₽",
-      "url": "https://hh.ru/vacancy/138431119"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139253480,
-      "date": "2026-11-09",
-      "time": "10:51",
-      "t": "Руководитель дизайна APP / Art lead Gamedev",
-      "c": "Тарба Виталий Георгиевич",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
       "sal": null,
-      "url": "https://hh.ru/vacancy/139253480"
+      "url": "https://hh.ru/vacancy/138765030"
     },
     {
       "s": "hh.ru",
-      "pid": 138804598,
+      "pid": 138764212,
       "date": "2026-11-09",
-      "time": "10:46",
-      "t": "Product менеджер в бьюти сфере (г. Ростов-на-Дону)",
-      "c": "emi",
+      "time": "18:52",
+      "t": "Retention Manager / CRM-менеджер (iGaming)",
+      "c": "KOLDEXI LTD",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/138804598"
+      "sal": "от 200 000 до 300 000 ₽",
+      "url": "https://hh.ru/vacancy/138764212"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 134186338,
+      "date": "2026-11-09",
+      "time": "18:26",
+      "t": "Бизнес-партнёр ADMOS",
+      "c": "ADMOS",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 100 000 до 250 000 ₽",
+      "url": "https://hh.ru/vacancy/134186338"
     },
     {
       "s": "hh.ru",
@@ -1043,58 +1043,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 135446657,
-      "date": "2026-11-09",
-      "time": "17:02",
-      "t": "Product Leader (Mobile UX/UI)",
-      "c": "Finstar Financial Group",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/135446657"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139278084,
-      "date": "2026-11-09",
-      "time": "16:51",
-      "t": "Продукт-менеджер / Менеджер по разработке и запуску мебели",
-      "c": "Dooda Мастерская",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 120 000 до 200 000 ₽",
-      "url": "https://hh.ru/vacancy/139278084"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139277771,
-      "date": "2026-11-09",
-      "time": "16:43",
-      "t": "Дизайнер",
-      "c": "СберМедИИ",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139277771"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138760495,
-      "date": "2026-11-09",
-      "time": "16:42",
-      "t": "Middle SEO специалист",
-      "c": "Шлыков Станислав Игоревич",
-      "lvl": "middle",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/138760495"
-    },
-    {
-      "s": "hh.ru",
       "pid": 139281011,
       "date": "2026-11-09",
       "time": "17:58",
@@ -1105,6 +1053,19 @@
       "role": "ux",
       "sal": "от 90 000 ₽",
       "url": "https://hh.ru/vacancy/139281011"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 135446657,
+      "date": "2026-11-09",
+      "time": "17:02",
+      "t": "Product Leader (Mobile UX/UI)",
+      "c": "Finstar Financial Group",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/135446657"
     },
     {
       "s": "hh.ru",
@@ -1186,6 +1147,19 @@
     },
     {
       "s": "hh.ru",
+      "pid": 139258553,
+      "date": "2026-11-09",
+      "time": "11:55",
+      "t": "UX/UI-дизайнер (с вайб-кодингом)",
+      "c": "Айэмси",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139258553"
+    },
+    {
+      "s": "hh.ru",
       "pid": 139256911,
       "date": "2026-11-09",
       "time": "11:39",
@@ -1196,6 +1170,19 @@
       "role": "ux",
       "sal": null,
       "url": "https://hh.ru/vacancy/139256911"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138600691,
+      "date": "2026-11-09",
+      "time": "11:26",
+      "t": "UX/UI-дизайнер",
+      "c": "ЭВА ПРОДАКТ",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "от 120 000 ₽",
+      "url": "https://hh.ru/vacancy/138600691"
     },
     {
       "s": "hh.ru",
