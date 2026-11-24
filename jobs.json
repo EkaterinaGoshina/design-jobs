@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-11-23",
+  "snapshot_date": "2026-11-24",
   "jobs": [
     {
       "s": "uxwork",
@@ -198,19 +198,6 @@
     },
     {
       "s": "dsgn_vacancies",
-      "pid": 6385,
-      "date": "2026-11-19",
-      "time": "16:14",
-      "t": "Ищу дизайнера постов карусели для инстаграм",
-      "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "- Цена 300 руб. за весь пост-карусель от 5 до 10 слайдов - Посты нужны ежедневно на постоянную основу.",
-      "url": "https://t.me/ketti_zvezdo4ka"
-    },
-    {
-      "s": "dsgn_vacancies",
       "pid": 6386,
       "date": "2026-11-19",
       "time": "18:01",
@@ -338,6 +325,19 @@
       "role": "other",
       "sal": "Задачи: - презентации, каталоги, Taplink, сайты на Tilda. Задачи по готовому стилю проектов, исходники в Figma. Оплата по факту сдачи, начнем с небольшого оплачиваемого тестового.",
       "url": "https://t.me/ryndgf1"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 6408,
+      "date": "2026-11-23",
+      "time": "17:51",
+      "t": "Sets&Props Concept Art Supervisor",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "remote",
+      "role": "other",
+      "sal": "Lightbox Animation ищет супервайзера концепт-арта окружения и объектов для полнометражного мультфильма TAD 4. Полностью удалённая работа, график — с понедельника по пятницу. Контакт",
+      "url": "https://weworkremotely.com/remote-jobs/lightbox-animation-sets-props-concept-art-supervisor"
     },
     {
       "s": "sparklesjobs",
@@ -952,16 +952,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 139408560,
-      "date": "2026-11-21",
-      "time": "09:17",
-      "t": "Менеджер интернет-проектов / Администратор сайта",
-      "c": "ТПК МАГАМАКС",
+      "pid": 138896725,
+      "date": "2026-11-23",
+      "time": "20:54",
+      "t": "Бренд-менеджер лакомства для животных",
+      "c": "Силаев Дмитрий Сергеевич",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139408560"
+      "sal": "от 140 000 до 170 000 ₽",
+      "url": "https://hh.ru/vacancy/138896725"
     },
     {
       "s": "hh.ru",
@@ -1004,68 +1004,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 139705941,
+      "pid": 139768916,
       "date": "2026-11-23",
-      "time": "17:29",
-      "t": "Промышленный дизайнер (освещение)",
-      "c": "SVETHOLL (ООО ППСХ)",
+      "time": "23:14",
+      "t": "Веб дизайнер сайтов figma ux ui сайтов и мобильных приложений",
+      "c": "Якушев Герман Константинович",
       "lvl": "unknown",
       "fmt": "unknown",
       "role": "other",
-      "sal": "от 90 000 до 110 000 ₽",
-      "url": "https://hh.ru/vacancy/139705941"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139018972,
-      "date": "2026-11-23",
-      "time": "17:17",
-      "t": "Продакт-менеджер / Категорийный менеджер",
-      "c": "Фуфина Колор Групп",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 200 000 до 250 000 ₽",
-      "url": "https://hh.ru/vacancy/139018972"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139764806,
-      "date": "2026-11-23",
-      "time": "17:14",
-      "t": "Менеджер по управлению ценностями продукта",
-      "c": "А101",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139764806"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139763968,
-      "date": "2026-11-23",
-      "time": "16:57",
-      "t": "Продакт-менеджер (Ароматика/парфюмерия)",
-      "c": "AMIDA",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139763968"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139763583,
-      "date": "2026-11-23",
-      "time": "16:50",
-      "t": "Менеджер по продукту",
-      "c": "ГК КОРТРОС",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139763583"
+      "sal": "от 200 до 700 ₽",
+      "url": "https://hh.ru/vacancy/139768916"
     },
     {
       "s": "hh.ru",
@@ -1196,19 +1144,6 @@
       "role": "product",
       "sal": "от 200 000 ₽",
       "url": "https://hh.ru/vacancy/139546097"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 138852872,
-      "date": "2026-11-22",
-      "time": "17:01",
-      "t": "UX/UI-дизайнер",
-      "c": "Богатый Курьер парк",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/138852872"
     }
   ]
 }
