@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-11-24",
+  "snapshot_date": "2026-11-25",
   "jobs": [
     {
       "s": "uxwork",
@@ -299,6 +299,19 @@
       "role": "other",
       "sal": "обложку к ролику ютуб Контакт",
       "url": "https://t.me/shirokovtg"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 6414,
+      "date": "2026-11-24",
+      "time": "18:22",
+      "t": "Ищем 3D-визуализаторов для сотрудничества!",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "Работа в 3ds Max по готовому дизайну и предоставленным референсам. Разрабатывать дизайн с нуля не требуется. Оплата — 1$ за м².",
+      "url": "https://t.me/Jorchinsky"
     },
     {
       "s": "sparklesjobs",
@@ -871,6 +884,58 @@
       "role": "other",
       "sal": "от 220 000 ₽",
       "url": "https://hh.ru/vacancy/139329820"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139447195,
+      "date": "2026-11-25",
+      "time": "02:09",
+      "t": "Ведущий дизайнер e-commerce / арт-директор (баннеры и карточки маркетплейсов)",
+      "c": "Инфинити",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139447195"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139812843,
+      "date": "2026-11-24",
+      "time": "21:05",
+      "t": "Бренд-менеджер / младший бренд-менеджер",
+      "c": "TOP NUTRITION",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139812843"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139713521,
+      "date": "2026-11-24",
+      "time": "20:30",
+      "t": "UX/UI-дизайнер (проектировщик интерфейсов)",
+      "c": "СИНЕРГИЯ",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/139713521"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138765030,
+      "date": "2026-11-24",
+      "time": "20:03",
+      "t": "Старший дизайнер продукта",
+      "c": "Компания «СПОРТМАСТЕР», Офис",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138765030"
     },
     {
       "s": "hh.ru",
