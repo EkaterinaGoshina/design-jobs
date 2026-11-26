@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-11-25",
+  "snapshot_date": "2026-11-26",
   "jobs": [
     {
       "s": "uxwork",
@@ -195,19 +195,6 @@
       "role": "product",
       "sal": "#удалённо (откуда угодно)",
       "url": "https://hh.ru/vacancy/139142997"
-    },
-    {
-      "s": "dsgn_vacancies",
-      "pid": 6398,
-      "date": "2026-11-22",
-      "time": "17:42",
-      "t": "Ведущий дизайнер / тимлид дизайна для маркетплейсов",
-      "c": "—",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "Задачи: - генерировать ИИ-контент, в основном в Nano Banana;",
-      "url": "http://hh.ru/vacancy/139082642"
     },
     {
       "s": "dsgn_vacancies",
@@ -887,6 +874,58 @@
     },
     {
       "s": "hh.ru",
+      "pid": 139719300,
+      "date": "2026-11-25",
+      "time": "23:42",
+      "t": "Директор по маркетингу",
+      "c": "Кожевникова Инна Васильевна",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 250 000 до 400 000 ₽",
+      "url": "https://hh.ru/vacancy/139719300"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139861555,
+      "date": "2026-11-25",
+      "time": "21:31",
+      "t": "Директор департамента складных и фиксированных ножей",
+      "c": "Котлер",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139861555"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139338421,
+      "date": "2026-11-25",
+      "time": "21:16",
+      "t": "UX/UI дизайнер/дизайнер продукта",
+      "c": "Киноплан",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139338421"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138981329,
+      "date": "2026-11-25",
+      "time": "20:15",
+      "t": "Старший менеджер продукта (финтех, опыт продавца)",
+      "c": "Ozon Офис и Коммерция",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138981329"
+    },
+    {
+      "s": "hh.ru",
       "pid": 138856188,
       "date": "2026-11-25",
       "time": "19:37",
@@ -991,29 +1030,16 @@
     },
     {
       "s": "hh.ru",
-      "pid": 139545316,
+      "pid": 139861323,
       "date": "2026-11-25",
-      "time": "17:16",
-      "t": "Бизнес-партнёр ADMOS",
-      "c": "ADMOS",
+      "time": "20:46",
+      "t": "UX/UI-дизайнер",
+      "c": "ROSSKO",
       "lvl": "unknown",
       "fmt": "unknown",
-      "role": "other",
-      "sal": "от 100 000 до 250 000 ₽",
-      "url": "https://hh.ru/vacancy/139545316"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139671138,
-      "date": "2026-11-25",
-      "time": "17:13",
-      "t": "Руководитель отдела продукта в онлайн-школу дизайна интерьера",
-      "c": "Школа дизайна Маши Черной",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 120 000 до 180 000 ₽",
-      "url": "https://hh.ru/vacancy/139671138"
+      "role": "ux",
+      "sal": "от 180 000 ₽",
+      "url": "https://hh.ru/vacancy/139861323"
     },
     {
       "s": "hh.ru",
@@ -1118,32 +1144,6 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/139811005"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139806112,
-      "date": "2026-11-24",
-      "time": "17:24",
-      "t": "Lead Product Designer / Ведущий продуктовый дизайнер (UI/UX)",
-      "c": "ВЛАДИС",
-      "lvl": "lead",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139806112"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139804950,
-      "date": "2026-11-24",
-      "time": "16:57",
-      "t": "UX/UI-дизайнер корпоративных информационных систем (производство)",
-      "c": "НПП Макромер,ООО",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "ux",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139804950"
     }
   ]
 }
