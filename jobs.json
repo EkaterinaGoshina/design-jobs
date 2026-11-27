@@ -197,17 +197,17 @@
       "url": "https://hh.ru/vacancy/139142997"
     },
     {
-      "s": "dsgn_vacancies",
-      "pid": 6410,
-      "date": "2026-11-24",
-      "time": "10:56",
-      "t": "Ищу дизайнера кто сделает",
+      "s": "uxwork",
+      "pid": 1528,
+      "date": "2026-11-27",
+      "time": "21:55",
+      "t": "Product designer, senior · Альфа-Бизнес (программа лояльности)",
       "c": "—",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "обложку к ролику ютуб Контакт",
-      "url": "https://t.me/shirokovtg"
+      "lvl": "senior",
+      "fmt": "remote",
+      "role": "product",
+      "sal": "#удалённо (из России)",
+      "url": "https://t.me/uxwork/1528"
     },
     {
       "s": "dsgn_vacancies",
@@ -325,6 +325,19 @@
       "role": "other",
       "sal": "и последующего его ведения Без опыта не пишите, зря потратим время друг друга.",
       "url": "https://t.me/alikmustafaev1"
+    },
+    {
+      "s": "dsgn_vacancies",
+      "pid": 6430,
+      "date": "2026-11-27",
+      "time": "21:08",
+      "t": "Ищу дизайнеров для создание брендбука и создания айдентики турагентства с нуля",
+      "c": "—",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "Контакт :",
+      "url": "https://t.me/pearri"
     },
     {
       "s": "sparklesjobs",
@@ -874,6 +887,84 @@
     },
     {
       "s": "hh.ru",
+      "pid": 139447195,
+      "date": "2026-11-28",
+      "time": "02:09",
+      "t": "Ведущий дизайнер e-commerce / арт-директор (баннеры и карточки маркетплейсов)",
+      "c": "Инфинити",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139447195"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139812843,
+      "date": "2026-11-27",
+      "time": "21:05",
+      "t": "Бренд-менеджер",
+      "c": "TOP NUTRITION",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139812843"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139943963,
+      "date": "2026-11-27",
+      "time": "20:42",
+      "t": "Продакт менеджер/Менеджер продукта (женская одежда)",
+      "c": "Люсин Егор Александрович",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": "от 150 000 до 250 000 ₽",
+      "url": "https://hh.ru/vacancy/139943963"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139713521,
+      "date": "2026-11-27",
+      "time": "20:30",
+      "t": "UX/UI-дизайнер (проектировщик интерфейсов)",
+      "c": "СИНЕРГИЯ",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "ux",
+      "sal": "до 200 000 ₽",
+      "url": "https://hh.ru/vacancy/139713521"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 139943787,
+      "date": "2026-11-27",
+      "time": "20:04",
+      "t": "Бренд-менеджер (DIY / садовая, бытовая техника, электроинструмент)",
+      "c": "PATRIOT",
+      "lvl": "unknown",
+      "fmt": "unknown",
+      "role": "other",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/139943787"
+    },
+    {
+      "s": "hh.ru",
+      "pid": 138765030,
+      "date": "2026-11-27",
+      "time": "20:03",
+      "t": "Старший дизайнер продукта",
+      "c": "Компания «СПОРТМАСТЕР», Офис",
+      "lvl": "senior",
+      "fmt": "office",
+      "role": "product",
+      "sal": null,
+      "url": "https://hh.ru/vacancy/138765030"
+    },
+    {
+      "s": "hh.ru",
       "pid": 139180445,
       "date": "2026-11-27",
       "time": "18:40",
@@ -965,58 +1056,6 @@
     },
     {
       "s": "hh.ru",
-      "pid": 139936308,
-      "date": "2026-11-27",
-      "time": "17:07",
-      "t": "Директор студии дизайна интерьеров",
-      "c": "Мебельная компания ZETTA",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 200 000 до 300 000 ₽",
-      "url": "https://hh.ru/vacancy/139936308"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139935746,
-      "date": "2026-11-27",
-      "time": "17:04",
-      "t": "Менеджер по продажам премиум-решений для интерьера",
-      "c": "ИВСОН",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 70 000 до 140 000 ₽",
-      "url": "https://hh.ru/vacancy/139935746"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139933164,
-      "date": "2026-11-27",
-      "time": "16:47",
-      "t": "Ассистент коммерческого директора",
-      "c": "НТЦ Сфера",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": "от 120 000 ₽",
-      "url": "https://hh.ru/vacancy/139933164"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139277771,
-      "date": "2026-11-27",
-      "time": "16:43",
-      "t": "Дизайнер",
-      "c": "СберМедИИ",
-      "lvl": "unknown",
-      "fmt": "unknown",
-      "role": "other",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139277771"
-    },
-    {
-      "s": "hh.ru",
       "pid": 139919889,
       "date": "2026-11-27",
       "time": "13:44",
@@ -1105,19 +1144,6 @@
       "role": "product",
       "sal": null,
       "url": "https://hh.ru/vacancy/138869690"
-    },
-    {
-      "s": "hh.ru",
-      "pid": 139731026,
-      "date": "2026-11-26",
-      "time": "09:51",
-      "t": "Старший продуктовый дизайнер в команду «Главная страница»",
-      "c": "Домклик",
-      "lvl": "senior",
-      "fmt": "unknown",
-      "role": "product",
-      "sal": null,
-      "url": "https://hh.ru/vacancy/139731026"
     }
   ]
 }
